@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+build/
+
+# Experiment outputs and data caches (regenerable, not source)
+runs/*
+!runs/.gitkeep
+data/*
+!data/.gitkeep
+
+# Editor / OS
+.vscode/
+.DS_Store
