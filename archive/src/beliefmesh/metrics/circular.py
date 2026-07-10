@@ -10,11 +10,16 @@ from __future__ import annotations
 import torch
 
 
+PERIOD = 360.0
+
+
 def circular_diff(a: torch.Tensor, b: torch.Tensor) -> torch.Tensor:
     """Signed angular difference a - b, wrapped to [-180, 180)."""
-    raise NotImplementedError
+    raw = a - b
+    return raw - PERIOD * torch.round(raw / PERIOD)
 
 
 def circular_mse(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
     """Mean squared circular_diff(pred, target)."""
-    raise NotImplementedError
+    avg_sq_diffs = torch.mean(torch.square(circular_diff(pred, target)))
+    return avg_sq_diffs
