@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 @dataclass
-class BackboneConfig:
+class ModelConfig:
     lr: float
     epochs: int
     optimizer: str
@@ -35,7 +35,7 @@ class Config:
     seed: int
     eval_holdout_fraction: float
     data: DataConfig
-    backbone: BackboneConfig
+    model: ModelConfig
     fusion: FusionConfig
     consensus: ConsensusConfig
 

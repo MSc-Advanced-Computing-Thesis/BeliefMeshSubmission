@@ -9,7 +9,7 @@ data:
   digit: 7
   image_size: 28
 
-backbone:
+model:
   lr: 3.0e-4
   epochs: 30
   optimizer: adam

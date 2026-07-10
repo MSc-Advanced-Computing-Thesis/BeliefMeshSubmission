@@ -1,26 +1,19 @@
-"""Normal-Inverse-Gamma evidential regression head. Spec Sec 3.
+"""NIG loss and distributional utilities. Spec Sec 3.
 
-Head outputs (gamma, nu, alpha, beta) in a single forward pass. Epistemic
-uncertainty is 1/nu, aleatoric is beta/(alpha-1). The marginal predictive is
-Student-t with location gamma, df 2*alpha, scale sqrt(beta*(1+nu)/(nu*alpha)).
+These operate on (gamma, nu, alpha, beta) tuples regardless of which network
+produced them -- EvidentialCNN's fc2 emits the raw four values directly, so
+there is no separate learnable head here, just the fixed math: the loss used
+to train against a scalar target, and the Student-t marginal predictive that
+fusion (Spec Sec 4) consumes.
+
+Epistemic uncertainty is 1/nu, aleatoric is beta/(alpha-1). The marginal
+predictive is Student-t with location gamma, df 2*alpha, scale
+sqrt(beta*(1+nu)/(nu*alpha)).
 """
 
 from __future__ import annotations
 
 import torch
-import torch.nn as nn
-
-
-class NIGHead(nn.Module):
-    """Trainable head mapping backbone features to (gamma, nu, alpha, beta)."""
-
-    def __init__(self, in_features: int):
-        super().__init__()
-        raise NotImplementedError
-
-    def forward(self, features: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
-        """Returns (gamma, nu, alpha, beta), each shape (batch,)."""
-        raise NotImplementedError
 
 
 def nig_loss(gamma: torch.Tensor, nu: torch.Tensor, alpha: torch.Tensor, beta: torch.Tensor, target: torch.Tensor) -> torch.Tensor:

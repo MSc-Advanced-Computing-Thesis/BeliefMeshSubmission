@@ -1,4 +1,7 @@
-"""Single node: frozen backbone + trainable NIG head. Spec Sec 3, 5, 6.3.
+"""Single node: wraps one trainable EvidentialCNN. Spec Sec 3, 5, 6.3.
+
+No frozen/trainable split for this experiment suite -- every node's model is
+fully trainable throughout (see evidential_cnn.py's module docstring).
 
 predict() must return the full (gamma, nu, alpha, beta) tuple -- never a
 collapsed (pred, uncertainty, certainty) point estimate. Collapsing before
@@ -11,12 +14,11 @@ from __future__ import annotations
 
 import torch
 
-from beliefmesh.models.backbone import Backbone
-from beliefmesh.models.evidential import NIGHead
+from beliefmesh.models.evidential_cnn import EvidentialCNN
 
 
 class Node:
-    def __init__(self, backbone: Backbone, head: NIGHead):
+    def __init__(self, model: EvidentialCNN):
         raise NotImplementedError
 
     def predict(self, image: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
