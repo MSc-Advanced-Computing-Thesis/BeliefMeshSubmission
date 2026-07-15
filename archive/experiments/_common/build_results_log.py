@@ -147,8 +147,81 @@ STAGES += [
     },
 ]
 
+STAGES += [
+    {
+        "id": "Stage 4a",
+        "title": "Scalar weighting strategies",
+        "status": "caveat",
+        "what": (
+            "Six ways of averaging A's and C's predictions using only a collapsed "
+            "(prediction, certainty) pair per anchor: naive, certainty-weighted, squared, "
+            "gated, softmax, winner-only. All share the limitation fusion removes: they "
+            "throw away the distribution and keep two numbers."
+        ),
+        "reading": (
+            "Right panel: all six cluster tightly above Node A. Winner-only is best -- "
+            "but only because B's filter matches A's, so 'pick the more certain anchor' "
+            "degenerates to 'always pick A'. Gated is NOT worst here (old result was "
+            "plausibly a silent bug in its fallback, fixed in V2). Scalar gains over naive "
+            "are muted, consistent with Stage 3's weaker uncertainty asymmetry."
+        ),
+        "numbers": [
+            ("High-strength ranking", "winner 0.0146 < squared/softmax 0.0211 < gated 0.0223 < certainty 0.0233 < naive 0.0238"),
+            ("Node A / un-adapted", "0.0119 / 0.0750"),
+        ],
+        "image": ROOT / "runs/stage4/4a_scalar_weighting/figures/stage4_4a_scalar_weighting.png",
+        "manifest": "runs/stage4/4a_scalar_weighting/manifest.yaml",
+    },
+    {
+        "id": "Stage 4b",
+        "title": "Bayesian fusion vs naive averaging",
+        "status": "passed",
+        "what": (
+            "The corrected product-of-experts fusion (wrapped, G=360) against naive "
+            "averaging, same anchors, same protocol. The stage the whole correction "
+            "was for: does consuming the full belief distributions beat any scalar "
+            "summary of them?"
+        ),
+        "reading": (
+            "Fusion (orange) tracks Node A closely across the sweep and pulls far below "
+            "naive at high strengths. At strength 0.8, fusion matches A itself despite "
+            "receiving zero ground truth. The gap to Stage 4a's scalar cluster is the "
+            "evidence that density SHAPE, not a collapsed reliability score, carries "
+            "the signal."
+        ),
+        "numbers": [
+            ("High-strength mean", "fusion 0.0132 vs naive 0.0224 (41% lower)"),
+            ("At strength 0.8", "fusion 0.0110 ≈ Node A 0.0107; un-adapted 0.0699"),
+            ("vs best legitimate scalar", "0.0132 vs ~0.0211 (37% lower)"),
+        ],
+        "image": ROOT / "runs/stage4/4b_fusion_vs_naive/figures/stage4_4b_fusion_vs_naive.png",
+        "manifest": "runs/stage4/4b_fusion_vs_naive/manifest.yaml",
+    },
+    {
+        "id": "Stage 4c",
+        "title": "Grid vs optimisation fusion",
+        "status": "passed",
+        "what": (
+            "Two ways of finding the mode of the fused density: grid search (G=360 "
+            "candidates) vs gradient descent. If both work comparably, the gain comes "
+            "from principled mode estimation itself, not the particular estimator -- "
+            "and grid search wins on deployment grounds (predictable cost)."
+        ),
+        "reading": (
+            "Grid and optimisation sit nearly on top of each other, optimisation "
+            "marginally ahead, both far below naive -- exactly the spec's expected "
+            "pattern. (The N=2 bit-exactness hard gate lives in the test suite, "
+            "tests/test_2_pairwise_control.py, and passed separately.)"
+        ),
+        "numbers": [
+            ("High-strength mean", "grid 0.0161, optim 0.0151, naive 0.0262"),
+        ],
+        "image": ROOT / "runs/stage4/4c_grid_vs_optim/figures/stage4_4c_grid_vs_optim.png",
+        "manifest": "runs/stage4/4c_grid_vs_optim/manifest.yaml",
+    },
+]
+
 ROADMAP = [
-    ("Stage 4", "Weighting & fusion shoot-out: scalar weighting strategies vs true Bayesian (product-of-experts) fusion. Contains the N=2 hard gate."),
     ("Stage 5", "Variable environments: B's conditions drift between red and blue (linear / oscillating / random) -- fusion vs naive averaging."),
     ("Stage 6", "Spatial mesh: 36 overlapping nodes, moving wearable anchor, belief propagation. 6D is the headline three-way comparison."),
 ]
