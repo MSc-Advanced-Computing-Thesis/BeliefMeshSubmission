@@ -47,6 +47,18 @@ def nig_loss(
     return (loss_nll + lam * loss_reg).mean()
 
 
+def predictive_uncertainty(nu: torch.Tensor, alpha: torch.Tensor, beta: torch.Tensor) -> torch.Tensor:
+    """Scalar uncertainty summary Var[mu] = beta / (nu * (alpha - 1)).
+
+    DISPLAY/EVALUATION ONLY (calibration correlation, plots, logging). Never
+    feed this into fusion -- fusion consumes the full belief via
+    student_t_marginal; collapsing to (prediction, uncertainty) before fusion
+    is Defect 1 from the prior implementation. Formula matches the prior
+    repo's predict() helper exactly, so calibration numbers stay comparable.
+    """
+    return beta / (nu * (alpha - 1).clamp(min=1e-6))
+
+
 def student_t_marginal(
     gamma: torch.Tensor,
     nu: torch.Tensor,

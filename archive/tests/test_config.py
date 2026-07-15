@@ -16,6 +16,7 @@ data:
 model:
   lr: 3.0e-4
   epochs: 30
+  batch_size: 32
   optimizer: adam
 fusion:
   grid_size: 360

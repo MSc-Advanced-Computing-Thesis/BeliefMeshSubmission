@@ -18,6 +18,7 @@ import yaml
 class ModelConfig:
     lr: float
     epochs: int
+    batch_size: int
     optimizer: str
 
 
