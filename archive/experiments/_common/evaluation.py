@@ -47,6 +47,42 @@ def evaluate_at_strength(
     return float(np.mean(pass_mses))
 
 
+def evaluate_with_uncertainty(
+    model: torch.nn.Module,
+    eval_indices: np.ndarray,
+    filter_type: str,
+    strength: float,
+    batch_size: int,
+    device: torch.device,
+    passes: int = 2,
+) -> tuple[float, float]:
+    """Like evaluate_at_strength but also returns mean predictive uncertainty
+    (clamped at 10, matching the prior repo's protocol so Stage 3's reference
+    uncertainty band ~0.035-0.038 stays comparable)."""
+    from beliefmesh.models.evidential import predictive_uncertainty
+
+    loader = DataLoader(
+        RotatedDigitDataset(filter_type=filter_type, filter_strength=strength,
+                            subset_indices=eval_indices),
+        batch_size=batch_size, shuffle=False,
+    )
+    was_training = model.training
+    model.eval()
+    pass_mses, uncs = [], []
+    with torch.no_grad():
+        for _ in range(passes):
+            batch_mses = []
+            for images, targets in loader:
+                images, targets = images.to(device), targets.to(device)
+                gamma, nu, alpha, beta = model(images)
+                batch_mses.append(circular_mse(gamma, targets).item())
+                uncs.append(predictive_uncertainty(nu, alpha, beta).clamp(max=10.0).mean().item())
+            pass_mses.append(float(np.mean(batch_mses)))
+    if was_training:
+        model.train()
+    return float(np.mean(pass_mses)), float(np.mean(uncs))
+
+
 def git_commit() -> str:
     import subprocess
 

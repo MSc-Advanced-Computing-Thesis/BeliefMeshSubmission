@@ -116,8 +116,38 @@ STAGES += [
     },
 ]
 
+STAGES += [
+    {
+        "id": "Stage 3",
+        "title": "Naive aggregation baseline",
+        "status": "caveat",
+        "what": (
+            "Node A adapts to red, Node C to blue (both with true labels, strength "
+            "ramping 0 to 1). Node B -- living in red -- trains only on the plain average "
+            "of A's and C's predictions. C is the mismatched anchor: everything B sees is "
+            "out-of-distribution for it. Establishes the cost of averaging anchors of "
+            "unequal reliability, which uncertainty-aware fusion exists to avoid."
+        ),
+        "reading": (
+            "Bottom-left is the key panel: B (orange) sits between the good anchor A and "
+            "the bad anchor C at every meaningful strength -- naive averaging drags B away "
+            "from the anchor that actually knows the domain. Bottom-right: the logged "
+            "uncertainty summary did NOT show C elevated above A (deviation from the old "
+            "run); the asymmetry does exist in full predictive width at high strengths "
+            "(C 1.2-1.4x wider than A), which is the quantity fusion consumes."
+        ),
+        "numbers": [
+            ("At full red", "A 0.0100 < B 0.0208 < C 0.0465, un-adapted 0.1126"),
+            ("B between A and C", "yes, at all strengths ≥ 0.4"),
+            ("C vs A, Student-t width", "1.20× @ 0.8, 1.36× @ 1.0 (weaker than old run; inverts below 0.4)"),
+            ("Extra finding", "B's uncertainty collapses to ~0.0006 -- smooth averaged pseudo-labels breed overconfidence"),
+        ],
+        "image": ROOT / "runs/stage3/naive_average/figures/stage3_results.png",
+        "manifest": "runs/stage3/naive_average/manifest.yaml",
+    },
+]
+
 ROADMAP = [
-    ("Stage 3", "Naive aggregation baseline: B trains on the plain average of a well-matched anchor (A, red) and a mismatched one (C, blue)."),
     ("Stage 4", "Weighting & fusion shoot-out: scalar weighting strategies vs true Bayesian (product-of-experts) fusion. Contains the N=2 hard gate."),
     ("Stage 5", "Variable environments: B's conditions drift between red and blue (linear / oscillating / random) -- fusion vs naive averaging."),
     ("Stage 6", "Spatial mesh: 36 overlapping nodes, moving wearable anchor, belief propagation. 6D is the headline three-way comparison."),
