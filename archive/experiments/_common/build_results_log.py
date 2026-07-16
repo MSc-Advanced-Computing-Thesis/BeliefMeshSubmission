@@ -289,8 +289,76 @@ STAGES += [
     },
 ]
 
+STAGES += [
+    {
+        "id": "Stage 6a",
+        "title": "Overlap ablation under true fusion — the threshold dissolves",
+        "status": "passed",
+        "what": (
+            "Three sensor layouts on the static environment, identical in everything "
+            "but geometry: 7x7 FOV/stride 3 (36 nodes, up to 9 nodes share a cell), "
+            "5x5/stride 3 (49 nodes, 4-way), 5x5/stride 2 (100 nodes, 9-way). The old "
+            "scalar-averaging runs said '9-way overlap is the threshold for learning' -- "
+            "this rerun tests that claim under corrected product-of-experts fusion."
+        ),
+        "reading": (
+            "Three figures, one per config (this section shows the working 7x7). The "
+            "verdict: the overlap threshold DISSOLVES. 9-way overlap appears in both "
+            "the best config (7x7: MSE 0.032) and the catastrophic one (dense 5x5: "
+            "0.335 = exactly random-guessing level, worse than never training at all). "
+            "Shallow 4-way overlap merely degrades (0.052, calibration lost). The real "
+            "drivers: per-node FOV richness, and mesh density -- the dense mesh's long "
+            "pseudo-label chains amplify shared error, the exact failure mode consensus "
+            "tempering (next phases) is designed to suppress."
+        ),
+        "numbers": [
+            ("7x7, 36 nodes, 9-way", "MSE 0.0317, cert-MSE r = -0.354"),
+            ("5x5, 49 nodes, 4-way", "MSE 0.0519, r = -0.033 (calibration gone)"),
+            ("5x5, 100 nodes, 9-way", "MSE 0.3349 ≈ 1/3 = random guessing (collapse; replicated on CPU and GPU)"),
+            ("Untrained reference", "~0.075-0.12 on this environment"),
+        ],
+        "image": ROOT / "runs/stage6/6a_overlap_ablation/7x7_s3/figures/results.png",
+        "manifest": "runs/stage6/6a_overlap_ablation/*/manifest.yaml",
+    },
+]
+
+STAGES += [
+    {
+        "id": "Stage 6D",
+        "title": "Four arms, two dynamic regimes — the headline comparison",
+        "status": "caveat",
+        "what": (
+            "Frozen baseline, naive averaging, unweighted product-of-experts fusion, "
+            "and consensus-tempered fusion, run with identical wearable path, identical "
+            "pretrained init and identical hop-0 draws on two dynamic regimes: "
+            "dynamic_v2 (fast red<->blue drift) and dynamic_v3_whiteout (slower drift "
+            "that washes inputs toward white, destroying information). Fusion arms "
+            "double as 6b/6c."
+        ),
+        "reading": (
+            "The chart shows the v2 four-way. The old 'naive collapses to 0.30-0.35' "
+            "result did NOT reproduce -- naive is functional everywhere, so the story is "
+            "regime dependence. v2 (homogeneous beliefs): naive 0.0330 edges unweighted "
+            "fusion 0.0419; consensus recovers fusion to 0.0324 (tie). v3 (information "
+            "destruction -> genuine disagreement): fusion wins at 0.0464 and is the only "
+            "calibrated learner (r -0.21 vs naive +0.08); consensus HURTS there (0.0554) "
+            "because tempering suppresses disagreement, which was noise on v2 but signal "
+            "on v3. No single mechanism dominates both regimes at fixed rho -- the rho "
+            "sweep is the motivated next experiment."
+        ),
+        "numbers": [
+            ("dynamic_v2", "naive 0.0330 | fusion 0.0419 | consensus 0.0324 | frozen 0.1870"),
+            ("dynamic_v3_whiteout", "naive 0.0536 | fusion 0.0464 | consensus 0.0554 | frozen 0.1067"),
+            ("Calibration on v3", "fusion r=-0.21 (only honest learner); naive +0.08; consensus +0.03"),
+            ("Videos", "all six dynamic arms have experiment_animation.mp4 in their figures/ dirs"),
+        ],
+        "image": ROOT / "runs/stage6/6d/6d_comparison.png",
+        "manifest": "runs/stage6/6d{,_v3}/comparison_summary.yaml + per-arm manifests",
+    },
+]
+
 ROADMAP = [
-    ("Stage 6", "Spatial mesh: 36 overlapping nodes, moving wearable anchor, belief propagation. 6D is the headline three-way comparison."),
+    ("Rho sweep", "Phase 12: sweep the consensus decay rate -- can a weaker rho keep v2's recovery without strangling v3's informative disagreement?"),
 ]
 
 

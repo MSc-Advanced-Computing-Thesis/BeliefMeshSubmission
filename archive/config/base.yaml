@@ -20,4 +20,4 @@ fusion:
   grid_fallback: 180     # fallback if G=360 proves too costly on-device, Spec Sec 4.1
 
 consensus:
-  rho: null              # global decay rate, swept in Spec Sec 9 step 6 — not yet fixed
+  rho: 0.2               # global decay rate; PROVISIONAL default, swept in Spec Sec 9 step 6
