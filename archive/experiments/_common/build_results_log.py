@@ -221,8 +221,75 @@ STAGES += [
     },
 ]
 
+STAGES += [
+    {
+        "id": "Stage 5a",
+        "title": "Variable environments: linear transition",
+        "status": "passed",
+        "what": (
+            "A stays specialised on red, C on blue. B's own input drifts linearly from "
+            "red to blue over 30 epochs, training only on fused or naively-averaged "
+            "pseudo-labels from the two anchors. The question: can fusion track a "
+            "moving distribution neither anchor matches?"
+        ),
+        "reading": (
+            "Right panel is the flagship result: at the midpoint blend (0.5), fusion "
+            "(0.0149) is far below BOTH anchors (A 0.1186, C 0.0247) -- only possible "
+            "because fusion combines their complementary partial knowledge instead of "
+            "picking a side or splitting the difference."
+        ),
+        "numbers": [
+            ("Fusion wins epochs", "25/30"),
+            ("Midpoint", "fusion 0.0149 vs A 0.1186, C 0.0247"),
+        ],
+        "image": ROOT / "runs/stage5/transition/figures/stage5_transition.png",
+        "manifest": "runs/stage5/transition/manifest.yaml",
+    },
+    {
+        "id": "Stage 5b",
+        "title": "Variable environments: oscillation",
+        "status": "passed",
+        "what": (
+            "Same setup, but B's blend runs red to blue and back to red over one "
+            "sine cycle -- does the system re-adapt when conditions return, and how "
+            "much was forgotten in between?"
+        ),
+        "reading": (
+            "Fusion stays below naive nearly throughout. The second red period's MSE "
+            "(0.0219) is slightly above the first's (0.0192): partial forgetting of "
+            "red after the blue excursion -- the signature the spec predicts, and the "
+            "phenomenon Stage 6's collective memory is designed to soften."
+        ),
+        "numbers": [
+            ("Fusion wins epochs", "26/30"),
+            ("Red period 1 → 2", "0.0192 → 0.0219 (partial forgetting)"),
+        ],
+        "image": ROOT / "runs/stage5/oscillating/figures/stage5_oscillating.png",
+        "manifest": "runs/stage5/oscillating/manifest.yaml",
+    },
+    {
+        "id": "Stage 5c",
+        "title": "Variable environments: random resampling",
+        "status": "passed",
+        "what": (
+            "B's blend is resampled uniformly at random every epoch -- the stress "
+            "test: no smooth drift to track, just constant distributional churn."
+        ),
+        "reading": (
+            "Fusion halves naive's error on average and wins 28 of 30 epochs: the "
+            "evidential heads produce useful uncertainty differentiation between the "
+            "anchors even under high-frequency change."
+        ),
+        "numbers": [
+            ("Mean epoch MSE", "fusion 0.0227 vs naive 0.0455 (2×)"),
+            ("Fusion wins epochs", "28/30"),
+        ],
+        "image": ROOT / "runs/stage5/random/figures/stage5_random.png",
+        "manifest": "runs/stage5/random/manifest.yaml",
+    },
+]
+
 ROADMAP = [
-    ("Stage 5", "Variable environments: B's conditions drift between red and blue (linear / oscillating / random) -- fusion vs naive averaging."),
     ("Stage 6", "Spatial mesh: 36 overlapping nodes, moving wearable anchor, belief propagation. 6D is the headline three-way comparison."),
 ]
 
