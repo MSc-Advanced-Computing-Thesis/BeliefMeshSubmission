@@ -324,6 +324,51 @@ STAGES += [
 
 STAGES += [
     {
+        "id": "Stage 6b",
+        "title": "Fusion mesh on dynamic_v2 (fast red↔blue drift)",
+        "status": "passed",
+        "what": (
+            "The full fusion system deployed on the first dynamic regime: the V2 "
+            "environment's evolving colour field, single roaming wearable, 36 nodes. "
+            "This run is also the fusion arm of the 6D comparison (same run, not a "
+            "copy). Video: runs/stage6/6d/fusion/figures/experiment_animation.mp4"
+        ),
+        "reading": (
+            "Standard four-panel evaluation: hop-MSE over time (learning + tracking "
+            "the drift), spatial MSE and certainty maps with the wearable trail, and "
+            "the per-cell certainty-vs-MSE relation."
+        ),
+        "numbers": [
+            ("Mean MSE (last 50)", "0.0419 vs frozen 0.1870 (4.5×)"),
+            ("Certainty-MSE r", "-0.153"),
+        ],
+        "image": ROOT / "runs/stage6/6d/fusion/figures/results.png",
+        "manifest": "runs/stage6/6d/fusion/manifest.yaml",
+    },
+    {
+        "id": "Stage 6c",
+        "title": "Fusion mesh on dynamic_v3_whiteout",
+        "status": "passed",
+        "what": (
+            "The fusion system on the second regime: slower drift that pushes cells "
+            "into the red→white washout, destroying input information. Also the "
+            "fusion arm of the v3 6D comparison. Video: "
+            "runs/stage6/6d_v3/fusion/figures/experiment_animation.mp4"
+        ),
+        "reading": (
+            "Under information destruction the mesh still learns (0.046 vs frozen "
+            "0.107) and -- unlike every other learning arm on this regime -- keeps an "
+            "honest certainty-error relationship (r = -0.21). This regime is where "
+            "distributional fusion earns its keep."
+        ),
+        "numbers": [
+            ("Mean MSE (last 50)", "0.0464 vs frozen 0.1067 (2.3×)"),
+            ("Certainty-MSE r", "-0.214 (only calibrated learner on this regime)"),
+        ],
+        "image": ROOT / "runs/stage6/6d_v3/fusion/figures/results.png",
+        "manifest": "runs/stage6/6d_v3/fusion/manifest.yaml",
+    },
+    {
         "id": "Stage 6D",
         "title": "Four arms, two dynamic regimes — the headline comparison",
         "status": "caveat",
@@ -347,10 +392,11 @@ STAGES += [
             "sweep is the motivated next experiment."
         ),
         "numbers": [
-            ("dynamic_v2", "naive 0.0330 | fusion 0.0419 | consensus 0.0324 | frozen 0.1870"),
-            ("dynamic_v3_whiteout", "naive 0.0536 | fusion 0.0464 | consensus 0.0554 | frozen 0.1067"),
-            ("Calibration on v3", "fusion r=-0.21 (only honest learner); naive +0.08; consensus +0.03"),
-            ("Videos", "all six dynamic arms have experiment_animation.mp4 in their figures/ dirs"),
+            ("dynamic_v2", "fedavg 0.0227 | consensus 0.0324 | naive 0.0330 | fusion 0.0419 | frozen 0.1870"),
+            ("dynamic_v3_whiteout", "fedavg 0.0171 | fusion 0.0464 | naive 0.0536 | consensus 0.0554 | frozen 0.1067"),
+            ("Bandwidth per exchange", "belief methods ~450 B; fedavg ~1.5 MB (3,500×) — the thesis's cost-capability axis"),
+            ("Calibration on v3", "fedavg r=-0.84; fusion -0.21 (best belief method); naive +0.08; consensus +0.03"),
+            ("Headline reframe", "parameter exchange wins raw MSE in this homogeneous testbed (interim's collapse claim retired); belief exchange gets within 1.5-2.7× at 1/3500th the bandwidth and works across heterogeneous architectures"),
         ],
         "image": ROOT / "runs/stage6/6d/6d_comparison.png",
         "manifest": "runs/stage6/6d{,_v3}/comparison_summary.yaml + per-arm manifests",

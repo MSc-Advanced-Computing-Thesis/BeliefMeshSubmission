@@ -94,7 +94,7 @@ class Mesh:
                  lr: float, fusion_grid: torch.Tensor, mode: str = "fusion",
                  device: torch.device | None = None, sample_seed: int = 42,
                  rho: float = 0.2):
-        assert mode in ("fusion", "naive", "frozen", "consensus")
+        assert mode in ("fusion", "naive", "frozen", "consensus", "fedavg", "fedavg_global")
         self.mode = mode
         self.environment = environment
         self.grid_size = grid_size
@@ -177,6 +177,56 @@ class Mesh:
         trained: set[int] = set()
         queue: deque[int] = deque()
 
+        if self.mode == "fedavg_global":
+            # CANONICAL FedAvg round: anchors (this round's participating
+            # clients) train locally from the shared global weights; the new
+            # global model is the mean of the participants' models and is
+            # distributed to EVERY node. One shared model, no spatial
+            # specialisation -- red- and blue-adapted updates merge whenever
+            # multiple anchors occupy different condition regions.
+            participant_models = []
+            for node_id in anchors:
+                node = self.nodes[node_id]
+                anchor_cells = [c for c in wearable_cells if c in node.fov_set]
+                if not anchor_cells:
+                    continue
+                images, targets = [], []
+                for cell in anchor_cells:
+                    imgs, tgts = self.environment.get_multiple_rotations(
+                        cell, step, n=n_wearable_samples, rng=self.sample_rng)
+                    images.extend(imgs)
+                    targets.extend(tgts)
+                for _ in range(n_train_repeats):
+                    node.train_on(images, torch.stack(targets))
+                participant_models.append(node.model.state_dict())
+                node.hop_distance = 0
+                trained.add(node_id)
+                queue.append(node_id)
+            if participant_models:
+                with torch.no_grad():
+                    global_sd = {k: torch.stack([sd[k] for sd in participant_models]).mean(0)
+                                 for k in participant_models[0]}
+                    for node in self.nodes.values():
+                        node.model.load_state_dict(global_sd)
+            # BFS purely to assign hop labels and produce per-node predictions
+            while queue:
+                current_id = queue.popleft()
+                current_hop = self.nodes[current_id].hop_distance or 0
+                for neighbour_id in self.overlap_graph[current_id]:
+                    if neighbour_id in trained:
+                        continue
+                    neighbour = self.nodes[neighbour_id]
+                    hop = current_hop + 1
+                    if neighbour.hop_distance is None or hop < neighbour.hop_distance:
+                        neighbour.hop_distance = hop
+                    trained.add(neighbour_id)
+                    queue.append(neighbour_id)
+            for node_id in trained:
+                node = self.nodes[node_id]
+                imgs, _, keys = self.environment.get_batch_for_cells(node.fov_cells, step)
+                node.predict_cells(imgs, keys)
+            return trained
+
         # hop 0: anchors train on wearable-cell ground truth (unless frozen)
         for node_id in anchors:
             node = self.nodes[node_id]
@@ -227,7 +277,22 @@ class Mesh:
                 if not supervision:
                     continue
 
-                if self.mode != "frozen":
+                if self.mode == "fedavg":
+                    # PARAMETER exchange baseline (the paradigm the thesis argues
+                    # against): the receiver replaces its weights with the mean of
+                    # its already-trained overlap neighbours' weights. No beliefs
+                    # cross the link -- ~1.5 MB of parameters per contributor vs
+                    # ~450 B of beliefs. Same topology, schedule and anchors as
+                    # every other arm.
+                    contributor_ids = sorted({cid for lst in supervision.values()
+                                              for cid, _ in lst})
+                    with torch.no_grad():
+                        state_dicts = [self.nodes[cid].model.state_dict()
+                                       for cid in contributor_ids]
+                        averaged = {k: torch.stack([sd[k] for sd in state_dicts]).mean(0)
+                                    for k in state_dicts[0]}
+                        neighbour.model.load_state_dict(averaged)
+                elif self.mode != "frozen":
                     images, labels, cell_trusts = [], [], []
                     for cell, contributions in supervision.items():
                         img, _ = self.environment.get_cell_input(cell[0], cell[1], step)
@@ -255,6 +320,22 @@ class Mesh:
                 queue.append(neighbour_id)
 
         return trained
+
+    def epistemic_map(self) -> np.ndarray:
+        """(H, W) mean epistemic uncertainty (1/nu) per cell over the nodes
+        currently holding beliefs about it; NaN where no beliefs exist. Used
+        by the uncertainty-directed wearable policy -- this is the epistemic
+        map the evidential head was chosen to provide (interim Sec 2.4)."""
+        acc = np.zeros((self.grid_size, self.grid_size))
+        cnt = np.zeros((self.grid_size, self.grid_size))
+        for node in self.nodes.values():
+            for (r, c), (_, nu, _, _) in node.cell_beliefs.items():
+                acc[r, c] += 1.0 / max(nu, 1e-6)
+                cnt[r, c] += 1
+        with np.errstate(invalid="ignore"):
+            out = acc / cnt
+        out[cnt == 0] = np.nan
+        return out
 
     def evaluate(self, step: int) -> dict:
         """Per-node wrapped MSE and mean display-certainty over stored beliefs."""

@@ -91,6 +91,19 @@ def test_naive_and_fusion_modes_both_run_and_evaluate():
             assert m["certainty"] is not None and 0 < m["certainty"] <= 1
 
 
+def test_fedavg_mode_replaces_weights_with_neighbour_mean():
+    mesh = make_mesh(mode="fedavg")
+    before = {i: [p.clone() for p in node.model.parameters()]
+              for i, node in mesh.nodes.items()}
+    mesh.run_timestep([(2.0, 2.0)], step=0)
+    # anchor (node 0) trained on ground truth; at least one non-anchor must have
+    # had its weights REPLACED (parameter exchange), not gradient-updated
+    changed = [i for i, node in mesh.nodes.items()
+               if any(not torch.equal(b, p) for b, p in zip(before[i], node.model.parameters()))]
+    assert 0 in changed
+    assert len(changed) > 1
+
+
 def test_consensus_mode_tracks_per_node_trust():
     mesh = make_mesh(mode="consensus")
     assert all(c == 1.0 for c in mesh.consensus.values())  # unity init

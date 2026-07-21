@@ -49,9 +49,19 @@ class GridEnvironment:
     """Renders per-cell inputs for a (T, H, W) environment-value tensor."""
 
     def __init__(self, grid_size: int, environment_grids: np.ndarray,
-                 mnist_root: str = "data/mnist", rotation_seed: int = 42):
+                 mnist_root: str = "data/mnist", rotation_seed: int = 42,
+                 offset_field: np.ndarray | None = None):
+        """offset_field: optional per-cell label offsets in DEGREES (CHECKLIST
+        Phase 13, mapping-conflict experiments). Shape (H, W) for a static
+        field, or (T, H, W) for a time-varying one (e.g. a hard-edged block
+        appearing mid-run -- an obstruction suddenly changing the local
+        mapping). The image shows rotation theta; the true label becomes
+        theta + offset(cell[, step]). Identical visual inputs then demand
+        different answers at different locations -- a location-dependent
+        mapping that no shared global function can fit."""
         self.grid_size = grid_size
         self.environment_grids = environment_grids
+        self.offset_field = offset_field
 
         base = datasets.MNIST(root=mnist_root, train=True, download=True)
         digit7 = base.data[base.targets == 7][0]  # the single fixed seven
@@ -83,8 +93,19 @@ class GridEnvironment:
             env_value = self.environment_grids[step, row, col]
             image = TF.rotate(self.base_image, float(angle), fill=1.0)
             image = apply_filter_from_env_value(image, float(env_value))
-            self._cache[key] = (image, torch.tensor(angle / 180.0, dtype=torch.float32))
+            self._cache[key] = (image, self._label(angle, row, col, step))
         return self._cache[key]
+
+    def _label(self, angle_deg: float, row: int, col: int, step: int) -> torch.Tensor:
+        """Normalised label, including the cell's mapping offset if configured.
+        Wraps on the circle (same period-2 convention as circular_diff)."""
+        total = angle_deg / 180.0
+        if self.offset_field is not None:
+            field = (self.offset_field[step] if self.offset_field.ndim == 3
+                     else self.offset_field)
+            total = total + field[row, col] / 180.0
+        total = ((total + 1.0) % 2.0) - 1.0
+        return torch.tensor(total, dtype=torch.float32)
 
     def get_batch_for_cells(self, cells, step: int):
         """(images, targets, keys) lists for a list of (row, col) cells."""
@@ -106,5 +127,5 @@ class GridEnvironment:
             angle = float(rng.uniform(-180, 180))
             image = TF.rotate(self.base_image, angle, fill=1.0)
             images.append(apply_filter_from_env_value(image, env_value))
-            targets.append(torch.tensor(angle / 180.0, dtype=torch.float32))
+            targets.append(self._label(angle, row, col, step))
         return images, targets

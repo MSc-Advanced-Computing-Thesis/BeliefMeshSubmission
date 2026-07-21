@@ -52,16 +52,26 @@ def run_mesh_experiment(
     title: str = "",
     device: torch.device | None = None,
     extra_manifest: dict | None = None,
+    offset_field: np.ndarray | None = None,
+    env_seed: int = 42,
+    wearable_policy: str | None = None,
+    policy_step_size: float = 0.4,
 ):
+    """wearable_policy=None replays the given wearable_paths. 'epistemic'
+    computes the single wearable's trajectory ONLINE: each step it moves
+    (at policy_step_size cells/step -- the mobility capacity) toward the cell
+    with the highest current epistemic uncertainty. wearable_paths[0][0] seeds
+    the start position; the realised trajectory is saved for videos/analysis."""
     grid_size = all_grids.shape[1]
     total_steps = all_grids.shape[0]
     device = device or torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    env = GridEnvironment(grid_size, all_grids)
+    env = GridEnvironment(grid_size, all_grids, offset_field=offset_field,
+                          rotation_seed=env_seed)
     mesh = Mesh(node_centres, fov_size=fov_size, grid_size=grid_size,
                 environment=env, pretrained_path=baseline_checkpoint,
                 lr=cfg.model.lr, fusion_grid=circular_grid(cfg.fusion.grid_size),
-                mode=mode, device=device)
+                mode=mode, device=device, sample_seed=env_seed)
 
     coverage = np.zeros((grid_size, grid_size), dtype=int)
     for node in mesh.nodes.values():
@@ -78,8 +88,43 @@ def run_mesh_experiment(
     cell_cert_steps = np.full((total_steps, grid_size, grid_size), np.nan)
     n_wearables = len(wearable_paths)
 
+    policy_rng = np.random.default_rng(env_seed)
+    policy_pos = np.array(wearable_paths[0][0], dtype=float)
+    realised_path = []
+    last_visit = np.full((grid_size, grid_size), -50.0)  # uniform initial staleness
+
+    def _norm01(x):
+        lo, hi = np.nanmin(x), np.nanmax(x)
+        return np.zeros_like(x) if hi - lo < 1e-12 else (x - lo) / (hi - lo)
+
     for step in range(total_steps):
-        positions = [wearable_paths[w][step] for w in range(n_wearables)]
+        if wearable_policy in ("epistemic", "staleness", "epistemic_staleness"):
+            # staleness: steps since the wearable was at/adjacent to each cell
+            staleness = step - last_visit
+            score = None
+            if wearable_policy == "staleness":
+                score = staleness
+            else:
+                emap = mesh.epistemic_map()
+                if np.isfinite(emap).any():
+                    emap = np.where(np.isfinite(emap), emap, np.nanmax(emap))
+                    score = (_norm01(emap) if wearable_policy == "epistemic"
+                             else _norm01(emap) + _norm01(staleness))
+            if score is not None:
+                target = np.unravel_index(np.nanargmax(score), score.shape)
+                direction = np.array(target, dtype=float) - policy_pos
+                norm = np.linalg.norm(direction)
+                if norm > 1e-6:
+                    policy_pos = policy_pos + policy_step_size * direction / norm
+            else:  # no signal yet: small random walk from start
+                policy_pos = policy_pos + policy_rng.normal(0, policy_step_size, 2)
+            policy_pos = np.clip(policy_pos, 0.1, grid_size - 1.1)
+            r0, c0 = int(policy_pos[0]), int(policy_pos[1])
+            last_visit[max(0, r0-1):r0+2, max(0, c0-1):c0+2] = step
+            positions = [policy_pos.copy()]
+            realised_path.append(policy_pos.copy())
+        else:
+            positions = [wearable_paths[w][step] for w in range(n_wearables)]
         trained = mesh.run_timestep(positions, step,
                                     n_wearable_samples=n_wearable_samples,
                                     n_train_repeats=n_train_repeats)
@@ -139,6 +184,9 @@ def run_mesh_experiment(
     np.save(run_dir / "avg_cert_map.npy", avg_cert_map)
     np.save(run_dir / "cell_mse_steps.npy", cell_mse_steps)
     np.save(run_dir / "cell_cert_steps.npy", cell_cert_steps)
+    if realised_path:
+        np.save(run_dir / "realised_wearable_path.npy", np.array(realised_path))
+        wearable_paths = [np.array(realised_path)]  # so figures show the real trail
 
     manifest = {
         "stage": "stage6", "condition": condition, "mode": mode,
@@ -148,6 +196,7 @@ def run_mesh_experiment(
         "max_coverage": int(coverage.max()),
         "n_wearables": n_wearables, "n_wearable_samples": n_wearable_samples,
         "n_train_repeats": n_train_repeats, "total_steps": total_steps,
+        "env_seed": env_seed, "wearable_policy": wearable_policy or "replay",
         "git_commit": git_commit(), "config": dataclasses.asdict(cfg),
         **(extra_manifest or {}),
         "results": {

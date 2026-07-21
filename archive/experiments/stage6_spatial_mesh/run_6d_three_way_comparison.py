@@ -40,9 +40,9 @@ from stage6_spatial_mesh.runner import run_mesh_experiment
 from beliefmesh.config import load_config
 
 BASELINE_CHECKPOINT = Path("runs/stage0/baseline/checkpoints/pretrained_digit7.pth")
-ARMS = ["frozen", "naive", "fusion", "consensus"]
-ARM_COLORS = {"frozen": "#999999", "naive": "#d62728",
-              "fusion": "#2ca02c", "consensus": "#1f77b4"}
+ARMS = ["frozen", "naive", "fusion", "consensus", "fedavg", "fedavg_global"]
+ARM_COLORS = {"frozen": "#999999", "naive": "#d62728", "fusion": "#2ca02c",
+              "consensus": "#1f77b4", "fedavg": "#9467bd", "fedavg_global": "#8c564b"}
 
 # Two dynamic regimes with different characters (measured, not assumed):
 #   v2: fast, large-excursion red<->blue drift (mean per-step change 0.0175,
@@ -59,21 +59,34 @@ ENVS = {
 }
 
 
-def main(arms: list[str], env: str):
+def main(arms: list[str], env: str, wearables: int = 1):
     cfg = load_config()
     env_cfg = ENVS[env]
     RUN_ROOT = env_cfg["run_root"]
     all_grids = np.load(env_cfg["dir"] / "environment_grids.npy")
-    # single wearable path (V2 generation), truncated to the env's step count
-    path = np.load(Path("experiments/stage6_spatial_mesh/environment_v2/wearable_path.npy"))
-    wearable_paths = [path[:len(all_grids)]]
     node_centres = np.load(env_cfg["dir"] / "node_centres.npy")
+    if wearables == 1:
+        # single wearable path (V2 generation), truncated to the env's step count
+        path = np.load(Path("experiments/stage6_spatial_mesh/environment_v2/wearable_path.npy"))
+        wearable_paths = [path[:len(all_grids)]]
+    else:
+        # CONFLICT REGIME: three simultaneous wearables (native V3 paths) --
+        # anchors in different condition zones at the same timestep. This is
+        # the configuration where global one-model averaging should exhibit
+        # the classic non-IID weight conflict, and the config the prior
+        # repo's 6D actually ran. Reverses Spec Sec 10's multi-anchor descope,
+        # deliberately: the tier-1 claim now requires this test.
+        assert env == "v3", "3-wearable paths are native to the v3 environment"
+        wearable_paths = [np.load(env_cfg["dir"] / f"wearable_path_{w}.npy")[:len(all_grids)]
+                          for w in range(3)]
+        RUN_ROOT = Path(str(RUN_ROOT) + "_3w")
 
     results = {}
     for arm in arms:
         random.seed(cfg.seed); np.random.seed(cfg.seed); torch.manual_seed(cfg.seed)
         results[arm] = run_mesh_experiment(
-            cfg, condition=f"6d_{env}_{arm}", run_dir=RUN_ROOT / arm,
+            cfg, condition=f"6d_{env}_{'3w_' if wearables == 3 else ''}{arm}",
+            run_dir=RUN_ROOT / arm,
             all_grids=all_grids, wearable_paths=wearable_paths,
             node_centres=node_centres, fov_size=7, mode=arm,
             baseline_checkpoint=BASELINE_CHECKPOINT,
@@ -139,5 +152,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--arms", nargs="+", choices=ARMS, default=ARMS)
     parser.add_argument("--env", choices=list(ENVS), default="v2")
+    parser.add_argument("--wearables", type=int, choices=[1, 3], default=1)
     args = parser.parse_args()
-    main(args.arms, args.env)
+    main(args.arms, args.env, args.wearables)
