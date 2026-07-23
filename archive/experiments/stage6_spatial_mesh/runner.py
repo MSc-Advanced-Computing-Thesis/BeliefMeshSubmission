@@ -56,6 +56,7 @@ def run_mesh_experiment(
     env_seed: int = 42,
     wearable_policy: str | None = None,
     policy_step_size: float = 0.4,
+    policy_cooldown: int = 0,
 ):
     """wearable_policy=None replays the given wearable_paths. 'epistemic'
     computes the single wearable's trajectory ONLINE: each step it moves
@@ -89,8 +90,8 @@ def run_mesh_experiment(
     n_wearables = len(wearable_paths)
 
     policy_rng = np.random.default_rng(env_seed)
-    policy_pos = np.array(wearable_paths[0][0], dtype=float)
-    realised_path = []
+    policy_positions = [np.array(wearable_paths[w][0], dtype=float) for w in range(n_wearables)]
+    realised_paths = [[] for _ in range(n_wearables)]
     last_visit = np.full((grid_size, grid_size), -50.0)  # uniform initial staleness
 
     def _norm01(x):
@@ -99,30 +100,48 @@ def run_mesh_experiment(
 
     for step in range(total_steps):
         if wearable_policy in ("epistemic", "staleness", "epistemic_staleness"):
-            # staleness: steps since the wearable was at/adjacent to each cell
-            staleness = step - last_visit
-            score = None
-            if wearable_policy == "staleness":
-                score = staleness
-            else:
-                emap = mesh.epistemic_map()
-                if np.isfinite(emap).any():
-                    emap = np.where(np.isfinite(emap), emap, np.nanmax(emap))
+            emap = None
+            if wearable_policy != "staleness":
+                e = mesh.epistemic_map()
+                if np.isfinite(e).any():
+                    emap = np.where(np.isfinite(e), e, np.nanmax(e))
+            positions = []
+            # sequential per-wearable greedy assignment: each wearable sees
+            # last_visit as updated by the ones before it this step, so they
+            # naturally spread out instead of all chasing the same argmax cell
+            for w in range(n_wearables):
+                staleness = step - last_visit
+                if wearable_policy == "staleness":
+                    score = staleness
+                elif emap is not None:
                     score = (_norm01(emap) if wearable_policy == "epistemic"
                              else _norm01(emap) + _norm01(staleness))
-            if score is not None:
-                target = np.unravel_index(np.nanargmax(score), score.shape)
-                direction = np.array(target, dtype=float) - policy_pos
-                norm = np.linalg.norm(direction)
-                if norm > 1e-6:
-                    policy_pos = policy_pos + policy_step_size * direction / norm
-            else:  # no signal yet: small random walk from start
-                policy_pos = policy_pos + policy_rng.normal(0, policy_step_size, 2)
-            policy_pos = np.clip(policy_pos, 0.1, grid_size - 1.1)
-            r0, c0 = int(policy_pos[0]), int(policy_pos[1])
-            last_visit[max(0, r0-1):r0+2, max(0, c0-1):c0+2] = step
-            positions = [policy_pos.copy()]
-            realised_path.append(policy_pos.copy())
+                else:
+                    score = None
+                if score is not None:
+                    if policy_cooldown > 0:
+                        # hard anti-camping: a persistently-high local
+                        # epistemic score (e.g. a turbulent wake) can keep
+                        # outscoring staleness for nearby cells forever,
+                        # trapping a wearable in one region even though
+                        # staleness is in the sum -- exclude recently-visited
+                        # cells from the argmax outright so the policy is
+                        # forced to keep moving on.
+                        eligible = staleness >= policy_cooldown
+                        if eligible.any():
+                            score = np.where(eligible, score, -np.inf)
+                    target = np.unravel_index(np.nanargmax(score), score.shape)
+                    direction = np.array(target, dtype=float) - policy_positions[w]
+                    norm = np.linalg.norm(direction)
+                    if norm > 1e-6:
+                        policy_positions[w] = policy_positions[w] + policy_step_size * direction / norm
+                else:  # no signal yet: small random walk from start
+                    policy_positions[w] = policy_positions[w] + policy_rng.normal(0, policy_step_size, 2)
+                policy_positions[w] = np.clip(policy_positions[w], 0.1, grid_size - 1.1)
+                r0, c0 = int(policy_positions[w][0]), int(policy_positions[w][1])
+                last_visit[max(0, r0-1):r0+2, max(0, c0-1):c0+2] = step
+                positions.append(policy_positions[w].copy())
+                realised_paths[w].append(policy_positions[w].copy())
         else:
             positions = [wearable_paths[w][step] for w in range(n_wearables)]
         trained = mesh.run_timestep(positions, step,
@@ -184,9 +203,15 @@ def run_mesh_experiment(
     np.save(run_dir / "avg_cert_map.npy", avg_cert_map)
     np.save(run_dir / "cell_mse_steps.npy", cell_mse_steps)
     np.save(run_dir / "cell_cert_steps.npy", cell_cert_steps)
-    if realised_path:
-        np.save(run_dir / "realised_wearable_path.npy", np.array(realised_path))
-        wearable_paths = [np.array(realised_path)]  # so figures show the real trail
+    if realised_paths[0]:
+        wearable_paths = [np.array(p) for p in realised_paths]  # so figures show the real trail(s)
+    # always save whatever paths were actually used (policy-driven or a
+    # static replay) so generate_video.py doesn't fall back to the single
+    # default environment path for multi-wearable static runs
+    used_arrs = [np.asarray(wp)[:total_steps] for wp in wearable_paths]
+    np.save(run_dir / "realised_wearable_path.npy", used_arrs[0])  # back-compat, single
+    if n_wearables > 1:
+        np.save(run_dir / "realised_wearable_paths.npy", np.stack(used_arrs))
 
     manifest = {
         "stage": "stage6", "condition": condition, "mode": mode,
@@ -197,6 +222,7 @@ def run_mesh_experiment(
         "n_wearables": n_wearables, "n_wearable_samples": n_wearable_samples,
         "n_train_repeats": n_train_repeats, "total_steps": total_steps,
         "env_seed": env_seed, "wearable_policy": wearable_policy or "replay",
+        "policy_cooldown": policy_cooldown,
         "git_commit": git_commit(), "config": dataclasses.asdict(cfg),
         **(extra_manifest or {}),
         "results": {

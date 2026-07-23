@@ -29,6 +29,7 @@ from matplotlib.gridspec import GridSpec, GridSpecFromSubplotSpec
 
 DEFAULT_ENV_DIR = Path("experiments/stage6_spatial_mesh/environment_v2")
 WEARABLE_COLOR = "#00FF00"
+WEARABLE_COLORS = ["#00FF00", "#00CCFF", "#FF00FF", "#FFFF00"]
 HOP_COLORS = ["#FFD700", "#FFA500", "#FF4500", "#8B0000"]
 TRAIL_LEN = 20
 
@@ -57,6 +58,9 @@ def main():
     parser.add_argument("--rolling", type=int, default=50)
     parser.add_argument("--env-dir", type=Path, default=DEFAULT_ENV_DIR,
                         help="environment artifact dir (grids + node_centres + wearable_path)")
+    parser.add_argument("--offset-field", type=Path, default=None,
+                        help="npy of the (T,H,W) or (H,W) label-offset field; if given, "
+                             "the left panel shows this instead of the colour env")
     args = parser.parse_args()
 
     run_dir = args.run_dir
@@ -65,8 +69,24 @@ def main():
     total_steps = grids.shape[0]
     if args.static:
         grids = np.tile(grids[0:1], (total_steps, 1, 1))
-    wearable_path = np.load(args.env_dir / "wearable_path.npy")
+
+    # realised (policy-driven) trajectory takes precedence over the replayed path
+    realised_paths_file = run_dir / "realised_wearable_paths.npy"  # multi-wearable, stacked
+    realised_path_file = run_dir / "realised_wearable_path.npy"    # single-wearable, back-compat
+    if realised_paths_file.exists():
+        wearable_paths = list(np.load(realised_paths_file))
+        total_steps = min(total_steps, wearable_paths[0].shape[0])
+    elif realised_path_file.exists():
+        wearable_paths = [np.load(realised_path_file)]
+        total_steps = min(total_steps, wearable_paths[0].shape[0])
+    else:
+        wearable_paths = [np.load(args.env_dir / "wearable_path.npy")]
     node_centres = np.load(args.node_centres or args.env_dir / "node_centres.npy")
+
+    offset_field = np.load(args.offset_field) if args.offset_field else None
+    if offset_field is not None and offset_field.ndim == 2:
+        offset_field = np.tile(offset_field[None], (total_steps, 1, 1))
+    offset_vabs = float(np.percentile(np.abs(offset_field), 99)) if offset_field is not None else 90.0
 
     hop_mse_history = np.load(run_dir / "hop_mse_history.npy", allow_pickle=True).item()
     cell_mse_steps = np.load(run_dir / "cell_mse_steps.npy")
@@ -127,23 +147,34 @@ def main():
                      fontsize=12, fontweight="bold", color="white", y=0.975)
 
         trail_start = max(0, t - TRAIL_LEN + 1)
-        trail = wearable_path[trail_start:t + 1]
+        trails = [wp[trail_start:t + 1] for wp in wearable_paths]
 
-        # environment panel
-        ax_env.imshow(env_to_rgb(grids[t]), aspect="equal", interpolation="nearest")
+        # environment panel: offset field (mapping-conflict runs) or colour filter
+        if offset_field is not None:
+            im_env = ax_env.imshow(offset_field[t], cmap="RdBu_r", aspect="equal",
+                                   interpolation="nearest", vmin=-offset_vabs, vmax=offset_vabs)
+            if t == 0:
+                cb_env = plt.colorbar(im_env, ax=ax_env, fraction=0.046, pad=0.04)
+                cb_env.set_label("label offset (deg)", color="#aaaaaa", fontsize=7)
+                cb_env.ax.tick_params(colors="#aaaaaa", labelsize=6)
+        else:
+            ax_env.imshow(env_to_rgb(grids[t]), aspect="equal", interpolation="nearest")
         for cx, cy in node_centres:
             ax_env.add_patch(plt.Rectangle((cx - half - 0.5, cy - half - 0.5),
                                            args.fov, args.fov, linewidth=0.4,
                                            edgecolor="#555555", facecolor="none"))
             ax_env.plot(cx, cy, ".", color="#888888", markersize=2.5, zorder=3)
-        if len(trail) > 1:
-            ax_env.plot(trail[:, 1], trail[:, 0], color=WEARABLE_COLOR,
-                        linewidth=1.5, alpha=0.75, zorder=5)
-        ax_env.scatter(wearable_path[t, 1], wearable_path[t, 0], c=WEARABLE_COLOR,
-                       s=70, marker="o", zorder=6, edgecolors="white", linewidths=0.7)
+        for wi, (trail, wp) in enumerate(zip(trails, wearable_paths)):
+            color = WEARABLE_COLORS[wi % len(WEARABLE_COLORS)]
+            if len(trail) > 1:
+                ax_env.plot(trail[:, 1], trail[:, 0], color=color,
+                            linewidth=1.5, alpha=0.75, zorder=5)
+            ax_env.scatter(wp[t, 1], wp[t, 0], c=color,
+                           s=70, marker="o", zorder=6, edgecolors="white", linewidths=0.7)
         ax_env.set_xlim(-0.5, grid_size - 0.5)
         ax_env.set_ylim(grid_size - 0.5, -0.5)
-        ax_env.set_title("Environment (colour filter)", color="white", fontsize=9, pad=4)
+        ax_env.set_title("Label offset field" if offset_field is not None else "Environment (colour filter)",
+                         color="white", fontsize=9, pad=4)
         ax_env.set_xticks([]); ax_env.set_yticks([])
 
         # hop MSE chart
@@ -171,11 +202,13 @@ def main():
         ):
             im = ax.imshow(data, cmap=cmap, aspect="equal",
                            interpolation="nearest", vmin=vmin, vmax=vmax)
-            if len(trail) > 1:
-                ax.plot(trail[:, 1], trail[:, 0], color=WEARABLE_COLOR,
-                        linewidth=1.2, alpha=0.8, zorder=5)
-            ax.scatter(wearable_path[t, 1], wearable_path[t, 0], c=WEARABLE_COLOR,
-                       s=35, marker="s", zorder=6, edgecolors="white", linewidths=0.5)
+            for wi, (trail, wp) in enumerate(zip(trails, wearable_paths)):
+                color = WEARABLE_COLORS[wi % len(WEARABLE_COLORS)]
+                if len(trail) > 1:
+                    ax.plot(trail[:, 1], trail[:, 0], color=color,
+                            linewidth=1.2, alpha=0.8, zorder=5)
+                ax.scatter(wp[t, 1], wp[t, 0], c=color,
+                           s=35, marker="s", zorder=6, edgecolors="white", linewidths=0.5)
             ax.set_title(label, color="white", fontsize=8, pad=3)
             ax.set_xticks([]); ax.set_yticks([])
             cb = plt.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
