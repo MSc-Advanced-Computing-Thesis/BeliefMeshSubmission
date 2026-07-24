@@ -6,6 +6,7 @@
 
 from __future__ import annotations
 
+import os
 import random
 import sys
 from pathlib import Path
@@ -24,9 +25,14 @@ from beliefmesh.fusion.product_of_experts import fuse
 
 def main():
     cfg = load_config()
-    random.seed(cfg.seed); np.random.seed(cfg.seed); torch.manual_seed(cfg.seed)
+    seed = int(os.environ.get("EXP_SEED", cfg.seed))
+    random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     train_idx, eval_idx = get_digit7_splits(eval_fraction=cfg.eval_holdout_fraction, seed=cfg.seed)
+
+    run_dir = Path("runs/stage4/4b_fusion_vs_naive")
+    if seed != cfg.seed:
+        run_dir = run_dir.parent / f"{run_dir.name}_seed{seed}"
 
     grid = circular_grid(cfg.fusion.grid_size, device=device)
 
@@ -39,7 +45,7 @@ def main():
 
     final_mse, high_means = run_ramp_experiment(
         cfg, "4b_fusion_vs_naive", {"naive": naive, "fusion": fusion},
-        Path("runs/stage4/4b_fusion_vs_naive"), train_idx, eval_idx, device,
+        run_dir, train_idx, eval_idx, device,
         extra_manifest={"grid_size": cfg.fusion.grid_size})
 
     print(f"\nHigh-strength mean MSE: fusion {high_means['fusion']:.4f} "

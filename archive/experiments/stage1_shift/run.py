@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import dataclasses
+import os
 import random
 import subprocess
 from pathlib import Path
@@ -56,9 +57,14 @@ def evaluate_at_strength(model, eval_indices, strength, batch_size, device):
 
 def main():
     cfg = load_config()
-    random.seed(cfg.seed)
-    np.random.seed(cfg.seed)
-    torch.manual_seed(cfg.seed)
+    seed = int(os.environ.get("EXP_SEED", cfg.seed))
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+
+    run_dir = RUN_DIR
+    if seed != cfg.seed:
+        run_dir = run_dir.parent / f"{run_dir.name}_seed{seed}"
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     _, eval_indices = get_digit7_splits(eval_fraction=cfg.eval_holdout_fraction, seed=cfg.seed)
@@ -86,8 +92,8 @@ def main():
     print(f"Degradation: {mse_means[0]:.4f} (clean) -> {mse_means[-1]:.4f} (full red), "
           f"{mse_means[-1] / mse_means[0]:.1f}x")
 
-    RUN_DIR.mkdir(parents=True, exist_ok=True)
-    figures_dir = RUN_DIR / "figures"
+    run_dir.mkdir(parents=True, exist_ok=True)
+    figures_dir = run_dir / "figures"
     figures_dir.mkdir(exist_ok=True)
 
     try:
@@ -111,7 +117,7 @@ def main():
             "monotonic_increase": monotonic,
         },
     }
-    with open(RUN_DIR / "manifest.yaml", "w") as f:
+    with open(run_dir / "manifest.yaml", "w") as f:
         yaml.safe_dump(manifest, f, sort_keys=False)
 
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))

@@ -20,6 +20,7 @@
 from __future__ import annotations
 
 import dataclasses
+import os
 import random
 import sys
 from pathlib import Path
@@ -49,11 +50,16 @@ EVAL_STRENGTHS = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
 
 def main():
     cfg = load_config()
-    random.seed(cfg.seed)
-    np.random.seed(cfg.seed)
-    torch.manual_seed(cfg.seed)
+    seed = int(os.environ.get("EXP_SEED", cfg.seed))
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Device: {device}")
+
+    run_dir = RUN_DIR
+    if seed != cfg.seed:
+        run_dir = run_dir.parent / f"{run_dir.name}_seed{seed}"
 
     train_indices, eval_indices = get_digit7_splits(
         eval_fraction=cfg.eval_holdout_fraction, seed=cfg.seed)
@@ -138,10 +144,10 @@ def main():
     print(f"C uncertainty range across strengths: "
           f"{min(final_unc['C']):.4f} - {max(final_unc['C']):.4f} (old ref 0.035-0.038)")
 
-    (RUN_DIR / "figures").mkdir(parents=True, exist_ok=True)
-    (RUN_DIR / "checkpoints").mkdir(exist_ok=True)
+    (run_dir / "figures").mkdir(parents=True, exist_ok=True)
+    (run_dir / "checkpoints").mkdir(exist_ok=True)
     for k in ("A", "B", "C"):
-        torch.save(nodes[k].model.state_dict(), RUN_DIR / f"checkpoints/node_{k.lower()}.pth")
+        torch.save(nodes[k].model.state_dict(), run_dir / f"checkpoints/node_{k.lower()}.pth")
 
     manifest = {
         "stage": "stage3", "condition": "naive_average",
@@ -158,7 +164,7 @@ def main():
             "c_uncertainty_elevated_high_strengths": c_unc_elevated,
         },
     }
-    with open(RUN_DIR / "manifest.yaml", "w") as f:
+    with open(run_dir / "manifest.yaml", "w") as f:
         yaml.safe_dump(manifest, f, sort_keys=False)
 
     fig, axes = plt.subplots(2, 2, figsize=(15, 9))
@@ -198,8 +204,8 @@ def main():
     axes[1][1].legend(); axes[1][1].grid(True)
 
     plt.tight_layout()
-    plt.savefig(RUN_DIR / "figures/stage3_results.png", dpi=150)
-    print(f"Saved {RUN_DIR / 'figures/stage3_results.png'}")
+    plt.savefig(run_dir / "figures/stage3_results.png", dpi=150)
+    print(f"Saved {run_dir / 'figures/stage3_results.png'}")
 
 
 if __name__ == "__main__":

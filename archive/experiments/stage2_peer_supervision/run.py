@@ -18,6 +18,7 @@
 from __future__ import annotations
 
 import dataclasses
+import os
 import random
 import sys
 from pathlib import Path
@@ -67,7 +68,7 @@ def eval_nodes(nodes: dict, eval_indices, batch_size, device):
     return results
 
 
-def run_sequential(cfg, train_indices, eval_indices, device):
+def run_sequential(cfg, train_indices, eval_indices, device, seed):
     print("\n=== Sequential variant ===")
     node_a = Node.from_checkpoint(BASELINE_CHECKPOINT, lr=cfg.model.lr, device=device)
     node_b = Node.from_checkpoint(BASELINE_CHECKPOINT, lr=cfg.model.lr, device=device)
@@ -99,6 +100,8 @@ def run_sequential(cfg, train_indices, eval_indices, device):
           f"(reference expects B smoother)")
 
     run_dir = Path("runs/stage2/sequential")
+    if seed != cfg.seed:
+        run_dir = run_dir.parent / f"{run_dir.name}_seed{seed}"
     (run_dir / "figures").mkdir(parents=True, exist_ok=True)
     (run_dir / "checkpoints").mkdir(exist_ok=True)
     torch.save(node_a.model.state_dict(), run_dir / "checkpoints/node_a.pth")
@@ -134,7 +137,7 @@ def run_sequential(cfg, train_indices, eval_indices, device):
     print(f"Saved {run_dir / 'figures/stage2_sequential.png'}")
 
 
-def run_simultaneous(cfg, train_indices, eval_indices, device):
+def run_simultaneous(cfg, train_indices, eval_indices, device, seed):
     print("\n=== Simultaneous variant ===")
     node_a = Node.from_checkpoint(BASELINE_CHECKPOINT, lr=cfg.model.lr, device=device)
     node_b = Node.from_checkpoint(BASELINE_CHECKPOINT, lr=cfg.model.lr, device=device)
@@ -166,6 +169,8 @@ def run_simultaneous(cfg, train_indices, eval_indices, device):
           f"(reference expects early lag that closes)")
 
     run_dir = Path("runs/stage2/simultaneous")
+    if seed != cfg.seed:
+        run_dir = run_dir.parent / f"{run_dir.name}_seed{seed}"
     (run_dir / "figures").mkdir(parents=True, exist_ok=True)
     (run_dir / "checkpoints").mkdir(exist_ok=True)
     torch.save(node_a.model.state_dict(), run_dir / "checkpoints/node_a.pth")
@@ -210,9 +215,10 @@ def run_simultaneous(cfg, train_indices, eval_indices, device):
 
 def main(variant: str):
     cfg = load_config()
-    random.seed(cfg.seed)
-    np.random.seed(cfg.seed)
-    torch.manual_seed(cfg.seed)
+    seed = int(os.environ.get("EXP_SEED", cfg.seed))
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Device: {device}")
 
@@ -220,9 +226,9 @@ def main(variant: str):
         eval_fraction=cfg.eval_holdout_fraction, seed=cfg.seed)
 
     if variant in ("both", "sequential"):
-        run_sequential(cfg, train_indices, eval_indices, device)
+        run_sequential(cfg, train_indices, eval_indices, device, seed)
     if variant in ("both", "simultaneous"):
-        run_simultaneous(cfg, train_indices, eval_indices, device)
+        run_simultaneous(cfg, train_indices, eval_indices, device, seed)
 
 
 if __name__ == "__main__":

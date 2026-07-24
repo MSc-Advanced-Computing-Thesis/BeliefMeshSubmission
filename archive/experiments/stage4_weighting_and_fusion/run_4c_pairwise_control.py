@@ -15,6 +15,7 @@
 
 from __future__ import annotations
 
+import os
 import random
 import sys
 from pathlib import Path
@@ -59,9 +60,14 @@ def optim_fusion(a, c):
 
 def main():
     cfg = load_config()
-    random.seed(cfg.seed); np.random.seed(cfg.seed); torch.manual_seed(cfg.seed)
+    seed = int(os.environ.get("EXP_SEED", cfg.seed))
+    random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     train_idx, eval_idx = get_digit7_splits(eval_fraction=cfg.eval_holdout_fraction, seed=cfg.seed)
+
+    run_dir = Path("runs/stage4/4c_grid_vs_optim")
+    if seed != cfg.seed:
+        run_dir = run_dir.parent / f"{run_dir.name}_seed{seed}"
 
     grid = circular_grid(cfg.fusion.grid_size, device=device)
 
@@ -74,7 +80,7 @@ def main():
 
     final_mse, high_means = run_ramp_experiment(
         cfg, "4c_grid_vs_optim", {"naive": naive, "grid": grid_fusion, "optim": optim_fusion},
-        Path("runs/stage4/4c_grid_vs_optim"), train_idx, eval_idx, device,
+        run_dir, train_idx, eval_idx, device,
         extra_manifest={"grid_size": cfg.fusion.grid_size,
                         "optim_steps": N_OPTIM_STEPS, "optim_lr": OPTIM_LR})
 

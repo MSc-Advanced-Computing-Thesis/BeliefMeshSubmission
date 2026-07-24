@@ -94,7 +94,8 @@ class Mesh:
                  lr: float, fusion_grid: torch.Tensor, mode: str = "fusion",
                  device: torch.device | None = None, sample_seed: int = 42,
                  rho: float = 0.2):
-        assert mode in ("fusion", "naive", "frozen", "consensus", "fedavg", "fedavg_global")
+        assert mode in ("fusion", "naive", "frozen", "consensus", "fedavg", "fedavg_global",
+                        "certainty")
         self.mode = mode
         self.environment = environment
         self.grid_size = grid_size
@@ -149,10 +150,27 @@ class Mesh:
         meaningful only in consensus mode (1.0 placeholders otherwise).
         """
         from beliefmesh.fusion.consensus import agreement_score, inherited_trust
+        from beliefmesh.models.evidential import predictive_uncertainty
 
         beliefs_raw = [b for _, b in contributions]
         if self.mode == "naive":
             return float(np.mean([b[0] for b in beliefs_raw])), 1.0, 1.0
+
+        if self.mode == "certainty":
+            # DELIBERATE ablation reproducing the prior repo's actual
+            # mechanism (a scalar certainty-weighted average of point
+            # estimates), done correctly this time (certainty properly wired
+            # in, not just computed and discarded). NOT true Bayesian fusion
+            # -- collapses each belief to (gamma, certainty) before combining,
+            # which is exactly Defect 1 from the audit. Exists only as a
+            # same-codebase, same-environment control against `consensus`/
+            # `fusion`, isolating the aggregation rule as the only variable.
+            gammas = np.array([b[0] for b in beliefs_raw])
+            uncs = np.array([predictive_uncertainty(
+                torch.tensor([b[1]]), torch.tensor([b[2]]), torch.tensor([b[3]])
+            ).clamp(max=10.0).item() for b in beliefs_raw])
+            certs = 1.0 / (1.0 + uncs)
+            return float(np.sum(certs * gammas) / np.sum(certs)), 1.0, 1.0
 
         c_vals = torch.tensor([self.consensus[cid] for cid, _ in contributions])
         if len(contributions) == 1:

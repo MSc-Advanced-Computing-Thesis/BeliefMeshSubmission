@@ -24,6 +24,7 @@
 
 from __future__ import annotations
 
+import os
 import random
 import sys
 from pathlib import Path
@@ -208,7 +209,12 @@ def dynamic_analytic_floors(field: np.ndarray, node_centres, fov_size, grid_size
 
 def main(arms: list[str]):
     cfg = load_config()
-    random.seed(cfg.seed); np.random.seed(cfg.seed); torch.manual_seed(cfg.seed)
+    seed = int(os.environ.get("EXP_SEED", cfg.seed))
+    random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
+
+    run_root = RUN_ROOT
+    if seed != cfg.seed:
+        run_root = run_root.parent / f"{run_root.name}_seed{seed}"
 
     grids = np.load(ENV_DIR / "environment_grids.npy")
     grid_size, total_steps = grids.shape[1], grids.shape[0]
@@ -232,23 +238,43 @@ def main(arms: list[str]):
                        "per_node_floor": post_ff, "per_node_floor_plus_base": post_ff + BASE_ERROR},
     }
     global_floor, fov_floor = post_gf, post_ff  # last-50-steps metric is post-event
-    RUN_ROOT.mkdir(parents=True, exist_ok=True)
-    with open(RUN_ROOT / "analytic_floors.yaml", "w") as f:
+    run_root.mkdir(parents=True, exist_ok=True)
+    with open(run_root / "analytic_floors.yaml", "w") as f:
         yaml.safe_dump({"git_commit": git_commit(), **floors}, f, sort_keys=False)
     print("ANALYTIC FLOORS (pre-registered):")
     print(yaml.safe_dump(floors, sort_keys=False))
 
     results = {}
     for arm in arms:
-        random.seed(cfg.seed); np.random.seed(cfg.seed); torch.manual_seed(cfg.seed)
+        random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
         results[arm] = run_mesh_experiment(
-            cfg, condition=f"offset_{arm}", run_dir=RUN_ROOT / arm,
+            cfg, condition=f"offset_{arm}", run_dir=run_root / arm,
             all_grids=all_grids, wearable_paths=wearable_paths,
             node_centres=node_centres, fov_size=7, mode=arm,
             baseline_checkpoint=BASELINE_CHECKPOINT,
             n_wearable_samples=1, n_train_repeats=10,
             title=f"Offset mapping-conflict ({arm})",
             offset_field=field,
+            env_seed=seed,
+            extra_manifest={"experiment": "mapping-conflict, CHECKLIST Phase 13",
+                            "analytic_floors": floors},
+        )
+
+    # fusion_repeats1: same aggregation, repeats=1 -- not reachable via the
+    # --arms CLI (which fixes n_train_repeats=10 for all four ARMS), but part
+    # of the canonical 5-cell main_arms table (Stage 1 headline local-method
+    # number, 0.0837 at seed 42) -- always run so seed repeats stay complete.
+    if "fusion" in arms:
+        random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
+        results["fusion_repeats1"] = run_mesh_experiment(
+            cfg, condition="offset_fusion_repeats1", run_dir=run_root / "fusion_repeats1",
+            all_grids=all_grids, wearable_paths=wearable_paths,
+            node_centres=node_centres, fov_size=7, mode="fusion",
+            baseline_checkpoint=BASELINE_CHECKPOINT,
+            n_wearable_samples=1, n_train_repeats=1,
+            title="Offset mapping-conflict (fusion, repeats=1)",
+            offset_field=field,
+            env_seed=seed,
             extra_manifest={"experiment": "mapping-conflict, CHECKLIST Phase 13",
                             "analytic_floors": floors},
         )

@@ -29,6 +29,7 @@
 
 from __future__ import annotations
 
+import os
 import random
 import sys
 from pathlib import Path
@@ -48,9 +49,10 @@ from stage6_spatial_mesh.runner import run_mesh_experiment
 from beliefmesh.config import load_config
 
 BASELINE_CHECKPOINT = Path("runs/stage0/baseline/checkpoints/pretrained_digit7.pth")
-ARMS = ["frozen", "naive", "fusion", "consensus", "fedavg", "fedavg_global"]
+ARMS = ["frozen", "naive", "fusion", "consensus", "fedavg", "fedavg_global", "certainty"]
 ARM_COLORS = {"frozen": "#999999", "naive": "#d62728", "fusion": "#2ca02c",
-              "consensus": "#1f77b4", "fedavg": "#9467bd", "fedavg_global": "#8c564b"}
+              "consensus": "#1f77b4", "fedavg": "#9467bd", "fedavg_global": "#8c564b",
+              "certainty": "#e377c2"}
 
 # Two dynamic regimes with different characters (measured, not assumed):
 #   v2: fast, large-excursion red<->blue drift (mean per-step change 0.0175,
@@ -69,8 +71,11 @@ ENVS = {
 
 def main(arms: list[str], env: str, wearables: int = 1):
     cfg = load_config()
+    seed = int(os.environ.get("EXP_SEED", cfg.seed))
     env_cfg = ENVS[env]
     RUN_ROOT = env_cfg["run_root"]
+    if seed != cfg.seed:
+        RUN_ROOT = RUN_ROOT.parent / f"{RUN_ROOT.name}_seed{seed}"
     all_grids = np.load(env_cfg["dir"] / "environment_grids.npy")
     node_centres = np.load(env_cfg["dir"] / "node_centres.npy")
     if wearables == 1:
@@ -91,7 +96,7 @@ def main(arms: list[str], env: str, wearables: int = 1):
 
     results = {}
     for arm in arms:
-        random.seed(cfg.seed); np.random.seed(cfg.seed); torch.manual_seed(cfg.seed)
+        random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
         results[arm] = run_mesh_experiment(
             cfg, condition=f"6d_{env}_{'3w_' if wearables == 3 else ''}{arm}",
             run_dir=RUN_ROOT / arm,
@@ -100,6 +105,7 @@ def main(arms: list[str], env: str, wearables: int = 1):
             baseline_checkpoint=BASELINE_CHECKPOINT,
             n_wearable_samples=1, n_train_repeats=10,
             title=f"Stage 6D ({arm}): dynamic environment",
+            env_seed=seed,
             extra_manifest={"environment": env_cfg["label"],
                             "comparison": "6D three-way, Spec Sec 8"},
         )

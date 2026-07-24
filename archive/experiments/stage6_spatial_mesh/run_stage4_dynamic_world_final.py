@@ -13,10 +13,21 @@
 # wearable clumping, the field-flattening bug) if that narrative needs
 # revisiting.
 #
+# EXP_SEED env var: overrides the training seed (random/np/torch), the Mesh
+# sample seed (env_seed), and the wearable-walk seeds together, so a seed
+# repeat resamples all the actual stochastic elements of one deployment (the
+# model's training trajectory AND where the wearables happen to wander) --
+# not just the model. The FIELD itself stays fixed regardless of EXP_SEED:
+# it's the validated task being tested, not something to resample per repeat.
+# At the default seed (cfg.seed), wearable-walk seeds are EXACTLY 200/201/202
+# as before -- fully backward compatible with the already-reported number.
+#
 # Run: python -u experiments/stage6_spatial_mesh/run_stage4_dynamic_world_final.py
+# Run: EXP_SEED=1042 python -u experiments/stage6_spatial_mesh/run_stage4_dynamic_world_final.py
 
 from __future__ import annotations
 
+import os
 import random
 import sys
 from pathlib import Path
@@ -39,33 +50,44 @@ N_WEARABLES = 3
 
 def main():
     cfg = load_config()
+    seed = int(os.environ.get("EXP_SEED", cfg.seed))
+    root = ROOT
+    if seed != cfg.seed:
+        root = root.parent / f"{root.name}_seed{seed}"
+    root.mkdir(parents=True, exist_ok=True)
+
     grids = np.load(ENV / "environment_grids.npy")
     T, G = grids.shape[0], grids.shape[1]
     uniform = np.full((T, G, G), 0.5)
     centres = np.load(ENV / "node_centres.npy")
-    field = build_dynamic_offset_field(G, T)  # keyframe-normalised, sustained-dynamism field
-    np.save(ROOT / "dynamic_field_v2.npy", field)
+    field = build_dynamic_offset_field(G, T)  # fixed task, not resampled per seed
+    np.save(root / "dynamic_field_v2.npy", field)
 
     spatial_var = field.reshape(T, -1).var(axis=1)
     print(f"field check: whole-run var={spatial_var.mean():.1f}, "
           f"last-50 var={spatial_var[-50:].mean():.1f}, "
           f"ratio={spatial_var.mean()/spatial_var[-50:].mean():.2f}")
 
-    paths = [build_random_wander_path(T, G, seed=200 + i) for i in range(N_WEARABLES)]
+    # 200/201/202 exactly, at the default seed (backward compatible); a
+    # distinct, deterministic triple per repeat seed otherwise
+    wearable_seed_base = 200 if seed == cfg.seed else seed + 200
+    paths = [build_random_wander_path(T, G, seed=wearable_seed_base + i)
+             for i in range(N_WEARABLES)]
 
     results = {}
 
     def run(tag, mode):
-        random.seed(cfg.seed); np.random.seed(cfg.seed); torch.manual_seed(cfg.seed)
+        random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
         res = run_mesh_experiment(
-            cfg, condition=tag, run_dir=ROOT / tag,
+            cfg, condition=tag, run_dir=root / tag,
             all_grids=uniform, wearable_paths=paths, node_centres=centres,
             fov_size=7, mode=mode, baseline_checkpoint=CKPT,
             n_wearable_samples=1, n_train_repeats=1,
             title=f"Stage 4 dynamic world, {N_WEARABLES} random-wandering wearables ({tag})",
             offset_field=field,
+            env_seed=seed,
         )
-        cell_mse_steps = np.load(ROOT / tag / "cell_mse_steps.npy")
+        cell_mse_steps = np.load(root / tag / "cell_mse_steps.npy")
         whole_run_mse = float(np.nanmean(cell_mse_steps))
         results[tag] = (res["mean_mse_last_50"], whole_run_mse)
         print(f"### {tag}: last50={res['mean_mse_last_50']:.4f} whole_run={whole_run_mse:.4f}")

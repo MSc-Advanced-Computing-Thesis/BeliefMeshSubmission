@@ -20,6 +20,7 @@
 from __future__ import annotations
 
 import dataclasses
+import os
 import random
 import sys
 from pathlib import Path
@@ -87,7 +88,7 @@ def evaluate_interpolated(model, eval_indices, interp, batch_size, device, passe
     return float(np.mean(pass_mses))
 
 
-def run_mode(mode, cfg, train_indices, eval_indices, device, grid):
+def run_mode(mode, cfg, train_indices, eval_indices, device, grid, seed):
     print(f"\n=== Stage 5: {mode} ===")
     node_a = Node.from_checkpoint(BASELINE_CHECKPOINT, lr=cfg.model.lr, device=device)
     node_c = Node.from_checkpoint(BASELINE_CHECKPOINT, lr=cfg.model.lr, device=device)
@@ -137,6 +138,8 @@ def run_mode(mode, cfg, train_indices, eval_indices, device, grid):
                 model, eval_indices, float(interp), cfg.model.batch_size, device, passes=2))
 
     run_dir = Path("runs/stage5") / mode
+    if seed != cfg.seed:
+        run_dir = run_dir.parent / f"{run_dir.name}_seed{seed}"
     (run_dir / "figures").mkdir(parents=True, exist_ok=True)
     (run_dir / "checkpoints").mkdir(exist_ok=True)
     for name, model in models.items():
@@ -201,13 +204,14 @@ def run_mode(mode, cfg, train_indices, eval_indices, device, grid):
 
 def main(modes: list[str]):
     cfg = load_config()
-    random.seed(cfg.seed); np.random.seed(cfg.seed); torch.manual_seed(cfg.seed)
+    seed = int(os.environ.get("EXP_SEED", cfg.seed))
+    random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Device: {device}")
     train_idx, eval_idx = get_digit7_splits(eval_fraction=cfg.eval_holdout_fraction, seed=cfg.seed)
     grid = circular_grid(cfg.fusion.grid_size, device=device)
     for mode in modes:
-        run_mode(mode, cfg, train_idx, eval_idx, device, grid)
+        run_mode(mode, cfg, train_idx, eval_idx, device, grid, seed)
 
 
 if __name__ == "__main__":

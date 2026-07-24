@@ -15,6 +15,7 @@
 
 from __future__ import annotations
 
+import os
 import random
 import sys
 from pathlib import Path
@@ -80,14 +81,19 @@ def winner(a, c):
 
 def main():
     cfg = load_config()
-    random.seed(cfg.seed); np.random.seed(cfg.seed); torch.manual_seed(cfg.seed)
+    seed = int(os.environ.get("EXP_SEED", cfg.seed))
+    random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     train_idx, eval_idx = get_digit7_splits(eval_fraction=cfg.eval_holdout_fraction, seed=cfg.seed)
+
+    run_dir = Path("runs/stage4/4a_scalar_weighting")
+    if seed != cfg.seed:
+        run_dir = run_dir.parent / f"{run_dir.name}_seed{seed}"
 
     variants = {"naive": naive, "certainty": certainty, "squared": squared,
                 "gated": gated, "softmax": softmax, "winner": winner}
     _, high_means = run_ramp_experiment(
-        cfg, "4a_scalar_weighting", variants, Path("runs/stage4/4a_scalar_weighting"),
+        cfg, "4a_scalar_weighting", variants, run_dir,
         train_idx, eval_idx, device,
         extra_manifest={"gated_threshold": CERTAINTY_THRESHOLD,
                         "softmax_temperature": SOFTMAX_TEMPERATURE,
