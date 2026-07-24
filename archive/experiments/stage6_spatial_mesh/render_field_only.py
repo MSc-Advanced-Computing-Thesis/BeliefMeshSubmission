@@ -20,7 +20,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from stage6_spatial_mesh.run_offset_experiments import build_dynamic_offset_field
 
-OUT = Path("runs/stage6/dynamic_offset/field_preview.mp4")
+OUT = Path("runs/stage6/offset_world/dynamic/field_preview.mp4")
 G, T = 22, 390
 
 field = build_dynamic_offset_field(G, T)

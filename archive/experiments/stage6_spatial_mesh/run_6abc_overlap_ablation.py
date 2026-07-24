@@ -68,7 +68,7 @@ def main(config_names: list[str]):
         c = configs[name]
         run_mesh_experiment(
             cfg, condition=f"6a_{name}",
-            run_dir=Path("runs/stage6/6a_overlap_ablation") / name,
+            run_dir=Path("runs/stage6/colour_world/static/overlap_density_ablation") / name,
             all_grids=all_grids, wearable_paths=wearable_paths,
             node_centres=c["node_centres"], fov_size=c["fov_size"],
             mode="fusion", baseline_checkpoint=BASELINE_CHECKPOINT,

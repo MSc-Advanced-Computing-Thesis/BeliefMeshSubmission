@@ -41,7 +41,7 @@ from beliefmesh.node.mesh import fov_cells
 
 ENV_DIR = Path("experiments/stage6_spatial_mesh/environment_v2")
 BASELINE_CHECKPOINT = Path("runs/stage0/baseline/checkpoints/pretrained_digit7.pth")
-RUN_ROOT = Path("runs/stage6/offset")
+RUN_ROOT = Path("runs/stage6/offset_world/static/main_arms")
 OFFSET_MAX_DEG = 60.0   # linear gradient across columns: -60 .. +60 degrees
 BASE_ERROR = 0.0123     # stage 0 baseline holdout MSE (clean-task error floor)
 ARMS = ["frozen", "fedavg_global", "fedavg", "fusion"]

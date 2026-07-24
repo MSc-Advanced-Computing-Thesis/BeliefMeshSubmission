@@ -49,6 +49,14 @@ def main():
     field_noevent = build_offset_field(G, T, event=False)
     results = {}
 
+    # This batch deliberately spans both worlds in one sequential run (see
+    # header) -- output routed by tag prefix so results land next to the
+    # rest of their world's runs rather than in one grab-bag directory.
+    def _run_root(tag: str) -> Path:
+        if tag.startswith("offset_") or tag.startswith("seed1042_offset_"):
+            return Path("runs/stage6/offset_world/static/rate_sweep_and_controls")
+        return Path("runs/stage6/colour_world/dynamic/seed1042_replication")
+
     def run(tag, **kw):
         seeded(cfg, kw.pop("torch_seed", cfg.seed))
         defaults = dict(all_grids=uniform, wearable_paths=path_v2,
@@ -57,7 +65,7 @@ def main():
                         n_train_repeats=1, title=tag)
         defaults.update(kw)
         results[tag] = run_mesh_experiment(
-            cfg, condition=tag, run_dir=Path("runs/stage6/final_batch") / tag,
+            cfg, condition=tag, run_dir=_run_root(tag) / tag,
             **defaults)
         print(f"### {tag}: {results[tag]['mean_mse_last_50']:.4f}")
 

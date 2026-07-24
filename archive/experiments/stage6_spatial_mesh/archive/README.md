@@ -18,3 +18,8 @@ documents a step in the Stage 4 narrative written up in
 `build_random_wander_path()` itself is NOT archived — it was promoted to
 `run_offset_experiments.py` alongside `build_dynamic_offset_field()` since
 it's a reusable environment-generation utility, not a one-off experiment.
+
+The RESULTS each of these scripts produced live in
+`runs/stage6/offset_world/dynamic/archive/`, grouped into the same four
+numbered steps (01-03 + `old_field/`) — see that folder's own README for the
+full numbers.

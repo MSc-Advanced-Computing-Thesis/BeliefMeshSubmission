@@ -33,7 +33,7 @@ from beliefmesh.config import load_config
 
 ENV = Path("experiments/stage6_spatial_mesh/environment_v2")
 CKPT = Path("runs/stage0/baseline/checkpoints/pretrained_digit7.pth")
-ROOT = Path("runs/stage6/dynamic_offset")
+ROOT = Path("runs/stage6/offset_world/dynamic")
 N_WEARABLES = 3
 
 

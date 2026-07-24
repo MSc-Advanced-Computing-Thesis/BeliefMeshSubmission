@@ -1,6 +1,14 @@
 # Stage 6D: Three-way comparison -- the central empirical result.
 # Experiment Specification Sec 8 & Sec 9 step 3.
 #
+# NOTE on 6b/6c: the spec's "6b" and "6c" are not separate experiments -- they
+# ARE the fusion arm of this same run, on the v2 and v3 environments
+# respectively (frozen/naive/fusion/consensus/fedavg all share one Mesh, one
+# wearable trajectory, one seed per env -- splitting fusion into its own
+# directory would duplicate data and break the paired comparison). So:
+#   6b = colour_world/dynamic/v2_fast_drift/fusion/
+#   6c = colour_world/dynamic/v3_whiteout/fusion/
+#
 # Three systems on the dynamic V2 environment with identical wearable path and
 # identical fresh pretrained initialisation, differing ONLY in aggregation:
 #   frozen -- pretrained baseline, no training ever
@@ -51,10 +59,10 @@ ARM_COLORS = {"frozen": "#999999", "naive": "#d62728", "fusion": "#2ca02c",
 #       (env values up to 1.5: red -> white washout), which v2 never reaches
 ENVS = {
     "v2": dict(dir=Path("experiments/stage6_spatial_mesh/environment_v2"),
-               run_root=Path("runs/stage6/6d"),
+               run_root=Path("runs/stage6/colour_world/dynamic/v2_fast_drift"),
                label="dynamic_v2 (fast red<->blue drift)"),
     "v3": dict(dir=Path("experiments/stage6_spatial_mesh/environment_v3"),
-               run_root=Path("runs/stage6/6d_v3"),
+               run_root=Path("runs/stage6/colour_world/dynamic/v3_whiteout"),
                label="dynamic_v3_whiteout (slower drift, enters red->white regime)"),
 }
 
@@ -79,7 +87,7 @@ def main(arms: list[str], env: str, wearables: int = 1):
         assert env == "v3", "3-wearable paths are native to the v3 environment"
         wearable_paths = [np.load(env_cfg["dir"] / f"wearable_path_{w}.npy")[:len(all_grids)]
                           for w in range(3)]
-        RUN_ROOT = Path(str(RUN_ROOT) + "_3w")
+        RUN_ROOT = Path(str(RUN_ROOT) + "_3wearable")
 
     results = {}
     for arm in arms:

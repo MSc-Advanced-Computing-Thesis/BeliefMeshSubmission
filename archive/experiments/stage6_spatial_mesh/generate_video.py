@@ -10,7 +10,7 @@ Requires the run to have saved cell_mse_steps.npy / cell_cert_steps.npy
 
 Run from the project root, e.g.:
   python experiments/stage6_spatial_mesh/generate_video.py \
-      --run-dir runs/stage6/6a_overlap_ablation/7x7_s3 --fov 7 --static
+      --run-dir runs/stage6/colour_world/static/overlap_density_ablation/7x7_s3 --fov 7 --static
 """
 
 from __future__ import annotations
