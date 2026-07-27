@@ -258,10 +258,10 @@ def run_mesh_experiment(
         plt.colorbar(im, ax=ax, label=label)
         for w in range(n_wearables):
             trail = wearable_paths[w][trail_start:trail_end + 1]
-            ax.plot(trail[:, 1], trail[:, 0], color=WEARABLE_COLORS[w],
+            ax.plot(trail[:, 1], trail[:, 0], color=WEARABLE_COLORS[w % len(WEARABLE_COLORS)],
                     linewidth=1.5, alpha=0.85, zorder=5)
             ax.scatter(wearable_paths[w][trail_end, 1], wearable_paths[w][trail_end, 0],
-                       c=WEARABLE_COLORS[w], s=60, marker="s", zorder=6,
+                       c=WEARABLE_COLORS[w % len(WEARABLE_COLORS)], s=60, marker="s", zorder=6,
                        edgecolors="white", linewidths=0.5)
         ax.set_title(label)
         ax.set_xticks([]); ax.set_yticks([])

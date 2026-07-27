@@ -71,12 +71,14 @@ def build_offset_field(grid_size: int, total_steps: int, event: bool = True,
 def build_dynamic_offset_field(grid_size: int, total_steps: int,
                                n_keyframes: int = 4,
                                background_max_deg: float = 60.0,
-                               block_pos: tuple[float, float] = (14.0, 8.0),
-                               block_radius: float = 1.5,
-                               wake_length: float = 10.0,
+                               block_pos: tuple[float, float] | None = None,
+                               block_radius: float | None = None,
+                               wake_length: float | None = None,
                                wake_half_angle_deg: float = 22.0,
                                wake_amplitude: float = 50.0,
                                wake_period: int = 110,
+                               control_margin: float = 4.0,
+                               control_spacing: float = 13.0,
                                seed: int = 7) -> np.ndarray:
     """(T, H, W) offset field with two genuinely dynamic components:
 
@@ -95,13 +97,37 @@ def build_dynamic_offset_field(grid_size: int, total_steps: int,
     offset oscillates fast (turbulence downstream of an obstruction is
     chaotic, not a scaled copy of the ambient flow); outside it, only the
     smooth background applies.
+
+    SCALING (added for the 10x10-node environment test): block_pos,
+    block_radius and wake_length default to None and, when not given
+    explicitly, scale proportionally to grid_size relative to the original
+    22-cell design (14.0, 8.0)/1.5/10.0 -- so a bigger grid gets a
+    proportionally-sized wake, not a tiny fixed-size one lost in more empty
+    space. control_margin/control_spacing default to the values that
+    reproduce the original 4-corner control-point layout EXACTLY at
+    grid_size=22 (verified bit-for-bit), but scale the NUMBER of control
+    points up for bigger grids at roughly the same spacing -- more
+    independent spatial structure per unit area, not the same 4 points
+    stretched thinner (which would make the field smoother, not equally
+    dynamic, as the grid grows -- the opposite of what "add more new
+    environment at the same scale" requires).
     """
     from scipy.interpolate import RBFInterpolator
 
+    REFERENCE_GRID = 22.0
+    scale = grid_size / REFERENCE_GRID
+    if block_pos is None:
+        block_pos = (14.0 * scale, 8.0 * scale)
+    if block_radius is None:
+        block_radius = 1.5 * scale
+    if wake_length is None:
+        wake_length = 10.0 * scale
+
     rng = np.random.default_rng(seed)
-    control_positions = np.array([
-        [4, 4], [4, grid_size - 5], [grid_size - 5, 4], [grid_size - 5, grid_size - 5],
-    ], dtype=float)
+    n_per_axis = max(2, round((grid_size - 2 * control_margin) / control_spacing) + 1)
+    axis_positions = np.linspace(control_margin, grid_size - 1 - control_margin, n_per_axis)
+    control_positions = np.array([[r, c] for r in axis_positions for c in axis_positions],
+                                 dtype=float)
     keyframe_values = rng.uniform(-background_max_deg, background_max_deg,
                                   size=(n_keyframes, len(control_positions)))
     # i.i.d. draws per keyframe don't guarantee consistent spatial contrast --
