@@ -57,6 +57,10 @@ def run_mesh_experiment(
     wearable_policy: str | None = None,
     policy_step_size: float = 0.4,
     policy_cooldown: int = 0,
+    lam: float = 0.1,
+    rho: float = 0.2,
+    temper_gradient: bool = True,
+    excluded_rotation_ranges: list[tuple[float, float]] | None = None,
 ):
     """wearable_policy=None replays the given wearable_paths. 'epistemic'
     computes the single wearable's trajectory ONLINE: each step it moves
@@ -68,11 +72,13 @@ def run_mesh_experiment(
     device = device or torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     env = GridEnvironment(grid_size, all_grids, offset_field=offset_field,
-                          rotation_seed=env_seed)
+                          rotation_seed=env_seed,
+                          excluded_rotation_ranges=excluded_rotation_ranges)
     mesh = Mesh(node_centres, fov_size=fov_size, grid_size=grid_size,
                 environment=env, pretrained_path=baseline_checkpoint,
                 lr=cfg.model.lr, fusion_grid=circular_grid(cfg.fusion.grid_size),
-                mode=mode, device=device, sample_seed=env_seed)
+                mode=mode, device=device, sample_seed=env_seed, rho=rho, lam=lam,
+                temper_gradient=temper_gradient)
 
     coverage = np.zeros((grid_size, grid_size), dtype=int)
     for node in mesh.nodes.values():
@@ -152,7 +158,7 @@ def run_mesh_experiment(
         step_best = {}
         for node in mesh.nodes.values():
             for cell, (g, n, a, b) in node.cell_beliefs.items():
-                cert = 1.0 / (1.0 + min(b / (n * max(a - 1, 1e-6)), 10.0))
+                cert = 1.0 / (1.0 + min(b / (max(n, 1e-6) * max(a - 1, 1e-6)), 10.0))
                 if cell not in step_best or cert > step_best[cell][1]:
                     step_best[cell] = (g, cert)
         for cell, (pred, cert) in step_best.items():

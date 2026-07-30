@@ -176,6 +176,83 @@ def build_dynamic_offset_field(grid_size: int, total_steps: int,
     return field
 
 
+def build_chaotic_offset_field(grid_size: int, total_steps: int,
+                               n_keyframes: int = 30,
+                               background_max_deg: float = 100.0,
+                               control_margin: float = 4.0,
+                               control_spacing: float = 13.0,
+                               rbf_smoothing: float = 0.1,
+                               seed: int = 7) -> np.ndarray:
+    """Deliberately harder variant of build_dynamic_offset_field: measured on
+    the original field, adjacent cells differed by ~2-3 deg on average and a
+    fixed cell drifted ~0.06 deg/step -- smooth enough that a single
+    continuously-retrained shared model (fedavg_global) could stay
+    approximately valid over a wide neighbourhood and a long time window,
+    which is what let it beat fusion/consensus under sparse coverage despite
+    having no per-region specialisation at all (verified empirically:
+    fedavg_global's error DID concentrate in the rare high-offset cells,
+    corr(|offset|, MSE)=0.48, 3.6x worse in the top-10% vs bottom-10% offset
+    cells -- it just didn't matter much for the mean, because 90% of the map
+    was easy).
+
+    IMPORTANT, counterintuitive finding from tuning this (validated via
+    dynamic_analytic_floors before spending any GPU time): denser control
+    points (shorter spatial correlation length) make the fusion-vs-global
+    theoretical GAP SMALLER, not bigger -- pushing disagreement to a scale
+    shorter than the FOV (7 cells) hurts a per-node model's own internal
+    consistency just as much as it hurts the global model, so the ratio
+    between them barely moves (an early attempt at spacing=3.5 gave ratio
+    1.47x, actually worse than the original field's 4.97x). What actually
+    widens the gap: keep the correlation length >= the original's (spacing
+    13.0, matching its 4-corner control-point layout, i.e. each node's own
+    FOV stays internally coherent) but sharpen the transitions BETWEEN
+    regions (rbf_smoothing 1.0 -> 0.1, so nearby corners blend far less into
+    each other) and raise the amplitude (60 -> 100 deg, still safely under
+    the 180 deg wrap ceiling). Measured result: global floor 0.0133->0.0674,
+    per-node floor 0.0027->0.0076, ratio 4.97x->8.89x -- both the absolute
+    gap (~5.6x bigger) and the ratio (~1.8x bigger) improved together.
+
+    TEMPORAL: ~8x more keyframes (30 vs 4) over the same total_steps, so each
+    keyframe governs ~13 steps instead of ~130 -- a region's offset drifts
+    ~2.4 deg/step here vs ~0.06 deg/step in the original (near-frozen in
+    time), giving real staleness pressure within a single hop-propagation
+    window instead of over dozens of steps.
+
+    No wake component: the point here is a uniformly turbulent field, not
+    one turbulent patch on an otherwise-calm background.
+    """
+    from scipy.interpolate import RBFInterpolator
+
+    rng = np.random.default_rng(seed)
+    n_per_axis = max(2, round((grid_size - 2 * control_margin) / control_spacing) + 1)
+    axis_positions = np.linspace(control_margin, grid_size - 1 - control_margin, n_per_axis)
+    control_positions = np.array([[r, c] for r in axis_positions for c in axis_positions],
+                                 dtype=float)
+    keyframe_values = rng.uniform(-background_max_deg, background_max_deg,
+                                  size=(n_keyframes, len(control_positions)))
+    target_spread = 0.55 * background_max_deg
+    row_mean = keyframe_values.mean(axis=1, keepdims=True)
+    row_std = np.maximum(keyframe_values.std(axis=1, keepdims=True), 1e-6)
+    keyframe_values = row_mean + (keyframe_values - row_mean) / row_std * target_spread
+    keyframe_values = np.clip(keyframe_values, -background_max_deg, background_max_deg)
+    steps_between = total_steps / (n_keyframes - 1)
+    grid_x, grid_y = np.meshgrid(np.arange(grid_size), np.arange(grid_size))
+    grid_points = np.column_stack([grid_x.ravel(), grid_y.ravel()])
+
+    field = np.zeros((total_steps, grid_size, grid_size))
+    for step in range(total_steps):
+        frame_float = step / steps_between
+        k0 = int(frame_float)
+        k1 = min(k0 + 1, n_keyframes - 1)
+        alpha = frame_float - k0
+        vals = (1 - alpha) * keyframe_values[k0] + alpha * keyframe_values[k1]
+        rbf = RBFInterpolator(control_positions, vals, kernel="thin_plate_spline",
+                              smoothing=rbf_smoothing)
+        field[step] = np.clip(rbf(grid_points).reshape(grid_size, grid_size),
+                              -background_max_deg, background_max_deg)
+    return field
+
+
 def build_random_wander_path(total_steps: int, grid_size: int, seed: int,
                              step_mean: float = 0.35, step_std: float = 0.20,
                              momentum: float = 0.85) -> np.ndarray:

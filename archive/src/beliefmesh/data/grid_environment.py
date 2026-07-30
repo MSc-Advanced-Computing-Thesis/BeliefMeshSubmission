@@ -50,7 +50,8 @@ class GridEnvironment:
 
     def __init__(self, grid_size: int, environment_grids: np.ndarray,
                  mnist_root: str = "data/mnist", rotation_seed: int = 42,
-                 offset_field: np.ndarray | None = None):
+                 offset_field: np.ndarray | None = None,
+                 excluded_rotation_ranges: list[tuple[float, float]] | None = None):
         """offset_field: optional per-cell label offsets in DEGREES (CHECKLIST
         Phase 13, mapping-conflict experiments). Shape (H, W) for a static
         field, or (T, H, W) for a time-varying one (e.g. a hard-edged block
@@ -58,10 +59,21 @@ class GridEnvironment:
         mapping). The image shows rotation theta; the true label becomes
         theta + offset(cell[, step]). Identical visual inputs then demand
         different answers at different locations -- a location-dependent
-        mapping that no shared global function can fit."""
+        mapping that no shared global function can fit.
+
+        excluded_rotation_ranges: optional list of (lo, hi) degree ranges to
+        exclude from rotation sampling (both training via
+        get_multiple_rotations AND evaluation via cell_rotations). Diagnosed
+        empirically (analyze_excursion_frames.py): this specific base digit
+        becomes visually self-ambiguous at ~120-150 deg and near the +-180
+        deg wrap boundary, producing large, confident errors independent of
+        the fusion/training mechanism. A disclosed, principled exclusion of
+        a known blind spot -- not tuned per-run, applied consistently to
+        every mode/arm that uses this environment instance."""
         self.grid_size = grid_size
         self.environment_grids = environment_grids
         self.offset_field = offset_field
+        self.excluded_rotation_ranges = excluded_rotation_ranges
 
         base = datasets.MNIST(root=mnist_root, train=True, download=True)
         digit7 = base.data[base.targets == 7][0]  # the single fixed seven
@@ -74,11 +86,26 @@ class GridEnvironment:
         self.base_image = make_green_digits(TF.invert(to_tensor(digit7)))
 
         rng = np.random.default_rng(rotation_seed)
-        self.cell_rotations = rng.uniform(
-            -180, 180, size=(len(environment_grids), grid_size, grid_size))
+        self._rotation_rng = rng  # reused below for excluded-range rejection sampling
+        shape = (len(environment_grids), grid_size, grid_size)
+        if excluded_rotation_ranges:
+            self.cell_rotations = np.array(
+                [self._sample_rotation(rng) for _ in range(int(np.prod(shape)))]
+            ).reshape(shape)
+        else:
+            self.cell_rotations = rng.uniform(-180, 180, size=shape)
 
         self._cache_step: int | None = None
         self._cache: dict[tuple[int, int], tuple[torch.Tensor, torch.Tensor]] = {}
+
+    def _sample_rotation(self, rng: np.random.Generator) -> float:
+        """Uniform(-180, 180), rejecting excluded_rotation_ranges if set."""
+        if not self.excluded_rotation_ranges:
+            return float(rng.uniform(-180, 180))
+        while True:
+            angle = float(rng.uniform(-180, 180))
+            if not any(lo <= angle <= hi for lo, hi in self.excluded_rotation_ranges):
+                return angle
 
     def get_cell_input(self, row: int, col: int, step: int) -> tuple[torch.Tensor, torch.Tensor]:
         """(image, normalised_angle_label) for one cell at one timestep. Cached
@@ -124,7 +151,7 @@ class GridEnvironment:
         env_value = self.environment_grids[step, row, col]
         images, targets = [], []
         for _ in range(n):
-            angle = float(rng.uniform(-180, 180))
+            angle = self._sample_rotation(rng)
             image = TF.rotate(self.base_image, angle, fill=1.0)
             images.append(apply_filter_from_env_value(image, env_value))
             targets.append(self._label(angle, row, col, step))

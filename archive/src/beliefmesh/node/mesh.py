@@ -11,10 +11,19 @@ Aggregation modes:
   naive  -- plain mean of contributor gammas (the comparison arm)
   frozen -- no training ever; pretrained predictions only (baseline arm)
 
-Model: plain EvidentialCNN, all weights trainable. Deliberate deviation from
-the prior repo's SpatialEvidentialCNN (coordinate-conditioned): the spec's
-Sec 3 model description carries no coordinate input, and the deviation is
-recorded rather than concealed.
+Model: EvidentialCNN + 2 CoordConv-style input channels encoding each cell's
+position WITHIN the node's own FOV (local, not global -- Christian's call
+after the multi-region diagnostic empirically confirmed a node whose FOV
+spans two genuinely different true offset regions cannot represent both:
+two images from different cells within one FOV were otherwise
+indistinguishable to the model, so it collapses to a single compromise
+biased toward whichever region dominates its training exposure and is
+confidently wrong on the other. This is DIFFERENT from the prior repo's
+SpatialEvidentialCNN, which conditioned on GLOBAL grid position -- that
+was deliberately excluded per spec Sec 3 and stays excluded; a node still
+has no idea where it sits in the wider grid, only where a given cell sits
+relative to its own FOV, which is what a real deployed drone would
+plausibly know without any global coordination.
 """
 
 from __future__ import annotations
@@ -39,37 +48,91 @@ def fov_cells(cx: int, cy: int, fov_size: int, grid_size: int) -> list[tuple[int
             for col in range(max(0, cx - half), min(grid_size, cx + half + 1))]
 
 
+def local_coord_channels(cell: tuple[int, int], centre: tuple[int, int],
+                         fov_size: int, image_hw: tuple[int, int]) -> torch.Tensor:
+    """2 constant-value channels of shape (2, H, W): the cell's (dy, dx)
+    position relative to the node's OWN FOV centre, normalised to [-1, 1]
+    (CoordConv, Liu et al. 2018). Local to this node only -- no global grid
+    position is ever exposed to the model."""
+    half = fov_size // 2
+    row, col = cell
+    cx, cy = centre
+    dy = (row - cy) / max(half, 1)
+    dx = (col - cx) / max(half, 1)
+    h, w = image_hw
+    return torch.stack([
+        torch.full((h, w), float(dy)),
+        torch.full((h, w), float(dx)),
+    ])
+
+
 class MeshNode:
     """One node: position, field of view, model, and per-timestep belief state."""
 
     def __init__(self, node_id: int, centre: tuple[int, int],
-                 cells: list[tuple[int, int]], lr: float, device: torch.device):
+                 cells: list[tuple[int, int]], lr: float, device: torch.device,
+                 fov_size: int = 7):
         self.node_id = node_id
         self.centre = centre
         self.fov_cells = cells
         self.fov_set = set(cells)
+        self.fov_size = fov_size
         self.device = device
-        self.model = EvidentialCNN().to(device)
+        self.model = EvidentialCNN(in_channels=5).to(device)
         self.optimiser = torch.optim.Adam(self.model.parameters(), lr=lr)
         self.hop_distance: int | None = None
         # cell -> (gamma, nu, alpha, beta) floats: the FULL belief, uncollapsed
         self.cell_beliefs: dict[tuple[int, int], tuple[float, float, float, float]] = {}
+        # persists ACROSS timesteps (cell_beliefs above is wiped every step) --
+        # a node's own most recent belief per cell, for self-consistency
+        # fusion (Spec: fusion mode only, Christian's echo-chamber-drift fix).
+        # Without this a receiving node has no memory of its own prior stance
+        # and gets fully overwritten toward whatever a single neighbour
+        # currently believes -- a random walk with no restoring force.
+        self.last_beliefs: dict[tuple[int, int], tuple[float, float, float, float]] = {}
 
     def load_checkpoint(self, path: str | Path):
-        self.model.load_state_dict(torch.load(path, map_location=self.device))
+        state_dict = torch.load(path, map_location=self.device)
+        conv1_w = state_dict.get("conv1.weight")
+        if conv1_w is not None and conv1_w.shape[1] != self.model.conv1.in_channels:
+            # pretrained checkpoint predates the CoordConv channels (3 in,
+            # not 5) -- expand conv1's weight with ZERO-initialised slices
+            # for the 2 new coord channels, so the model starts out
+            # numerically IDENTICAL to the old 3-channel behaviour
+            # regardless of what coordinate values are fed in, and only
+            # learns to use the coord signal as training proceeds.
+            extra = self.model.conv1.in_channels - conv1_w.shape[1]
+            assert extra > 0, f"unexpected conv1 channel shrink: {conv1_w.shape[1]} -> {self.model.conv1.in_channels}"
+            pad = torch.zeros(conv1_w.shape[0], extra, *conv1_w.shape[2:],
+                              device=conv1_w.device, dtype=conv1_w.dtype)
+            state_dict = dict(state_dict)
+            state_dict["conv1.weight"] = torch.cat([conv1_w, pad], dim=1)
+        self.model.load_state_dict(state_dict)
 
     def reset_timestep(self):
         self.hop_distance = None
         self.cell_beliefs = {}
 
-    def train_on(self, images: list[torch.Tensor], targets: torch.Tensor) -> float | None:
+    def _with_coords(self, images: list[torch.Tensor],
+                     keys: list[tuple[int, int]]) -> list[torch.Tensor]:
+        h, w = images[0].shape[-2:]
+        return [torch.cat([img, local_coord_channels(key, self.centre, self.fov_size, (h, w))])
+                for img, key in zip(images, keys)]
+
+    def train_on(self, images: list[torch.Tensor], targets: torch.Tensor,
+                lam: float = 0.1, weights: torch.Tensor | None = None,
+                keys: list[tuple[int, int]] | None = None) -> float | None:
         if not images:
             return None
+        if keys is not None:
+            images = self._with_coords(images, keys)
         batch = torch.stack(images).to(self.device)
         targets = targets.to(self.device)
+        if weights is not None:
+            weights = weights.to(self.device)
         self.optimiser.zero_grad()
         gamma, nu, alpha, beta = self.model(batch)
-        loss = nig_loss(gamma, nu, alpha, beta, targets)
+        loss = nig_loss(gamma, nu, alpha, beta, targets, lam=lam, weights=weights)
         loss.backward()
         self.optimiser.step()
         return loss.item()
@@ -78,12 +141,14 @@ class MeshNode:
         """Predict and store FULL beliefs for the given cells."""
         if not images:
             return
+        images = self._with_coords(images, keys)
         batch = torch.stack(images).to(self.device)
         with torch.no_grad():
             gamma, nu, alpha, beta = self.model(batch)
         for i, key in enumerate(keys):
-            self.cell_beliefs[key] = (gamma[i].item(), nu[i].item(),
-                                      alpha[i].item(), beta[i].item())
+            belief = (gamma[i].item(), nu[i].item(), alpha[i].item(), beta[i].item())
+            self.cell_beliefs[key] = belief
+            self.last_beliefs[key] = belief
 
 
 class Mesh:
@@ -93,10 +158,15 @@ class Mesh:
                  environment: GridEnvironment, pretrained_path: str | Path,
                  lr: float, fusion_grid: torch.Tensor, mode: str = "fusion",
                  device: torch.device | None = None, sample_seed: int = 42,
-                 rho: float = 0.2):
+                 rho: float = 0.2, lam: float = 0.1, temper_gradient: bool = True):
         assert mode in ("fusion", "naive", "frozen", "consensus", "fedavg", "fedavg_global",
                         "certainty")
         self.mode = mode
+        self.lam = lam
+        # consensus-tempered gradient toggle: when False, propagation training
+        # reduces to the pre-tempering behaviour (unweighted mean loss), for a
+        # clean A/B isolating tempering's own effect from lam/rho.
+        self.temper_gradient = temper_gradient
         self.environment = environment
         self.grid_size = grid_size
         self.fusion_grid = fusion_grid
@@ -113,7 +183,7 @@ class Mesh:
         for i, (cx, cy) in enumerate(node_centres):
             node = MeshNode(i, (int(cx), int(cy)),
                             fov_cells(int(cx), int(cy), fov_size, grid_size),
-                            lr=lr, device=device)
+                            lr=lr, device=device, fov_size=fov_size)
             node.load_checkpoint(pretrained_path)
             if mode == "frozen":
                 node.model.eval()
@@ -208,14 +278,15 @@ class Mesh:
                 anchor_cells = [c for c in wearable_cells if c in node.fov_set]
                 if not anchor_cells:
                     continue
-                images, targets = [], []
+                images, targets, keys = [], [], []
                 for cell in anchor_cells:
                     imgs, tgts = self.environment.get_multiple_rotations(
                         cell, step, n=n_wearable_samples, rng=self.sample_rng)
                     images.extend(imgs)
                     targets.extend(tgts)
+                    keys.extend([cell] * len(imgs))
                 for _ in range(n_train_repeats):
-                    node.train_on(images, torch.stack(targets))
+                    node.train_on(images, torch.stack(targets), lam=self.lam, keys=keys)
                 participant_models.append(node.model.state_dict())
                 node.hop_distance = 0
                 trained.add(node_id)
@@ -252,14 +323,15 @@ class Mesh:
             if not anchor_cells:
                 continue
             if self.mode != "frozen":
-                images, targets = [], []
+                images, targets, keys = [], [], []
                 for cell in anchor_cells:
                     imgs, tgts = self.environment.get_multiple_rotations(
                         cell, step, n=n_wearable_samples, rng=self.sample_rng)
                     images.extend(imgs)
                     targets.extend(tgts)
+                    keys.extend([cell] * len(imgs))
                 for _ in range(n_train_repeats):
-                    node.train_on(images, torch.stack(targets))
+                    node.train_on(images, torch.stack(targets), lam=self.lam, keys=keys)
                 if self.mode == "consensus":
                     # anchor timestep: no fusion, no disagreement -- consensus
                     # updates toward unity (Spec Sec 6.3)
@@ -311,15 +383,39 @@ class Mesh:
                                     for k in state_dicts[0]}
                         neighbour.model.load_state_dict(averaged)
                 elif self.mode != "frozen":
-                    images, labels, cell_trusts = [], [], []
+                    images, labels, cell_trusts, prop_keys = [], [], [], []
                     for cell, contributions in supervision.items():
                         img, _ = self.environment.get_cell_input(cell[0], cell[1], step)
                         images.append(img)
+                        prop_keys.append(cell)
+                        # REVERTED: self-consistency (fusing a node's own prior
+                        # belief in alongside external contributors) was tried
+                        # here and tested worse, not better, on the full
+                        # quantitative comparison (whole_run 0.0464 -> 0.2411)
+                        # despite looking like an improvement on one hand-picked
+                        # node/cell -- likely because it makes a node train
+                        # partly toward its own recent output, a tighter
+                        # self-reinforcement loop, not a damping one. Reverted
+                        # pending a redesign; last_beliefs is still populated
+                        # (harmless, unused) in case a capped-weight version is
+                        # worth trying later.
                         label, agreement, inherited = self._aggregate(contributions)
                         labels.append(label)
                         cell_trusts.append(agreement * inherited)
+                    # consensus-tempered gradient: a low-trust fused label
+                    # produces a smaller effective update than a fully-trusted
+                    # one, instead of always training at full strength on
+                    # whatever fusion produced (Sec 6.2's cell_trusts, until
+                    # now only used for the EMA update below and then
+                    # discarded). No-op outside consensus mode: fusion/naive's
+                    # _aggregate() always returns agreement=inherited=1.0, so
+                    # cell_trusts is uniformly 1.0 there -- ordinary unweighted
+                    # mean, unchanged behaviour.
+                    trust_weights = (torch.tensor(cell_trusts, dtype=torch.float32)
+                                      if self.temper_gradient else None)
                     for _ in range(n_train_repeats):
-                        neighbour.train_on(images, torch.tensor(labels, dtype=torch.float32))
+                        neighbour.train_on(images, torch.tensor(labels, dtype=torch.float32),
+                                          lam=self.lam, weights=trust_weights, keys=prop_keys)
                     if self.mode == "consensus":
                         # c_new = mean over fused cells of agreement * inherited
                         # (Spec Sec 6.2), EMA'd into the receiver's consensus

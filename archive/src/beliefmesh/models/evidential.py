@@ -25,6 +25,7 @@ def nig_loss(
     beta: torch.Tensor,
     target: torch.Tensor,
     lam: float = 0.1,
+    weights: torch.Tensor | None = None,
 ) -> torch.Tensor:
     """Evidential regression loss: Student-t NLL plus evidence regularisation.
 
@@ -32,6 +33,13 @@ def nig_loss(
     Stage 0, a fused-mode pseudo-label everywhere else (Spec Sec 5). lam scales
     the evidence regulariser, which penalises confidence (large nu, alpha) in
     proportion to the wrapped error magnitude.
+
+    weights, if given (consensus-tempered gradient): per-sample scale on the
+    loss before reduction, e.g. agreement*inherited-trust per fused cell --
+    a low-trust fused label produces a smaller effective gradient step
+    instead of being trained on at full strength like a fully-trusted one.
+    None (every other mode, and anchor ground-truth training) reduces to the
+    ordinary unweighted mean -- no behaviour change.
     """
     nu = nu.clamp(min=1e-6)
     omega = 2 * beta * (1 + nu)
@@ -44,7 +52,11 @@ def nig_loss(
 
     loss_reg = torch.abs(diff) * (2 * nu + alpha)
 
-    return (loss_nll + lam * loss_reg).mean()
+    per_sample = loss_nll + lam * loss_reg
+    if weights is None:
+        return per_sample.mean()
+    weights = weights.clamp(min=1e-3)
+    return (per_sample * weights).sum() / weights.sum()
 
 
 def predictive_uncertainty(nu: torch.Tensor, alpha: torch.Tensor, beta: torch.Tensor) -> torch.Tensor:
@@ -56,7 +68,7 @@ def predictive_uncertainty(nu: torch.Tensor, alpha: torch.Tensor, beta: torch.Te
     is Defect 1 from the prior implementation. Formula matches the prior
     repo's predict() helper exactly, so calibration numbers stay comparable.
     """
-    return beta / (nu * (alpha - 1).clamp(min=1e-6))
+    return beta / (nu.clamp(min=1e-6) * (alpha - 1).clamp(min=1e-6))
 
 
 def student_t_marginal(

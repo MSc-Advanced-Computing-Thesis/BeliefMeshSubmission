@@ -14,12 +14,22 @@ import torch.nn.functional as F
 
 class EvidentialCNN(nn.Module):
     """Three convolutional blocks + two fully connected layers, fc2 emitting the four
-    raw values that nig_reparameterise (see evidential.py) turns into (gamma, nu, alpha, beta)."""
+    raw values that nig_reparameterise (see evidential.py) turns into (gamma, nu, alpha, beta).
 
-    def __init__(self):
+    in_channels: 3 (RGB) by default, unchanged for every existing caller.
+    MeshNode uses in_channels=5 -- 3 RGB + 2 CoordConv-style channels
+    encoding the cell's position WITHIN the node's own FOV (local, not
+    global -- see mesh.py's local_coord_channels). Cheap, well-established
+    fix (Liu et al. 2018 CoordConv) for the "no coordinate awareness"
+    limitation confirmed empirically via the multi-region diagnostic: a
+    node whose FOV spans two genuinely different true regions cannot
+    represent both, since two images from different cells were otherwise
+    indistinguishable to the model."""
+
+    def __init__(self, in_channels: int = 3):
         super().__init__()
         #conv layers
-        self.conv1 = nn.Conv2d(3, 32, 3, padding=1)
+        self.conv1 = nn.Conv2d(in_channels, 32, 3, padding=1)
         self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
         self.conv3 = nn.Conv2d(64, 128, 3, padding=1)
 
