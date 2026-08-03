@@ -158,11 +158,34 @@ class Mesh:
                  environment: GridEnvironment, pretrained_path: str | Path,
                  lr: float, fusion_grid: torch.Tensor, mode: str = "fusion",
                  device: torch.device | None = None, sample_seed: int = 42,
-                 rho: float = 0.2, lam: float = 0.1, temper_gradient: bool = True):
+                 rho: float = 0.2, lam: float = 0.1, temper_gradient: bool = True,
+                 self_weight: float = 0.0):
         assert mode in ("fusion", "naive", "frozen", "consensus", "fedavg", "fedavg_global",
                         "certainty")
         self.mode = mode
         self.lam = lam
+        # weight given to a node's OWN last belief for a cell (self.last_beliefs)
+        # as an extra fused contributor alongside external neighbours, redoing
+        # the earlier self-consistency idea as a TUNABLE, capped weight instead
+        # of full-weight injection (which tested 5x worse -- see _aggregate's
+        # docstring and mesh.py module history). 0.0 (default) reproduces prior
+        # behaviour exactly; fusion/consensus modes only.
+        #
+        # SWEPT AND REJECTED (2026-07-31, static-spatial v2 world, lr=3e-5,
+        # lam=0.1): whole_run MSE degrades MONOTONICALLY with self_weight --
+        # 0.0289 (0.0) -> 0.0304 (0.05) -> 0.0316 (0.1) -> 0.0385 (0.3) ->
+        # 0.0607 (0.5) -> 0.1688 (1.0), where cert-MSE r also flips from
+        # -0.57 to +0.07 (confidently wrong). No sweet spot at any weight
+        # tested; even small amounts hurt. Confirms the original full-
+        # injection failure was the reinforcement-loop mechanism itself, not
+        # just an overly aggressive weight -- a node's own recent output is
+        # not a safe fusion input at any capped strength found so far. The
+        # "correct belief gets overwritten while the wearable is elsewhere"
+        # problem this was meant to fix is better attacked via routing
+        # (see wearable_policy="zoned_epistemic", runner.py) -- getting the
+        # wearable back before the belief decays, rather than making the
+        # decayed belief resist being corrected.
+        self.self_weight = self_weight
         # consensus-tempered gradient toggle: when False, propagation training
         # reduces to the pre-tempering behaviour (unweighted mean loss), for a
         # clean A/B isolating tempering's own effect from lam/rho.
@@ -210,12 +233,18 @@ class Mesh:
                    if any(c in node.fov_set for c in cells)}
         return covered, cells
 
-    def _aggregate(self, contributions: list[tuple[int, tuple[float, float, float, float]]]
+    def _aggregate(self, contributions: list[tuple[int, tuple[float, float, float, float]]],
+                   own_belief: tuple[float, float, float, float] | None = None,
                    ) -> tuple[float, float, float]:
         """Aggregate contributors' FULL beliefs for one cell into a scalar
         pseudo-label (Spec Sec 5: the fused mode propagates, nothing else).
 
         contributions: list of (contributor_id, (gamma, nu, alpha, beta)).
+        own_belief: the receiving node's own last belief for this cell
+        (self.last_beliefs), included as an extra weighted contributor at
+        weight self.self_weight when > 0 (fusion/consensus only -- see
+        Mesh.self_weight docstring). None/0.0 reproduces prior behaviour
+        exactly.
         Returns (pseudo_label, agreement, inherited_trust); the latter two are
         meaningful only in consensus mode (1.0 placeholders otherwise).
         """
@@ -242,8 +271,9 @@ class Mesh:
             certs = 1.0 / (1.0 + uncs)
             return float(np.sum(certs * gammas) / np.sum(certs)), 1.0, 1.0
 
+        include_self = self.self_weight > 0 and own_belief is not None
         c_vals = torch.tensor([self.consensus[cid] for cid, _ in contributions])
-        if len(contributions) == 1:
+        if len(contributions) == 1 and not include_self:
             # single contributor: its mode is the label, no disagreement exists
             inherited = float(c_vals[0]) if self.mode == "consensus" else 1.0
             return beliefs_raw[0][0], 1.0, inherited
@@ -251,9 +281,17 @@ class Mesh:
         beliefs = [tuple(torch.tensor([v]) for v in b) for b in beliefs_raw]
         if self.mode == "consensus":
             weights = c_vals.clamp(min=1e-3)  # all-zero weights would degenerate argmax
+            if include_self:
+                beliefs = beliefs + [tuple(torch.tensor([v]) for v in own_belief)]
+                weights = torch.cat([weights, torch.tensor([self.self_weight])])
             modes, logp = fuse(beliefs, self.fusion_grid.cpu(), weights=weights)
             return modes.item(), agreement_score(logp).item(), inherited_trust(c_vals)
-        modes, _ = fuse(beliefs, self.fusion_grid.cpu())
+        if include_self:
+            beliefs = beliefs + [tuple(torch.tensor([v]) for v in own_belief)]
+            weights = torch.cat([torch.ones(len(beliefs_raw)), torch.tensor([self.self_weight])])
+            modes, _ = fuse(beliefs, self.fusion_grid.cpu(), weights=weights)
+        else:
+            modes, _ = fuse(beliefs, self.fusion_grid.cpu())
         return modes.item(), 1.0, 1.0
 
     def run_timestep(self, wearable_positions, step: int,
@@ -388,18 +426,9 @@ class Mesh:
                         img, _ = self.environment.get_cell_input(cell[0], cell[1], step)
                         images.append(img)
                         prop_keys.append(cell)
-                        # REVERTED: self-consistency (fusing a node's own prior
-                        # belief in alongside external contributors) was tried
-                        # here and tested worse, not better, on the full
-                        # quantitative comparison (whole_run 0.0464 -> 0.2411)
-                        # despite looking like an improvement on one hand-picked
-                        # node/cell -- likely because it makes a node train
-                        # partly toward its own recent output, a tighter
-                        # self-reinforcement loop, not a damping one. Reverted
-                        # pending a redesign; last_beliefs is still populated
-                        # (harmless, unused) in case a capped-weight version is
-                        # worth trying later.
-                        label, agreement, inherited = self._aggregate(contributions)
+                        own_belief = (neighbour.last_beliefs.get(cell)
+                                      if self.self_weight > 0 else None)
+                        label, agreement, inherited = self._aggregate(contributions, own_belief)
                         labels.append(label)
                         cell_trusts.append(agreement * inherited)
                     # consensus-tempered gradient: a low-trust fused label
@@ -439,7 +468,29 @@ class Mesh:
         """(H, W) mean epistemic uncertainty (1/nu) per cell over the nodes
         currently holding beliefs about it; NaN where no beliefs exist. Used
         by the uncertainty-directed wearable policy -- this is the epistemic
-        map the evidential head was chosen to provide (interim Sec 2.4)."""
+        map the evidential head was chosen to provide (interim Sec 2.4).
+
+        NOTE for interpreting routing videos (2026-07-31): this is NOT the
+        same quantity as the "Certainty" panel generate_video.py/runner.py
+        plot, which is 1/(1+predictive_uncertainty) with predictive_uncertainty
+        = beta/(nu*(alpha-1)) -- a combined evidence-count-AND-difficulty
+        measure, not pure evidence count. A cell can look "reddest" (least
+        certain) on that panel without being the lowest-nu cell this map
+        would route to, and vice versa. The panel is ALSO a rolling average
+        over the last N steps (--rolling, default 50), while a routing
+        decision under wearable_policy="uncertainty_guided" is made from the
+        instantaneous map at the moment of the wearable's last arrival, which
+        can be many steps before whatever frame you're looking at. Neither is
+        a bug -- confirmed by inspecting the actual target-selection code and
+        plot indexing, no row/col mismatch -- but it means a wearable's route
+        can legitimately look like it's not heading toward the visually
+        reddest area in a given frame. Expected to matter more once the world
+        is temporally dynamic: a target committed to at time T can go stale
+        before the wearable arrives if the field moves underneath it, a real
+        tension in commit-then-reassess (see wearable_policy="uncertainty_guided"
+        docstring) worth addressing explicitly in that stage (e.g. capping
+        transit distance per commit, or re-evaluating if the map has moved
+        too much mid-transit) rather than a defect in this static-world test."""
         acc = np.zeros((self.grid_size, self.grid_size))
         cnt = np.zeros((self.grid_size, self.grid_size))
         for node in self.nodes.values():

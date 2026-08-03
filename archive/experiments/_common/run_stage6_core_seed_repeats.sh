@@ -9,7 +9,11 @@
 #   - offset_world/static/main_arms   (Stage 1 offset table, 5 cells)
 #   - colour_world/dynamic/v2_fast_drift  (6D verdict table, v2, 6 arms)
 #   - colour_world/dynamic/v3_whiteout    (6D verdict table, v3, 6 arms)
-#   - offset_world/dynamic            (Stage 4 headline result, 2 arms)
+#   - offset_world/dynamic            (Stage 4 headline result, 2 arms --
+#     SUPERSEDED 2026-08: this pre-CoordConv-fix result was reversed by
+#     run_dynamic_v2_test.py/run_dynamic_v2_5seed.py on the same field/task
+#     with the Stage 6 fixes applied; run_stage4_dynamic_world_final.py
+#     moved to archive/ but kept runnable here as a historical record)
 #
 # Each seed takes a substantial amount of GPU time (390-step mesh training
 # per arm, ~19 mesh trainings per seed) -- expect this to run for hours.
@@ -35,7 +39,7 @@ for seed in $SEEDS; do
   run "$seed" experiments/stage6_spatial_mesh/run_offset_experiments.py
   run "$seed" experiments/stage6_spatial_mesh/run_6d_three_way_comparison.py --env v2
   run "$seed" experiments/stage6_spatial_mesh/run_6d_three_way_comparison.py --env v3
-  run "$seed" experiments/stage6_spatial_mesh/run_stage4_dynamic_world_final.py
+  run "$seed" experiments/stage6_spatial_mesh/archive/run_stage4_dynamic_world_final.py
 done
 
 echo ""
