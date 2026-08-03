@@ -92,7 +92,7 @@ def test_naive_and_fusion_modes_both_run_and_evaluate():
 
 
 def test_fedavg_mode_replaces_weights_with_neighbour_mean():
-    mesh = make_mesh(mode="fedavg")
+    mesh = make_mesh(mode="gossip_uniform")
     before = {i: [p.clone() for p in node.model.parameters()]
               for i, node in mesh.nodes.items()}
     mesh.run_timestep([(2.0, 2.0)], step=0)

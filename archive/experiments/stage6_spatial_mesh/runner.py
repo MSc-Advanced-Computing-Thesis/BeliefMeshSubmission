@@ -134,6 +134,7 @@ def run_mesh_experiment(
     # per-step spatial arrays: consumed by generate_video.py
     cell_mse_steps = np.full((total_steps, grid_size, grid_size), np.nan)
     cell_cert_steps = np.full((total_steps, grid_size, grid_size), np.nan)
+    comm_bytes_steps = np.zeros(total_steps, dtype=np.int64)  # objective #2 instrumentation
     n_wearables = len(wearable_paths)
 
     policy_rng = np.random.default_rng(env_seed)
@@ -258,6 +259,7 @@ def run_mesh_experiment(
         trained = mesh.run_timestep(positions, step,
                                     n_wearable_samples=n_wearable_samples,
                                     n_train_repeats=n_train_repeats)
+        comm_bytes_steps[step] = mesh.comm_bytes_step
 
         # best-certainty belief per cell across nodes, for the spatial maps
         step_best = {}
@@ -314,6 +316,7 @@ def run_mesh_experiment(
     np.save(run_dir / "avg_cert_map.npy", avg_cert_map)
     np.save(run_dir / "cell_mse_steps.npy", cell_mse_steps)
     np.save(run_dir / "cell_cert_steps.npy", cell_cert_steps)
+    np.save(run_dir / "comm_bytes_steps.npy", comm_bytes_steps)
     if realised_paths[0]:
         wearable_paths = [np.array(p) for p in realised_paths]  # so figures show the real trail(s)
     # always save whatever paths were actually used (policy-driven or a
@@ -341,6 +344,8 @@ def run_mesh_experiment(
             "certainty_mse_pearson_r": float(r_val),
             "certainty_mse_pearson_p": float(p_val),
             "final_hop_means": {h: hop_mse_history[h][-1] for h in range(4)},
+            "comm_bytes_total": int(comm_bytes_steps.sum()),
+            "comm_bytes_mean_per_step": float(comm_bytes_steps.mean()),
         },
     }
     with open(run_dir / "manifest.yaml", "w") as f:

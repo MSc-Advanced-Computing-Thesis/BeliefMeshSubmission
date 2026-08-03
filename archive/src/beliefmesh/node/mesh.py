@@ -10,6 +10,28 @@ Aggregation modes:
             consensus tempering is a later, separate condition -- Spec Sec 9 step 5)
   naive  -- plain mean of contributor gammas (the comparison arm)
   frozen -- no training ever; pretrained predictions only (baseline arm)
+  fedavg_global   -- canonical FedAvg: one shared model, averaged from this
+                      round's anchors and broadcast to every node.
+  gossip_uniform  -- the decentralised PARAMETER-exchange comparator (Christian's
+                      objective #2, 2026-08): a receiver replaces its weights
+                      with the unweighted mean of its already-trained overlap
+                      neighbours' full model state_dicts. No beliefs cross the
+                      link. Formerly named "fedavg" -- renamed to avoid
+                      confusion with fedavg_global, which is a different
+                      mechanism (single global model, not per-edge gossip).
+  gossip_weighted -- same as gossip_uniform, but the neighbour average is
+                      weighted by each contributor's MeshNode.n_samples_trained
+                      (FedAvg-style weighting by local data quantity, McMahan
+                      et al. 2017) instead of uniform -- the "stronger"
+                      parameter-exchange baseline.
+
+Communication-volume instrumentation (objective #2): self.comm_bytes_step /
+self.comm_bytes_cumulative track bytes notionally transmitted this step / over
+the whole run, assuming float32. Belief-exchange modes count 16 bytes (4 NIG
+floats) per (contributor, shared cell) pair actually consumed; gossip/fedavg
+modes count each contributor's full model size in bytes per transmission.
+Per-node model size (not a single constant) so this stays correct once nodes
+have heterogeneous architectures (objective #1).
 
 Model: EvidentialCNN + 2 CoordConv-style input channels encoding each cell's
 position WITHIN the node's own FOV (local, not global -- Christian's call
@@ -90,6 +112,19 @@ class MeshNode:
         # and gets fully overwritten toward whatever a single neighbour
         # currently believes -- a random walk with no restoring force.
         self.last_beliefs: dict[tuple[int, int], tuple[float, float, float, float]] = {}
+        # cumulative count of (image, target) pairs this node has ever been
+        # trained on, across the whole run -- used ONLY by
+        # mode="gossip_weighted" to reproduce FedAvg's sample-count weighting
+        # (Sec 2, McMahan et al. 2017) at the per-edge/per-neighbour level.
+        # Incremented once per train_on() call by the batch size actually
+        # trained on that call, so a cell visited under n_train_repeats>1
+        # counts each repeat -- it measures accumulated training WORK, not
+        # distinct data, a deliberate reading of "accumulated training
+        # sample count" (a node that has been retrained on the same anchor
+        # repeatedly has genuinely put more gradient steps into its weights
+        # than one that hasn't, which is what the receiving neighbour should
+        # trust more under this weighting scheme).
+        self.n_samples_trained: int = 0
 
     def load_checkpoint(self, path: str | Path):
         state_dict = torch.load(path, map_location=self.device)
@@ -135,6 +170,7 @@ class MeshNode:
         loss = nig_loss(gamma, nu, alpha, beta, targets, lam=lam, weights=weights)
         loss.backward()
         self.optimiser.step()
+        self.n_samples_trained += len(images)
         return loss.item()
 
     def predict_cells(self, images: list[torch.Tensor], keys: list[tuple[int, int]]):
@@ -160,8 +196,8 @@ class Mesh:
                  device: torch.device | None = None, sample_seed: int = 42,
                  rho: float = 0.2, lam: float = 0.1, temper_gradient: bool = True,
                  self_weight: float = 0.0):
-        assert mode in ("fusion", "naive", "frozen", "consensus", "fedavg", "fedavg_global",
-                        "certainty")
+        assert mode in ("fusion", "naive", "frozen", "consensus", "gossip_uniform",
+                        "gossip_weighted", "fedavg_global", "certainty")
         self.mode = mode
         self.lam = lam
         # weight given to a node's OWN last belief for a cell (self.last_beliefs)
@@ -201,6 +237,11 @@ class Mesh:
         self.consensus: dict[int, float] = {}
         device = device or torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.device = device
+        # communication-volume instrumentation (objective #2) -- see module
+        # docstring. comm_bytes_step is reset at the top of every
+        # run_timestep(); comm_bytes_cumulative accumulates across the run.
+        self.comm_bytes_step: int = 0
+        self.comm_bytes_cumulative: int = 0
 
         self.nodes: dict[int, MeshNode] = {}
         for i, (cx, cy) in enumerate(node_centres):
@@ -226,6 +267,12 @@ class Mesh:
                     self.overlap_graph[j].append(i)
                     self.shared_cells[(i, j)] = shared
                     self.shared_cells[(j, i)] = shared
+
+    def _model_bytes(self, node_id: int) -> int:
+        """float32 size of node_id's model -- per-node, not a shared constant,
+        so this stays correct once nodes have heterogeneous architectures
+        (objective #1)."""
+        return sum(p.numel() for p in self.nodes[node_id].model.parameters()) * 4
 
     def in_coverage(self, wearable_positions) -> tuple[set[int], list[tuple[int, int]]]:
         cells = [(int(p[0]), int(p[1])) for p in wearable_positions]
@@ -298,6 +345,7 @@ class Mesh:
                      n_wearable_samples: int = 1, n_train_repeats: int = 1) -> set[int]:
         for node in self.nodes.values():
             node.reset_timestep()
+        self.comm_bytes_step = 0
 
         anchors, wearable_cells = self.in_coverage(wearable_positions)
         trained: set[int] = set()
@@ -335,6 +383,13 @@ class Mesh:
                                  for k in participant_models[0]}
                     for node in self.nodes.values():
                         node.model.load_state_dict(global_sd)
+                # comm: every participant uploads its full model to the
+                # aggregator, which broadcasts the merged model to EVERY
+                # node (not just participants) -- the "no spatial
+                # specialisation" cost is also a communication cost.
+                participant_bytes = sum(self._model_bytes(nid) for nid in trained)
+                broadcast_bytes = sum(self._model_bytes(nid) for nid in self.nodes)
+                self.comm_bytes_step += participant_bytes + broadcast_bytes
             # BFS purely to assign hop labels and produce per-node predictions
             while queue:
                 current_id = queue.popleft()
@@ -352,6 +407,7 @@ class Mesh:
                 node = self.nodes[node_id]
                 imgs, _, keys = self.environment.get_batch_for_cells(node.fov_cells, step)
                 node.predict_cells(imgs, keys)
+            self.comm_bytes_cumulative += self.comm_bytes_step
             return trained
 
         # hop 0: anchors train on wearable-cell ground truth (unless frozen)
@@ -405,21 +461,55 @@ class Mesh:
                 if not supervision:
                     continue
 
-                if self.mode == "fedavg":
-                    # PARAMETER exchange baseline (the paradigm the thesis argues
-                    # against): the receiver replaces its weights with the mean of
-                    # its already-trained overlap neighbours' weights. No beliefs
-                    # cross the link -- ~1.5 MB of parameters per contributor vs
-                    # ~450 B of beliefs. Same topology, schedule and anchors as
-                    # every other arm.
+                if self.mode in ("gossip_uniform", "gossip_weighted"):
+                    # PARAMETER exchange comparator (objective #2, 2026-08):
+                    # the receiver replaces its weights with an average of its
+                    # already-trained overlap neighbours' full model
+                    # state_dicts. No beliefs cross this link at all -- the
+                    # ONLY thing that differs from the belief-exchange arms
+                    # below is the unit of exchange, everything else (node
+                    # placement, wearable motion, schedule, BFS order, lr,
+                    # optimiser) is identical, per Christian's fairness spec.
+                    # gossip_uniform: uniform mean. gossip_weighted: weighted
+                    # by each contributor's accumulated n_samples_trained
+                    # (FedAvg-style, the "stronger" baseline).
+                    #
+                    # n_samples_trained counts ONLY direct ground-truth
+                    # training (incremented inside train_on(), which a gossip
+                    # receiver never calls -- it gets load_state_dict'd, not
+                    # trained). Deliberately NOT propagated/summed forward
+                    # into the receiver here: an earlier version set
+                    # neighbour.n_samples_trained = sum(contributor counts)
+                    # after every average, intending it to compound across
+                    # hops the way belief certainty does -- but the overlap
+                    # graph is cyclic (mean degree ~15, not a tree), so the
+                    # same upstream anchor visits get re-summed through
+                    # multiple paths every timestep and compound
+                    # combinatorially: measured 4.8e11 after 40 steps on a
+                    # 36-node grid, a nonsense number. A node's weight in this
+                    # scheme is therefore its own direct anchor history only
+                    # -- 0 for a node that has never itself been an anchor,
+                    # which correctly falls back to uniform (all-zero clause
+                    # below) rather than fabricating a multi-hop count that
+                    # cannot be computed soundly on a cyclic graph without
+                    # double-counting.
                     contributor_ids = sorted({cid for lst in supervision.values()
                                               for cid, _ in lst})
                     with torch.no_grad():
                         state_dicts = [self.nodes[cid].model.state_dict()
                                        for cid in contributor_ids]
-                        averaged = {k: torch.stack([sd[k] for sd in state_dicts]).mean(0)
-                                    for k in state_dicts[0]}
+                        if self.mode == "gossip_weighted":
+                            n = torch.tensor([float(self.nodes[cid].n_samples_trained)
+                                              for cid in contributor_ids])
+                            w = (n / n.sum()) if n.sum() > 0 else torch.full_like(n, 1 / len(n))
+                            averaged = {k: sum(w[i] * sd[k] for i, sd in enumerate(state_dicts))
+                                        for k in state_dicts[0]}
+                        else:
+                            averaged = {k: torch.stack([sd[k] for sd in state_dicts]).mean(0)
+                                        for k in state_dicts[0]}
                         neighbour.model.load_state_dict(averaged)
+                    # comm: each contributor uploads its full model to the receiver
+                    self.comm_bytes_step += sum(self._model_bytes(cid) for cid in contributor_ids)
                 elif self.mode != "frozen":
                     images, labels, cell_trusts, prop_keys = [], [], [], []
                     for cell, contributions in supervision.items():
@@ -431,6 +521,9 @@ class Mesh:
                         label, agreement, inherited = self._aggregate(contributions, own_belief)
                         labels.append(label)
                         cell_trusts.append(agreement * inherited)
+                        # comm: each contributor sends its full (gamma, nu,
+                        # alpha, beta) belief for this cell -- 4 float32s
+                        self.comm_bytes_step += len(contributions) * 4 * 4
                     # consensus-tempered gradient: a low-trust fused label
                     # produces a smaller effective update than a fully-trusted
                     # one, instead of always training at full strength on
@@ -462,6 +555,7 @@ class Mesh:
                 trained.add(neighbour_id)
                 queue.append(neighbour_id)
 
+        self.comm_bytes_cumulative += self.comm_bytes_step
         return trained
 
     def epistemic_map(self) -> np.ndarray:
