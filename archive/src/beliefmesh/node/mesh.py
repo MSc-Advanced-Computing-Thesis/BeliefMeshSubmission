@@ -24,6 +24,19 @@ Aggregation modes:
                       (FedAvg-style weighting by local data quantity, McMahan
                       et al. 2017) instead of uniform -- the "stronger"
                       parameter-exchange baseline.
+  nig_product          -- closed-form product-of-NIG fusion (2026-08,
+                      fusion/nig_product.py): multiplies contributors' NIG
+                      densities directly (all w_i=1) instead of grid-searching
+                      the summed Student-t log-density (fuse(), above). Same
+                      belief-exchange mechanism as `fusion` -- only the
+                      aggregation arithmetic differs (closed-form O(1) per
+                      cell vs a ~200-point grid evaluation).
+  nig_product_weighted -- same closed form, but each contributor's exponent-
+                      style weight w_i = (per-node consensus trust) x
+                      (predictive certainty on that cell), the product the
+                      spec calls "total certainty" -- isolates whether
+                      weighting the closed-form product changes anything
+                      relative to nig_product's unweighted version.
 
 Communication-volume instrumentation (objective #2): self.comm_bytes_step /
 self.comm_bytes_cumulative track bytes notionally transmitted this step / over
@@ -50,6 +63,7 @@ plausibly know without any global coordination.
 
 from __future__ import annotations
 
+import time
 from collections import deque
 from pathlib import Path
 
@@ -130,6 +144,30 @@ class MeshNode:
         # than one that hasn't, which is what the receiving neighbour should
         # trust more under this weighting scheme).
         self.n_samples_trained: int = 0
+        # per-timestep compute-cost instrumentation (2026-08, fusion-cost-share
+        # analysis): wall-clock seconds spent in this node's model forward
+        # pass (train_on's forward + predict_cells' no-grad forward) and in
+        # backward+optimiser-step (train_on only), reset every reset_timestep()
+        # and summed across all nodes by Mesh.run_timestep() into
+        # forward_time_step / backward_time_step, alongside the existing
+        # fusion_time_step.
+        #
+        # On CUDA this is measured with torch.cuda.Event pairs, NOT a blocking
+        # torch.cuda.synchronize() around every call: an earlier version did
+        # that and it caused a near-total stall (GPU reads 100% "util" at
+        # idle P8 power -- a hung, not a busy, GPU) once the sync count
+        # reached the tens of thousands (36 nodes x ~4 sync points x 390
+        # steps) -- Windows' WDDM driver handles frequent small blocking
+        # syncs from a training loop far worse than Linux does. Event.record()
+        # is asynchronous (just inserts a timestamp marker into the stream,
+        # no stall); the whole batch of pending events is resolved with ONE
+        # synchronize() call in flush_timing_events(), called once per
+        # run_timestep() instead of once per forward/backward call --
+        # ~390 syncs total for a run instead of ~140,000.
+        self.forward_time: float = 0.0
+        self.backward_time: float = 0.0
+        self._pending_forward_events: list[tuple] = []
+        self._pending_backward_events: list[tuple] = []
 
     def load_checkpoint(self, path: str | Path):
         state_dict = torch.load(path, map_location=self.device)
@@ -165,6 +203,25 @@ class MeshNode:
     def reset_timestep(self):
         self.hop_distance = None
         self.cell_beliefs = {}
+        self.forward_time = 0.0
+        self.backward_time = 0.0
+        self._pending_forward_events = []
+        self._pending_backward_events = []
+
+    def flush_timing_events(self):
+        """Resolve any pending CUDA timing events into forward_time/
+        backward_time with a SINGLE synchronize() call (see __init__'s
+        instrumentation docstring for why this must not happen per-call).
+        No-op on CPU (train_on/predict_cells already time CPU work directly
+        with perf_counter, no events needed there)."""
+        if self._pending_forward_events or self._pending_backward_events:
+            torch.cuda.synchronize(self.device)
+            for start, end in self._pending_forward_events:
+                self.forward_time += start.elapsed_time(end) / 1000.0
+            for start, end in self._pending_backward_events:
+                self.backward_time += start.elapsed_time(end) / 1000.0
+            self._pending_forward_events = []
+            self._pending_backward_events = []
 
     def _with_coords(self, images: list[torch.Tensor],
                      keys: list[tuple[int, int]]) -> list[torch.Tensor]:
@@ -184,10 +241,28 @@ class MeshNode:
         if weights is not None:
             weights = weights.to(self.device)
         self.optimiser.zero_grad()
-        gamma, nu, alpha, beta = self.model(batch)
-        loss = nig_loss(gamma, nu, alpha, beta, targets, lam=lam, weights=weights)
-        loss.backward()
-        self.optimiser.step()
+        if self.device.type == "cuda":
+            fwd_start, fwd_end = torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True)
+            fwd_start.record()
+            gamma, nu, alpha, beta = self.model(batch)
+            fwd_end.record()
+            self._pending_forward_events.append((fwd_start, fwd_end))
+            bwd_start, bwd_end = torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True)
+            bwd_start.record()
+            loss = nig_loss(gamma, nu, alpha, beta, targets, lam=lam, weights=weights)
+            loss.backward()
+            self.optimiser.step()
+            bwd_end.record()
+            self._pending_backward_events.append((bwd_start, bwd_end))
+        else:
+            t0 = time.perf_counter()
+            gamma, nu, alpha, beta = self.model(batch)
+            self.forward_time += time.perf_counter() - t0
+            t0 = time.perf_counter()
+            loss = nig_loss(gamma, nu, alpha, beta, targets, lam=lam, weights=weights)
+            loss.backward()
+            self.optimiser.step()
+            self.backward_time += time.perf_counter() - t0
         self.n_samples_trained += len(images)
         return loss.item()
 
@@ -198,7 +273,16 @@ class MeshNode:
         images = self._with_coords(images, keys)
         batch = torch.stack(images).to(self.device)
         with torch.no_grad():
-            gamma, nu, alpha, beta = self.model(batch)
+            if self.device.type == "cuda":
+                fwd_start, fwd_end = torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True)
+                fwd_start.record()
+                gamma, nu, alpha, beta = self.model(batch)
+                fwd_end.record()
+                self._pending_forward_events.append((fwd_start, fwd_end))
+            else:
+                t0 = time.perf_counter()
+                gamma, nu, alpha, beta = self.model(batch)
+                self.forward_time += time.perf_counter() - t0
         for i, key in enumerate(keys):
             belief = (gamma[i].item(), nu[i].item(), alpha[i].item(), beta[i].item())
             self.cell_beliefs[key] = belief
@@ -227,7 +311,8 @@ class Mesh:
         replaces, kept on disk as evidence for the separate certainty-
         never-discounts-an-unconverged-model finding, see _aggregate)."""
         assert mode in ("fusion", "naive", "frozen", "consensus", "gossip_uniform",
-                        "gossip_weighted", "fedavg_global", "certainty")
+                        "gossip_weighted", "fedavg_global", "certainty",
+                        "nig_product", "nig_product_weighted")
         self.mode = mode
         self.lam = lam
         # weight given to a node's OWN last belief for a cell (self.last_beliefs)
@@ -272,6 +357,22 @@ class Mesh:
         # run_timestep(); comm_bytes_cumulative accumulates across the run.
         self.comm_bytes_step: int = 0
         self.comm_bytes_cumulative: int = 0
+        # fusion-step wall-clock cost instrumentation (nig_product vs grid-
+        # search fusion, 2026-08): seconds spent inside _aggregate() calls,
+        # reset per run_timestep() / accumulated across the run. Deployment-
+        # relevant since nig_product's closed form replaces a ~200-point grid
+        # evaluation with O(1) scalar arithmetic per cell.
+        self.fusion_time_step: float = 0.0
+        self.fusion_time_cumulative: float = 0.0
+        self.fusion_call_count: int = 0
+        # per-timestep forward/backward wall-clock, summed across all nodes'
+        # MeshNode.forward_time/backward_time at the end of each run_timestep()
+        # -- see MeshNode.reset_timestep()/_sync() (2026-08, fusion-cost-share
+        # analysis: what fraction of a timestep is fusion vs the CNN itself).
+        self.forward_time_step: float = 0.0
+        self.forward_time_cumulative: float = 0.0
+        self.backward_time_step: float = 0.0
+        self.backward_time_cumulative: float = 0.0
 
         # objective #1: per-node width variant, default all "baseline"
         # (homogeneous, reproduces prior behaviour exactly).
@@ -358,6 +459,67 @@ class Mesh:
             certs = 1.0 / (1.0 + uncs)
             return float(np.sum(certs * gammas) / np.sum(certs)), 1.0, 1.0
 
+        if self.mode in ("nig_product", "nig_product_weighted"):
+            # Closed-form product-of-NIG fusion (2026-08): multiplies the NIG
+            # densities directly instead of grid-searching the summed Student-t
+            # log-density (fuse(), above) -- see fusion/nig_product.py for the
+            # derivation. Handled here, BEFORE the fusion/consensus branches
+            # below, because the fused certainty this mode returns (cert_star,
+            # from the CLOSED-FORM (nu*, alpha*, beta*), not a separate
+            # agreement/inherited computation) must be produced every time.
+            from beliefmesh.fusion.nig_product import fuse_nig_product
+
+            include_self_np = self.self_weight > 0 and own_belief is not None
+            if len(contributions) == 1 and not include_self_np:
+                # Single-contributor short-circuit (2026-08, matching fuse()'s
+                # own guard below -- Christian's explicit call): fuse_nig_product()
+                # provably returns a single contributor's parameters unchanged
+                # (tests/test_nig_product.py::test_single_contributor_returns_
+                # unchanged), so skip the call entirely rather than pay for an
+                # algebraically-guaranteed no-op. This is what closes the
+                # ~42% call-count gap against fuse()'s identical shortcut.
+                gamma_i, nu_i, alpha_i, beta_i = beliefs_raw[0]
+                unc_i = predictive_uncertainty(
+                    torch.tensor([nu_i]), torch.tensor([alpha_i]), torch.tensor([beta_i])
+                ).clamp(max=10.0).item()
+                cert_i = 1.0 / (1.0 + unc_i)
+                return gamma_i, cert_i, 1.0
+
+            contributor_beliefs = list(beliefs_raw)
+            weights = None
+            if self.mode == "nig_product_weighted":
+                # w_i = training certainty (per-node consensus trust -- 1.0
+                # for every node unless mode=="consensus" is also updating it)
+                # x predictive certainty (same 1/(1+predictive_uncertainty)
+                # definition used everywhere else in this module/runner.py),
+                # applied as an exponent-style tempering weight (see
+                # fuse_nig_product's docstring) -- Christian's explicit spec.
+                weights = []
+                for cid, belief in contributions:
+                    _, nu_i, alpha_i, beta_i = belief
+                    unc_i = predictive_uncertainty(
+                        torch.tensor([nu_i]), torch.tensor([alpha_i]), torch.tensor([beta_i])
+                    ).clamp(max=10.0).item()
+                    pred_cert_i = 1.0 / (1.0 + unc_i)
+                    training_cert_i = self.consensus[cid]
+                    weights.append(training_cert_i * pred_cert_i)
+            if self.self_weight > 0 and own_belief is not None:
+                contributor_beliefs = contributor_beliefs + [own_belief]
+                if weights is not None:
+                    weights = weights + [self.self_weight]
+
+            t0 = time.perf_counter()
+            gamma_star, nu_star, alpha_star, beta_star = fuse_nig_product(
+                contributor_beliefs, weights=weights)
+            self.fusion_time_step += time.perf_counter() - t0
+            self.fusion_call_count += 1
+
+            unc_star = predictive_uncertainty(
+                torch.tensor([nu_star]), torch.tensor([alpha_star]), torch.tensor([beta_star])
+            ).clamp(max=10.0).item()
+            cert_star = 1.0 / (1.0 + unc_star)
+            return gamma_star, cert_star, 1.0
+
         include_self = self.self_weight > 0 and own_belief is not None
         c_vals = torch.tensor([self.consensus[cid] for cid, _ in contributions])
         if len(contributions) == 1 and not include_self:
@@ -371,14 +533,23 @@ class Mesh:
             if include_self:
                 beliefs = beliefs + [tuple(torch.tensor([v]) for v in own_belief)]
                 weights = torch.cat([weights, torch.tensor([self.self_weight])])
+            t0 = time.perf_counter()
             modes, logp = fuse(beliefs, self.fusion_grid.cpu(), weights=weights)
+            self.fusion_time_step += time.perf_counter() - t0
+            self.fusion_call_count += 1
             return modes.item(), agreement_score(logp).item(), inherited_trust(c_vals)
         if include_self:
             beliefs = beliefs + [tuple(torch.tensor([v]) for v in own_belief)]
             weights = torch.cat([torch.ones(len(beliefs_raw)), torch.tensor([self.self_weight])])
+            t0 = time.perf_counter()
             modes, _ = fuse(beliefs, self.fusion_grid.cpu(), weights=weights)
+            self.fusion_time_step += time.perf_counter() - t0
+            self.fusion_call_count += 1
         else:
+            t0 = time.perf_counter()
             modes, _ = fuse(beliefs, self.fusion_grid.cpu())
+            self.fusion_time_step += time.perf_counter() - t0
+            self.fusion_call_count += 1
         return modes.item(), 1.0, 1.0
 
     def run_timestep(self, wearable_positions, step: int,
@@ -386,6 +557,7 @@ class Mesh:
         for node in self.nodes.values():
             node.reset_timestep()
         self.comm_bytes_step = 0
+        self.fusion_time_step = 0.0
 
         anchors, wearable_cells = self.in_coverage(wearable_positions)
         trained: set[int] = set()
@@ -448,6 +620,13 @@ class Mesh:
                 imgs, _, keys = self.environment.get_batch_for_cells(node.fov_cells, step)
                 node.predict_cells(imgs, keys)
             self.comm_bytes_cumulative += self.comm_bytes_step
+            self.fusion_time_cumulative += self.fusion_time_step
+            for n in self.nodes.values():
+                n.flush_timing_events()
+            self.forward_time_step = sum(n.forward_time for n in self.nodes.values())
+            self.backward_time_step = sum(n.backward_time for n in self.nodes.values())
+            self.forward_time_cumulative += self.forward_time_step
+            self.backward_time_cumulative += self.backward_time_step
             return trained
 
         # hop 0: anchors train on wearable-cell ground truth (unless frozen)
@@ -616,6 +795,13 @@ class Mesh:
                 queue.append(neighbour_id)
 
         self.comm_bytes_cumulative += self.comm_bytes_step
+        self.fusion_time_cumulative += self.fusion_time_step
+        for n in self.nodes.values():
+            n.flush_timing_events()
+        self.forward_time_step = sum(n.forward_time for n in self.nodes.values())
+        self.backward_time_step = sum(n.backward_time for n in self.nodes.values())
+        self.forward_time_cumulative += self.forward_time_step
+        self.backward_time_cumulative += self.backward_time_step
         return trained
 
     def epistemic_map(self) -> np.ndarray:

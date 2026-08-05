@@ -128,7 +128,7 @@ def _common_kwargs(cfg, tag: str, node_variants: list[str], seed: int, mode: str
     ), centres
 
 
-def run_one_arm(arm: str, seed: int):
+def run_one_arm(arm: str, seed: int, mode: str = "fusion"):
     cfg = load_config()
     cfg.model.lr = LR
     ROOT.mkdir(parents=True, exist_ok=True)
@@ -145,9 +145,10 @@ def run_one_arm(arm: str, seed: int):
     else:
         raise ValueError(arm)
 
-    tag = f"het_{arm}_v2" if seed == SEED else f"het_{arm}_v2_seed{seed}"
+    mode_suffix = "" if mode == "fusion" else f"_{mode}"
+    tag = f"het_{arm}_v2{mode_suffix}" if seed == SEED else f"het_{arm}_v2{mode_suffix}_seed{seed}"
     random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
-    kwargs, _ = _common_kwargs(cfg, tag, variants, seed, mode="fusion",
+    kwargs, _ = _common_kwargs(cfg, tag, variants, seed, mode=mode,
                                 checkpoint=PRETRAINED_CHECKPOINTS)
     res = run_mesh_experiment(**kwargs)
     cell_mse_steps = np.load(ROOT / tag / "cell_mse_steps.npy")
@@ -159,11 +160,11 @@ def run_one_arm(arm: str, seed: int):
     return whole_run_mse, res['mean_mse_last_50'], r
 
 
-def run_arm(arm: str, seeds: list[int]):
-    results = [run_one_arm(arm, seed) for seed in seeds]
+def run_arm(arm: str, seeds: list[int], mode: str = "fusion"):
+    results = [run_one_arm(arm, seed, mode=mode) for seed in seeds]
     if len(seeds) > 1:
         arr = np.array(results)
-        print(f"\n=== het_{arm}_v2 {len(seeds)}-SEED SUMMARY (seeds={seeds}) ===")
+        print(f"\n=== het_{arm}_v2 ({mode}) {len(seeds)}-SEED SUMMARY (seeds={seeds}) ===")
         print(f"whole_run MSE: mean={arr[:,0].mean():.4f} std={arr[:,0].std():.4f} "
               f"values={list(np.round(arr[:,0],4))}")
         print(f"last50 MSE:    mean={arr[:,1].mean():.4f} std={arr[:,1].std():.4f} "
@@ -219,8 +220,12 @@ if __name__ == "__main__":
     parser.add_argument("--arm", choices=["random", "clustered", "gossip_failure"], required=True)
     parser.add_argument("--seeds", type=str, default=str(SEED),
                         help="comma-separated seed list, e.g. '1042,2042,3042,4042'")
+    parser.add_argument("--mode", type=str, default="fusion",
+                        choices=["fusion", "nig_product", "nig_product_weighted"],
+                        help="belief-exchange aggregation mode (2026-08: nig_product added "
+                             "for the closed-form-vs-grid-search comparison on heterogeneous configs)")
     args = parser.parse_args()
     if args.arm == "gossip_failure":
         attempt_parameter_exchange()
     else:
-        run_arm(args.arm, [int(s) for s in args.seeds.split(",")])
+        run_arm(args.arm, [int(s) for s in args.seeds.split(",")], mode=args.mode)

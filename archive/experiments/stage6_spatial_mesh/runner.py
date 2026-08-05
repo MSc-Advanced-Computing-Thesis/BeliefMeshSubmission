@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import dataclasses
 import sys
+import time
 from collections import defaultdict
 from pathlib import Path
 
@@ -138,6 +139,10 @@ def run_mesh_experiment(
     cell_mse_steps = np.full((total_steps, grid_size, grid_size), np.nan)
     cell_cert_steps = np.full((total_steps, grid_size, grid_size), np.nan)
     comm_bytes_steps = np.zeros(total_steps, dtype=np.int64)  # objective #2 instrumentation
+    fusion_time_steps = np.zeros(total_steps, dtype=np.float64)  # nig_product cost comparison, 2026-08
+    forward_time_steps = np.zeros(total_steps, dtype=np.float64)   # fusion-cost-share analysis, 2026-08
+    backward_time_steps = np.zeros(total_steps, dtype=np.float64)
+    step_wall_time_steps = np.zeros(total_steps, dtype=np.float64)  # real run_timestep() wall-clock
     n_wearables = len(wearable_paths)
 
     policy_rng = np.random.default_rng(env_seed)
@@ -259,10 +264,15 @@ def run_mesh_experiment(
                 realised_paths[w].append(policy_positions[w].copy())
         else:
             positions = [wearable_paths[w][step] for w in range(n_wearables)]
+        _t0 = time.perf_counter()
         trained = mesh.run_timestep(positions, step,
                                     n_wearable_samples=n_wearable_samples,
                                     n_train_repeats=n_train_repeats)
+        step_wall_time_steps[step] = time.perf_counter() - _t0
         comm_bytes_steps[step] = mesh.comm_bytes_step
+        fusion_time_steps[step] = mesh.fusion_time_step
+        forward_time_steps[step] = mesh.forward_time_step
+        backward_time_steps[step] = mesh.backward_time_step
 
         # best-certainty belief per cell across nodes, for the spatial maps
         step_best = {}
@@ -336,6 +346,7 @@ def run_mesh_experiment(
     np.save(run_dir / "cell_mse_steps.npy", cell_mse_steps)
     np.save(run_dir / "cell_cert_steps.npy", cell_cert_steps)
     np.save(run_dir / "comm_bytes_steps.npy", comm_bytes_steps)
+    np.save(run_dir / "fusion_time_steps.npy", fusion_time_steps)
     if realised_paths[0]:
         wearable_paths = [np.array(p) for p in realised_paths]  # so figures show the real trail(s)
     # always save whatever paths were actually used (policy-driven or a
@@ -367,6 +378,30 @@ def run_mesh_experiment(
             "comm_bytes_total": int(comm_bytes_steps.sum()),
             "comm_bytes_mean_per_step": float(comm_bytes_steps.mean()),
             "variant_mse": variant_mse_summary,
+            "fusion_time_total_sec": float(fusion_time_steps.sum()),
+            "fusion_time_mean_per_step_sec": float(fusion_time_steps.mean()),
+            "fusion_call_count": int(mesh.fusion_call_count),
+            "fusion_time_mean_per_call_sec": (
+                float(fusion_time_steps.sum() / mesh.fusion_call_count)
+                if mesh.fusion_call_count else None),
+            "forward_time_total_sec": float(forward_time_steps.sum()),
+            "backward_time_total_sec": float(backward_time_steps.sum()),
+            "step_wall_time_total_sec": float(step_wall_time_steps.sum()),
+            "fusion_pct_of_measured": (
+                100.0 * fusion_time_steps.sum() /
+                (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum())
+                if (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum()) > 0
+                else None),
+            "forward_pct_of_measured": (
+                100.0 * forward_time_steps.sum() /
+                (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum())
+                if (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum()) > 0
+                else None),
+            "backward_pct_of_measured": (
+                100.0 * backward_time_steps.sum() /
+                (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum())
+                if (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum()) > 0
+                else None),
         },
     }
     with open(run_dir / "manifest.yaml", "w") as f:
