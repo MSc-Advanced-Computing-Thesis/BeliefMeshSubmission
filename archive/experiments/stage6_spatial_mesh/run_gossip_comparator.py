@@ -61,7 +61,7 @@ EXCLUDED_RANGES = [(120.0, 150.0), (165.0, 180.0), (-180.0, -165.0)]
 MODES = ["fusion", "gossip_uniform", "gossip_weighted", "fedavg_global"]
 
 
-def main(mode: str):
+def run_one(mode: str, seed: int):
     cfg = load_config()
     cfg.model.lr = LR
     ROOT.mkdir(parents=True, exist_ok=True)
@@ -70,18 +70,22 @@ def main(mode: str):
     T, G = grids.shape[0], grids.shape[1]
     uniform = np.full((T, G, G), 0.5)
     centres = np.load(ENV / "node_centres.npy")
-    field = build_dynamic_offset_field(G, T)  # deterministic, same field every arm
-    paths = [build_random_wander_path(T, G, seed=200 + i) for i in range(N_WEARABLES)]
+    field = build_dynamic_offset_field(G, T)  # deterministic, same field every arm/seed
+    # matches every other 5-seed script this session: seed 42 keeps the
+    # original wander paths (200+i) so the single-seed result is reproduced
+    # exactly; other seeds get their own wander paths (seed+200+i).
+    wearable_seed_base = 200 if seed == SEED else seed + 200
+    paths = [build_random_wander_path(T, G, seed=wearable_seed_base + i) for i in range(N_WEARABLES)]
 
-    tag = f"gossip_cmp_{mode}"
-    random.seed(SEED); np.random.seed(SEED); torch.manual_seed(SEED)
+    tag = f"gossip_cmp_{mode}" if seed == SEED else f"gossip_cmp_{mode}_seed{seed}"
+    random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
     res = run_mesh_experiment(
         cfg, condition=tag, run_dir=ROOT / tag,
         all_grids=uniform, wearable_paths=paths, node_centres=centres,
         fov_size=7, mode=mode, baseline_checkpoint=CKPT,
         n_wearable_samples=1, n_train_repeats=1,
-        title=f"Gossip comparator ({mode})",
-        offset_field=field, env_seed=SEED,
+        title=f"Gossip comparator ({mode}, seed={seed})",
+        offset_field=field, env_seed=seed,
         excluded_rotation_ranges=EXCLUDED_RANGES,
         lam=LAM, wearable_policy=None, policy_step_size=0.4,
     )
@@ -94,11 +98,29 @@ def main(mode: str):
           f"r={r:.4f}")
     print(f"    comm_bytes_total={comm_total:,} ({comm_total/1e6:.2f} MB over the run) "
           f"mean/step={comm_mean:,.0f} bytes")
+    return whole_run_mse, res['mean_mse_last_50'], r
+
+
+def main(mode: str, seeds: list[int]):
+    results = []
+    for seed in seeds:
+        results.append(run_one(mode, seed))
+    if len(seeds) > 1:
+        arr = np.array(results)  # (n_seeds, 3): whole_run, last50, r
+        print(f"\n=== {mode} {len(seeds)}-SEED SUMMARY (this invocation, seeds={seeds}) ===")
+        print(f"whole_run MSE: mean={arr[:,0].mean():.4f} std={arr[:,0].std():.4f} "
+              f"values={list(np.round(arr[:,0],4))}")
+        print(f"last50 MSE:    mean={arr[:,1].mean():.4f} std={arr[:,1].std():.4f} "
+              f"values={list(np.round(arr[:,1],4))}")
+        print(f"r:             mean={arr[:,2].mean():.4f} std={arr[:,2].std():.4f} "
+              f"values={list(np.round(arr[:,2],4))}")
     print("=== DONE ===")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=MODES, required=True)
+    parser.add_argument("--seeds", type=str, default=str(SEED),
+                        help="comma-separated seed list, e.g. '1042,2042,3042,4042'")
     args = parser.parse_args()
-    main(args.mode)
+    main(args.mode, [int(s) for s in args.seeds.split(",")])

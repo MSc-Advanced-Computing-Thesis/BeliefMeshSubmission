@@ -54,10 +54,21 @@ def evaluate(model, loader, device):
     return float(np.mean(batch_mses)), uncertainties, errors
 
 
-def main(train_seed: int | None = None, run_name: str = "baseline"):
+def main(train_seed: int | None = None, run_name: str = "baseline",
+         widths: tuple[int, int, int] = (32, 64, 128)):
     """train_seed varies weight init / angle draws only, to characterise
     training variance. The evaluation split ALWAYS uses cfg.seed (42) -- that
-    is what the spec pins (Sec 2), and it must never move between runs."""
+    is what the spec pins (Sec 2), and it must never move between runs.
+
+    widths: objective #1 (heterogeneous device collaboration, 2026-08) --
+    narrow/wide variants get their OWN independently pretrained checkpoint
+    via this same procedure (same data, seed, epochs, lr), rather than
+    starting from scratch inside the mesh or from a sliced/padded copy of
+    the baseline checkpoint. Christian's explicit call: slicing/padding
+    would confound "different capacity" with "transfer damage from a
+    checkpoint optimised for a different width" -- an independently
+    converged checkpoint per variant isolates capacity as the only
+    remaining difference once all three reach comparable held-out MSE."""
     global RUN_DIR
     RUN_DIR = Path("runs/stage0") / run_name
     cfg = load_config()
@@ -84,7 +95,7 @@ def main(train_seed: int | None = None, run_name: str = "baseline"):
         batch_size=cfg.model.batch_size, shuffle=False,
     )
 
-    model = EvidentialCNN().to(device)
+    model = EvidentialCNN(widths=widths).to(device)
     optimiser = torch.optim.Adam(model.parameters(), lr=cfg.model.lr)
 
     step = 0
@@ -136,6 +147,7 @@ def main(train_seed: int | None = None, run_name: str = "baseline"):
     manifest = {
         "stage": "stage0",
         "condition": run_name,
+        "widths": list(widths),
         "train_seed": seed,
         "git_commit": commit,
         "config": dataclasses.asdict(cfg),
@@ -174,5 +186,11 @@ if __name__ == "__main__":
                         help="Vary training RNG only; the eval split always stays at config seed 42.")
     parser.add_argument("--run-name", type=str, default="baseline",
                         help="Subdirectory under runs/stage0/ for this run's outputs.")
+    parser.add_argument("--variant", type=str, default="baseline",
+                        choices=["narrow", "baseline", "wide"],
+                        help="Width variant (objective #1) -- sets widths and, if "
+                             "--run-name wasn't given, the run-name too.")
     args = parser.parse_args()
-    main(train_seed=args.train_seed, run_name=args.run_name)
+    from beliefmesh.models.variants import WIDTH_VARIANTS
+    run_name = args.run_name if args.run_name != "baseline" else args.variant
+    main(train_seed=args.train_seed, run_name=run_name, widths=WIDTH_VARIANTS[args.variant])

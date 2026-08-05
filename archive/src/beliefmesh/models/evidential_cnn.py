@@ -24,19 +24,29 @@ class EvidentialCNN(nn.Module):
     limitation confirmed empirically via the multi-region diagnostic: a
     node whose FOV spans two genuinely different true regions cannot
     represent both, since two images from different cells were otherwise
-    indistinguishable to the model."""
+    indistinguishable to the model.
 
-    def __init__(self, in_channels: int = 3):
+    widths: (conv1_out, conv2_out, conv3_out) channel counts, default
+    (32, 64, 128) reproducing the original fixed architecture exactly.
+    Objective #1 (heterogeneous device collaboration, 2026-08): varying
+    this is the ONLY axis of heterogeneity in scope (width-only, depth
+    deferred per Christian's instruction) -- see
+    beliefmesh.models.variants.WIDTH_VARIANTS for the narrow/baseline/wide
+    presets. fc1's input size is derived from widths[2] (28x28 input, 3
+    maxpool halvings -> 3x3 spatial, so widths[2] * 9 features)."""
+
+    def __init__(self, in_channels: int = 3, widths: tuple[int, int, int] = (32, 64, 128)):
         super().__init__()
+        w1, w2, w3 = widths
         #conv layers
-        self.conv1 = nn.Conv2d(in_channels, 32, 3, padding=1)
-        self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
-        self.conv3 = nn.Conv2d(64, 128, 3, padding=1)
+        self.conv1 = nn.Conv2d(in_channels, w1, 3, padding=1)
+        self.conv2 = nn.Conv2d(w1, w2, 3, padding=1)
+        self.conv3 = nn.Conv2d(w2, w3, 3, padding=1)
 
         self.pool = nn.MaxPool2d(2)
 
         #fully connected layers
-        self.fc1 = nn.Linear(1152, 256)
+        self.fc1 = nn.Linear(w3 * 9, 256)
         self.fc2 = nn.Linear(256, 4)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:

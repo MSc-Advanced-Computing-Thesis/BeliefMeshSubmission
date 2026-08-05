@@ -93,6 +93,7 @@ def run_mesh_experiment(
     temper_gradient: bool = True,
     excluded_rotation_ranges: list[tuple[float, float]] | None = None,
     self_weight: float = 0.0,
+    node_variants: list[str] | None = None,
 ):
     """wearable_policy=None replays the given wearable_paths. 'epistemic'
     computes the single wearable's trajectory ONLINE: each step it moves
@@ -119,7 +120,8 @@ def run_mesh_experiment(
                 environment=env, pretrained_path=baseline_checkpoint,
                 lr=cfg.model.lr, fusion_grid=circular_grid(cfg.fusion.grid_size),
                 mode=mode, device=device, sample_seed=env_seed, rho=rho, lam=lam,
-                temper_gradient=temper_gradient, self_weight=self_weight)
+                temper_gradient=temper_gradient, self_weight=self_weight,
+                node_variants=node_variants)
 
     coverage = np.zeros((grid_size, grid_size), dtype=int)
     for node in mesh.nodes.values():
@@ -129,6 +131,7 @@ def run_mesh_experiment(
           f"mode={mode} steps={total_steps}")
 
     hop_mse_history = {h: [] for h in range(4)}
+    variant_mse_hist: dict[str, list] = defaultdict(list)  # objective #1: per-variant MSE
     cell_mse_hist = defaultdict(list)
     cell_cert_hist = defaultdict(list)
     # per-step spatial arrays: consumed by generate_video.py
@@ -278,9 +281,11 @@ def run_mesh_experiment(
 
         metrics = mesh.evaluate(step)
         hop_mses = {h: [] for h in range(4)}
-        for m in metrics.values():
+        for node_id, m in metrics.items():
             if m["mse"] is not None and m["hop_distance"] is not None:
                 hop_mses[min(m["hop_distance"], 3)].append(m["mse"])
+            if m["mse"] is not None:
+                variant_mse_hist[mesh.nodes[node_id].variant].append(m["mse"])
         for h in range(4):
             hop_mse_history[h].append(float(np.mean(hop_mses[h])) if hop_mses[h] else None)
 
@@ -308,6 +313,20 @@ def run_mesh_experiment(
     overall_mean_last = float(np.nanmean(avg_mse_map))
     print(f"[{condition}] mean MSE (last {LAST_N_STEPS} steps): {overall_mean_last:.4f} "
           f"| cert-MSE r={r_val:.3f}")
+
+    # objective #1: per-variant MSE (whole-run mean, and last-50-step mean per
+    # variant) -- meaningful only when node_variants introduces heterogeneity;
+    # a single "baseline" key with the homogeneous run's overall MSE otherwise.
+    variant_mse_summary = {
+        variant: {
+            "whole_run": float(np.mean(hist)),
+            "last50": float(np.mean(hist[-LAST_N_STEPS:])),
+        }
+        for variant, hist in variant_mse_hist.items()
+    }
+    if len(variant_mse_summary) > 1:
+        print(f"[{condition}] per-variant whole-run MSE: " +
+              ", ".join(f"{v}={s['whole_run']:.4f}" for v, s in variant_mse_summary.items()))
 
     # ── save ──────────────────────────────────────────────────────────────
     (run_dir / "figures").mkdir(parents=True, exist_ok=True)
@@ -337,6 +356,7 @@ def run_mesh_experiment(
         "n_train_repeats": n_train_repeats, "total_steps": total_steps,
         "env_seed": env_seed, "wearable_policy": wearable_policy or "replay",
         "policy_cooldown": policy_cooldown,
+        "node_variants": mesh.node_variants,
         "git_commit": git_commit(), "config": dataclasses.asdict(cfg),
         **(extra_manifest or {}),
         "results": {
@@ -346,6 +366,7 @@ def run_mesh_experiment(
             "final_hop_means": {h: hop_mse_history[h][-1] for h in range(4)},
             "comm_bytes_total": int(comm_bytes_steps.sum()),
             "comm_bytes_mean_per_step": float(comm_bytes_steps.mean()),
+            "variant_mse": variant_mse_summary,
         },
     }
     with open(run_dir / "manifest.yaml", "w") as f:

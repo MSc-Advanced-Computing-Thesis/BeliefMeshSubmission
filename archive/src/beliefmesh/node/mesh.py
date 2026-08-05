@@ -93,14 +93,19 @@ class MeshNode:
 
     def __init__(self, node_id: int, centre: tuple[int, int],
                  cells: list[tuple[int, int]], lr: float, device: torch.device,
-                 fov_size: int = 7):
+                 fov_size: int = 7, widths: tuple[int, int, int] = (32, 64, 128),
+                 variant: str = "baseline"):
         self.node_id = node_id
         self.centre = centre
         self.fov_cells = cells
         self.fov_set = set(cells)
         self.fov_size = fov_size
         self.device = device
-        self.model = EvidentialCNN(in_channels=5).to(device)
+        # objective #1 (heterogeneous device collaboration): width-only
+        # backbone variant, default "baseline" reproduces the original fixed
+        # architecture exactly. See beliefmesh.models.variants.
+        self.variant = variant
+        self.model = EvidentialCNN(in_channels=5, widths=widths).to(device)
         self.optimiser = torch.optim.Adam(self.model.parameters(), lr=lr)
         self.hop_distance: int | None = None
         # cell -> (gamma, nu, alpha, beta) floats: the FULL belief, uncollapsed
@@ -129,6 +134,19 @@ class MeshNode:
     def load_checkpoint(self, path: str | Path):
         state_dict = torch.load(path, map_location=self.device)
         conv1_w = state_dict.get("conv1.weight")
+        if conv1_w is not None and conv1_w.shape[0] != self.model.conv1.out_channels:
+            # objective #1: a narrow/wide-variant node's conv/fc channel
+            # counts don't match the baseline-width checkpoint at all (not
+            # just the in_channels padding case below) -- the pretrained
+            # weights simply don't transfer to a different width, so this
+            # node trains from scratch instead. Deliberate, not a bug:
+            # recorded explicitly as part of the heterogeneous-architecture
+            # finding rather than silently reshaping/truncating weights into
+            # a shape they were never optimised for.
+            print(f"[node {self.node_id}] variant={self.variant}: pretrained checkpoint "
+                  f"is width {conv1_w.shape[0]}, model is width {self.model.conv1.out_channels} "
+                  "-- skipping checkpoint, training from random init")
+            return
         if conv1_w is not None and conv1_w.shape[1] != self.model.conv1.in_channels:
             # pretrained checkpoint predates the CoordConv channels (3 in,
             # not 5) -- expand conv1's weight with ZERO-initialised slices
@@ -191,11 +209,23 @@ class Mesh:
     """Overlap-graph mesh with breadth-first belief propagation per timestep."""
 
     def __init__(self, node_centres: np.ndarray, fov_size: int, grid_size: int,
-                 environment: GridEnvironment, pretrained_path: str | Path,
+                 environment: GridEnvironment, pretrained_path: str | Path | dict[str, str | Path],
                  lr: float, fusion_grid: torch.Tensor, mode: str = "fusion",
                  device: torch.device | None = None, sample_seed: int = 42,
                  rho: float = 0.2, lam: float = 0.1, temper_gradient: bool = True,
-                 self_weight: float = 0.0):
+                 self_weight: float = 0.0,
+                 node_variants: list[str] | None = None):
+        """pretrained_path: a single path (applied to every node -- prior
+        behaviour, still correct for a homogeneous mesh) OR a dict mapping
+        variant name -> that variant's OWN independently pretrained
+        checkpoint (objective #1, 2026-08). Christian's explicit call: a
+        narrow/wide node gets a checkpoint pretrained AT that width via the
+        same stage0 procedure, not a sliced/padded copy of the baseline
+        checkpoint (which would confound capacity with transfer damage) and
+        not a cold random init (which confounds capacity with "never
+        pretrained at all" -- see the het_random/het_clustered runs this
+        replaces, kept on disk as evidence for the separate certainty-
+        never-discounts-an-unconverged-model finding, see _aggregate)."""
         assert mode in ("fusion", "naive", "frozen", "consensus", "gossip_uniform",
                         "gossip_weighted", "fedavg_global", "certainty")
         self.mode = mode
@@ -243,12 +273,22 @@ class Mesh:
         self.comm_bytes_step: int = 0
         self.comm_bytes_cumulative: int = 0
 
+        # objective #1: per-node width variant, default all "baseline"
+        # (homogeneous, reproduces prior behaviour exactly).
+        from beliefmesh.models.variants import WIDTH_VARIANTS
+        variants = node_variants or ["baseline"] * len(node_centres)
+        assert len(variants) == len(node_centres)
+        self.node_variants = variants
+
         self.nodes: dict[int, MeshNode] = {}
         for i, (cx, cy) in enumerate(node_centres):
+            variant = variants[i]
             node = MeshNode(i, (int(cx), int(cy)),
                             fov_cells(int(cx), int(cy), fov_size, grid_size),
-                            lr=lr, device=device, fov_size=fov_size)
-            node.load_checkpoint(pretrained_path)
+                            lr=lr, device=device, fov_size=fov_size,
+                            widths=WIDTH_VARIANTS[variant], variant=variant)
+            ckpt = pretrained_path[variant] if isinstance(pretrained_path, dict) else pretrained_path
+            node.load_checkpoint(ckpt)
             if mode == "frozen":
                 node.model.eval()
             self.nodes[i] = node
@@ -411,6 +451,26 @@ class Mesh:
             return trained
 
         # hop 0: anchors train on wearable-cell ground truth (unless frozen)
+        #
+        # IDENTIFIED LIMITATION (objective #1, 2026-08): an anchor's cell_beliefs
+        # are propagated downstream as supervision with no discount for how
+        # converged the underlying model actually is -- consensus mode's
+        # update_consensus(..., 1.0, ...) call two lines below sets an anchor's
+        # trust to unity regardless of training history, and fusion/naive
+        # modes never even consult a convergence signal in the first place
+        # (only the NIG head's OWN instantaneous (nu, alpha, beta) uncertainty
+        # is used, which is a property of that step's prediction, not of how
+        # much gradient descent the model has undergone in total). A cold-
+        # started narrow/wide node that happens to be under the wearable is
+        # therefore trusted exactly as much as a fully pretrained one -- this
+        # is what let a handful of near-random anchors contaminate the whole
+        # mesh (baseline nodes measured 0.197 whole-run MSE inside
+        # het_random vs 0.0208 homogeneous, an ~9x degradation, despite the
+        # baseline nodes themselves being unchanged; runs/stage7/heterogeneous/
+        # het_random and het_clustered). Not fixed here -- recorded as a
+        # limitation for the thesis discussion; the fix (independently
+        # pretraining every width variant so no node is ever cold-started
+        # inside the mesh) sidesteps rather than resolves the underlying gap.
         for node_id in anchors:
             node = self.nodes[node_id]
             anchor_cells = [c for c in wearable_cells if c in node.fov_set]
