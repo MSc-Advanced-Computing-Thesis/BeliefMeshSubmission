@@ -60,7 +60,8 @@ def run_one(mode: str):
                           excluded_rotation_ranges=EXCLUDED_RANGES)
     mesh = Mesh(centres, fov_size=7, grid_size=G, environment=env,
                 pretrained_path=CKPT, lr=LR, fusion_grid=circular_grid(cfg.fusion.grid_size),
-                mode=mode, device=torch.device("cpu"), sample_seed=SEED, lam=LAM)
+                mode=mode, device=torch.device("cpu"), sample_seed=SEED, lam=LAM,
+                track_compute_cost=True)
 
     t_wall0 = time.perf_counter()
     for step in range(N_STEPS):

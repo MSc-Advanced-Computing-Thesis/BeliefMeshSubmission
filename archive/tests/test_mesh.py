@@ -114,3 +114,132 @@ def test_consensus_mode_tracks_per_node_trust():
     # early contributors disagree at least somewhat, drift below it
     assert mesh.consensus[0] > 0.999
     assert any(mesh.consensus[i] < mesh.consensus[0] for i in mesh.nodes if i != 0)
+
+
+# --- nig_product_consensus: closed-form fusion + live consensus (2026-08) --
+
+def test_nig_product_consensus_matches_weighted_when_consensus_unity():
+    """With self.consensus pinned at 1.0 (rho=0, so update_consensus() never
+    moves it from its unity init), nig_product_consensus's weights list is
+    identical to nig_product_weighted's at every call, so fuse_nig_product()
+    must return identical fused parameters -- the closed-form fusion itself is
+    unaffected by which mode drives it, only self.consensus's mutability
+    differs."""
+    env = GridEnvironment(GRID_SIZE, np.full((2, GRID_SIZE, GRID_SIZE), 0.5))
+    mesh_w = Mesh(CENTRES, fov_size=5, grid_size=GRID_SIZE, environment=env,
+                  pretrained_path=BASELINE, lr=3e-4, fusion_grid=circular_grid(360),
+                  mode="nig_product_weighted", device=torch.device("cpu"), sample_seed=42)
+    mesh_c = Mesh(CENTRES, fov_size=5, grid_size=GRID_SIZE, environment=env,
+                  pretrained_path=BASELINE, lr=3e-4, fusion_grid=circular_grid(360),
+                  mode="nig_product_consensus", device=torch.device("cpu"),
+                  sample_seed=42, rho=0.0)
+    contributions = [(1, (0.3, 4.0, 2.5, 1.0)), (2, (-0.6, 2.0, 3.0, 0.8))]
+    label_w, cert_w, inh_w = mesh_w._aggregate(contributions)
+    label_c, agree_c, inh_c = mesh_c._aggregate(contributions)
+    assert label_w == pytest.approx(label_c)
+    # self.consensus never updated by a bare _aggregate() call in either mode
+    assert all(c == 1.0 for c in mesh_w.consensus.values())
+    assert all(c == 1.0 for c in mesh_c.consensus.values())
+
+
+def test_nig_product_consensus_agreement_drops_under_disagreement():
+    env = GridEnvironment(GRID_SIZE, np.full((2, GRID_SIZE, GRID_SIZE), 0.5))
+    mesh = Mesh(CENTRES, fov_size=5, grid_size=GRID_SIZE, environment=env,
+                pretrained_path=BASELINE, lr=3e-4, fusion_grid=circular_grid(360),
+                mode="nig_product_consensus", device=torch.device("cpu"))
+    agreeing = [(1, (0.2, 4.0, 2.5, 1.0)), (2, (0.2, 4.0, 2.5, 1.0))]
+    disagreeing = [(1, (0.2, 4.0, 2.5, 1.0)), (2, (-0.9, 4.0, 2.5, 1.0))]
+    _, agree_same, _ = mesh._aggregate(agreeing)
+    _, agree_diff, _ = mesh._aggregate(disagreeing)
+    assert agree_same == pytest.approx(1.0, abs=1e-3)
+    assert agree_diff < agree_same
+
+
+def test_nig_product_consensus_single_contributor_uses_own_consensus_as_inherited():
+    env = GridEnvironment(GRID_SIZE, np.full((2, GRID_SIZE, GRID_SIZE), 0.5))
+    mesh = Mesh(CENTRES, fov_size=5, grid_size=GRID_SIZE, environment=env,
+                pretrained_path=BASELINE, lr=3e-4, fusion_grid=circular_grid(360),
+                mode="nig_product_consensus", device=torch.device("cpu"))
+    mesh.consensus[1] = 0.42
+    label, agreement, inherited = mesh._aggregate([(1, (0.2, 4.0, 2.5, 1.0))])
+    assert label == pytest.approx(0.2)
+    assert agreement == 1.0
+    assert inherited == pytest.approx(0.42)
+
+
+def test_nig_product_consensus_mode_tracks_per_node_trust():
+    mesh = make_mesh(mode="nig_product_consensus")
+    assert all(c == 1.0 for c in mesh.consensus.values())
+    for step in range(2):
+        mesh.run_timestep([(2.0, 2.0)], step=step)
+    assert all(0.0 <= c <= 1.0 for c in mesh.consensus.values())
+    assert mesh.consensus[0] > 0.999
+    assert any(mesh.consensus[i] < mesh.consensus[0] for i in mesh.nodes if i != 0)
+
+
+# --- node-failure resilience mechanism (2026-08) ------------------------
+
+def test_fail_nodes_removes_from_overlap_graph_symmetrically():
+    mesh = make_mesh()
+    assert mesh.overlap_graph[1]  # node 1 has neighbours before failing
+    neighbours_of_1 = list(mesh.overlap_graph[1])
+    mesh.fail_nodes([1])
+    assert mesh.overlap_graph[1] == []
+    for nb in neighbours_of_1:
+        assert 1 not in mesh.overlap_graph[nb]
+    assert 1 in mesh.failed_nodes
+
+
+def test_fail_nodes_is_idempotent():
+    mesh = make_mesh()
+    mesh.fail_nodes([1])
+    mesh.fail_nodes([1])  # must not raise or double-remove
+    assert mesh.failed_nodes == {1}
+
+
+def test_failed_node_never_becomes_anchor_even_if_wearable_in_its_fov():
+    mesh = make_mesh()
+    mesh.fail_nodes([0])  # node 0 sits exactly at (2, 2)
+    covered, _ = mesh.in_coverage([(2.0, 2.0)])
+    assert 0 not in covered
+    trained = mesh.run_timestep([(2.0, 2.0)], step=0)
+    assert 0 not in trained
+    assert mesh.nodes[0].cell_beliefs == {}
+
+
+def test_failed_node_stays_failed_across_timesteps():
+    mesh = make_mesh()
+    mesh.fail_nodes([0])
+    for step in range(2):
+        trained = mesh.run_timestep([(2.0, 2.0)], step=step)
+        assert 0 not in trained
+        assert mesh.nodes[0].cell_beliefs == {}
+
+
+def test_ever_trained_and_unreachable_nodes_after_failure():
+    mesh = make_mesh()
+    mesh.run_timestep([(2.0, 2.0)], step=0)
+    assert mesh.ever_trained == set(mesh.nodes)  # dense overlap: everyone reached
+    assert mesh.unreachable_nodes() == set()
+    # fail every neighbour of node 3 so it can never again be anchored or
+    # BFS-reached; unreachable_nodes() is defined purely as "surviving but
+    # never in ever_trained", so it correctly flags node 3 even before a
+    # timestep runs -- there is nothing left that could ever train it.
+    mesh2 = make_mesh()
+    others = [i for i in mesh2.nodes if i != 3]
+    mesh2.fail_nodes(others)
+    assert mesh2.unreachable_nodes() == {3}
+    mesh2.run_timestep([(20.0, 20.0)], step=0)  # wearable nowhere near node 3's FOV
+    assert 3 in mesh2.unreachable_nodes()
+
+
+def test_connected_components_reflects_failures():
+    mesh = make_mesh()
+    assert len(mesh.connected_components()) == 1  # dense overlap: one component
+    mesh.fail_nodes([1, 2, 3])
+    components = mesh.connected_components()
+    assert components == [{0}]
+    stats = mesh.overlap_graph_stats()
+    assert stats["n_surviving"] == 1
+    assert stats["n_connected_components"] == 1
+    assert stats["mean_degree"] == 0.0

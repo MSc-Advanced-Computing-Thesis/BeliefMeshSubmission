@@ -388,20 +388,30 @@ def run_mesh_experiment(
             "backward_time_total_sec": float(backward_time_steps.sum()),
             "step_wall_time_total_sec": float(step_wall_time_steps.sum()),
             "fusion_pct_of_measured": (
-                100.0 * fusion_time_steps.sum() /
-                (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum())
+                float(100.0 * fusion_time_steps.sum() /
+                      (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum()))
                 if (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum()) > 0
                 else None),
             "forward_pct_of_measured": (
-                100.0 * forward_time_steps.sum() /
-                (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum())
+                float(100.0 * forward_time_steps.sum() /
+                      (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum()))
                 if (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum()) > 0
                 else None),
             "backward_pct_of_measured": (
-                100.0 * backward_time_steps.sum() /
-                (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum())
+                float(100.0 * backward_time_steps.sum() /
+                      (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum()))
                 if (fusion_time_steps.sum() + forward_time_steps.sum() + backward_time_steps.sum()) > 0
                 else None),
+            # end-of-run per-node consensus trust + hop distance (2026-08,
+            # nig_product_consensus analysis): meaningful only for
+            # mode in ("consensus", "nig_product_consensus") -- every other
+            # mode leaves self.consensus fixed at its unity init, so this is
+            # still recorded unconditionally for cheap cross-mode comparison
+            # but is only interpreted where it can actually move.
+            "final_consensus": {int(i): float(c) for i, c in mesh.consensus.items()},
+            "final_hop_distance": {int(i): (int(n.hop_distance) if n.hop_distance is not None else None)
+                                    for i, n in mesh.nodes.items()},
+            "node_centres": node_centres.tolist(),
         },
     }
     with open(run_dir / "manifest.yaml", "w") as f:

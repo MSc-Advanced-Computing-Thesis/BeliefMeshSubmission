@@ -36,7 +36,43 @@ Aggregation modes:
                       (predictive certainty on that cell), the product the
                       spec calls "total certainty" -- isolates whether
                       weighting the closed-form product changes anything
-                      relative to nig_product's unweighted version.
+                      relative to nig_product's unweighted version. NOTE:
+                      self.consensus[cid] is only ever UPDATED under
+                      mode=="consensus" or mode=="nig_product_consensus" (see
+                      below); under plain nig_product_weighted it stays fixed
+                      at its initial value of 1.0 for the whole run, so the
+                      "per-node consensus trust" factor is a live no-op there
+                      -- the weight reduces to predictive certainty alone.
+  nig_product_consensus -- nig_product_weighted's closed-form fusion PLUS a
+                      live self.consensus[cid], updated the same way
+                      grid-search consensus mode updates it (2026-08,
+                      isolates whether consensus tempering does anything when
+                      paired with the closed form rather than only with
+                      fuse()). Agreement is computed identically to
+                      consensus mode -- the same generalised JS divergence
+                      (fusion/consensus.py), evaluated on the same
+                      Student-t log-densities via product_of_experts.
+                      log_densities() on self.fusion_grid -- so agreement
+                      values are directly comparable between this mode and
+                      `consensus`. This is deliberately NOT derived from the
+                      closed-form NIG parameters themselves: no closed-form
+                      generalised-JS-divergence between a mixture of NIG/
+                      Student-t densities exists, so reusing the exact,
+                      already-validated grid-based agreement_score() (rather
+                      than inventing and justifying a new approximate
+                      measure) is both cheaper to implement correctly and
+                      strictly comparable to the existing consensus
+                      literature in this codebase. The grid evaluation is
+                      cheap relative to fuse()'s full grid-search argmax --
+                      it computes log-densities only, no summed-log argmax --
+                      and is the ONLY grid-touching step nig_product_consensus
+                      pays for; the fused belief that actually gets trained on
+                      still comes from the closed form. inherited_trust() and
+                      the rho-rate EMA update (update_consensus()) are
+                      reused verbatim from consensus mode -- see _aggregate
+                      and run_timestep's two update_consensus() call sites,
+                      both now gated on mode in ("consensus",
+                      "nig_product_consensus").
 
 Communication-volume instrumentation (objective #2): self.comm_bytes_step /
 self.comm_bytes_cumulative track bytes notionally transmitted this step / over
@@ -108,13 +144,22 @@ class MeshNode:
     def __init__(self, node_id: int, centre: tuple[int, int],
                  cells: list[tuple[int, int]], lr: float, device: torch.device,
                  fov_size: int = 7, widths: tuple[int, int, int] = (32, 64, 128),
-                 variant: str = "baseline"):
+                 variant: str = "baseline", track_compute_cost: bool = False):
         self.node_id = node_id
         self.centre = centre
         self.fov_cells = cells
         self.fov_set = set(cells)
         self.fov_size = fov_size
         self.device = device
+        # OFF by default (2026-08 fix): the forward/backward CUDA-Event
+        # instrumentation below is opt-in. An earlier version ran it
+        # unconditionally on every call whenever device.type=="cuda" --
+        # harmless in isolation, but at the ~600-5000+ calls/step this mesh
+        # makes, the per-call Event-object creation overhead was enough to
+        # turn a few-minute GPU run into one that hadn't finished step 20
+        # after several minutes. Only cost-comparison scripts that actually
+        # want the forward/backward split should pay for it.
+        self.track_compute_cost = track_compute_cost
         # objective #1 (heterogeneous device collaboration): width-only
         # backbone variant, default "baseline" reproduces the original fixed
         # architecture exactly. See beliefmesh.models.variants.
@@ -241,7 +286,12 @@ class MeshNode:
         if weights is not None:
             weights = weights.to(self.device)
         self.optimiser.zero_grad()
-        if self.device.type == "cuda":
+        if not self.track_compute_cost:
+            gamma, nu, alpha, beta = self.model(batch)
+            loss = nig_loss(gamma, nu, alpha, beta, targets, lam=lam, weights=weights)
+            loss.backward()
+            self.optimiser.step()
+        elif self.device.type == "cuda":
             fwd_start, fwd_end = torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True)
             fwd_start.record()
             gamma, nu, alpha, beta = self.model(batch)
@@ -273,7 +323,9 @@ class MeshNode:
         images = self._with_coords(images, keys)
         batch = torch.stack(images).to(self.device)
         with torch.no_grad():
-            if self.device.type == "cuda":
+            if not self.track_compute_cost:
+                gamma, nu, alpha, beta = self.model(batch)
+            elif self.device.type == "cuda":
                 fwd_start, fwd_end = torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True)
                 fwd_start.record()
                 gamma, nu, alpha, beta = self.model(batch)
@@ -298,7 +350,8 @@ class Mesh:
                  device: torch.device | None = None, sample_seed: int = 42,
                  rho: float = 0.2, lam: float = 0.1, temper_gradient: bool = True,
                  self_weight: float = 0.0,
-                 node_variants: list[str] | None = None):
+                 node_variants: list[str] | None = None,
+                 track_compute_cost: bool = False):
         """pretrained_path: a single path (applied to every node -- prior
         behaviour, still correct for a homogeneous mesh) OR a dict mapping
         variant name -> that variant's OWN independently pretrained
@@ -312,7 +365,7 @@ class Mesh:
         never-discounts-an-unconverged-model finding, see _aggregate)."""
         assert mode in ("fusion", "naive", "frozen", "consensus", "gossip_uniform",
                         "gossip_weighted", "fedavg_global", "certainty",
-                        "nig_product", "nig_product_weighted")
+                        "nig_product", "nig_product_weighted", "nig_product_consensus")
         self.mode = mode
         self.lam = lam
         # weight given to a node's OWN last belief for a cell (self.last_beliefs)
@@ -387,7 +440,8 @@ class Mesh:
             node = MeshNode(i, (int(cx), int(cy)),
                             fov_cells(int(cx), int(cy), fov_size, grid_size),
                             lr=lr, device=device, fov_size=fov_size,
-                            widths=WIDTH_VARIANTS[variant], variant=variant)
+                            widths=WIDTH_VARIANTS[variant], variant=variant,
+                            track_compute_cost=track_compute_cost)
             ckpt = pretrained_path[variant] if isinstance(pretrained_path, dict) else pretrained_path
             node.load_checkpoint(ckpt)
             if mode == "frozen":
@@ -409,16 +463,106 @@ class Mesh:
                     self.shared_cells[(i, j)] = shared
                     self.shared_cells[(j, i)] = shared
 
+        # node-failure instrumentation (2026-08, resilience experiment):
+        # permanently-failed node ids. A failed node is stripped from
+        # overlap_graph in both directions (see fail_nodes()) so it can never
+        # again be reached by BFS as a neighbour, never becomes an anchor
+        # (in_coverage() excludes it below), and never trains or predicts --
+        # not merely "ignored", genuinely removed from the graph.
+        self.failed_nodes: set[int] = set()
+        # union of every node id that has EVER appeared in a run_timestep()
+        # 'trained' return set, across the whole run -- used post-run to
+        # identify surviving nodes that became permanently unreachable after
+        # a failure event (never an anchor, never BFS-reached from one).
+        self.ever_trained: set[int] = set()
+
     def _model_bytes(self, node_id: int) -> int:
         """float32 size of node_id's model -- per-node, not a shared constant,
         so this stays correct once nodes have heterogeneous architectures
         (objective #1)."""
         return sum(p.numel() for p in self.nodes[node_id].model.parameters()) * 4
 
+    def fail_nodes(self, node_ids):
+        """Permanently remove the given nodes from the mesh (node-failure
+        resilience experiment, 2026-08). A failed node:
+          - is stripped from overlap_graph in BOTH directions, so it can
+            never again be visited by BFS propagation as a neighbour and
+            never again contributes a belief to anyone's fusion;
+          - is excluded from in_coverage(), so it can never again become an
+            anchor even if a wearable sits directly in its FOV;
+          - has its stored beliefs cleared, so nothing stale lingers if
+            somehow queried.
+        Idempotent (failing an already-failed node is a no-op) and permanent
+        for the rest of the run -- there is no un-fail."""
+        for nid in node_ids:
+            if nid in self.failed_nodes:
+                continue
+            self.failed_nodes.add(nid)
+            for neighbour_id in self.overlap_graph.get(nid, []):
+                if nid in self.overlap_graph.get(neighbour_id, []):
+                    self.overlap_graph[neighbour_id].remove(nid)
+            self.overlap_graph[nid] = []
+            node = self.nodes[nid]
+            node.cell_beliefs = {}
+            node.last_beliefs = {}
+            node.hop_distance = None
+
+    def connected_components(self) -> list[set[int]]:
+        """Connected components of the CURRENT overlap graph (post-failure,
+        if any nodes have failed), restricted to surviving nodes. Plain BFS
+        union -- no networkx dependency in this codebase."""
+        surviving = [i for i in self.nodes if i not in self.failed_nodes]
+        seen: set[int] = set()
+        components = []
+        for start in surviving:
+            if start in seen:
+                continue
+            comp = {start}
+            queue = deque([start])
+            seen.add(start)
+            while queue:
+                cur = queue.popleft()
+                for nb in self.overlap_graph.get(cur, []):
+                    if nb not in seen:
+                        seen.add(nb)
+                        comp.add(nb)
+                        queue.append(nb)
+            components.append(comp)
+        return components
+
+    def overlap_graph_stats(self) -> dict:
+        """Mean degree and mean shared-cells-per-edge over SURVIVING nodes
+        only (post-failure comparison point against the pre-failure graph)."""
+        surviving = [i for i in self.nodes if i not in self.failed_nodes]
+        if not surviving:
+            return dict(n_surviving=0, mean_degree=0.0, mean_shared_cells=0.0,
+                        n_connected_components=0)
+        degrees = [len(self.overlap_graph.get(i, [])) for i in surviving]
+        edge_shared = [len(self.shared_cells[(i, j)])
+                       for i in surviving for j in self.overlap_graph.get(i, [])
+                       if j in surviving]
+        components = self.connected_components()
+        return dict(
+            n_surviving=len(surviving),
+            mean_degree=float(np.mean(degrees)) if degrees else 0.0,
+            mean_shared_cells=float(np.mean(edge_shared)) if edge_shared else 0.0,
+            n_connected_components=len(components),
+            component_sizes=sorted((len(c) for c in components), reverse=True),
+        )
+
+    def unreachable_nodes(self) -> set[int]:
+        """Surviving nodes that have NEVER appeared in a run_timestep()
+        'trained' set across the whole run so far -- neither ever in-coverage
+        (an anchor) nor ever BFS-reached from one. Meaningful any time after
+        at least one failure event; before any failure, this should be empty
+        on a well-covered mesh (everything gets reached eventually)."""
+        return {i for i in self.nodes
+                if i not in self.failed_nodes and i not in self.ever_trained}
+
     def in_coverage(self, wearable_positions) -> tuple[set[int], list[tuple[int, int]]]:
         cells = [(int(p[0]), int(p[1])) for p in wearable_positions]
         covered = {i for i, node in self.nodes.items()
-                   if any(c in node.fov_set for c in cells)}
+                   if i not in self.failed_nodes and any(c in node.fov_set for c in cells)}
         return covered, cells
 
     def _aggregate(self, contributions: list[tuple[int, tuple[float, float, float, float]]],
@@ -459,14 +603,35 @@ class Mesh:
             certs = 1.0 / (1.0 + uncs)
             return float(np.sum(certs * gammas) / np.sum(certs)), 1.0, 1.0
 
-        if self.mode in ("nig_product", "nig_product_weighted"):
+        if self.mode in ("nig_product", "nig_product_weighted", "nig_product_consensus"):
             # Closed-form product-of-NIG fusion (2026-08): multiplies the NIG
             # densities directly instead of grid-searching the summed Student-t
             # log-density (fuse(), above) -- see fusion/nig_product.py for the
             # derivation. Handled here, BEFORE the fusion/consensus branches
-            # below, because the fused certainty this mode returns (cert_star,
-            # from the CLOSED-FORM (nu*, alpha*, beta*), not a separate
-            # agreement/inherited computation) must be produced every time.
+            # below, because the fused certainty this mode returns must be
+            # produced every time.
+            #
+            # nig_product/nig_product_weighted return (gamma_star, cert_star,
+            # 1.0): the second slot is the FUSED belief's own predictive
+            # certainty, used purely to temper the receiver's gradient
+            # (cell_trusts = agreement*inherited = cert_star*1.0), and
+            # self.consensus is never touched.
+            #
+            # nig_product_consensus instead returns (gamma_star, agreement,
+            # inherited) -- the SAME two quantities grid-search consensus mode
+            # returns, computed the same way (see module docstring) -- so that
+            # run_timestep's existing update_consensus() call sites (shared
+            # with consensus mode, both now gated on mode in ("consensus",
+            # "nig_product_consensus")) make self.consensus[cid] a live signal
+            # that then feeds back into nig_product_weighted-style weighting
+            # on subsequent calls via training_cert_i = self.consensus[cid]
+            # below. This is the ONLY behavioural difference from
+            # nig_product_weighted: with self.consensus pinned at 1.0 (e.g.
+            # rho=0, so update_consensus never moves it), the weights list
+            # built below is identical between the two modes at every call,
+            # and fuse_nig_product() therefore returns identical fused
+            # parameters -- see tests/test_mesh.py::
+            # test_nig_product_consensus_matches_weighted_when_consensus_unity.
             from beliefmesh.fusion.nig_product import fuse_nig_product
 
             include_self_np = self.self_weight > 0 and own_belief is not None
@@ -483,14 +648,23 @@ class Mesh:
                     torch.tensor([nu_i]), torch.tensor([alpha_i]), torch.tensor([beta_i])
                 ).clamp(max=10.0).item()
                 cert_i = 1.0 / (1.0 + unc_i)
+                if self.mode == "nig_product_consensus":
+                    # single contributor: no disagreement possible (agreement=1
+                    # by the same N=1 convention as agreement_score()/consensus
+                    # mode's own single-contributor branch below); inherited is
+                    # that one contributor's own consensus, matching consensus
+                    # mode's `inherited = float(c_vals[0])` special case.
+                    inherited_single = float(self.consensus[contributions[0][0]])
+                    return gamma_i, 1.0, inherited_single
                 return gamma_i, cert_i, 1.0
 
             contributor_beliefs = list(beliefs_raw)
             weights = None
-            if self.mode == "nig_product_weighted":
+            if self.mode in ("nig_product_weighted", "nig_product_consensus"):
                 # w_i = training certainty (per-node consensus trust -- 1.0
-                # for every node unless mode=="consensus" is also updating it)
-                # x predictive certainty (same 1/(1+predictive_uncertainty)
+                # for every node unless mode=="consensus" or
+                # mode=="nig_product_consensus" is also updating it) x
+                # predictive certainty (same 1/(1+predictive_uncertainty)
                 # definition used everywhere else in this module/runner.py),
                 # applied as an exponent-style tempering weight (see
                 # fuse_nig_product's docstring) -- Christian's explicit spec.
@@ -503,6 +677,27 @@ class Mesh:
                     pred_cert_i = 1.0 / (1.0 + unc_i)
                     training_cert_i = self.consensus[cid]
                     weights.append(training_cert_i * pred_cert_i)
+
+            agreement = 1.0
+            inherited = 1.0
+            if self.mode == "nig_product_consensus":
+                # Agreement: reuse the EXACT grid-search consensus mechanism
+                # (fusion/consensus.py's generalised JS divergence) rather than
+                # deriving a new closed-form measure from (gamma, nu, alpha,
+                # beta) directly -- see module docstring for why. This means
+                # nig_product_consensus pays for one grid evaluation of
+                # log-densities (product_of_experts.log_densities(), NOT the
+                # full fuse() grid-search argmax) purely to produce the
+                # agreement scalar; the fused belief actually trained on still
+                # comes from fuse_nig_product() below, untouched by this.
+                from beliefmesh.fusion.consensus import agreement_score, inherited_trust
+                from beliefmesh.fusion.product_of_experts import log_densities as poe_log_densities
+                beliefs_t = [tuple(torch.tensor([v]) for v in b) for b in beliefs_raw]
+                logp = poe_log_densities(beliefs_t, self.fusion_grid.cpu())
+                agreement = float(agreement_score(logp).item())
+                c_vals_np = torch.tensor([self.consensus[cid] for cid, _ in contributions])
+                inherited = inherited_trust(c_vals_np)
+
             if self.self_weight > 0 and own_belief is not None:
                 contributor_beliefs = contributor_beliefs + [own_belief]
                 if weights is not None:
@@ -513,6 +708,9 @@ class Mesh:
                 contributor_beliefs, weights=weights)
             self.fusion_time_step += time.perf_counter() - t0
             self.fusion_call_count += 1
+
+            if self.mode == "nig_product_consensus":
+                return gamma_star, agreement, inherited
 
             unc_star = predictive_uncertainty(
                 torch.tensor([nu_star]), torch.tensor([alpha_star]), torch.tensor([beta_star])
@@ -593,14 +791,17 @@ class Mesh:
                 with torch.no_grad():
                     global_sd = {k: torch.stack([sd[k] for sd in participant_models]).mean(0)
                                  for k in participant_models[0]}
-                    for node in self.nodes.values():
+                    for node_id2, node in self.nodes.items():
+                        if node_id2 in self.failed_nodes:
+                            continue
                         node.model.load_state_dict(global_sd)
                 # comm: every participant uploads its full model to the
                 # aggregator, which broadcasts the merged model to EVERY
                 # node (not just participants) -- the "no spatial
                 # specialisation" cost is also a communication cost.
                 participant_bytes = sum(self._model_bytes(nid) for nid in trained)
-                broadcast_bytes = sum(self._model_bytes(nid) for nid in self.nodes)
+                broadcast_bytes = sum(self._model_bytes(nid) for nid in self.nodes
+                                      if nid not in self.failed_nodes)
                 self.comm_bytes_step += participant_bytes + broadcast_bytes
             # BFS purely to assign hop labels and produce per-node predictions
             while queue:
@@ -627,6 +828,7 @@ class Mesh:
             self.backward_time_step = sum(n.backward_time for n in self.nodes.values())
             self.forward_time_cumulative += self.forward_time_step
             self.backward_time_cumulative += self.backward_time_step
+            self.ever_trained |= trained
             return trained
 
         # hop 0: anchors train on wearable-cell ground truth (unless frozen)
@@ -665,9 +867,12 @@ class Mesh:
                     keys.extend([cell] * len(imgs))
                 for _ in range(n_train_repeats):
                     node.train_on(images, torch.stack(targets), lam=self.lam, keys=keys)
-                if self.mode == "consensus":
+                if self.mode in ("consensus", "nig_product_consensus"):
                     # anchor timestep: no fusion, no disagreement -- consensus
-                    # updates toward unity (Spec Sec 6.3)
+                    # updates toward unity (Spec Sec 6.3). Shared verbatim with
+                    # nig_product_consensus (2026-08) -- the update rule and
+                    # rate rho are identical; only the fusion arithmetic used
+                    # during propagation timesteps differs (see _aggregate).
                     from beliefmesh.fusion.consensus import update_consensus
                     self.consensus[node_id] = update_consensus(
                         self.consensus[node_id], 1.0, self.rho)
@@ -777,9 +982,14 @@ class Mesh:
                     for _ in range(n_train_repeats):
                         neighbour.train_on(images, torch.tensor(labels, dtype=torch.float32),
                                           lam=self.lam, weights=trust_weights, keys=prop_keys)
-                    if self.mode == "consensus":
+                    if self.mode in ("consensus", "nig_product_consensus"):
                         # c_new = mean over fused cells of agreement * inherited
-                        # (Spec Sec 6.2), EMA'd into the receiver's consensus
+                        # (Spec Sec 6.2), EMA'd into the receiver's consensus.
+                        # Shared verbatim with nig_product_consensus (2026-08)
+                        # -- see _aggregate: that mode's cell_trusts entries are
+                        # already agreement*inherited from the same JS-divergence
+                        # mechanism consensus mode uses, just paired with the
+                        # closed-form fused label instead of fuse()'s.
                         from beliefmesh.fusion.consensus import update_consensus
                         self.consensus[neighbour_id] = update_consensus(
                             self.consensus[neighbour_id],
@@ -802,6 +1012,7 @@ class Mesh:
         self.backward_time_step = sum(n.backward_time for n in self.nodes.values())
         self.forward_time_cumulative += self.forward_time_step
         self.backward_time_cumulative += self.backward_time_step
+        self.ever_trained |= trained
         return trained
 
     def epistemic_map(self) -> np.ndarray:
