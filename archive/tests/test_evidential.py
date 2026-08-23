@@ -8,9 +8,11 @@ circular_diff, so the two must agree to float precision on identical inputs.
 
 from __future__ import annotations
 
+import pytest
 import torch
 
-from beliefmesh.models.evidential import nig_loss, student_t_marginal
+from beliefmesh.models.evidential import (nig_loss, predictive_uncertainty,
+                                          student_t_marginal, training_uncertainty)
 from beliefmesh.models.evidential_cnn import EvidentialCNN
 
 
@@ -122,3 +124,38 @@ def test_cnn_output_feeds_loss_end_to_end():
     assert torch.isfinite(loss)
     loss.backward()
     assert all(p.grad is not None for p in model.parameters())
+
+
+# --- training_uncertainty ablation (2026-08) -----------------------------
+
+def test_training_uncertainty_epistemic_matches_predictive_uncertainty_exactly():
+    nu = torch.tensor([4.0, 0.5, 10.0])
+    alpha = torch.tensor([3.0, 1.2, 8.0])
+    beta = torch.tensor([1.0, 0.3, 0.05])
+    assert torch.equal(training_uncertainty(nu, alpha, beta, measure="epistemic"),
+                       predictive_uncertainty(nu, alpha, beta))
+
+
+def test_training_uncertainty_aleatoric_has_no_nu_dependence():
+    alpha = torch.tensor([3.0])
+    beta = torch.tensor([1.0])
+    low_nu = training_uncertainty(torch.tensor([0.1]), alpha, beta, measure="aleatoric")
+    high_nu = training_uncertainty(torch.tensor([100.0]), alpha, beta, measure="aleatoric")
+    assert torch.equal(low_nu, high_nu)
+    assert low_nu.item() == 1.0 / (3.0 - 1.0)  # beta / (alpha - 1)
+
+
+def test_training_uncertainty_total_equals_epistemic_plus_aleatoric():
+    nu = torch.tensor([4.0])
+    alpha = torch.tensor([3.0])
+    beta = torch.tensor([1.0])
+    epi = training_uncertainty(nu, alpha, beta, measure="epistemic")
+    ale = training_uncertainty(nu, alpha, beta, measure="aleatoric")
+    tot = training_uncertainty(nu, alpha, beta, measure="total")
+    assert tot.item() == pytest.approx((epi + ale).item())
+
+
+def test_training_uncertainty_rejects_unknown_measure():
+    with pytest.raises(ValueError):
+        training_uncertainty(torch.tensor([1.0]), torch.tensor([2.0]),
+                             torch.tensor([1.0]), measure="bogus")

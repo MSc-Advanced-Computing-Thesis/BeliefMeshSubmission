@@ -67,8 +67,49 @@ def predictive_uncertainty(nu: torch.Tensor, alpha: torch.Tensor, beta: torch.Te
     student_t_marginal; collapsing to (prediction, uncertainty) before fusion
     is Defect 1 from the prior implementation. Formula matches the prior
     repo's predict() helper exactly, so calibration numbers stay comparable.
-    """
+
+    Unaffected by training_uncertainty()'s `measure` ablation below -- this
+    function always reports the epistemic component, regardless of which
+    measure a given run used to WEIGHT training, so that cert-MSE
+    correlation is measured with the same ruler across every arm of that
+    ablation (see training_uncertainty's docstring)."""
     return beta / (nu.clamp(min=1e-6) * (alpha - 1).clamp(min=1e-6))
+
+
+def training_uncertainty(nu: torch.Tensor, alpha: torch.Tensor, beta: torch.Tensor,
+                         measure: str = "epistemic") -> torch.Tensor:
+    """The uncertainty measure that FEEDS the fused/contributor certainty used
+    to temper the training gradient (2026-08, uncertainty-measure ablation --
+    Mesh(uncertainty_measure=...), consumed only inside node.mesh._aggregate's
+    nig_product family). Three measures, all derived from the same NIG
+    parameters, same clamps as predictive_uncertainty:
+
+      epistemic -- beta / (nu * (alpha - 1))            [default; identical
+                   expression to predictive_uncertainty above -- verified
+                   bit-for-bit equivalent in tests/test_evidential.py]
+      aleatoric -- beta / (alpha - 1)                     [no nu term at all]
+      total     -- beta * (1 + nu) / (nu * (alpha - 1))   [epistemic + aleatoric,
+                   also the Student-t predictive VARIANCE's numerator/(nu*(a-1))
+                   form -- NOT the predictive scale itself, which additionally
+                   involves a sqrt (see student_t_marginal)]
+
+    The design chapter argues epistemic is the correct choice for gating a
+    training update (evidence, not total predictive spread, should decide how
+    hard to trust a fused label); this function exists to make that choice an
+    explicit, swappable ablation rather than a load-bearing assumption baked
+    into _aggregate() itself. Caller (mesh.py) is responsible for the
+    downstream .clamp(max=10.0) and 1/(1+u) mapping -- unchanged and identical
+    regardless of which measure is selected here."""
+    nu_c = nu.clamp(min=1e-6)
+    alpha_m1 = (alpha - 1).clamp(min=1e-6)
+    if measure == "epistemic":
+        return beta / (nu_c * alpha_m1)
+    if measure == "aleatoric":
+        return beta / alpha_m1
+    if measure == "total":
+        return beta * (1 + nu_c) / (nu_c * alpha_m1)
+    raise ValueError(f"unknown uncertainty measure {measure!r}, expected "
+                      "'epistemic', 'aleatoric', or 'total'")
 
 
 def student_t_marginal(

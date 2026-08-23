@@ -144,13 +144,23 @@ class MeshNode:
     def __init__(self, node_id: int, centre: tuple[int, int],
                  cells: list[tuple[int, int]], lr: float, device: torch.device,
                  fov_size: int = 7, widths: tuple[int, int, int] = (32, 64, 128),
-                 variant: str = "baseline", track_compute_cost: bool = False):
+                 variant: str = "baseline", track_compute_cost: bool = False,
+                 own_instance: torch.Tensor | None = None):
         self.node_id = node_id
         self.centre = centre
         self.fov_cells = cells
         self.fov_set = set(cells)
         self.fov_size = fov_size
         self.device = device
+        # per-node-instance evidence-asymmetry diagnostic (2026-08): this
+        # node's OWN fixed digit-seven instance, assigned once at Mesh
+        # construction (see Mesh.__init__'s per_node_instance_prediction),
+        # None otherwise. When set, the node trains on images rendered from
+        # THIS instance (not the environment's shared/per-cell instance),
+        # and its own cell_beliefs/evaluation view is rendered from it too --
+        # "a node forms its belief from its own view." See predict_belief_for
+        # for the separate per-recipient prediction path this enables.
+        self.own_instance = own_instance
         # OFF by default (2026-08 fix): the forward/backward CUDA-Event
         # instrumentation below is opt-in. An earlier version ran it
         # unconditionally on every call whenever device.type=="cuda" --
@@ -340,6 +350,35 @@ class MeshNode:
             self.cell_beliefs[key] = belief
             self.last_beliefs[key] = belief
 
+    def predict_belief_for(self, cell: tuple[int, int], step: int, environment,
+                           recipient_instance: torch.Tensor) -> tuple[float, float, float, float]:
+        """Per-node-instance evidence-asymmetry diagnostic (2026-08): a FRESH,
+        uncached single-cell prediction rendered from the RECEIVING
+        neighbour's own digit instance, not this node's own instance or the
+        environment's shared one. This is the simulation device standing in
+        for differing physical viewpoints: every contributor to a given
+        recipient's supervision predicts on that recipient's instance for
+        the shared cell, preserving one common referent per recipient, while
+        each contributor's own model was trained on its OWN instance -- the
+        further that instance sits from the recipient's, the more a
+        contributor's prediction should reflect its own training bias rather
+        than genuine agreement.
+
+        Called once per (contributor, recipient, cell) triple in
+        run_timestep()'s supervision-gathering loop when
+        Mesh.per_node_instance_prediction=True -- i.e. a contributor shared
+        by K overlapping recipients is predicted on K times per timestep for
+        that cell, not once. This is NOT free -- see run_timestep's own
+        docstring note on compute accounting -- and is a simulation
+        convenience, not a claim about what a deployed node would transmit
+        (a real node broadcasts one belief formed from its own view)."""
+        image = environment.render_with_image(recipient_instance, cell[0], cell[1], step)
+        image = self._with_coords([image], [cell])[0]
+        batch = image.unsqueeze(0).to(self.device)
+        with torch.no_grad():
+            gamma, nu, alpha, beta = self.model(batch)
+        return (gamma[0].item(), nu[0].item(), alpha[0].item(), beta[0].item())
+
 
 class Mesh:
     """Overlap-graph mesh with breadth-first belief propagation per timestep."""
@@ -351,7 +390,15 @@ class Mesh:
                  rho: float = 0.2, lam: float = 0.1, temper_gradient: bool = True,
                  self_weight: float = 0.0,
                  node_variants: list[str] | None = None,
-                 track_compute_cost: bool = False):
+                 track_compute_cost: bool = False,
+                 uncertainty_measure: str = "epistemic",
+                 track_disagreement: bool = False,
+                 per_node_instance_prediction: bool = False,
+                 node_instance_seed: int = 42,
+                 track_trust_batches: bool = False,
+                 wearable_reliability: list[float] | None = None,
+                 wearable_label_jitter: list[float] | None = None,
+                 sensor_seed: int = 42):
         """pretrained_path: a single path (applied to every node -- prior
         behaviour, still correct for a homogeneous mesh) OR a dict mapping
         variant name -> that variant's OWN independently pretrained
@@ -366,7 +413,78 @@ class Mesh:
         assert mode in ("fusion", "naive", "frozen", "consensus", "gossip_uniform",
                         "gossip_weighted", "fedavg_global", "certainty",
                         "nig_product", "nig_product_weighted", "nig_product_consensus")
+        assert uncertainty_measure in ("epistemic", "aleatoric", "total")
         self.mode = mode
+        # which uncertainty measure feeds the fused/contributor certainty used
+        # to temper training (2026-08 ablation) -- ONLY consumed by the
+        # nig_product/nig_product_weighted/nig_product_consensus branch of
+        # _aggregate(); every other mode's aggregation path is untouched by
+        # this. See models.evidential.training_uncertainty's docstring.
+        self.uncertainty_measure = uncertainty_measure
+        # (raw_uncertainty_pre_clamp, cert_post_clamp) for every nig_product-
+        # family cert/weight value actually computed and used to temper a
+        # gradient this run (2026-08 ablation instrumentation) -- lets a
+        # caller check the clamp(max=10.0)'s bind rate and the applied-weight
+        # distribution per uncertainty_measure setting without re-deriving it
+        # from saved beliefs after the fact. Whole-run, not reset per
+        # timestep; unbounded growth is fine at this run's scale (~10^5-10^6
+        # entries over a 390-step run, each a Python float pair).
+        self.applied_uncertainty_log: list[tuple[int, float, float, float, float]] = []
+        # opt-in (2026-08 disagreement diagnostic, extended for the nu-spread
+        # follow-up): per-fusion-event
+        # (step, n_contributors, gamma_spread_std, gamma_spread_range,
+        #  nu_std, nu_range, nu_cv, max_weight, max_weight_minus_uniform,
+        #  gamma_star_vs_unweighted_abs_diff, cell_row, cell_col)
+        # cell_row/cell_col added 2026-08 (spatially-varying-noise diagnostic)
+        # for boundary-vs-interior spatial breakdowns; -1,-1 if _aggregate()
+        # was called without a cell argument (logging only, no effect on
+        # fusion). logged only when track_disagreement=True -- default False
+        # so every other run this session is unaffected.
+        self.track_disagreement = track_disagreement
+        self.disagreement_log: list[tuple[int, int, float, float, float, float,
+                                          float, float, float, float, int, int]] = []
+        # opt-in (2026-08, loss-weighting ablation): per-UPDATE summary of the
+        # cell_trusts vector actually handed to train_on -- i.e. the spread of
+        # cert_star ACROSS THE CELLS of one recipient's single training batch.
+        # Distinct from disagreement_log's nu_cv, which is the spread BETWEEN
+        # CONTRIBUTORS to one cell. This is the quantity the loss weighting
+        # responds to: nig_loss normalises by weights.sum(), so a uniform
+        # cell_trusts vector cancels exactly and only within-batch relative
+        # differences can change the update.
+        # entry: (step, recipient_id, n_cells, mean, std, min, max)
+        self.track_trust_batches = track_trust_batches
+        self.trust_batch_log: list[tuple[int, int, int, float, float, float, float]] = []
+        # Imperfect-ground-truth study (2026-08). Spec Sec 3.5 assigns every
+        # wearable measurement a training certainty of 1.0; these two options
+        # relax that, per wearable, and default to None = exact prior behaviour.
+        #
+        # wearable_reliability[i]: per-sample loss weight for anchor training on
+        #   wearable i's cells. NOTE the mechanism limit -- nig_loss reduces as
+        #   (per_sample*w).sum()/w.sum(), so a batch whose samples all come from
+        #   ONE wearable has a uniform w that cancels exactly. Lowering every
+        #   wearable's reliability is therefore a no-op by construction; even
+        #   VARYING it only bites in the rarer case where a single node has two
+        #   wearables of differing reliability inside its FOV in the same step.
+        #   anchor_weight_log measures how often that actually happens.
+        # wearable_label_jitter[i]: std (normalised label units, 1.0 = 180 deg)
+        #   of Gaussian noise added to wearable i's REPORTED measurement, so a
+        #   low assigned reliability can be backed by genuinely worse data
+        #   rather than being an arbitrary discount. Evaluation always scores
+        #   against environment truth, never against a jittered label.
+        self.wearable_reliability = wearable_reliability
+        self.wearable_label_jitter = wearable_label_jitter
+        self._sensor_rng = np.random.default_rng(sensor_seed)
+        # (step, node_id, n_samples, n_distinct_reliabilities, w_min, w_max)
+        self.anchor_weight_log: list[tuple[int, int, int, int, float, float]] = []
+        # (step, raw_uncertainty_pre_clamp, cert_post_clamp, nu, beta) -- nu/
+        # beta added 2026-08 for the certainty-calibration-decay diagnostic
+        # (fused nu*/beta* for the closed-form path, or the single
+        # contributor's own nu_i/beta_i for the short-circuit -- see the two
+        # append sites below). `step` is read from self._current_log_step,
+        # set at the top of run_timestep() purely for this logging purpose --
+        # _aggregate() itself has no step argument and this does not change
+        # its arithmetic.
+        self._current_log_step: int | None = None
         self.lam = lam
         # weight given to a node's OWN last belief for a cell (self.last_beliefs)
         # as an extra fused contributor alongside external neighbours, redoing
@@ -434,6 +552,16 @@ class Mesh:
         assert len(variants) == len(node_centres)
         self.node_variants = variants
 
+        # per-node-instance evidence-asymmetry diagnostic (2026-08): each
+        # node gets its own fixed digit-seven instance, drawn without
+        # replacement from the training partition. Default False -- every
+        # prior experiment this session is unaffected.
+        self.per_node_instance_prediction = per_node_instance_prediction
+        node_instances: list[torch.Tensor] | None = None
+        if per_node_instance_prediction:
+            from beliefmesh.data.grid_environment import sample_digit_instances
+            node_instances = sample_digit_instances(len(node_centres), seed=node_instance_seed)
+
         self.nodes: dict[int, MeshNode] = {}
         for i, (cx, cy) in enumerate(node_centres):
             variant = variants[i]
@@ -441,7 +569,8 @@ class Mesh:
                             fov_cells(int(cx), int(cy), fov_size, grid_size),
                             lr=lr, device=device, fov_size=fov_size,
                             widths=WIDTH_VARIANTS[variant], variant=variant,
-                            track_compute_cost=track_compute_cost)
+                            track_compute_cost=track_compute_cost,
+                            own_instance=(node_instances[i] if node_instances is not None else None))
             ckpt = pretrained_path[variant] if isinstance(pretrained_path, dict) else pretrained_path
             node.load_checkpoint(ckpt)
             if mode == "frozen":
@@ -567,6 +696,7 @@ class Mesh:
 
     def _aggregate(self, contributions: list[tuple[int, tuple[float, float, float, float]]],
                    own_belief: tuple[float, float, float, float] | None = None,
+                   cell: tuple[int, int] | None = None,
                    ) -> tuple[float, float, float]:
         """Aggregate contributors' FULL beliefs for one cell into a scalar
         pseudo-label (Spec Sec 5: the fused mode propagates, nothing else).
@@ -577,11 +707,14 @@ class Mesh:
         weight self.self_weight when > 0 (fusion/consensus only -- see
         Mesh.self_weight docstring). None/0.0 reproduces prior behaviour
         exactly.
+        cell: (row, col) of the cell being fused, purely for
+        disagreement_log tagging (2026-08 spatially-varying-noise
+        diagnostic) -- optional, has no effect on the fusion arithmetic.
         Returns (pseudo_label, agreement, inherited_trust); the latter two are
         meaningful only in consensus mode (1.0 placeholders otherwise).
         """
         from beliefmesh.fusion.consensus import agreement_score, inherited_trust
-        from beliefmesh.models.evidential import predictive_uncertainty
+        from beliefmesh.models.evidential import predictive_uncertainty, training_uncertainty
 
         beliefs_raw = [b for _, b in contributions]
         if self.mode == "naive":
@@ -644,10 +777,15 @@ class Mesh:
                 # algebraically-guaranteed no-op. This is what closes the
                 # ~42% call-count gap against fuse()'s identical shortcut.
                 gamma_i, nu_i, alpha_i, beta_i = beliefs_raw[0]
-                unc_i = predictive_uncertainty(
-                    torch.tensor([nu_i]), torch.tensor([alpha_i]), torch.tensor([beta_i])
-                ).clamp(max=10.0).item()
+                unc_i_raw = training_uncertainty(
+                    torch.tensor([nu_i]), torch.tensor([alpha_i]), torch.tensor([beta_i]),
+                    measure=self.uncertainty_measure
+                ).item()
+                unc_i = min(unc_i_raw, 10.0)
                 cert_i = 1.0 / (1.0 + unc_i)
+                if self.mode in ("nig_product", "nig_product_weighted"):
+                    self.applied_uncertainty_log.append(
+                        (self._current_log_step, unc_i_raw, cert_i, nu_i, beta_i))
                 if self.mode == "nig_product_consensus":
                     # single contributor: no disagreement possible (agreement=1
                     # by the same N=1 convention as agreement_score()/consensus
@@ -659,6 +797,62 @@ class Mesh:
                 return gamma_i, cert_i, 1.0
 
             contributor_beliefs = list(beliefs_raw)
+
+            if self.mode in ("nig_product", "nig_product_weighted") and self.track_disagreement:
+                # Per-fusion-event contributor disagreement (2026-08
+                # diagnostic, Hypothesis B: do contributors ever actually
+                # disagree, or is fusion arbitrating between near-identical
+                # gammas?). Circular-safe spread of the >=2 contributor
+                # gammas actually being fused this event, computed the same
+                # way fuse_nig_product() re-references them internally (first
+                # contributor as origin, _wrap to [-1,1)).
+                #
+                # Extended (2026-08, follow-up): per-event nu spread and the
+                # resulting effective fusion weight w_i = nu_i / sum(nu_j) --
+                # this is the quantity that actually determines whether
+                # gamma_star (an evidence-weighted mean) differs from naive's
+                # PLAIN mean of the same contributors, since gamma_star's own
+                # formula is sum(w_i*nu_i*x_i)/sum(w_i*nu_i) with w_i=1 in
+                # plain nig_product -- i.e. effectively nu_i-weighted. The
+                # unweighted-vs-weighted mean recomputed here is the exact
+                # same arithmetic fuse_nig_product() performs below (verified
+                # by test_nig_product_consensus_matches_weighted_when_
+                # consensus_unity's sibling tests), recomputed purely for
+                # logging -- it does not feed back into the real fused
+                # output, which still comes from the fuse_nig_product() call
+                # immediately below, untouched.
+                #
+                # Opt-in (default False) so this adds zero overhead to every
+                # other run this session.
+                from beliefmesh.fusion.nig_product import _wrap as _np_wrap
+                ref = contributor_beliefs[0][0]
+                offsets = np.array([_np_wrap(b[0] - ref) for b in contributor_beliefs])
+                nu_arr = np.array([b[1] for b in contributor_beliefs])
+                n_c = len(contributor_beliefs)
+
+                spread_std = float(offsets.std())
+                spread_range = float(offsets.max() - offsets.min())
+
+                nu_mean = float(nu_arr.mean())
+                nu_std = float(nu_arr.std())
+                nu_range = float(nu_arr.max() - nu_arr.min())
+                nu_cv = nu_std / nu_mean if nu_mean > 0 else float("nan")
+
+                w = nu_arr / nu_arr.sum()
+                max_weight = float(w.max())
+                max_weight_minus_uniform = max_weight - 1.0 / n_c
+
+                unweighted_mean_offset = float(offsets.mean())
+                nu_weighted_mean_offset = float((nu_arr * offsets).sum() / nu_arr.sum())
+                gamma_star_vs_unweighted_abs_diff = abs(nu_weighted_mean_offset - unweighted_mean_offset)
+
+                cell_row = cell[0] if cell is not None else -1
+                cell_col = cell[1] if cell is not None else -1
+                self.disagreement_log.append(
+                    (self._current_log_step, n_c, spread_std, spread_range,
+                     nu_std, nu_range, nu_cv, max_weight, max_weight_minus_uniform,
+                     gamma_star_vs_unweighted_abs_diff, cell_row, cell_col))
+
             weights = None
             if self.mode in ("nig_product_weighted", "nig_product_consensus"):
                 # w_i = training certainty (per-node consensus trust -- 1.0
@@ -671,8 +865,9 @@ class Mesh:
                 weights = []
                 for cid, belief in contributions:
                     _, nu_i, alpha_i, beta_i = belief
-                    unc_i = predictive_uncertainty(
-                        torch.tensor([nu_i]), torch.tensor([alpha_i]), torch.tensor([beta_i])
+                    unc_i = training_uncertainty(
+                        torch.tensor([nu_i]), torch.tensor([alpha_i]), torch.tensor([beta_i]),
+                        measure=self.uncertainty_measure
                     ).clamp(max=10.0).item()
                     pred_cert_i = 1.0 / (1.0 + unc_i)
                     training_cert_i = self.consensus[cid]
@@ -712,10 +907,14 @@ class Mesh:
             if self.mode == "nig_product_consensus":
                 return gamma_star, agreement, inherited
 
-            unc_star = predictive_uncertainty(
-                torch.tensor([nu_star]), torch.tensor([alpha_star]), torch.tensor([beta_star])
-            ).clamp(max=10.0).item()
+            unc_star_raw = training_uncertainty(
+                torch.tensor([nu_star]), torch.tensor([alpha_star]), torch.tensor([beta_star]),
+                measure=self.uncertainty_measure
+            ).item()
+            unc_star = min(unc_star_raw, 10.0)
             cert_star = 1.0 / (1.0 + unc_star)
+            self.applied_uncertainty_log.append(
+                (self._current_log_step, unc_star_raw, cert_star, nu_star, beta_star))
             return gamma_star, cert_star, 1.0
 
         include_self = self.self_weight > 0 and own_belief is not None
@@ -752,6 +951,7 @@ class Mesh:
 
     def run_timestep(self, wearable_positions, step: int,
                      n_wearable_samples: int = 1, n_train_repeats: int = 1) -> set[int]:
+        self._current_log_step = step
         for node in self.nodes.values():
             node.reset_timestep()
         self.comm_bytes_step = 0
@@ -771,18 +971,34 @@ class Mesh:
             participant_models = []
             for node_id in anchors:
                 node = self.nodes[node_id]
-                anchor_cells = [c for c in wearable_cells if c in node.fov_set]
-                if not anchor_cells:
+                # fedavg_global has its OWN anchor-training block, separate from
+                # the hop-0 block below; the imperfect-sensor options must be
+                # applied here too or this arm would silently train on clean
+                # labels while every other arm received corrupted ones.
+                anchor_pairs = [(wi, c) for wi, c in enumerate(wearable_cells)
+                                if c in node.fov_set]
+                if not anchor_pairs:
                     continue
-                images, targets, keys = [], [], []
-                for cell in anchor_cells:
+                images, targets, keys, sample_w = [], [], [], []
+                for wi, cell in anchor_pairs:
                     imgs, tgts = self.environment.get_multiple_rotations(
                         cell, step, n=n_wearable_samples, rng=self.sample_rng)
+                    if self.wearable_label_jitter is not None:
+                        std = float(self.wearable_label_jitter[wi])
+                        if std > 0:
+                            tgts = [torch.tensor(
+                                ((t.item() + float(self._sensor_rng.normal(0.0, std)) + 1.0) % 2.0) - 1.0,
+                                dtype=torch.float32) for t in tgts]
+                    if self.wearable_reliability is not None:
+                        sample_w.extend([float(self.wearable_reliability[wi])] * len(imgs))
                     images.extend(imgs)
                     targets.extend(tgts)
                     keys.extend([cell] * len(imgs))
+                anchor_w = (torch.tensor(sample_w, dtype=torch.float32)
+                            if sample_w else None)
                 for _ in range(n_train_repeats):
-                    node.train_on(images, torch.stack(targets), lam=self.lam, keys=keys)
+                    node.train_on(images, torch.stack(targets), lam=self.lam,
+                                  keys=keys, weights=anchor_w)
                 participant_models.append(node.model.state_dict())
                 node.hop_distance = 0
                 trained.add(node_id)
@@ -854,19 +1070,50 @@ class Mesh:
         # inside the mesh) sidesteps rather than resolves the underlying gap.
         for node_id in anchors:
             node = self.nodes[node_id]
-            anchor_cells = [c for c in wearable_cells if c in node.fov_set]
-            if not anchor_cells:
+            # (wearable_index, cell) so per-sensor reliability/jitter can be
+            # attributed; wearable_cells is index-aligned with the wearables.
+            anchor_pairs = [(wi, c) for wi, c in enumerate(wearable_cells)
+                            if c in node.fov_set]
+            if not anchor_pairs:
                 continue
             if self.mode != "frozen":
-                images, targets, keys = [], [], []
-                for cell in anchor_cells:
-                    imgs, tgts = self.environment.get_multiple_rotations(
-                        cell, step, n=n_wearable_samples, rng=self.sample_rng)
+                images, targets, keys, sample_w = [], [], [], []
+                for wi, cell in anchor_pairs:
+                    if node.own_instance is not None:
+                        imgs, tgts = self.environment.get_multiple_rotations_with_image(
+                            node.own_instance, cell, step, n=n_wearable_samples, rng=self.sample_rng)
+                    else:
+                        imgs, tgts = self.environment.get_multiple_rotations(
+                            cell, step, n=n_wearable_samples, rng=self.sample_rng)
+                    if self.wearable_label_jitter is not None:
+                        # imperfect sensor: corrupt the REPORTED measurement.
+                        # Evaluation is unaffected -- runner scores against
+                        # environment truth, never against this label.
+                        std = float(self.wearable_label_jitter[wi])
+                        if std > 0:
+                            tgts = [torch.tensor(
+                                ((t.item() + float(self._sensor_rng.normal(0.0, std)) + 1.0) % 2.0) - 1.0,
+                                dtype=torch.float32) for t in tgts]
                     images.extend(imgs)
                     targets.extend(tgts)
                     keys.extend([cell] * len(imgs))
+                    if self.wearable_reliability is not None:
+                        sample_w.extend([float(self.wearable_reliability[wi])] * len(imgs))
+                anchor_w = (torch.tensor(sample_w, dtype=torch.float32)
+                            if sample_w else None)
+                if self.track_trust_batches and sample_w:
+                    # Does an anchor's batch ever MIX sensors of differing
+                    # reliability? nig_loss normalises by weights.sum(), so a
+                    # batch drawn from a single wearable has a uniform weight
+                    # vector that cancels exactly -- reliability can only bite
+                    # where one node sees two wearables at once in the same step.
+                    aw = np.asarray(sample_w, dtype=float)
+                    self.anchor_weight_log.append(
+                        (self._current_log_step, node_id, len(aw),
+                         len(set(sample_w)), float(aw.min()), float(aw.max())))
                 for _ in range(n_train_repeats):
-                    node.train_on(images, torch.stack(targets), lam=self.lam, keys=keys)
+                    node.train_on(images, torch.stack(targets), lam=self.lam,
+                                  keys=keys, weights=anchor_w)
                 if self.mode in ("consensus", "nig_product_consensus"):
                     # anchor timestep: no fusion, no disagreement -- consensus
                     # updates toward unity (Spec Sec 6.3). Shared verbatim with
@@ -876,7 +1123,11 @@ class Mesh:
                     from beliefmesh.fusion.consensus import update_consensus
                     self.consensus[node_id] = update_consensus(
                         self.consensus[node_id], 1.0, self.rho)
-            imgs, _, keys = self.environment.get_batch_for_cells(node.fov_cells, step)
+            if node.own_instance is not None:
+                imgs, _, keys = self.environment.get_batch_for_cells_with_image(
+                    node.own_instance, node.fov_cells, step)
+            else:
+                imgs, _, keys = self.environment.get_batch_for_cells(node.fov_cells, step)
             node.predict_cells(imgs, keys)
             node.hop_distance = 0
             trained.add(node_id)
@@ -900,8 +1151,21 @@ class Mesh:
                     other = self.nodes[other_id]
                     for cell in self.shared_cells.get((other_id, neighbour_id), []):
                         if cell in other.cell_beliefs:
-                            supervision.setdefault(cell, []).append(
-                                (other_id, other.cell_beliefs[cell]))
+                            # per-node-instance evidence-asymmetry diagnostic
+                            # (2026-08): recompute a FRESH belief rendered on
+                            # the RECEIVING neighbour's own instance, rather
+                            # than reusing other's single precomputed
+                            # (shared-instance) cell_beliefs entry -- one
+                            # extra forward pass through `other`'s model per
+                            # (contributor, recipient, cell) triple. See
+                            # MeshNode.predict_belief_for's docstring for the
+                            # compute-accounting note this corresponds to.
+                            if self.per_node_instance_prediction and neighbour.own_instance is not None:
+                                belief = other.predict_belief_for(
+                                    cell, step, self.environment, neighbour.own_instance)
+                            else:
+                                belief = other.cell_beliefs[cell]
+                            supervision.setdefault(cell, []).append((other_id, belief))
                 if not supervision:
                     continue
 
@@ -957,12 +1221,16 @@ class Mesh:
                 elif self.mode != "frozen":
                     images, labels, cell_trusts, prop_keys = [], [], [], []
                     for cell, contributions in supervision.items():
-                        img, _ = self.environment.get_cell_input(cell[0], cell[1], step)
+                        if neighbour.own_instance is not None:
+                            img = self.environment.render_with_image(
+                                neighbour.own_instance, cell[0], cell[1], step)
+                        else:
+                            img, _ = self.environment.get_cell_input(cell[0], cell[1], step)
                         images.append(img)
                         prop_keys.append(cell)
                         own_belief = (neighbour.last_beliefs.get(cell)
                                       if self.self_weight > 0 else None)
-                        label, agreement, inherited = self._aggregate(contributions, own_belief)
+                        label, agreement, inherited = self._aggregate(contributions, own_belief, cell=cell)
                         labels.append(label)
                         cell_trusts.append(agreement * inherited)
                         # comm: each contributor sends its full (gamma, nu,
@@ -977,6 +1245,16 @@ class Mesh:
                     # _aggregate() always returns agreement=inherited=1.0, so
                     # cell_trusts is uniformly 1.0 there -- ordinary unweighted
                     # mean, unchanged behaviour.
+                    if self.track_trust_batches and cell_trusts:
+                        # logged BEFORE the temper_gradient gate, so the
+                        # no-tempering ablation still records the weights it
+                        # would have applied -- cell_trusts is computed either
+                        # way; only whether it is USED depends on the flag.
+                        ct = np.asarray(cell_trusts, dtype=float)
+                        self.trust_batch_log.append(
+                            (self._current_log_step, neighbour_id, len(ct),
+                             float(ct.mean()), float(ct.std()),
+                             float(ct.min()), float(ct.max())))
                     trust_weights = (torch.tensor(cell_trusts, dtype=torch.float32)
                                       if self.temper_gradient else None)
                     for _ in range(n_train_repeats):
@@ -995,7 +1273,11 @@ class Mesh:
                             self.consensus[neighbour_id],
                             float(np.mean(cell_trusts)), self.rho)
 
-                imgs, _, keys = self.environment.get_batch_for_cells(neighbour.fov_cells, step)
+                if neighbour.own_instance is not None:
+                    imgs, _, keys = self.environment.get_batch_for_cells_with_image(
+                        neighbour.own_instance, neighbour.fov_cells, step)
+                else:
+                    imgs, _, keys = self.environment.get_batch_for_cells(neighbour.fov_cells, step)
                 neighbour.predict_cells(imgs, keys)
 
                 hop = current_hop + 1

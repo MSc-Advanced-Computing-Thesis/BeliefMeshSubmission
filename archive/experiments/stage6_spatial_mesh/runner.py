@@ -95,6 +95,19 @@ def run_mesh_experiment(
     excluded_rotation_ranges: list[tuple[float, float]] | None = None,
     self_weight: float = 0.0,
     node_variants: list[str] | None = None,
+    uncertainty_measure: str = "epistemic",
+    track_disagreement: bool = False,
+    track_trust_batches: bool = False,
+    wearable_reliability: list[float] | None = None,
+    wearable_label_jitter: list[float] | None = None,
+    sensor_seed: int = 42,
+    per_cell_digits: bool = False,
+    digit_seed: int = 42,
+    noise_field: np.ndarray | None = None,
+    noise_seed: int = 42,
+    per_node_instance_prediction: bool = False,
+    node_instance_seed: int = 42,
+    apply_colour_filter: bool = True,
 ):
     """wearable_policy=None replays the given wearable_paths. 'epistemic'
     computes the single wearable's trajectory ONLINE: each step it moves
@@ -116,13 +129,23 @@ def run_mesh_experiment(
 
     env = GridEnvironment(grid_size, all_grids, offset_field=offset_field,
                           rotation_seed=env_seed,
-                          excluded_rotation_ranges=excluded_rotation_ranges)
+                          excluded_rotation_ranges=excluded_rotation_ranges,
+                          per_cell_digits=per_cell_digits, digit_seed=digit_seed,
+                          noise_field=noise_field, noise_seed=noise_seed,
+                          apply_colour_filter=apply_colour_filter)
     mesh = Mesh(node_centres, fov_size=fov_size, grid_size=grid_size,
                 environment=env, pretrained_path=baseline_checkpoint,
                 lr=cfg.model.lr, fusion_grid=circular_grid(cfg.fusion.grid_size),
                 mode=mode, device=device, sample_seed=env_seed, rho=rho, lam=lam,
                 temper_gradient=temper_gradient, self_weight=self_weight,
-                node_variants=node_variants)
+                node_variants=node_variants, uncertainty_measure=uncertainty_measure,
+                track_disagreement=track_disagreement,
+                track_trust_batches=track_trust_batches,
+                wearable_reliability=wearable_reliability,
+                wearable_label_jitter=wearable_label_jitter,
+                sensor_seed=sensor_seed,
+                per_node_instance_prediction=per_node_instance_prediction,
+                node_instance_seed=node_instance_seed)
 
     coverage = np.zeros((grid_size, grid_size), dtype=int)
     for node in mesh.nodes.values():
@@ -343,6 +366,10 @@ def run_mesh_experiment(
     np.save(run_dir / "hop_mse_history.npy", hop_mse_history, allow_pickle=True)
     np.save(run_dir / "avg_mse_map.npy", avg_mse_map)
     np.save(run_dir / "avg_cert_map.npy", avg_cert_map)
+    if mesh.anchor_weight_log:
+        np.save(run_dir / "anchor_weight_log.npy", np.array(mesh.anchor_weight_log, dtype=float))
+    if mesh.trust_batch_log:
+        np.save(run_dir / "trust_batch_log.npy", np.array(mesh.trust_batch_log, dtype=float))
     np.save(run_dir / "cell_mse_steps.npy", cell_mse_steps)
     np.save(run_dir / "cell_cert_steps.npy", cell_cert_steps)
     np.save(run_dir / "comm_bytes_steps.npy", comm_bytes_steps)
@@ -408,6 +435,88 @@ def run_mesh_experiment(
             # mode leaves self.consensus fixed at its unity init, so this is
             # still recorded unconditionally for cheap cross-mode comparison
             # but is only interpreted where it can actually move.
+            # applied uncertainty/certainty distribution (2026-08,
+            # uncertainty_measure ablation) -- summary stats only, not the
+            # raw log (potentially ~10^5-10^6 entries over a full run), so
+            # the manifest stays small; meaningful only for
+            # mode in ("nig_product", "nig_product_weighted").
+            "applied_uncertainty_stats": (
+                {
+                    "n": len(mesh.applied_uncertainty_log),
+                    "raw_uncertainty_mean": float(np.mean([u for _, u, _, _, _ in mesh.applied_uncertainty_log])),
+                    "raw_uncertainty_std": float(np.std([u for _, u, _, _, _ in mesh.applied_uncertainty_log])),
+                    "raw_uncertainty_median": float(np.median([u for _, u, _, _, _ in mesh.applied_uncertainty_log])),
+                    "clamp_bind_fraction": float(np.mean(
+                        [u >= 10.0 for _, u, _, _, _ in mesh.applied_uncertainty_log])),
+                    "applied_cert_mean": float(np.mean([c for _, _, c, _, _ in mesh.applied_uncertainty_log])),
+                    "applied_cert_std": float(np.std([c for _, _, c, _, _ in mesh.applied_uncertainty_log])),
+                    "applied_cert_median": float(np.median([c for _, _, c, _, _ in mesh.applied_uncertainty_log])),
+                    "applied_cert_p10": float(np.percentile([c for _, _, c, _, _ in mesh.applied_uncertainty_log], 10)),
+                    "applied_cert_p90": float(np.percentile([c for _, _, c, _, _ in mesh.applied_uncertainty_log], 90)),
+                }
+                if mesh.applied_uncertainty_log else None
+            ),
+            # per-UPDATE spread of the cert_star vector handed to train_on
+            # (2026-08 loss-weighting ablation). CV here is WITHIN one
+            # recipient's batch of supervised cells -- the only spread the
+            # normalised loss weighting can respond to. Distinct from
+            # disagreement_stats' nu_cv (spread BETWEEN contributors to a
+            # single cell). Meaningful only when track_trust_batches=True.
+            "trust_batch_stats": (
+                {
+                    "n_updates": len(mesh.trust_batch_log),
+                    "n_cells_mean": float(np.mean([e[2] for e in mesh.trust_batch_log])),
+                    "cert_mean": float(np.mean([e[3] for e in mesh.trust_batch_log])),
+                    "within_update_std_mean": float(np.mean([e[4] for e in mesh.trust_batch_log])),
+                    "within_update_cv_mean": float(np.mean(
+                        [e[4] / e[3] for e in mesh.trust_batch_log if e[3] > 0])),
+                    "within_update_cv_median": float(np.median(
+                        [e[4] / e[3] for e in mesh.trust_batch_log if e[3] > 0])),
+                    "within_update_cv_p90": float(np.percentile(
+                        [e[4] / e[3] for e in mesh.trust_batch_log if e[3] > 0], 90)),
+                    "within_update_range_mean": float(np.mean(
+                        [e[6] - e[5] for e in mesh.trust_batch_log])),
+                    "cert_min_overall": float(np.min([e[5] for e in mesh.trust_batch_log])),
+                    "cert_max_overall": float(np.max([e[6] for e in mesh.trust_batch_log])),
+                }
+                if mesh.trust_batch_log else None
+            ),
+            # per-fusion-event contributor disagreement (2026-08, Hypothesis
+            # B diagnostic) -- summary stats only; meaningful only when
+            # track_disagreement=True was passed in.
+            "disagreement_stats": (
+                {
+                    "n_events": len(mesh.disagreement_log),
+                    "n_contributors_mean": float(np.mean([e[1] for e in mesh.disagreement_log])),
+                    "spread_std_mean": float(np.mean([e[2] for e in mesh.disagreement_log])),
+                    "spread_std_median": float(np.median([e[2] for e in mesh.disagreement_log])),
+                    "spread_std_p90": float(np.percentile([e[2] for e in mesh.disagreement_log], 90)),
+                    "spread_range_mean": float(np.mean([e[3] for e in mesh.disagreement_log])),
+                    "spread_range_median": float(np.median([e[3] for e in mesh.disagreement_log])),
+                    "spread_range_p90": float(np.percentile([e[3] for e in mesh.disagreement_log], 90)),
+                    "frac_range_lt_0p01": float(np.mean(
+                        [e[3] < 0.01 for e in mesh.disagreement_log])),
+                    "nu_std_mean": float(np.mean([e[4] for e in mesh.disagreement_log])),
+                    "nu_std_median": float(np.median([e[4] for e in mesh.disagreement_log])),
+                    "nu_std_p90": float(np.percentile([e[4] for e in mesh.disagreement_log], 90)),
+                    "nu_range_mean": float(np.mean([e[5] for e in mesh.disagreement_log])),
+                    "nu_range_median": float(np.median([e[5] for e in mesh.disagreement_log])),
+                    "nu_range_p90": float(np.percentile([e[5] for e in mesh.disagreement_log], 90)),
+                    "nu_cv_mean": float(np.nanmean([e[6] for e in mesh.disagreement_log])),
+                    "nu_cv_median": float(np.nanmedian([e[6] for e in mesh.disagreement_log])),
+                    "nu_cv_p90": float(np.nanpercentile([e[6] for e in mesh.disagreement_log], 90)),
+                    "max_weight_mean": float(np.mean([e[7] for e in mesh.disagreement_log])),
+                    "max_weight_median": float(np.median([e[7] for e in mesh.disagreement_log])),
+                    "max_weight_p90": float(np.percentile([e[7] for e in mesh.disagreement_log], 90)),
+                    "max_weight_minus_uniform_mean": float(np.mean([e[8] for e in mesh.disagreement_log])),
+                    "max_weight_minus_uniform_median": float(np.median([e[8] for e in mesh.disagreement_log])),
+                    "max_weight_minus_uniform_p90": float(np.percentile([e[8] for e in mesh.disagreement_log], 90)),
+                    "gamma_star_vs_unweighted_absdiff_mean": float(np.mean([e[9] for e in mesh.disagreement_log])),
+                    "gamma_star_vs_unweighted_absdiff_median": float(np.median([e[9] for e in mesh.disagreement_log])),
+                    "gamma_star_vs_unweighted_absdiff_p90": float(np.percentile([e[9] for e in mesh.disagreement_log], 90)),
+                }
+                if mesh.disagreement_log else None
+            ),
             "final_consensus": {int(i): float(c) for i, c in mesh.consensus.items()},
             "final_hop_distance": {int(i): (int(n.hop_distance) if n.hop_distance is not None else None)
                                     for i, n in mesh.nodes.items()},

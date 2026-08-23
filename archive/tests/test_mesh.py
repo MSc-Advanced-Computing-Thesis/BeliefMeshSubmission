@@ -177,6 +177,52 @@ def test_nig_product_consensus_mode_tracks_per_node_trust():
     assert any(mesh.consensus[i] < mesh.consensus[0] for i in mesh.nodes if i != 0)
 
 
+# --- uncertainty_measure ablation (2026-08) ------------------------------
+
+def test_uncertainty_measure_epistemic_is_default_and_matches_unspecified():
+    """The ablation's default must reproduce the pre-ablation nig_product
+    behaviour exactly -- a Mesh built without specifying uncertainty_measure
+    at all must agree bit-for-bit with one that explicitly passes
+    "epistemic", since that's the value every prior nig_product/
+    nig_product_weighted/nig_product_consensus run implicitly used."""
+    env = GridEnvironment(GRID_SIZE, np.full((2, GRID_SIZE, GRID_SIZE), 0.5))
+    mesh_default = Mesh(CENTRES, fov_size=5, grid_size=GRID_SIZE, environment=env,
+                        pretrained_path=BASELINE, lr=3e-4, fusion_grid=circular_grid(360),
+                        mode="nig_product", device=torch.device("cpu"))
+    mesh_explicit = Mesh(CENTRES, fov_size=5, grid_size=GRID_SIZE, environment=env,
+                         pretrained_path=BASELINE, lr=3e-4, fusion_grid=circular_grid(360),
+                         mode="nig_product", device=torch.device("cpu"),
+                         uncertainty_measure="epistemic")
+    assert mesh_default.uncertainty_measure == "epistemic"
+    contributions = [(1, (0.2, 4.0, 2.5, 1.0)), (2, (-0.3, 6.0, 3.0, 0.8))]
+    assert mesh_default._aggregate(contributions) == mesh_explicit._aggregate(contributions)
+
+
+def test_uncertainty_measure_changes_fused_certainty_under_disagreement():
+    """aleatoric drops the nu (evidence-count) term entirely, so it must
+    produce a DIFFERENT fused certainty than epistemic/total once nu varies
+    across contributors -- otherwise the ablation parameter would be a no-op."""
+    env = GridEnvironment(GRID_SIZE, np.full((2, GRID_SIZE, GRID_SIZE), 0.5))
+    contributions = [(1, (0.3, 2.0, 2.5, 1.0)), (2, (-0.4, 9.0, 3.0, 0.4))]
+    certs = {}
+    for measure in ("epistemic", "aleatoric", "total"):
+        mesh = Mesh(CENTRES, fov_size=5, grid_size=GRID_SIZE, environment=env,
+                   pretrained_path=BASELINE, lr=3e-4, fusion_grid=circular_grid(360),
+                   mode="nig_product", device=torch.device("cpu"),
+                   uncertainty_measure=measure)
+        _, cert, _ = mesh._aggregate(contributions)
+        certs[measure] = cert
+    assert len(set(certs.values())) == 3, certs
+
+
+def test_uncertainty_measure_rejects_unknown_value():
+    env = GridEnvironment(GRID_SIZE, np.full((2, GRID_SIZE, GRID_SIZE), 0.5))
+    with pytest.raises(AssertionError):
+        Mesh(CENTRES, fov_size=5, grid_size=GRID_SIZE, environment=env,
+            pretrained_path=BASELINE, lr=3e-4, fusion_grid=circular_grid(360),
+            mode="nig_product", device=torch.device("cpu"), uncertainty_measure="bogus")
+
+
 # --- node-failure resilience mechanism (2026-08) ------------------------
 
 def test_fail_nodes_removes_from_overlap_graph_symmetrically():
