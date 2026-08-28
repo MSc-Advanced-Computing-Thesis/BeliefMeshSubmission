@@ -62,11 +62,11 @@ CONDITIONS = {
 }
 
 
-def run_one(condition: str, mode: str, seed: int = SEED):
+def run_one(condition: str, mode: str, seed: int = SEED, root_override=None):
     reliability, jitter = CONDITIONS[condition]
     cfg = load_config()
     cfg.model.lr = LR
-    root = ROOT / condition
+    root = (Path(root_override) if root_override else ROOT) / condition
     root.mkdir(parents=True, exist_ok=True)
 
     grids = np.load(ENV / "environment_grids.npy")
@@ -122,8 +122,14 @@ def run_one(condition: str, mode: str, seed: int = SEED):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--condition", choices=list(CONDITIONS), required=True)
+    parser.add_argument("--root", type=str, default=None,
+                        help="output root; default (None) keeps the original path")
+    parser.add_argument("--seeds", type=str, default=None,
+                        help="comma-separated seeds; default (None) = single SEED, "
+                             "reproducing the original single-seed invocation")
     parser.add_argument("--mode", choices=["naive", "nig_product", "gossip_uniform",
                                            "fedavg_global", "frozen"], required=True)
     args = parser.parse_args()
-    run_one(args.condition, args.mode)
+    for _sd in ([int(x) for x in args.seeds.split(",")] if args.seeds else [SEED]):
+        run_one(args.condition, args.mode, _sd, args.root)
     print("=== DONE ===")

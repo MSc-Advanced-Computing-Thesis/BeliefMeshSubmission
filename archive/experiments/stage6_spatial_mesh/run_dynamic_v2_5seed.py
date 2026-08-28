@@ -49,7 +49,11 @@ EXCLUDED_RANGES = [(120.0, 150.0), (165.0, 180.0), (-180.0, -165.0)]
 SEEDS = [42, 1042, 2042, 3042, 4042]
 
 
-def main(mode: str, policy: str, skip_seed42: bool, seeds_override: list[int] | None = None):
+def main(mode: str, policy: str, skip_seed42: bool, seeds_override: list[int] | None = None,
+         root: str | None = None):
+    global ROOT
+    if root:
+        ROOT = Path(root)
     cfg = load_config()
     cfg.model.lr = LR
     ROOT.mkdir(parents=True, exist_ok=True)
@@ -107,6 +111,8 @@ if __name__ == "__main__":
     parser.add_argument("--seeds", type=str, default=None,
                         help="comma-separated explicit seed list, e.g. '2042,3042' -- "
                              "overrides --skip-seed42, for splitting a batch across parallel processes")
+    parser.add_argument("--root", type=str, default=None,
+                        help="output root; default (None) keeps the original path")
     args = parser.parse_args()
     seeds_override = [int(s) for s in args.seeds.split(",")] if args.seeds else None
-    main(args.mode, args.policy, args.skip_seed42, seeds_override)
+    main(args.mode, args.policy, args.skip_seed42, seeds_override, args.root)

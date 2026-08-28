@@ -29,6 +29,7 @@ from _common.evaluation import git_commit
 
 from beliefmesh.data.grid_environment import GridEnvironment
 from beliefmesh.fusion.grid import circular_grid
+from beliefmesh.fusion.nig_product import fuse_nig_product
 from beliefmesh.metrics.circular import circular_diff
 from beliefmesh.node.mesh import Mesh
 
@@ -79,6 +80,9 @@ def run_mesh_experiment(
     fov_size: int,
     mode: str,
     baseline_checkpoint: Path,
+    sample_target: bool = True,
+    draws_per_target: int = 1,
+    track_compute_cost: bool = False,
     n_wearable_samples: int = 1,
     n_train_repeats: int = 10,
     title: str = "",
@@ -138,6 +142,9 @@ def run_mesh_experiment(
                 lr=cfg.model.lr, fusion_grid=circular_grid(cfg.fusion.grid_size),
                 mode=mode, device=device, sample_seed=env_seed, rho=rho, lam=lam,
                 temper_gradient=temper_gradient, self_weight=self_weight,
+                sample_target=sample_target, target_seed=env_seed,
+                draws_per_target=draws_per_target,
+                track_compute_cost=track_compute_cost,
                 node_variants=node_variants, uncertainty_measure=uncertainty_measure,
                 track_disagreement=track_disagreement,
                 track_trust_batches=track_trust_batches,
@@ -161,6 +168,32 @@ def run_mesh_experiment(
     # per-step spatial arrays: consumed by generate_video.py
     cell_mse_steps = np.full((total_steps, grid_size, grid_size), np.nan)
     cell_cert_steps = np.full((total_steps, grid_size, grid_size), np.nan)
+    # (nu, alpha, beta) of the SAME best-certainty belief already recorded in
+    # cell_cert_steps, at the same cadence. SAVE-ONLY (2026-08): stored
+    # certainty collapses the three into one non-invertible scalar, so
+    # Student-t interval coverage could not be recovered from any artefact.
+    # This array is written from values already computed in the loop below --
+    # no extra forward pass, no RNG draw, no change to ordering or training.
+    cell_nig_steps = np.full((total_steps, grid_size, grid_size, 3), np.nan)
+    # Hop distance of the node whose belief won each cell. SAVE-ONLY, same
+    # cadence: hop is a per-NODE quantity while cell_mse_steps is per-CELL, so
+    # without this the two cannot be joined and "does injected noise compound
+    # with hop depth" is unanswerable from the artefacts.
+    cell_hop_steps = np.full((total_steps, grid_size, grid_size), np.nan)
+    # EVERY covering node's full belief per cell, plus the closed-form NIG
+    # product of them. SAVE-ONLY (2026-08-27). The arrays above record only the
+    # ARGMAX-certainty node's belief, which cannot be un-collapsed: the fused
+    # estimator that Sec 3.4 actually specifies (a consumer fuses all covering
+    # beliefs and takes gamma* of the fused Student-t) was therefore not
+    # computable from any stored artefact. Storing the raw contributions rather
+    # than only a derived summary means a future estimator change needs no
+    # further rerun. float32: (T,G,G,max_cov,4) is ~27 MB/run at max_cov=9.
+    _max_cov = max(1, int(coverage.max()))
+    cell_beliefs_steps = np.full(
+        (total_steps, grid_size, grid_size, _max_cov, 4), np.nan, dtype=np.float32)
+    cell_ncov_steps = np.zeros((total_steps, grid_size, grid_size), dtype=np.int16)
+    cell_fused_steps = np.full(
+        (total_steps, grid_size, grid_size, 4), np.nan, dtype=np.float32)
     comm_bytes_steps = np.zeros(total_steps, dtype=np.int64)  # objective #2 instrumentation
     fusion_time_steps = np.zeros(total_steps, dtype=np.float64)  # nig_product cost comparison, 2026-08
     forward_time_steps = np.zeros(total_steps, dtype=np.float64)   # fusion-cost-share analysis, 2026-08
@@ -299,18 +332,32 @@ def run_mesh_experiment(
 
         # best-certainty belief per cell across nodes, for the spatial maps
         step_best = {}
+        step_all = defaultdict(list)
         for node in mesh.nodes.values():
             for cell, (g, n, a, b) in node.cell_beliefs.items():
                 cert = 1.0 / (1.0 + min(b / (max(n, 1e-6) * max(a - 1, 1e-6)), 10.0))
+                step_all[cell].append((g, n, a, b))
+                # untouched: same iteration order, same strict >, so the same
+                # node wins every tie it won before
                 if cell not in step_best or cert > step_best[cell][1]:
-                    step_best[cell] = (g, cert)
-        for cell, (pred, cert) in step_best.items():
+                    step_best[cell] = (g, cert, n, a, b, node.hop_distance)
+        for cell, blist in step_all.items():
+            k = min(len(blist), _max_cov)
+            cell_ncov_steps[step, cell[0], cell[1]] = k
+            cell_beliefs_steps[step, cell[0], cell[1], :k] = np.asarray(
+                blist[:k], dtype=np.float32)
+            cell_fused_steps[step, cell[0], cell[1]] = np.asarray(
+                fuse_nig_product(blist), dtype=np.float32)
+        for cell, (pred, cert, nu_b, al_b, be_b, hop_b) in step_best.items():
             _, truth = env.get_cell_input(cell[0], cell[1], step)
             err = circular_diff(torch.tensor(pred), truth).item() ** 2
             cell_mse_hist[cell].append(err)
             cell_cert_hist[cell].append(cert)
             cell_mse_steps[step, cell[0], cell[1]] = err
             cell_cert_steps[step, cell[0], cell[1]] = cert
+            cell_nig_steps[step, cell[0], cell[1]] = (nu_b, al_b, be_b)
+            if hop_b is not None:
+                cell_hop_steps[step, cell[0], cell[1]] = float(hop_b)
 
         metrics = mesh.evaluate(step)
         hop_mses = {h: [] for h in range(4)}
@@ -372,6 +419,21 @@ def run_mesh_experiment(
         np.save(run_dir / "trust_batch_log.npy", np.array(mesh.trust_batch_log, dtype=float))
     np.save(run_dir / "cell_mse_steps.npy", cell_mse_steps)
     np.save(run_dir / "cell_cert_steps.npy", cell_cert_steps)
+    np.save(run_dir / "cell_nig_steps.npy", cell_nig_steps)
+    np.save(run_dir / "cell_hop_steps.npy", cell_hop_steps)
+    np.save(run_dir / "cell_beliefs_steps.npy", cell_beliefs_steps)
+    np.save(run_dir / "cell_ncov_steps.npy", cell_ncov_steps)
+    np.save(run_dir / "cell_fused_steps.npy", cell_fused_steps)
+    if mesh.disagreement_log:
+        # SAVE-ONLY: the manifest keeps only whole-run aggregates of this log,
+        # so a windowed statistic (e.g. nu-CV over the last 50 steps) cannot be
+        # recovered. The log is already built during the run whenever
+        # track_disagreement is on; this only persists it. Columns:
+        # (step, n_contributors, spread_std, spread_range, nu_std, nu_range,
+        #  nu_cv, max_weight, max_weight_minus_uniform,
+        #  gamma_star_vs_unweighted_absdiff, cell_row, cell_col)
+        np.save(run_dir / "disagreement_log.npy",
+                np.array(mesh.disagreement_log, dtype=float))
     np.save(run_dir / "comm_bytes_steps.npy", comm_bytes_steps)
     np.save(run_dir / "fusion_time_steps.npy", fusion_time_steps)
     if realised_paths[0]:
@@ -395,6 +457,10 @@ def run_mesh_experiment(
         "env_seed": env_seed, "wearable_policy": wearable_policy or "replay",
         "policy_cooldown": policy_cooldown,
         "node_variants": mesh.node_variants,
+        "sample_target": sample_target, "draws_per_target": draws_per_target,
+        "excluded_rotation_ranges": ([list(t) for t in excluded_rotation_ranges]
+                                     if excluded_rotation_ranges else None),
+        "track_compute_cost": track_compute_cost,
         "git_commit": git_commit(), "config": dataclasses.asdict(cfg),
         **(extra_manifest or {}),
         "results": {

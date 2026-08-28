@@ -59,11 +59,11 @@ SEED_FIELD = {
 ROOT = Path("runs/stage6/offset_world/multifield_heterogeneous")
 
 
-def run_one(mode: str, seed: int, homogeneous: bool):
+def run_one(mode: str, seed: int, homogeneous: bool, root_override=None):
     cfg = load_config()
     cfg.model.lr = LR
     field_name = SEED_FIELD[seed]
-    root = ROOT / ("homog" if homogeneous else "het")
+    root = (Path(root_override) if root_override else ROOT) / ("homog" if homogeneous else "het")
     root.mkdir(parents=True, exist_ok=True)
 
     grids = np.load(ENV / "environment_grids.npy")
@@ -119,10 +119,12 @@ def run_one(mode: str, seed: int, homogeneous: bool):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=MODES, required=True)
+    parser.add_argument("--root", type=str, default=None,
+                        help="output root; default (None) keeps the original path")
     parser.add_argument("--seeds", type=str, default=",".join(str(s) for s in SEED_FIELD))
     parser.add_argument("--homogeneous", action="store_true",
                         help="matched control: identical settings, all-baseline nodes")
     args = parser.parse_args()
     for seed in [int(s) for s in args.seeds.split(",")]:
-        run_one(args.mode, seed, args.homogeneous)
+        run_one(args.mode, seed, args.homogeneous, args.root)
     print("=== DONE ===")

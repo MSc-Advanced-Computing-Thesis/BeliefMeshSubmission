@@ -68,7 +68,7 @@ from beliefmesh.node.mesh import Mesh
 
 ENV = Path("experiments/stage6_spatial_mesh/environment_v2")
 CKPT = Path("runs/stage0/baseline/checkpoints/pretrained_digit7.pth")
-ROOT = Path("runs/stage6/offset_world/node_failure")
+ROOT = Path("runs/stage6/offset_world/node_failure")   # overridable via --root
 N_WEARABLES = 3
 LR = 3e-5
 LAM = 5.0
@@ -422,6 +422,14 @@ if __name__ == "__main__":
     parser.add_argument("--fraction", type=float, required=True)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--mesh-mode", type=str, default="nig_product")
+    parser.add_argument("--root", type=str, default=None,
+                        help="output root; default (None) keeps the original path")
+    parser.add_argument("--seeds", type=str, default=None,
+                        help="comma-separated seeds; default (None) uses --seed alone, "
+                             "reproducing the original single-seed invocation")
     args = parser.parse_args()
+    if args.root:
+        globals()["ROOT"] = Path(args.root)
     fm = "random" if args.failure_mode == "none" else args.failure_mode
-    run_condition(fm, args.fraction, seed=args.seed, mesh_mode=args.mesh_mode)
+    for _sd in ([int(x) for x in args.seeds.split(",")] if args.seeds else [args.seed]):
+        run_condition(fm, args.fraction, seed=_sd, mesh_mode=args.mesh_mode)

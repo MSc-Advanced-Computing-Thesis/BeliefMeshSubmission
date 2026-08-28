@@ -43,7 +43,10 @@ EXCLUDED_RANGES = [(120.0, 150.0), (165.0, 180.0), (-180.0, -165.0)]
 SEEDS = [42, 1042, 2042, 3042, 4042]
 
 
-def main(mode: str):
+def main(mode: str, root: str | None = None):
+    global ROOT
+    if root:
+        ROOT = Path(root)
     cfg = load_config()
     cfg.model.lr = LR
     ROOT.mkdir(parents=True, exist_ok=True)
@@ -89,5 +92,7 @@ def main(mode: str):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["fusion", "fedavg_global"], required=True)
+    parser.add_argument("--root", type=str, default=None,
+                        help="output root; default (None) keeps the original path")
     args = parser.parse_args()
-    main(args.mode)
+    main(args.mode, args.root)

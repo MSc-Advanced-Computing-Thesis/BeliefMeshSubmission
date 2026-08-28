@@ -388,7 +388,8 @@ class Mesh:
                  lr: float, fusion_grid: torch.Tensor, mode: str = "fusion",
                  device: torch.device | None = None, sample_seed: int = 42,
                  rho: float = 0.2, lam: float = 0.1, temper_gradient: bool = True,
-                 self_weight: float = 0.0,
+                 self_weight: float = 0.0, sample_target: bool = True,
+                 target_seed: int = 0, draws_per_target: int = 1,
                  node_variants: list[str] | None = None,
                  track_compute_cost: bool = False,
                  uncertainty_measure: str = "epistemic",
@@ -512,6 +513,26 @@ class Mesh:
         # reduces to the pre-tempering behaviour (unweighted mean loss), for a
         # clean A/B isolating tempering's own effect from lam/rho.
         self.temper_gradient = temper_gradient
+        # sample_target: ADOPTED DEFAULT (2026-08-27). A receiving node's
+        # per-cell training target is DRAWN from the fused Student-t
+        # predictive instead of taken at its mode. Training on the mode taught
+        # every node that the world is deterministic, which compounded with
+        # hop depth: half-width/RMS fell 0.97 -> 0.35 across hops and inter-
+        # contributor nu-CV collapsed with depth. Sampling reverses both.
+        # Pass sample_target=False to reproduce the pre-adoption behaviour
+        # bit-for-bit (verified on CPU); the draw is gated on this flag and its
+        # generator consumes from no other stream. See _sample_from_fused.
+        self.sample_target = sample_target
+        # draws_per_target (2026-08): with sampling on, draw n independent
+        # targets per cell and average the loss across them within ONE
+        # optimiser step -- the image is replicated n times against n draws, so
+        # nig_loss's batch mean IS the across-draw average. Same objective,
+        # lower-variance estimate. Default 1 reproduces single-draw sampling
+        # exactly; it has no effect at all when sample_target is False.
+        # Cost scales the propagation batch by n (forward and backward).
+        self.draws_per_target = max(1, int(draws_per_target))
+        self._target_rng = np.random.default_rng(target_seed)
+        self.sample_deviations_deg: list[float] = []
         self.environment = environment
         self.grid_size = grid_size
         self.fusion_grid = fusion_grid
@@ -693,6 +714,30 @@ class Mesh:
         covered = {i for i, node in self.nodes.items()
                    if i not in self.failed_nodes and any(c in node.fov_set for c in cells)}
         return covered, cells
+
+    def _sample_from_fused(self, contributions, label: float) -> float:
+        """Draw the training target from the fused Student-t predictive instead
+        of taking it at the mode. Gated by self.sample_target; never called
+        when that is False.
+
+        The LOCATION stays the aggregating arm's own point estimate (naive's
+        mean of gammas, nig_product's gamma*), so the arms still differ only in
+        their aggregation rule; the SPREAD comes from the product-of-NIG fusion
+        of the same contributors in every arm, so the injected noise is
+        constructed identically and the comparison isolates the rule. Wrapped
+        to [-1, 1) on the same period-2 convention as circular_diff.
+        """
+        from beliefmesh.fusion.nig_product import fuse_nig_product
+
+        beliefs = [b for _, b in contributions]
+        _, nu, alpha, beta = (beliefs[0] if len(beliefs) == 1
+                              else fuse_nig_product(beliefs))
+        scale = float(np.sqrt(beta * (1.0 + nu) / (max(nu, 1e-6) * max(alpha, 1e-6))))
+        draw = float(label) + scale * float(self._target_rng.standard_t(2.0 * alpha))
+        draw = ((draw + 1.0) % 2.0) - 1.0
+        self.sample_deviations_deg.append(
+            abs(circular_diff(torch.tensor(draw), torch.tensor(float(label))).item()) * 180.0)
+        return draw
 
     def _aggregate(self, contributions: list[tuple[int, tuple[float, float, float, float]]],
                    own_belief: tuple[float, float, float, float] | None = None,
@@ -1226,13 +1271,16 @@ class Mesh:
                                 neighbour.own_instance, cell[0], cell[1], step)
                         else:
                             img, _ = self.environment.get_cell_input(cell[0], cell[1], step)
-                        images.append(img)
-                        prop_keys.append(cell)
                         own_belief = (neighbour.last_beliefs.get(cell)
                                       if self.self_weight > 0 else None)
                         label, agreement, inherited = self._aggregate(contributions, own_belief, cell=cell)
-                        labels.append(label)
-                        cell_trusts.append(agreement * inherited)
+                        n_draws = self.draws_per_target if self.sample_target else 1
+                        for _ in range(n_draws):
+                            images.append(img)
+                            prop_keys.append(cell)
+                            labels.append(self._sample_from_fused(contributions, label)
+                                          if self.sample_target else label)
+                            cell_trusts.append(agreement * inherited)
                         # comm: each contributor sends its full (gamma, nu,
                         # alpha, beta) belief for this cell -- 4 float32s
                         self.comm_bytes_step += len(contributions) * 4 * 4

@@ -101,7 +101,10 @@ def run_one(mode: str, seed: int):
     return whole_run_mse, res['mean_mse_last_50'], r
 
 
-def main(mode: str, seeds: list[int]):
+def main(mode: str, seeds: list[int], root: str | None = None):
+    global ROOT
+    if root:
+        ROOT = Path(root)
     results = []
     for seed in seeds:
         results.append(run_one(mode, seed))
@@ -122,5 +125,7 @@ if __name__ == "__main__":
     parser.add_argument("--mode", choices=MODES, required=True)
     parser.add_argument("--seeds", type=str, default=str(SEED),
                         help="comma-separated seed list, e.g. '1042,2042,3042,4042'")
+    parser.add_argument("--root", type=str, default=None,
+                        help="output root; default (None) keeps the original path")
     args = parser.parse_args()
-    main(args.mode, [int(s) for s in args.seeds.split(",")])
+    main(args.mode, [int(s) for s in args.seeds.split(",")], args.root)
