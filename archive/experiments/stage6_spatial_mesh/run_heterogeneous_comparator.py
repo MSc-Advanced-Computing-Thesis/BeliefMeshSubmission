@@ -72,7 +72,7 @@ def assign_variants(n_nodes: int, seed: int = VARIANT_SEED) -> list[str]:
     return variants
 
 
-def run_one(mode: str, seed: int, homogeneous: bool = False, root_override=None):
+def run_one(mode: str, seed: int, homogeneous: bool = False, root_override=None, homog_variant: str = "baseline"):
     cfg = load_config()
     cfg.model.lr = LR
     root = Path(root_override) if root_override else Path(
@@ -93,18 +93,31 @@ def run_one(mode: str, seed: int, homogeneous: bool = False, root_override=None)
     # COMPOSITION as well as the environment/wearable realisation -- otherwise
     # all five seeds would re-test one fixed device layout. seed 42 reproduces
     # the original layout exactly (VARIANT_SEED == 42).
-    variants = None if homogeneous else assign_variants(len(centres), seed=seed)
+    # A uniform NON-baseline arm must set node_variants too, not just the
+    # checkpoint: the variant string is what selects the model WIDTH. Passing
+    # the wide checkpoint with variants=None builds width-32 models, the
+    # width-64 checkpoint fails to load, and every node silently trains from
+    # random init. The default (baseline) branch is left exactly as it was.
+    if homogeneous:
+        variants = (None if homog_variant == "baseline"
+                    else [homog_variant] * len(centres))
+    else:
+        variants = assign_variants(len(centres), seed=seed)
     if variants is not None:
         counts = {v: variants.count(v) for v in ("narrow", "baseline", "wide")}
         print(f"[het] node variants: {counts}")
 
-    tag = f"het_{mode}" if seed == SEED else f"het_{mode}_seed{seed}"
+    stem = ("het" if not homogeneous or homog_variant == "baseline"
+            else f"homog_{homog_variant}")
+    tag = f"{stem}_{mode}" if seed == SEED else f"{stem}_{mode}_seed{seed}"
     random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
     res = run_mesh_experiment(
         cfg, condition=f"heterogeneous_{tag}", run_dir=root / tag,
         all_grids=uniform, wearable_paths=paths, node_centres=centres,
         fov_size=7, mode=mode,
-        baseline_checkpoint=(CKPTS["baseline"] if homogeneous else CKPTS),
+        baseline_checkpoint=(CKPTS["baseline"]
+                             if homogeneous and homog_variant == "baseline"
+                             else CKPTS),
         n_wearable_samples=1, n_train_repeats=1,
         title=f"Heterogeneous comparator ({mode}, seed={seed})",
         offset_field=field, env_seed=seed,
@@ -137,8 +150,12 @@ if __name__ == "__main__":
                         help="output root; default (None) keeps the original path")
     parser.add_argument("--seeds", type=str, default=str(SEED))
     parser.add_argument("--homogeneous", action="store_true",
-                        help="matched control: same settings, all-baseline nodes")
+                        help="matched control: same settings, one uniform variant")
+    parser.add_argument("--homog-variant", choices=list(CKPTS), default="baseline",
+                        dest="homog_variant",
+                        help="which checkpoint the homogeneous arm uses")
     args = parser.parse_args()
     for seed in [int(s) for s in args.seeds.split(",")]:
-        run_one(args.mode, seed, homogeneous=args.homogeneous, root_override=args.root)
+        run_one(args.mode, seed, homogeneous=args.homogeneous,
+                root_override=args.root, homog_variant=args.homog_variant)
     print("=== DONE ===")

@@ -20,6 +20,8 @@ import yaml
 from scipy import stats as sps
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from averaged_readout import load_run as _avg_load
+from averaged_readout import metrics as _avg_metrics
 from analyse_estimators import LAST, load, truth_for, wrap
 from stage6_spatial_mesh.run_offset_experiments import build_dynamic_offset_field
 from beliefmesh.node.mesh import fov_cells
@@ -194,17 +196,17 @@ def fig_531b():
     dirs = [Path(f"runs/chapter5_v2/s531_b2/nig_product_sampled_seed{s}") for s in SEEDS]
     per_k = defaultdict(lambda: ([], []))
     for d in dirs:
-        R = load(d)
         seed = int(d.name.rsplit("_seed", 1)[1])
-        T, G = R["mse"].shape[0], R["mse"].shape[1]
+        RR = _avg_load(d, seed)
+        T = RR["T"]
         sl = slice(T - LAST, T)
-        tr = truth_for(seed, T, G)[-LAST:]
-        fe = wrap(R["fused"][sl, ..., 0].astype(np.float64) - tr) ** 2
-        nc = R["ncov"][sl]
+        ae2 = RR["argmax"][0][sl]        # displaced convention
+        ve2 = RR["averaged"][0][sl]      # reported convention
+        nc = RR["nc"][sl]
         for k in sorted(set(int(v) for v in np.unique(nc) if v > 0)):
             m = nc == k
-            per_k[k][0].append(float(np.nanmean(R["mse"][sl][m])))
-            per_k[k][1].append(float(np.nanmean(fe[m])))
+            per_k[k][0].append(float(np.nanmean(ae2[m])))
+            per_k[k][1].append(float(np.nanmean(ve2[m])))
     ks = sorted(per_k)
     a_mu = [ms(per_k[k][0])[0] for k in ks]
     f_mu = [ms(per_k[k][1])[0] for k in ks]
@@ -213,9 +215,9 @@ def fig_531b():
     fig, ax = plt.subplots(figsize=(W, 3.0))
     fig.subplots_adjust(left=0.105, right=0.975, bottom=0.155, top=0.925)
     ax.errorbar(ks, a_mu, yerr=a_sd, fmt="o-", color=INK, ms=5, lw=1.6,
-                capsize=3, label="argmax (reported convention)")
+                capsize=3, label="argmax (displaced convention)")
     ax.errorbar(ks, f_mu, yerr=f_sd, fmt="s--", color=GREEN, ms=5, lw=1.6,
-                capsize=3, label="fused readout")
+                capsize=3, label="averaged NIG (reported convention)")
     for k, a, f in zip(ks, a_mu, f_mu):
         pct = 100 * (f - a) / a
         ax.annotate("%+.0f%%" % pct, (k, f), textcoords="offset points",
@@ -226,7 +228,7 @@ def fig_531b():
     ax.set_xticks(ks)
     ax.set_xlabel("covering beliefs per cell (n_cov)", fontsize=9)
     ax.set_ylabel("cell-space MSE", fontsize=9)
-    ax.set_title("MSE under the argmax and fused readout estimators", fontsize=10)
+    ax.set_title("MSE under the argmax and averaged-NIG readouts", fontsize=10)
     ax.tick_params(labelsize=9)
     ax.legend(fontsize=8, frameon=False)
     save(fig, "ch5_5_3_1b_estimator_comparison")
@@ -234,28 +236,31 @@ def fig_531b():
 
 # ---------------------------------------------------------------- 5.5
 def fig_55():
+    # All four arms regenerated with cell_beliefs_steps (2026-08) so they sit
+    # on ONE readout convention; the three comparator arms previously had no
+    # beliefs and could not be recomputed.
     arms = [("fusion", "runs/chapter5_v2/s5_5_gossip_fusion/*/manifest.yaml", INK, True),
-            ("gossip_uniform", "runs/stage6/offset_world/gossip_comparator/gossip_cmp_gossip_uniform*/manifest.yaml", RED, False),
-            ("gossip_weighted", "runs/stage6/offset_world/gossip_comparator/gossip_cmp_gossip_weighted*/manifest.yaml", BLUE, False),
-            ("fedavg_global", "runs/stage6/offset_world/gossip_comparator/gossip_cmp_fedavg_global*/manifest.yaml", GREEN, False)]
+            ("gossip_uniform", "runs/chapter5_v2/s5_5_gossip_gossip_uniform/*/manifest.yaml", RED, False),
+            ("gossip_weighted", "runs/chapter5_v2/s5_5_gossip_gossip_weighted/*/manifest.yaml", BLUE, False),
+            ("fedavg_global", "runs/chapter5_v2/s5_5_gossip_fedavg_global/*/manifest.yaml", GREEN, False)]
     data = {}
     for name, pat, col, sampled in arms:
         w, l, c = [], [], []
         for p in sorted(glob.glob(pat)):
             d = os.path.dirname(p)
-            f = d + "/cell_mse_steps.npy"
-            if not os.path.exists(f):
+            if not os.path.exists(d + "/cell_beliefs_steps.npy"):
                 continue
-            mse = np.load(f)
-            w.append(float(np.nanmean(mse)))
-            l.append(float(np.nanmean(mse[-LAST:])))
+            mm = yaml.safe_load(open(p))
+            RR = _avg_metrics(_avg_load(Path(d), int(mm["env_seed"])), last=LAST)["averaged"]
+            w.append(RR["whole"])
+            l.append(RR["last50"])
             cb = (yaml.safe_load(open(p))["results"] or {}).get("comm_bytes_total")
             if cb:
                 c.append(cb)
         data[name] = (ms(w), ms(l), st.mean(c) if c else np.nan, col, sampled)
     names = [a[0] for a in arms]
-    fig, axes = plt.subplots(1, 3, figsize=(W, 2.5))
-    fig.subplots_adjust(left=0.10, right=0.99, bottom=0.26, top=0.88, wspace=0.42)
+    fig, axes = plt.subplots(1, 3, figsize=(W, 2.35))
+    fig.subplots_adjust(left=0.10, right=0.99, bottom=0.215, top=0.90, wspace=0.42)
     for ax, idx, lab in ((axes[0], 0, "whole-run MSE"), (axes[1], 1, "last-50 MSE")):
         mu = [data[n][idx][0] for n in names]
         sd = [data[n][idx][1] for n in names]
@@ -296,8 +301,8 @@ def fig_57():
         kind, pct = parse(n)
         series[kind].append((pct, ms([x[0] for x in v]),
                              ms([x[1] for x in v if x[1] is not None]) if any(x[1] is not None for x in v) else None))
-    fig, axes = plt.subplots(1, 2, figsize=(W, 2.5))
-    fig.subplots_adjust(left=0.095, right=0.985, bottom=0.20, top=0.88, wspace=0.32)
+    fig, axes = plt.subplots(1, 2, figsize=(W, 2.3))
+    fig.subplots_adjust(left=0.095, right=0.985, bottom=0.175, top=0.90, wspace=0.32)
     for kind, col, mk in (("random", INK, "o-"), ("clustered", RED, "s--")):
         pts = sorted(series[kind])
         ax = axes[0]
@@ -320,8 +325,6 @@ def fig_57():
     ax.set_ylabel("MSE diff vs 0% control", fontsize=8)
     ax.set_title("surviving region", fontsize=9)
     ax.tick_params(labelsize=8)
-    ax.text(0.03, 0.06, "below 0 = no worse than control", transform=ax.transAxes,
-            fontsize=6.2, color=GREY)
     save(fig, "ch5_5_7_node_loss")
 
 
@@ -330,8 +333,11 @@ def table_542():
     rows = []
     for name, root in (("static", "runs/chapter5_v2/s5_4_2_static"),
                        ("dynamic", "runs/chapter5_v2/s5_4_2_dynamic")):
-        M = [metrics(Path(os.path.dirname(p)))
-             for p in sorted(glob.glob(root + "/*/manifest.yaml"))]
+        M = []
+        for p in sorted(glob.glob(root + "/*/manifest.yaml")):
+            d = Path(os.path.dirname(p))
+            sd = int(yaml.safe_load(open(p))["env_seed"])
+            M.append(_avg_metrics(_avg_load(d, sd), last=LAST)["averaged"])
         rows.append((name, len(M)) + tuple(ms([m[k] for m in M])
                                            for k in ("whole", "last50", "cov", "ratio")))
     out = Path("runs/chapter5_v2/table_5_4_2.csv")
@@ -350,6 +356,89 @@ def table_542():
     print("  wrote %s" % out)
 
 
+
+# ---------------------------------------------------------------- 5.7 stills
+def fig_57_maps():
+    """Coverage maps at 40% node loss, seed 42: random beside clustered.
+
+    This is the argument the dead-zone FRACTION cannot make. Both panels lose
+    the same 14 of 36 nodes and leave 22 survivors, so the scalar is nearly
+    matched; what differs is the GEOMETRY of what is lost. Random loss
+    scatters its dead cells and leaves the survivors' overlap intact.
+    Clustered loss removes a contiguous block, and it is there that the
+    surviving region degrades as well.
+
+    Readable without the video by construction: the panels are a single
+    timestep, node positions are drawn, and every quantity is in the axis
+    labels or the shared colour bar.
+    """
+    from matplotlib.colors import BoundaryNorm, ListedColormap
+    from matplotlib.lines import Line2D
+    from matplotlib.patches import Patch
+
+    ENV = Path("experiments/stage6_spatial_mesh/environment_v2")
+    centres = np.load(ENV / "node_centres.npy")
+    base = "runs/chapter5_v2/s5_7_node_loss/nig_product_%s_40pct_seed42"
+    panels = [("random", "random loss"), ("clustered", "clustered loss")]
+
+    maps, dead, failed = {}, {}, {}
+    for kind, _ in panels:
+        d = Path(base % kind)
+        maps[kind] = np.load(d / "coverage_count.npy")
+        dead[kind] = int((maps[kind] == 0).sum())
+        failed[kind] = set(yaml.safe_load(open(d / "manifest.yaml"))["failure_ids"])
+
+    # Colour scale SHARED with the cell-coverage panel of the mesh geometry
+    # figure (make_mesh_geometry_figure.py): YlGnBu over levels 1..9, pale
+    # yellow-green at 1 through dark blue at 9. Every level gets its own band,
+    # so a partially failed mesh -- which does produce 5, 7 and 8 -- reports
+    # its true count rather than being binned onto a neighbouring level. The
+    # full mesh simply leaves those three bands unused. The two must stay in
+    # step.
+    LEVELS = list(range(1, 10))
+    base = plt.get_cmap("YlGnBu")
+    cmap = ListedColormap([base(0.12 + 0.80 * i / (len(LEVELS) - 1))
+                           for i in range(len(LEVELS))])
+    cmap.set_bad("#4a4a4a")   # dead cells: grey, outside the sequential ramp
+    norm = BoundaryNorm(np.arange(len(LEVELS) + 1) - 0.5, len(LEVELS))
+
+    fig, axes = plt.subplots(1, 2, figsize=(W, 3.05))
+    fig.subplots_adjust(left=0.055, right=0.865, bottom=0.175, top=0.855, wspace=0.13)
+
+    for ax, (kind, lab) in zip(axes, panels):
+        idx = np.searchsorted(LEVELS, maps[kind])
+        M = np.ma.masked_where(maps[kind] == 0, idx)
+        im = ax.imshow(M, cmap=cmap, norm=norm,
+                       origin="upper", interpolation="nearest")
+        alive = [i for i in range(len(centres)) if i not in failed[kind]]
+        gone = sorted(failed[kind])
+        ax.plot(centres[alive, 0], centres[alive, 1], "o", ms=3.6,
+                mfc="white", mec=INK, mew=0.8, ls="none")
+        ax.plot(centres[gone, 0], centres[gone, 1], "X", ms=5.2,
+                mfc="white", mec=INK, mew=0.8, ls="none")
+        ax.set_title("%s, %d dead cells" % (lab, dead[kind]), fontsize=9)
+        ax.set_xticks([0, 7, 14, 21])
+        ax.set_yticks([0, 7, 14, 21])
+        ax.tick_params(labelsize=7.5)
+        ax.set_xlabel("cell column", fontsize=8)
+    axes[0].set_ylabel("cell row", fontsize=8)
+
+    cax = fig.add_axes([0.878, 0.175, 0.022, 0.68])
+    cb = fig.colorbar(im, cax=cax, ticks=np.arange(len(LEVELS)))
+    cb.ax.set_yticklabels([str(v) for v in LEVELS])
+    cb.set_label("covering surviving nodes", fontsize=8)
+    cb.ax.tick_params(labelsize=7.5)
+
+    fig.legend(handles=[Patch(facecolor="#4a4a4a", label="dead cell (0 nodes)"),
+                        Line2D([], [], marker="o", ls="none", mfc="white",
+                               mec=INK, mew=0.8, ms=3.6, label="surviving node"),
+                        Line2D([], [], marker="X", ls="none", mfc="white",
+                               mec=INK, mew=0.8, ms=5.2, label="failed node")],
+               loc="lower center", ncol=3, fontsize=7, frameon=False,
+               bbox_to_anchor=(0.46, -0.012))
+    save(fig, "ch5_5_7_coverage_maps")
+
+
 if __name__ == "__main__":
     print("Block 2 figures:")
-    fig_52(); fig_531b(); fig_55(); fig_57(); table_542()
+    fig_52(); fig_531b(); fig_55(); fig_57(); fig_57_maps(); table_542()

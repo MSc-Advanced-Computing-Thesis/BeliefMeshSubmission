@@ -58,7 +58,10 @@ ARMS = {
 }
 
 
-def run_one(arm: str, seed: int):
+def run_one(arm: str, seed: int, root: str | None = None):
+    global ROOT
+    if root:
+        ROOT = Path(root)
     heterogeneous, temper = ARMS[arm]
     cfg = load_config()
     cfg.model.lr = LR
@@ -115,7 +118,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--arm", choices=list(ARMS), required=True)
     parser.add_argument("--seeds", type=str, default=",".join(str(s) for s in SEED_FIELD))
+    parser.add_argument("--root", type=str, default=None,
+                        help="output root; default (None) keeps the original path")
     args = parser.parse_args()
     for seed in [int(s) for s in args.seeds.split(",")]:
-        run_one(args.arm, seed)
+        run_one(args.arm, seed, args.root)
     print("=== DONE ===")

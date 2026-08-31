@@ -1,0 +1,80 @@
+[nig_product_sampled_lam25_seed42] nodes=36 coverage max=9 mode=nig_product steps=390
+[nig_product_sampled_lam25_seed42] step 000/390 trained 36/36 | hop0: 0.1081 | hop1: 0.1012
+[nig_product_sampled_lam25_seed42] step 010/390 trained 36/36 | hop0: 0.0671 | hop1: 0.0926
+[nig_product_sampled_lam25_seed42] step 020/390 trained 36/36 | hop0: 0.0761 | hop1: 0.0743 | hop2: 0.0908
+[nig_product_sampled_lam25_seed42] step 030/390 trained 36/36 | hop0: 0.0564 | hop1: 0.0751 | hop2: 0.1159
+[nig_product_sampled_lam25_seed42] step 040/390 trained 36/36 | hop0: 0.0468 | hop1: 0.0683 | hop2: 0.0805
+[nig_product_sampled_lam25_seed42] step 050/390 trained 36/36 | hop0: 0.0522 | hop1: 0.0531 | hop2: 0.0695
+[nig_product_sampled_lam25_seed42] step 060/390 trained 36/36 | hop0: 0.0335 | hop1: 0.0579 | hop2: 0.0721
+[nig_product_sampled_lam25_seed42] step 070/390 trained 36/36 | hop0: 0.0292 | hop1: 0.0517 | hop2: 0.0724
+[nig_product_sampled_lam25_seed42] step 080/390 trained 36/36 | hop0: 0.0221 | hop1: 0.0505 | hop2: 0.0993
+[nig_product_sampled_lam25_seed42] step 090/390 trained 36/36 | hop0: 0.0245 | hop1: 0.0494
+[nig_product_sampled_lam25_seed42] step 100/390 trained 36/36 | hop0: 0.0290 | hop1: 0.0457 | hop2: 0.0413
+[nig_product_sampled_lam25_seed42] step 110/390 trained 36/36 | hop0: 0.0334 | hop1: 0.0267 | hop2: 0.0376
+[nig_product_sampled_lam25_seed42] step 120/390 trained 36/36 | hop0: 0.0361 | hop1: 0.0479 | hop2: 0.0514
+[nig_product_sampled_lam25_seed42] step 130/390 trained 36/36 | hop0: 0.0267 | hop1: 0.0495 | hop2: 0.0918
+[nig_product_sampled_lam25_seed42] step 140/390 trained 36/36 | hop0: 0.0134 | hop1: 0.0452 | hop2: 0.0666
+[nig_product_sampled_lam25_seed42] step 150/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0255 | hop2: 0.0941
+[nig_product_sampled_lam25_seed42] step 160/390 trained 36/36 | hop0: 0.0085 | hop1: 0.0213 | hop2: 0.0749
+[nig_product_sampled_lam25_seed42] step 170/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0200 | hop2: 0.0469
+[nig_product_sampled_lam25_seed42] step 180/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0089 | hop2: 0.0361
+[nig_product_sampled_lam25_seed42] step 190/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0117 | hop2: 0.0441
+[nig_product_sampled_lam25_seed42] step 200/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0133 | hop2: 0.0318
+[nig_product_sampled_lam25_seed42] step 210/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0087 | hop2: 0.0168
+[nig_product_sampled_lam25_seed42] step 220/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0079
+[nig_product_sampled_lam25_seed42] step 230/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0098 | hop2: 0.0131
+[nig_product_sampled_lam25_seed42] step 240/390 trained 36/36 | hop0: 0.0048 | hop1: 0.0106 | hop2: 0.0172
+[nig_product_sampled_lam25_seed42] step 250/390 trained 36/36 | hop0: 0.0049 | hop1: 0.0150 | hop2: 0.0202
+[nig_product_sampled_lam25_seed42] step 260/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0113
+[nig_product_sampled_lam25_seed42] step 270/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0091 | hop2: 0.0052
+[nig_product_sampled_lam25_seed42] step 280/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0099
+[nig_product_sampled_lam25_seed42] step 290/390 trained 36/36 | hop0: 0.0140 | hop1: 0.0075 | hop2: 0.0131
+[nig_product_sampled_lam25_seed42] step 300/390 trained 36/36 | hop0: 0.0153 | hop1: 0.0054 | hop2: 0.0104
+[nig_product_sampled_lam25_seed42] step 310/390 trained 36/36 | hop0: 0.0114 | hop1: 0.0074 | hop2: 0.0037
+[nig_product_sampled_lam25_seed42] step 320/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0073 | hop2: 0.0019
+[nig_product_sampled_lam25_seed42] step 330/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0059 | hop2: 0.0024
+[nig_product_sampled_lam25_seed42] step 340/390 trained 36/36 | hop0: 0.0071 | hop1: 0.0055
+[nig_product_sampled_lam25_seed42] step 350/390 trained 36/36 | hop0: 0.0108 | hop1: 0.0080 | hop2: 0.0065
+[nig_product_sampled_lam25_seed42] step 360/390 trained 36/36 | hop0: 0.0090 | hop1: 0.0120 | hop2: 0.0094
+[nig_product_sampled_lam25_seed42] step 370/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0116 | hop2: 0.0131
+[nig_product_sampled_lam25_seed42] step 380/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0100 | hop2: 0.0201
+[nig_product_sampled_lam25_seed42] mean MSE (last 50 steps): 0.0123 | cert-MSE r=-0.229
+[nig_product_sampled_lam25_seed42] saved runs\chapter5_v2\s5_9_lam_25p0\nig_product_sampled_lam25_seed42\figures\results.png
+### nig_product_sampled_lam25_seed42: last50=0.01232 whole_run=0.02709 r=-0.2532+/-0.0746
+[nig_product_sampled_lam25_seed1042] nodes=36 coverage max=9 mode=nig_product steps=390
+[nig_product_sampled_lam25_seed1042] step 000/390 trained 36/36 | hop0: 0.0929 | hop1: 0.1065
+[nig_product_sampled_lam25_seed1042] step 010/390 trained 36/36 | hop0: 0.0798 | hop1: 0.0889 | hop2: 0.1524
+[nig_product_sampled_lam25_seed1042] step 020/390 trained 36/36 | hop0: 0.0650 | hop1: 0.0747
+[nig_product_sampled_lam25_seed1042] step 030/390 trained 36/36 | hop0: 0.0719 | hop1: 0.0844 | hop2: 0.0942
+[nig_product_sampled_lam25_seed1042] step 040/390 trained 36/36 | hop0: 0.0584 | hop1: 0.0685 | hop2: 0.1293
+[nig_product_sampled_lam25_seed1042] step 050/390 trained 36/36 | hop0: 0.0503 | hop1: 0.0525 | hop2: 0.0938
+[nig_product_sampled_lam25_seed1042] step 060/390 trained 36/36 | hop0: 0.0462 | hop1: 0.0480 | hop2: 0.0794
+[nig_product_sampled_lam25_seed1042] step 070/390 trained 36/36 | hop0: 0.0346 | hop1: 0.0428 | hop2: 0.0725
+[nig_product_sampled_lam25_seed1042] step 080/390 trained 36/36 | hop0: 0.0272 | hop1: 0.0443 | hop2: 0.1189
+[nig_product_sampled_lam25_seed1042] step 090/390 trained 36/36 | hop0: 0.0267 | hop1: 0.0372 | hop2: 0.0980
+[nig_product_sampled_lam25_seed1042] step 100/390 trained 36/36 | hop0: 0.0287 | hop1: 0.0322
+[nig_product_sampled_lam25_seed1042] step 110/390 trained 36/36 | hop0: 0.0208 | hop1: 0.0298 | hop2: 0.0468
+[nig_product_sampled_lam25_seed1042] step 120/390 trained 36/36 | hop0: 0.0271 | hop1: 0.0338 | hop2: 0.0389
+[nig_product_sampled_lam25_seed1042] step 130/390 trained 36/36 | hop0: 0.0328 | hop1: 0.0279 | hop2: 0.0407
+[nig_product_sampled_lam25_seed1042] step 140/390 trained 36/36 | hop0: 0.0373 | hop1: 0.0180 | hop2: 0.0420
+[nig_product_sampled_lam25_seed1042] step 150/390 trained 36/36 | hop0: 0.0277 | hop1: 0.0239 | hop2: 0.0306
+[nig_product_sampled_lam25_seed1042] step 160/390 trained 36/36 | hop0: 0.0113 | hop1: 0.0228 | hop2: 0.0330
+[nig_product_sampled_lam25_seed1042] step 170/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0178 | hop2: 0.0485
+[nig_product_sampled_lam25_seed1042] step 180/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0174 | hop2: 0.0393
+[nig_product_sampled_lam25_seed1042] step 190/390 trained 36/36 | hop0: 0.0133 | hop1: 0.0162
+[nig_product_sampled_lam25_seed1042] step 200/390 trained 36/36 | hop0: 0.0095 | hop1: 0.0136 | hop2: 0.0113
+[nig_product_sampled_lam25_seed1042] step 210/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0130
+[nig_product_sampled_lam25_seed1042] step 220/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0087 | hop2: 0.0189
+[nig_product_sampled_lam25_seed1042] step 230/390 trained 36/36 | hop0: 0.0101 | hop1: 0.0062 | hop2: 0.0109
+[nig_product_sampled_lam25_seed1042] step 240/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0097 | hop2: 0.0180
+[nig_product_sampled_lam25_seed1042] step 250/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0097 | hop2: 0.0333
+[nig_product_sampled_lam25_seed1042] step 260/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0123 | hop2: 0.0328
+[nig_product_sampled_lam25_seed1042] step 270/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0116
+[nig_product_sampled_lam25_seed1042] step 280/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0135
+[nig_product_sampled_lam25_seed1042] step 290/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0145
+[nig_product_sampled_lam25_seed1042] step 300/390 trained 36/36 | hop0: 0.0049 | hop1: 0.0133 | hop2: 0.0020
+[nig_product_sampled_lam25_seed1042] step 310/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0078 | hop2: 0.0112
+[nig_product_sampled_lam25_seed1042] step 320/390 trained 36/36 | hop0: 0.0032 | hop1: 0.0050 | hop2: 0.0090
+[nig_product_sampled_lam25_seed1042] step 330/390 trained 36/36 | hop0: 0.0019 | hop1: 0.0030 | hop2: 0.0048
+[nig_product_sampled_lam25_seed1042] step 340/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0053 | hop2: 0.0102
+[nig_product_sampled_lam25_seed1042] step 350/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0112 | hop2: 0.0189

@@ -1,0 +1,612 @@
+[consensus_rho0p01_seed3042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p01_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0930 | hop2: 0.1605
+[consensus_rho0p01_seed3042] step 010/390 trained 36/36 | hop0: 0.0727 | hop1: 0.1025
+[consensus_rho0p01_seed3042] step 020/390 trained 36/36 | hop0: 0.0753 | hop1: 0.0900
+[consensus_rho0p01_seed3042] step 030/390 trained 36/36 | hop0: 0.0681 | hop1: 0.0836
+[consensus_rho0p01_seed3042] step 040/390 trained 36/36 | hop0: 0.0590 | hop1: 0.0631
+[consensus_rho0p01_seed3042] step 050/390 trained 36/36 | hop0: 0.0417 | hop1: 0.0488 | hop2: 0.0511
+[consensus_rho0p01_seed3042] step 060/390 trained 36/36 | hop0: 0.0449 | hop1: 0.0411 | hop2: 0.0541
+[consensus_rho0p01_seed3042] step 070/390 trained 36/36 | hop0: 0.0280 | hop1: 0.0370 | hop2: 0.0752
+[consensus_rho0p01_seed3042] step 080/390 trained 36/36 | hop0: 0.0183 | hop1: 0.0286 | hop2: 0.0827
+[consensus_rho0p01_seed3042] step 090/390 trained 36/36 | hop0: 0.0139 | hop1: 0.0229 | hop2: 0.0535 | hop3: 0.0660
+[consensus_rho0p01_seed3042] step 100/390 trained 36/36 | hop0: 0.0149 | hop1: 0.0192 | hop2: 0.0354
+[consensus_rho0p01_seed3042] step 110/390 trained 36/36 | hop0: 0.0123 | hop1: 0.0206 | hop2: 0.0281
+[consensus_rho0p01_seed3042] step 120/390 trained 36/36 | hop0: 0.0127 | hop1: 0.0298 | hop2: 0.0244
+[consensus_rho0p01_seed3042] step 130/390 trained 36/36 | hop0: 0.0154 | hop1: 0.0347 | hop2: 0.0554
+[consensus_rho0p01_seed3042] step 140/390 trained 36/36 | hop0: 0.0276 | hop1: 0.0181 | hop2: 0.0103
+[consensus_rho0p01_seed3042] step 150/390 trained 36/36 | hop0: 0.0179 | hop1: 0.0098 | hop2: 0.0039
+[consensus_rho0p01_seed3042] step 160/390 trained 36/36 | hop0: 0.0115 | hop1: 0.0126 | hop2: 0.0059
+[consensus_rho0p01_seed3042] step 170/390 trained 36/36 | hop0: 0.0115 | hop1: 0.0148 | hop2: 0.0098
+[consensus_rho0p01_seed3042] step 180/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0096
+[consensus_rho0p01_seed3042] step 190/390 trained 36/36 | hop0: 0.0163 | hop1: 0.0099
+[consensus_rho0p01_seed3042] step 200/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0104
+[consensus_rho0p01_seed3042] step 210/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0094 | hop2: 0.0034
+[consensus_rho0p01_seed3042] step 220/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0072 | hop2: 0.0039
+[consensus_rho0p01_seed3042] step 230/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0064 | hop2: 0.0030
+[consensus_rho0p01_seed3042] step 240/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0077 | hop2: 0.0286
+[consensus_rho0p01_seed3042] step 250/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0123 | hop2: 0.0587
+[consensus_rho0p01_seed3042] step 260/390 trained 36/36 | hop0: 0.0087 | hop1: 0.0199 | hop2: 0.0711
+[consensus_rho0p01_seed3042] step 270/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0141 | hop2: 0.0358
+[consensus_rho0p01_seed3042] step 280/390 trained 36/36 | hop0: 0.0020 | hop1: 0.0091 | hop2: 0.0206
+[consensus_rho0p01_seed3042] step 290/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0097
+[consensus_rho0p01_seed3042] step 300/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0082 | hop2: 0.0066
+[consensus_rho0p01_seed3042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0067 | hop2: 0.0072
+[consensus_rho0p01_seed3042] step 320/390 trained 36/36 | hop0: 0.0012 | hop1: 0.0033 | hop2: 0.0059
+[consensus_rho0p01_seed3042] step 330/390 trained 36/36 | hop0: 0.0012 | hop1: 0.0013
+[consensus_rho0p01_seed3042] step 340/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0027
+[consensus_rho0p01_seed3042] step 350/390 trained 36/36 | hop0: 0.0100 | hop1: 0.0053 | hop2: 0.0081
+[consensus_rho0p01_seed3042] step 360/390 trained 36/36 | hop0: 0.0090 | hop1: 0.0129 | hop2: 0.0137
+[consensus_rho0p01_seed3042] step 370/390 trained 36/36 | hop0: 0.0083 | hop1: 0.0203
+[consensus_rho0p01_seed3042] step 380/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0169 | hop2: 0.0162
+[consensus_rho0p01_seed3042] mean MSE (last 50 steps): 0.0136 | cert-MSE r=-0.268
+[consensus_rho0p01_seed3042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p01_seed3042\figures\results.png
+### consensus_rho0p01_seed3042 (rho=0.01): last50=0.0136 whole_run=0.0244 r=-0.2682
+[consensus_rho0p05_seed3042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p05_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0930 | hop2: 0.1605
+[consensus_rho0p05_seed3042] step 010/390 trained 36/36 | hop0: 0.0727 | hop1: 0.1025
+[consensus_rho0p05_seed3042] step 020/390 trained 36/36 | hop0: 0.0753 | hop1: 0.0900
+[consensus_rho0p05_seed3042] step 030/390 trained 36/36 | hop0: 0.0681 | hop1: 0.0836
+[consensus_rho0p05_seed3042] step 040/390 trained 36/36 | hop0: 0.0590 | hop1: 0.0631
+[consensus_rho0p05_seed3042] step 050/390 trained 36/36 | hop0: 0.0417 | hop1: 0.0488 | hop2: 0.0511
+[consensus_rho0p05_seed3042] step 060/390 trained 36/36 | hop0: 0.0449 | hop1: 0.0411 | hop2: 0.0541
+[consensus_rho0p05_seed3042] step 070/390 trained 36/36 | hop0: 0.0280 | hop1: 0.0370 | hop2: 0.0752
+[consensus_rho0p05_seed3042] step 080/390 trained 36/36 | hop0: 0.0184 | hop1: 0.0286 | hop2: 0.0827
+[consensus_rho0p05_seed3042] step 090/390 trained 36/36 | hop0: 0.0141 | hop1: 0.0229 | hop2: 0.0534 | hop3: 0.0660
+[consensus_rho0p05_seed3042] step 100/390 trained 36/36 | hop0: 0.0150 | hop1: 0.0193 | hop2: 0.0354
+[consensus_rho0p05_seed3042] step 110/390 trained 36/36 | hop0: 0.0124 | hop1: 0.0205 | hop2: 0.0281
+[consensus_rho0p05_seed3042] step 120/390 trained 36/36 | hop0: 0.0127 | hop1: 0.0295 | hop2: 0.0246
+[consensus_rho0p05_seed3042] step 130/390 trained 36/36 | hop0: 0.0154 | hop1: 0.0346 | hop2: 0.0554
+[consensus_rho0p05_seed3042] step 140/390 trained 36/36 | hop0: 0.0273 | hop1: 0.0181 | hop2: 0.0103
+[consensus_rho0p05_seed3042] step 150/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0098 | hop2: 0.0039
+[consensus_rho0p05_seed3042] step 160/390 trained 36/36 | hop0: 0.0116 | hop1: 0.0125 | hop2: 0.0056
+[consensus_rho0p05_seed3042] step 170/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0149 | hop2: 0.0096
+[consensus_rho0p05_seed3042] step 180/390 trained 36/36 | hop0: 0.0183 | hop1: 0.0097
+[consensus_rho0p05_seed3042] step 190/390 trained 36/36 | hop0: 0.0164 | hop1: 0.0099
+[consensus_rho0p05_seed3042] step 200/390 trained 36/36 | hop0: 0.0120 | hop1: 0.0103
+[consensus_rho0p05_seed3042] step 210/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0095 | hop2: 0.0033
+[consensus_rho0p05_seed3042] step 220/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0073 | hop2: 0.0040
+[consensus_rho0p05_seed3042] step 230/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0064 | hop2: 0.0031
+[consensus_rho0p05_seed3042] step 240/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0078 | hop2: 0.0292
+[consensus_rho0p05_seed3042] step 250/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0124 | hop2: 0.0592
+[consensus_rho0p05_seed3042] step 260/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0202 | hop2: 0.0719
+[consensus_rho0p05_seed3042] step 270/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0140 | hop2: 0.0362
+[consensus_rho0p05_seed3042] step 280/390 trained 36/36 | hop0: 0.0020 | hop1: 0.0092 | hop2: 0.0203
+[consensus_rho0p05_seed3042] step 290/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0097
+[consensus_rho0p05_seed3042] step 300/390 trained 36/36 | hop0: 0.0030 | hop1: 0.0082 | hop2: 0.0067
+[consensus_rho0p05_seed3042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0068 | hop2: 0.0074
+[consensus_rho0p05_seed3042] step 320/390 trained 36/36 | hop0: 0.0012 | hop1: 0.0033 | hop2: 0.0060
+[consensus_rho0p05_seed3042] step 330/390 trained 36/36 | hop0: 0.0012 | hop1: 0.0014
+[consensus_rho0p05_seed3042] step 340/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0027
+[consensus_rho0p05_seed3042] step 350/390 trained 36/36 | hop0: 0.0099 | hop1: 0.0053 | hop2: 0.0075
+[consensus_rho0p05_seed3042] step 360/390 trained 36/36 | hop0: 0.0091 | hop1: 0.0129 | hop2: 0.0137
+[consensus_rho0p05_seed3042] step 370/390 trained 36/36 | hop0: 0.0084 | hop1: 0.0207
+[consensus_rho0p05_seed3042] step 380/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0173 | hop2: 0.0168
+[consensus_rho0p05_seed3042] mean MSE (last 50 steps): 0.0138 | cert-MSE r=-0.249
+[consensus_rho0p05_seed3042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p05_seed3042\figures\results.png
+### consensus_rho0p05_seed3042 (rho=0.05): last50=0.0138 whole_run=0.0244 r=-0.2487
+[consensus_rho0p1_seed3042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p1_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0930 | hop2: 0.1605
+[consensus_rho0p1_seed3042] step 010/390 trained 36/36 | hop0: 0.0727 | hop1: 0.1025
+[consensus_rho0p1_seed3042] step 020/390 trained 36/36 | hop0: 0.0753 | hop1: 0.0900
+[consensus_rho0p1_seed3042] step 030/390 trained 36/36 | hop0: 0.0680 | hop1: 0.0836
+[consensus_rho0p1_seed3042] step 040/390 trained 36/36 | hop0: 0.0590 | hop1: 0.0631
+[consensus_rho0p1_seed3042] step 050/390 trained 36/36 | hop0: 0.0417 | hop1: 0.0488 | hop2: 0.0511
+[consensus_rho0p1_seed3042] step 060/390 trained 36/36 | hop0: 0.0449 | hop1: 0.0411 | hop2: 0.0541
+[consensus_rho0p1_seed3042] step 070/390 trained 36/36 | hop0: 0.0280 | hop1: 0.0370 | hop2: 0.0752
+[consensus_rho0p1_seed3042] step 080/390 trained 36/36 | hop0: 0.0184 | hop1: 0.0286 | hop2: 0.0827
+[consensus_rho0p1_seed3042] step 090/390 trained 36/36 | hop0: 0.0141 | hop1: 0.0229 | hop2: 0.0534 | hop3: 0.0659
+[consensus_rho0p1_seed3042] step 100/390 trained 36/36 | hop0: 0.0150 | hop1: 0.0193 | hop2: 0.0353
+[consensus_rho0p1_seed3042] step 110/390 trained 36/36 | hop0: 0.0123 | hop1: 0.0204 | hop2: 0.0280
+[consensus_rho0p1_seed3042] step 120/390 trained 36/36 | hop0: 0.0126 | hop1: 0.0295 | hop2: 0.0246
+[consensus_rho0p1_seed3042] step 130/390 trained 36/36 | hop0: 0.0154 | hop1: 0.0345 | hop2: 0.0557
+[consensus_rho0p1_seed3042] step 140/390 trained 36/36 | hop0: 0.0272 | hop1: 0.0181 | hop2: 0.0104
+[consensus_rho0p1_seed3042] step 150/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0097 | hop2: 0.0039
+[consensus_rho0p1_seed3042] step 160/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0125 | hop2: 0.0055
+[consensus_rho0p1_seed3042] step 170/390 trained 36/36 | hop0: 0.0118 | hop1: 0.0150 | hop2: 0.0095
+[consensus_rho0p1_seed3042] step 180/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0099
+[consensus_rho0p1_seed3042] step 190/390 trained 36/36 | hop0: 0.0165 | hop1: 0.0101
+[consensus_rho0p1_seed3042] step 200/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0103
+[consensus_rho0p1_seed3042] step 210/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0095 | hop2: 0.0032
+[consensus_rho0p1_seed3042] step 220/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0073 | hop2: 0.0039
+[consensus_rho0p1_seed3042] step 230/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0065 | hop2: 0.0031
+[consensus_rho0p1_seed3042] step 240/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0078 | hop2: 0.0292
+[consensus_rho0p1_seed3042] step 250/390 trained 36/36 | hop0: 0.0098 | hop1: 0.0122 | hop2: 0.0595
+[consensus_rho0p1_seed3042] step 260/390 trained 36/36 | hop0: 0.0086 | hop1: 0.0200 | hop2: 0.0711
+[consensus_rho0p1_seed3042] step 270/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0140 | hop2: 0.0358
+[consensus_rho0p1_seed3042] step 280/390 trained 36/36 | hop0: 0.0020 | hop1: 0.0093 | hop2: 0.0205
+[consensus_rho0p1_seed3042] step 290/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0099
+[consensus_rho0p1_seed3042] step 300/390 trained 36/36 | hop0: 0.0030 | hop1: 0.0084 | hop2: 0.0067
+[consensus_rho0p1_seed3042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0068 | hop2: 0.0075
+[consensus_rho0p1_seed3042] step 320/390 trained 36/36 | hop0: 0.0012 | hop1: 0.0033 | hop2: 0.0063
+[consensus_rho0p1_seed3042] step 330/390 trained 36/36 | hop0: 0.0012 | hop1: 0.0014
+[consensus_rho0p1_seed3042] step 340/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0027
+[consensus_rho0p1_seed3042] step 350/390 trained 36/36 | hop0: 0.0098 | hop1: 0.0052 | hop2: 0.0074
+[consensus_rho0p1_seed3042] step 360/390 trained 36/36 | hop0: 0.0091 | hop1: 0.0127 | hop2: 0.0142
+[consensus_rho0p1_seed3042] step 370/390 trained 36/36 | hop0: 0.0083 | hop1: 0.0205
+[consensus_rho0p1_seed3042] step 380/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0172 | hop2: 0.0162
+[consensus_rho0p1_seed3042] mean MSE (last 50 steps): 0.0136 | cert-MSE r=-0.263
+[consensus_rho0p1_seed3042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p1_seed3042\figures\results.png
+### consensus_rho0p1_seed3042 (rho=0.1): last50=0.0136 whole_run=0.0244 r=-0.2626
+[consensus_rho0p2_seed3042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p2_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0930 | hop2: 0.1605
+[consensus_rho0p2_seed3042] step 010/390 trained 36/36 | hop0: 0.0727 | hop1: 0.1025
+[consensus_rho0p2_seed3042] step 020/390 trained 36/36 | hop0: 0.0753 | hop1: 0.0900
+[consensus_rho0p2_seed3042] step 030/390 trained 36/36 | hop0: 0.0680 | hop1: 0.0836
+[consensus_rho0p2_seed3042] step 040/390 trained 36/36 | hop0: 0.0590 | hop1: 0.0631
+[consensus_rho0p2_seed3042] step 050/390 trained 36/36 | hop0: 0.0417 | hop1: 0.0488 | hop2: 0.0511
+[consensus_rho0p2_seed3042] step 060/390 trained 36/36 | hop0: 0.0449 | hop1: 0.0411 | hop2: 0.0541
+[consensus_rho0p2_seed3042] step 070/390 trained 36/36 | hop0: 0.0280 | hop1: 0.0370 | hop2: 0.0752
+[consensus_rho0p2_seed3042] step 080/390 trained 36/36 | hop0: 0.0183 | hop1: 0.0285 | hop2: 0.0826
+[consensus_rho0p2_seed3042] step 090/390 trained 36/36 | hop0: 0.0139 | hop1: 0.0229 | hop2: 0.0533 | hop3: 0.0658
+[consensus_rho0p2_seed3042] step 100/390 trained 36/36 | hop0: 0.0150 | hop1: 0.0192 | hop2: 0.0353
+[consensus_rho0p2_seed3042] step 110/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0205 | hop2: 0.0280
+[consensus_rho0p2_seed3042] step 120/390 trained 36/36 | hop0: 0.0125 | hop1: 0.0295 | hop2: 0.0245
+[consensus_rho0p2_seed3042] step 130/390 trained 36/36 | hop0: 0.0153 | hop1: 0.0343 | hop2: 0.0555
+[consensus_rho0p2_seed3042] step 140/390 trained 36/36 | hop0: 0.0271 | hop1: 0.0179 | hop2: 0.0103
+[consensus_rho0p2_seed3042] step 150/390 trained 36/36 | hop0: 0.0177 | hop1: 0.0097 | hop2: 0.0039
+[consensus_rho0p2_seed3042] step 160/390 trained 36/36 | hop0: 0.0118 | hop1: 0.0126 | hop2: 0.0057
+[consensus_rho0p2_seed3042] step 170/390 trained 36/36 | hop0: 0.0116 | hop1: 0.0152 | hop2: 0.0102
+[consensus_rho0p2_seed3042] step 180/390 trained 36/36 | hop0: 0.0184 | hop1: 0.0101
+[consensus_rho0p2_seed3042] step 190/390 trained 36/36 | hop0: 0.0166 | hop1: 0.0102
+[consensus_rho0p2_seed3042] step 200/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0103
+[consensus_rho0p2_seed3042] step 210/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0093 | hop2: 0.0032
+[consensus_rho0p2_seed3042] step 220/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0072 | hop2: 0.0039
+[consensus_rho0p2_seed3042] step 230/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0063 | hop2: 0.0031
+[consensus_rho0p2_seed3042] step 240/390 trained 36/36 | hop0: 0.0120 | hop1: 0.0077 | hop2: 0.0288
+[consensus_rho0p2_seed3042] step 250/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0120 | hop2: 0.0572
+[consensus_rho0p2_seed3042] step 260/390 trained 36/36 | hop0: 0.0089 | hop1: 0.0199 | hop2: 0.0684
+[consensus_rho0p2_seed3042] step 270/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0146 | hop2: 0.0358
+[consensus_rho0p2_seed3042] step 280/390 trained 36/36 | hop0: 0.0021 | hop1: 0.0094 | hop2: 0.0217
+[consensus_rho0p2_seed3042] step 290/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0098
+[consensus_rho0p2_seed3042] step 300/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0082 | hop2: 0.0067
+[consensus_rho0p2_seed3042] step 310/390 trained 36/36 | hop0: 0.0018 | hop1: 0.0067 | hop2: 0.0073
+[consensus_rho0p2_seed3042] step 320/390 trained 36/36 | hop0: 0.0013 | hop1: 0.0034 | hop2: 0.0061
+[consensus_rho0p2_seed3042] step 330/390 trained 36/36 | hop0: 0.0014 | hop1: 0.0015
+[consensus_rho0p2_seed3042] step 340/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0027
+[consensus_rho0p2_seed3042] step 350/390 trained 36/36 | hop0: 0.0099 | hop1: 0.0050 | hop2: 0.0074
+[consensus_rho0p2_seed3042] step 360/390 trained 36/36 | hop0: 0.0090 | hop1: 0.0126 | hop2: 0.0144
+[consensus_rho0p2_seed3042] step 370/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0206
+[consensus_rho0p2_seed3042] step 380/390 trained 36/36 | hop0: 0.0071 | hop1: 0.0176 | hop2: 0.0164
+[consensus_rho0p2_seed3042] mean MSE (last 50 steps): 0.0138 | cert-MSE r=-0.303
+[consensus_rho0p2_seed3042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p2_seed3042\figures\results.png
+### consensus_rho0p2_seed3042 (rho=0.2): last50=0.0138 whole_run=0.0244 r=-0.3034
+[consensus_rho0p5_seed3042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p5_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0930 | hop2: 0.1605
+[consensus_rho0p5_seed3042] step 010/390 trained 36/36 | hop0: 0.0727 | hop1: 0.1025
+[consensus_rho0p5_seed3042] step 020/390 trained 36/36 | hop0: 0.0753 | hop1: 0.0900
+[consensus_rho0p5_seed3042] step 030/390 trained 36/36 | hop0: 0.0680 | hop1: 0.0836
+[consensus_rho0p5_seed3042] step 040/390 trained 36/36 | hop0: 0.0590 | hop1: 0.0631
+[consensus_rho0p5_seed3042] step 050/390 trained 36/36 | hop0: 0.0417 | hop1: 0.0488 | hop2: 0.0511
+[consensus_rho0p5_seed3042] step 060/390 trained 36/36 | hop0: 0.0449 | hop1: 0.0411 | hop2: 0.0541
+[consensus_rho0p5_seed3042] step 070/390 trained 36/36 | hop0: 0.0280 | hop1: 0.0370 | hop2: 0.0752
+[consensus_rho0p5_seed3042] step 080/390 trained 36/36 | hop0: 0.0183 | hop1: 0.0285 | hop2: 0.0826
+[consensus_rho0p5_seed3042] step 090/390 trained 36/36 | hop0: 0.0138 | hop1: 0.0228 | hop2: 0.0533 | hop3: 0.0658
+[consensus_rho0p5_seed3042] step 100/390 trained 36/36 | hop0: 0.0150 | hop1: 0.0192 | hop2: 0.0353
+[consensus_rho0p5_seed3042] step 110/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0204 | hop2: 0.0281
+[consensus_rho0p5_seed3042] step 120/390 trained 36/36 | hop0: 0.0125 | hop1: 0.0295 | hop2: 0.0245
+[consensus_rho0p5_seed3042] step 130/390 trained 36/36 | hop0: 0.0153 | hop1: 0.0343 | hop2: 0.0557
+[consensus_rho0p5_seed3042] step 140/390 trained 36/36 | hop0: 0.0271 | hop1: 0.0180 | hop2: 0.0102
+[consensus_rho0p5_seed3042] step 150/390 trained 36/36 | hop0: 0.0177 | hop1: 0.0097 | hop2: 0.0039
+[consensus_rho0p5_seed3042] step 160/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0126 | hop2: 0.0058
+[consensus_rho0p5_seed3042] step 170/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0153 | hop2: 0.0107
+[consensus_rho0p5_seed3042] step 180/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0101
+[consensus_rho0p5_seed3042] step 190/390 trained 36/36 | hop0: 0.0166 | hop1: 0.0102
+[consensus_rho0p5_seed3042] step 200/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0102
+[consensus_rho0p5_seed3042] step 210/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0092 | hop2: 0.0034
+[consensus_rho0p5_seed3042] step 220/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0071 | hop2: 0.0039
+[consensus_rho0p5_seed3042] step 230/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0063 | hop2: 0.0031
+[consensus_rho0p5_seed3042] step 240/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0076 | hop2: 0.0283
+[consensus_rho0p5_seed3042] step 250/390 trained 36/36 | hop0: 0.0098 | hop1: 0.0118 | hop2: 0.0567
+[consensus_rho0p5_seed3042] step 260/390 trained 36/36 | hop0: 0.0087 | hop1: 0.0198 | hop2: 0.0679
+[consensus_rho0p5_seed3042] step 270/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0143 | hop2: 0.0353
+[consensus_rho0p5_seed3042] step 280/390 trained 36/36 | hop0: 0.0021 | hop1: 0.0096 | hop2: 0.0212
+[consensus_rho0p5_seed3042] step 290/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0102
+[consensus_rho0p5_seed3042] step 300/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0085 | hop2: 0.0067
+[consensus_rho0p5_seed3042] step 310/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0068 | hop2: 0.0073
+[consensus_rho0p5_seed3042] step 320/390 trained 36/36 | hop0: 0.0013 | hop1: 0.0033 | hop2: 0.0062
+[consensus_rho0p5_seed3042] step 330/390 trained 36/36 | hop0: 0.0013 | hop1: 0.0014
+[consensus_rho0p5_seed3042] step 340/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0026
+[consensus_rho0p5_seed3042] step 350/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0051 | hop2: 0.0076
+[consensus_rho0p5_seed3042] step 360/390 trained 36/36 | hop0: 0.0091 | hop1: 0.0127 | hop2: 0.0151
+[consensus_rho0p5_seed3042] step 370/390 trained 36/36 | hop0: 0.0082 | hop1: 0.0208
+[consensus_rho0p5_seed3042] step 380/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0184 | hop2: 0.0154
+[consensus_rho0p5_seed3042] mean MSE (last 50 steps): 0.0140 | cert-MSE r=-0.330
+[consensus_rho0p5_seed3042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p5_seed3042\figures\results.png
+### consensus_rho0p5_seed3042 (rho=0.5): last50=0.0140 whole_run=0.0244 r=-0.3302
+[consensus_rho0p8_seed3042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p8_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0930 | hop2: 0.1605
+[consensus_rho0p8_seed3042] step 010/390 trained 36/36 | hop0: 0.0727 | hop1: 0.1025
+[consensus_rho0p8_seed3042] step 020/390 trained 36/36 | hop0: 0.0753 | hop1: 0.0900
+[consensus_rho0p8_seed3042] step 030/390 trained 36/36 | hop0: 0.0680 | hop1: 0.0836
+[consensus_rho0p8_seed3042] step 040/390 trained 36/36 | hop0: 0.0590 | hop1: 0.0632
+[consensus_rho0p8_seed3042] step 050/390 trained 36/36 | hop0: 0.0418 | hop1: 0.0488 | hop2: 0.0511
+[consensus_rho0p8_seed3042] step 060/390 trained 36/36 | hop0: 0.0451 | hop1: 0.0411 | hop2: 0.0541
+[consensus_rho0p8_seed3042] step 070/390 trained 36/36 | hop0: 0.0282 | hop1: 0.0370 | hop2: 0.0752
+[consensus_rho0p8_seed3042] step 080/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0286 | hop2: 0.0826
+[consensus_rho0p8_seed3042] step 090/390 trained 36/36 | hop0: 0.0142 | hop1: 0.0229 | hop2: 0.0533 | hop3: 0.0658
+[consensus_rho0p8_seed3042] step 100/390 trained 36/36 | hop0: 0.0150 | hop1: 0.0193 | hop2: 0.0353
+[consensus_rho0p8_seed3042] step 110/390 trained 36/36 | hop0: 0.0123 | hop1: 0.0205 | hop2: 0.0281
+[consensus_rho0p8_seed3042] step 120/390 trained 36/36 | hop0: 0.0126 | hop1: 0.0296 | hop2: 0.0246
+[consensus_rho0p8_seed3042] step 130/390 trained 36/36 | hop0: 0.0154 | hop1: 0.0345 | hop2: 0.0557
+[consensus_rho0p8_seed3042] step 140/390 trained 36/36 | hop0: 0.0271 | hop1: 0.0181 | hop2: 0.0103
+[consensus_rho0p8_seed3042] step 150/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0097 | hop2: 0.0039
+[consensus_rho0p8_seed3042] step 160/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0126 | hop2: 0.0058
+[consensus_rho0p8_seed3042] step 170/390 trained 36/36 | hop0: 0.0118 | hop1: 0.0152 | hop2: 0.0106
+[consensus_rho0p8_seed3042] step 180/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0100
+[consensus_rho0p8_seed3042] step 190/390 trained 36/36 | hop0: 0.0166 | hop1: 0.0101
+[consensus_rho0p8_seed3042] step 200/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0102
+[consensus_rho0p8_seed3042] step 210/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0094 | hop2: 0.0031
+[consensus_rho0p8_seed3042] step 220/390 trained 36/36 | hop0: 0.0048 | hop1: 0.0073 | hop2: 0.0039
+[consensus_rho0p8_seed3042] step 230/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0064 | hop2: 0.0031
+[consensus_rho0p8_seed3042] step 240/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0076 | hop2: 0.0279
+[consensus_rho0p8_seed3042] step 250/390 trained 36/36 | hop0: 0.0098 | hop1: 0.0118 | hop2: 0.0562
+[consensus_rho0p8_seed3042] step 260/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0195 | hop2: 0.0672
+[consensus_rho0p8_seed3042] step 270/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0144 | hop2: 0.0350
+[consensus_rho0p8_seed3042] step 280/390 trained 36/36 | hop0: 0.0020 | hop1: 0.0097 | hop2: 0.0216
+[consensus_rho0p8_seed3042] step 290/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0103
+[consensus_rho0p8_seed3042] step 300/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0084 | hop2: 0.0067
+[consensus_rho0p8_seed3042] step 310/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0067 | hop2: 0.0073
+[consensus_rho0p8_seed3042] step 320/390 trained 36/36 | hop0: 0.0013 | hop1: 0.0034 | hop2: 0.0060
+[consensus_rho0p8_seed3042] step 330/390 trained 36/36 | hop0: 0.0014 | hop1: 0.0014
+[consensus_rho0p8_seed3042] step 340/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0027
+[consensus_rho0p8_seed3042] step 350/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0049 | hop2: 0.0073
+[consensus_rho0p8_seed3042] step 360/390 trained 36/36 | hop0: 0.0090 | hop1: 0.0124 | hop2: 0.0141
+[consensus_rho0p8_seed3042] step 370/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0204
+[consensus_rho0p8_seed3042] step 380/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0175 | hop2: 0.0173
+[consensus_rho0p8_seed3042] mean MSE (last 50 steps): 0.0138 | cert-MSE r=-0.304
+[consensus_rho0p8_seed3042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p8_seed3042\figures\results.png
+### consensus_rho0p8_seed3042 (rho=0.8): last50=0.0138 whole_run=0.0244 r=-0.3043
+[consensus_rho0p99_seed3042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p99_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0930 | hop2: 0.1605
+[consensus_rho0p99_seed3042] step 010/390 trained 36/36 | hop0: 0.0727 | hop1: 0.1025
+[consensus_rho0p99_seed3042] step 020/390 trained 36/36 | hop0: 0.0753 | hop1: 0.0900
+[consensus_rho0p99_seed3042] step 030/390 trained 36/36 | hop0: 0.0681 | hop1: 0.0836
+[consensus_rho0p99_seed3042] step 040/390 trained 36/36 | hop0: 0.0590 | hop1: 0.0632
+[consensus_rho0p99_seed3042] step 050/390 trained 36/36 | hop0: 0.0418 | hop1: 0.0488 | hop2: 0.0511
+[consensus_rho0p99_seed3042] step 060/390 trained 36/36 | hop0: 0.0451 | hop1: 0.0411 | hop2: 0.0541
+[consensus_rho0p99_seed3042] step 070/390 trained 36/36 | hop0: 0.0281 | hop1: 0.0370 | hop2: 0.0752
+[consensus_rho0p99_seed3042] step 080/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0286 | hop2: 0.0825
+[consensus_rho0p99_seed3042] step 090/390 trained 36/36 | hop0: 0.0142 | hop1: 0.0229 | hop2: 0.0533 | hop3: 0.0658
+[consensus_rho0p99_seed3042] step 100/390 trained 36/36 | hop0: 0.0150 | hop1: 0.0193 | hop2: 0.0353
+[consensus_rho0p99_seed3042] step 110/390 trained 36/36 | hop0: 0.0124 | hop1: 0.0205 | hop2: 0.0281
+[consensus_rho0p99_seed3042] step 120/390 trained 36/36 | hop0: 0.0127 | hop1: 0.0296 | hop2: 0.0246
+[consensus_rho0p99_seed3042] step 130/390 trained 36/36 | hop0: 0.0154 | hop1: 0.0345 | hop2: 0.0556
+[consensus_rho0p99_seed3042] step 140/390 trained 36/36 | hop0: 0.0271 | hop1: 0.0181 | hop2: 0.0104
+[consensus_rho0p99_seed3042] step 150/390 trained 36/36 | hop0: 0.0179 | hop1: 0.0097 | hop2: 0.0039
+[consensus_rho0p99_seed3042] step 160/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0126 | hop2: 0.0055
+[consensus_rho0p99_seed3042] step 170/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0153 | hop2: 0.0097
+[consensus_rho0p99_seed3042] step 180/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0099
+[consensus_rho0p99_seed3042] step 190/390 trained 36/36 | hop0: 0.0166 | hop1: 0.0100
+[consensus_rho0p99_seed3042] step 200/390 trained 36/36 | hop0: 0.0124 | hop1: 0.0103
+[consensus_rho0p99_seed3042] step 210/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0094 | hop2: 0.0032
+[consensus_rho0p99_seed3042] step 220/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0073 | hop2: 0.0038
+[consensus_rho0p99_seed3042] step 230/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0065 | hop2: 0.0032
+[consensus_rho0p99_seed3042] step 240/390 trained 36/36 | hop0: 0.0120 | hop1: 0.0079 | hop2: 0.0289
+[consensus_rho0p99_seed3042] step 250/390 trained 36/36 | hop0: 0.0098 | hop1: 0.0122 | hop2: 0.0591
+[consensus_rho0p99_seed3042] step 260/390 trained 36/36 | hop0: 0.0086 | hop1: 0.0200 | hop2: 0.0704
+[consensus_rho0p99_seed3042] step 270/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0141 | hop2: 0.0356
+[consensus_rho0p99_seed3042] step 280/390 trained 36/36 | hop0: 0.0020 | hop1: 0.0094 | hop2: 0.0207
+[consensus_rho0p99_seed3042] step 290/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0101
+[consensus_rho0p99_seed3042] step 300/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0085 | hop2: 0.0067
+[consensus_rho0p99_seed3042] step 310/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0067 | hop2: 0.0076
+[consensus_rho0p99_seed3042] step 320/390 trained 36/36 | hop0: 0.0012 | hop1: 0.0033 | hop2: 0.0062
+[consensus_rho0p99_seed3042] step 330/390 trained 36/36 | hop0: 0.0014 | hop1: 0.0014
+[consensus_rho0p99_seed3042] step 340/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0027
+[consensus_rho0p99_seed3042] step 350/390 trained 36/36 | hop0: 0.0099 | hop1: 0.0051 | hop2: 0.0082
+[consensus_rho0p99_seed3042] step 360/390 trained 36/36 | hop0: 0.0092 | hop1: 0.0127 | hop2: 0.0137
+[consensus_rho0p99_seed3042] step 370/390 trained 36/36 | hop0: 0.0082 | hop1: 0.0205
+[consensus_rho0p99_seed3042] step 380/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0174 | hop2: 0.0170
+[consensus_rho0p99_seed3042] mean MSE (last 50 steps): 0.0138 | cert-MSE r=-0.256
+[consensus_rho0p99_seed3042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p99_seed3042\figures\results.png
+### consensus_rho0p99_seed3042 (rho=0.99): last50=0.0138 whole_run=0.0244 r=-0.2564
+[consensus_rho0p01_seed4042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p01_seed4042] step 000/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0983 | hop2: 0.1189
+[consensus_rho0p01_seed4042] step 010/390 trained 36/36 | hop0: 0.0677 | hop1: 0.0836
+[consensus_rho0p01_seed4042] step 020/390 trained 36/36 | hop0: 0.0621 | hop1: 0.0794 | hop2: 0.1396
+[consensus_rho0p01_seed4042] step 030/390 trained 36/36 | hop0: 0.0628 | hop1: 0.0688 | hop2: 0.0740
+[consensus_rho0p01_seed4042] step 040/390 trained 36/36 | hop0: 0.0496 | hop1: 0.0579 | hop2: 0.0758
+[consensus_rho0p01_seed4042] step 050/390 trained 36/36 | hop0: 0.0383 | hop1: 0.0509 | hop2: 0.0876
+[consensus_rho0p01_seed4042] step 060/390 trained 36/36 | hop0: 0.0331 | hop1: 0.0369 | hop2: 0.0685
+[consensus_rho0p01_seed4042] step 070/390 trained 36/36 | hop0: 0.0270 | hop1: 0.0386 | hop2: 0.0641
+[consensus_rho0p01_seed4042] step 080/390 trained 36/36 | hop0: 0.0258 | hop1: 0.0305 | hop2: 0.0487
+[consensus_rho0p01_seed4042] step 090/390 trained 36/36 | hop0: 0.0149 | hop1: 0.0305 | hop2: 0.0495 | hop3: 0.0705
+[consensus_rho0p01_seed4042] step 100/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0218 | hop2: 0.0368 | hop3: 0.0540
+[consensus_rho0p01_seed4042] step 110/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0287 | hop2: 0.0808
+[consensus_rho0p01_seed4042] step 120/390 trained 36/36 | hop0: 0.0301 | hop1: 0.0276 | hop2: 0.0624
+[consensus_rho0p01_seed4042] step 130/390 trained 36/36 | hop0: 0.0380 | hop1: 0.0288
+[consensus_rho0p01_seed4042] step 140/390 trained 36/36 | hop0: 0.0277 | hop1: 0.0144 | hop2: 0.0183
+[consensus_rho0p01_seed4042] step 150/390 trained 36/36 | hop0: 0.0242 | hop1: 0.0109 | hop2: 0.0162
+[consensus_rho0p01_seed4042] step 160/390 trained 36/36 | hop0: 0.0098 | hop1: 0.0136 | hop2: 0.0241
+[consensus_rho0p01_seed4042] step 170/390 trained 36/36 | hop0: 0.0065 | hop1: 0.0155 | hop2: 0.0260
+[consensus_rho0p01_seed4042] step 180/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0179 | hop2: 0.0245
+[consensus_rho0p01_seed4042] step 190/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0120 | hop2: 0.0214
+[consensus_rho0p01_seed4042] step 200/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0104 | hop2: 0.0153
+[consensus_rho0p01_seed4042] step 210/390 trained 36/36 | hop0: 0.0048 | hop1: 0.0077 | hop2: 0.0071
+[consensus_rho0p01_seed4042] step 220/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0063 | hop2: 0.0222
+[consensus_rho0p01_seed4042] step 230/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0104
+[consensus_rho0p01_seed4042] step 240/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0145
+[consensus_rho0p01_seed4042] step 250/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0144 | hop2: 0.0156
+[consensus_rho0p01_seed4042] step 260/390 trained 36/36 | hop0: 0.0082 | hop1: 0.0133 | hop2: 0.0073
+[consensus_rho0p01_seed4042] step 270/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0074 | hop2: 0.0028
+[consensus_rho0p01_seed4042] step 280/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0074 | hop2: 0.0088
+[consensus_rho0p01_seed4042] step 290/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0075 | hop2: 0.0186
+[consensus_rho0p01_seed4042] step 300/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0091 | hop2: 0.0109
+[consensus_rho0p01_seed4042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0042 | hop2: 0.0084
+[consensus_rho0p01_seed4042] step 320/390 trained 36/36 | hop0: 0.0009 | hop1: 0.0050 | hop2: 0.0045
+[consensus_rho0p01_seed4042] step 330/390 trained 36/36 | hop0: 0.0008 | hop1: 0.0028 | hop2: 0.0005
+[consensus_rho0p01_seed4042] step 340/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0026 | hop2: 0.0019
+[consensus_rho0p01_seed4042] step 350/390 trained 36/36 | hop0: 0.0134 | hop1: 0.0052 | hop2: 0.0038
+[consensus_rho0p01_seed4042] step 360/390 trained 36/36 | hop0: 0.0116 | hop1: 0.0098
+[consensus_rho0p01_seed4042] step 370/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0183 | hop2: 0.0358
+[consensus_rho0p01_seed4042] step 380/390 trained 36/36 | hop0: 0.0049 | hop1: 0.0174 | hop2: 0.0587
+[consensus_rho0p01_seed4042] mean MSE (last 50 steps): 0.0145 | cert-MSE r=-0.144
+[consensus_rho0p01_seed4042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p01_seed4042\figures\results.png
+### consensus_rho0p01_seed4042 (rho=0.01): last50=0.0145 whole_run=0.0258 r=-0.1440
+[consensus_rho0p05_seed4042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p05_seed4042] step 000/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0983 | hop2: 0.1189
+[consensus_rho0p05_seed4042] step 010/390 trained 36/36 | hop0: 0.0677 | hop1: 0.0836
+[consensus_rho0p05_seed4042] step 020/390 trained 36/36 | hop0: 0.0621 | hop1: 0.0793 | hop2: 0.1396
+[consensus_rho0p05_seed4042] step 030/390 trained 36/36 | hop0: 0.0628 | hop1: 0.0687 | hop2: 0.0739
+[consensus_rho0p05_seed4042] step 040/390 trained 36/36 | hop0: 0.0496 | hop1: 0.0579 | hop2: 0.0756
+[consensus_rho0p05_seed4042] step 050/390 trained 36/36 | hop0: 0.0383 | hop1: 0.0509 | hop2: 0.0874
+[consensus_rho0p05_seed4042] step 060/390 trained 36/36 | hop0: 0.0331 | hop1: 0.0369 | hop2: 0.0685
+[consensus_rho0p05_seed4042] step 070/390 trained 36/36 | hop0: 0.0270 | hop1: 0.0386 | hop2: 0.0642
+[consensus_rho0p05_seed4042] step 080/390 trained 36/36 | hop0: 0.0258 | hop1: 0.0305 | hop2: 0.0487
+[consensus_rho0p05_seed4042] step 090/390 trained 36/36 | hop0: 0.0149 | hop1: 0.0304 | hop2: 0.0495 | hop3: 0.0703
+[consensus_rho0p05_seed4042] step 100/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0217 | hop2: 0.0368 | hop3: 0.0534
+[consensus_rho0p05_seed4042] step 110/390 trained 36/36 | hop0: 0.0179 | hop1: 0.0286 | hop2: 0.0816
+[consensus_rho0p05_seed4042] step 120/390 trained 36/36 | hop0: 0.0302 | hop1: 0.0274 | hop2: 0.0624
+[consensus_rho0p05_seed4042] step 130/390 trained 36/36 | hop0: 0.0378 | hop1: 0.0283
+[consensus_rho0p05_seed4042] step 140/390 trained 36/36 | hop0: 0.0277 | hop1: 0.0144 | hop2: 0.0182
+[consensus_rho0p05_seed4042] step 150/390 trained 36/36 | hop0: 0.0242 | hop1: 0.0108 | hop2: 0.0162
+[consensus_rho0p05_seed4042] step 160/390 trained 36/36 | hop0: 0.0098 | hop1: 0.0137 | hop2: 0.0243
+[consensus_rho0p05_seed4042] step 170/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0156 | hop2: 0.0263
+[consensus_rho0p05_seed4042] step 180/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0176 | hop2: 0.0245
+[consensus_rho0p05_seed4042] step 190/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0118 | hop2: 0.0207
+[consensus_rho0p05_seed4042] step 200/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0101 | hop2: 0.0147
+[consensus_rho0p05_seed4042] step 210/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0075 | hop2: 0.0073
+[consensus_rho0p05_seed4042] step 220/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0063 | hop2: 0.0231
+[consensus_rho0p05_seed4042] step 230/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0112
+[consensus_rho0p05_seed4042] step 240/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0144
+[consensus_rho0p05_seed4042] step 250/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0144 | hop2: 0.0158
+[consensus_rho0p05_seed4042] step 260/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0135 | hop2: 0.0080
+[consensus_rho0p05_seed4042] step 270/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0075 | hop2: 0.0030
+[consensus_rho0p05_seed4042] step 280/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0068 | hop2: 0.0080
+[consensus_rho0p05_seed4042] step 290/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0068 | hop2: 0.0179
+[consensus_rho0p05_seed4042] step 300/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0084 | hop2: 0.0101
+[consensus_rho0p05_seed4042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0045 | hop2: 0.0079
+[consensus_rho0p05_seed4042] step 320/390 trained 36/36 | hop0: 0.0008 | hop1: 0.0053 | hop2: 0.0042
+[consensus_rho0p05_seed4042] step 330/390 trained 36/36 | hop0: 0.0008 | hop1: 0.0026 | hop2: 0.0009
+[consensus_rho0p05_seed4042] step 340/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0025 | hop2: 0.0019
+[consensus_rho0p05_seed4042] step 350/390 trained 36/36 | hop0: 0.0137 | hop1: 0.0054 | hop2: 0.0042
+[consensus_rho0p05_seed4042] step 360/390 trained 36/36 | hop0: 0.0114 | hop1: 0.0095
+[consensus_rho0p05_seed4042] step 370/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0176 | hop2: 0.0382
+[consensus_rho0p05_seed4042] step 380/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0172 | hop2: 0.0636
+[consensus_rho0p05_seed4042] mean MSE (last 50 steps): 0.0144 | cert-MSE r=-0.184
+[consensus_rho0p05_seed4042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p05_seed4042\figures\results.png
+### consensus_rho0p05_seed4042 (rho=0.05): last50=0.0144 whole_run=0.0257 r=-0.1837
+[consensus_rho0p1_seed4042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p1_seed4042] step 000/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0983 | hop2: 0.1189
+[consensus_rho0p1_seed4042] step 010/390 trained 36/36 | hop0: 0.0677 | hop1: 0.0836
+[consensus_rho0p1_seed4042] step 020/390 trained 36/36 | hop0: 0.0621 | hop1: 0.0793 | hop2: 0.1396
+[consensus_rho0p1_seed4042] step 030/390 trained 36/36 | hop0: 0.0628 | hop1: 0.0687 | hop2: 0.0739
+[consensus_rho0p1_seed4042] step 040/390 trained 36/36 | hop0: 0.0496 | hop1: 0.0579 | hop2: 0.0756
+[consensus_rho0p1_seed4042] step 050/390 trained 36/36 | hop0: 0.0383 | hop1: 0.0509 | hop2: 0.0875
+[consensus_rho0p1_seed4042] step 060/390 trained 36/36 | hop0: 0.0331 | hop1: 0.0369 | hop2: 0.0684
+[consensus_rho0p1_seed4042] step 070/390 trained 36/36 | hop0: 0.0270 | hop1: 0.0386 | hop2: 0.0637
+[consensus_rho0p1_seed4042] step 080/390 trained 36/36 | hop0: 0.0258 | hop1: 0.0305 | hop2: 0.0486
+[consensus_rho0p1_seed4042] step 090/390 trained 36/36 | hop0: 0.0148 | hop1: 0.0304 | hop2: 0.0494 | hop3: 0.0702
+[consensus_rho0p1_seed4042] step 100/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0217 | hop2: 0.0367 | hop3: 0.0536
+[consensus_rho0p1_seed4042] step 110/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0287 | hop2: 0.0810
+[consensus_rho0p1_seed4042] step 120/390 trained 36/36 | hop0: 0.0302 | hop1: 0.0273 | hop2: 0.0626
+[consensus_rho0p1_seed4042] step 130/390 trained 36/36 | hop0: 0.0379 | hop1: 0.0283
+[consensus_rho0p1_seed4042] step 140/390 trained 36/36 | hop0: 0.0277 | hop1: 0.0143 | hop2: 0.0182
+[consensus_rho0p1_seed4042] step 150/390 trained 36/36 | hop0: 0.0240 | hop1: 0.0109 | hop2: 0.0163
+[consensus_rho0p1_seed4042] step 160/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0139 | hop2: 0.0245
+[consensus_rho0p1_seed4042] step 170/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0158 | hop2: 0.0267
+[consensus_rho0p1_seed4042] step 180/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0178 | hop2: 0.0249
+[consensus_rho0p1_seed4042] step 190/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0117 | hop2: 0.0210
+[consensus_rho0p1_seed4042] step 200/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0100 | hop2: 0.0147
+[consensus_rho0p1_seed4042] step 210/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0074 | hop2: 0.0073
+[consensus_rho0p1_seed4042] step 220/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0062 | hop2: 0.0232
+[consensus_rho0p1_seed4042] step 230/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0113
+[consensus_rho0p1_seed4042] step 240/390 trained 36/36 | hop0: 0.0061 | hop1: 0.0145
+[consensus_rho0p1_seed4042] step 250/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0143 | hop2: 0.0159
+[consensus_rho0p1_seed4042] step 260/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0136 | hop2: 0.0081
+[consensus_rho0p1_seed4042] step 270/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0076 | hop2: 0.0031
+[consensus_rho0p1_seed4042] step 280/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0068 | hop2: 0.0077
+[consensus_rho0p1_seed4042] step 290/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0066 | hop2: 0.0173
+[consensus_rho0p1_seed4042] step 300/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0081 | hop2: 0.0096
+[consensus_rho0p1_seed4042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0046 | hop2: 0.0077
+[consensus_rho0p1_seed4042] step 320/390 trained 36/36 | hop0: 0.0008 | hop1: 0.0055 | hop2: 0.0042
+[consensus_rho0p1_seed4042] step 330/390 trained 36/36 | hop0: 0.0007 | hop1: 0.0026 | hop2: 0.0012
+[consensus_rho0p1_seed4042] step 340/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0025 | hop2: 0.0017
+[consensus_rho0p1_seed4042] step 350/390 trained 36/36 | hop0: 0.0136 | hop1: 0.0051 | hop2: 0.0043
+[consensus_rho0p1_seed4042] step 360/390 trained 36/36 | hop0: 0.0112 | hop1: 0.0093
+[consensus_rho0p1_seed4042] step 370/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0175 | hop2: 0.0391
+[consensus_rho0p1_seed4042] step 380/390 trained 36/36 | hop0: 0.0048 | hop1: 0.0171 | hop2: 0.0619
+[consensus_rho0p1_seed4042] mean MSE (last 50 steps): 0.0143 | cert-MSE r=-0.188
+[consensus_rho0p1_seed4042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p1_seed4042\figures\results.png
+### consensus_rho0p1_seed4042 (rho=0.1): last50=0.0143 whole_run=0.0257 r=-0.1881
+[consensus_rho0p2_seed4042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p2_seed4042] step 000/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0983 | hop2: 0.1189
+[consensus_rho0p2_seed4042] step 010/390 trained 36/36 | hop0: 0.0677 | hop1: 0.0836
+[consensus_rho0p2_seed4042] step 020/390 trained 36/36 | hop0: 0.0621 | hop1: 0.0793 | hop2: 0.1396
+[consensus_rho0p2_seed4042] step 030/390 trained 36/36 | hop0: 0.0628 | hop1: 0.0687 | hop2: 0.0740
+[consensus_rho0p2_seed4042] step 040/390 trained 36/36 | hop0: 0.0496 | hop1: 0.0579 | hop2: 0.0757
+[consensus_rho0p2_seed4042] step 050/390 trained 36/36 | hop0: 0.0382 | hop1: 0.0509 | hop2: 0.0873
+[consensus_rho0p2_seed4042] step 060/390 trained 36/36 | hop0: 0.0331 | hop1: 0.0369 | hop2: 0.0681
+[consensus_rho0p2_seed4042] step 070/390 trained 36/36 | hop0: 0.0270 | hop1: 0.0386 | hop2: 0.0638
+[consensus_rho0p2_seed4042] step 080/390 trained 36/36 | hop0: 0.0258 | hop1: 0.0305 | hop2: 0.0487
+[consensus_rho0p2_seed4042] step 090/390 trained 36/36 | hop0: 0.0148 | hop1: 0.0304 | hop2: 0.0495 | hop3: 0.0700
+[consensus_rho0p2_seed4042] step 100/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0217 | hop2: 0.0365 | hop3: 0.0529
+[consensus_rho0p2_seed4042] step 110/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0286 | hop2: 0.0819
+[consensus_rho0p2_seed4042] step 120/390 trained 36/36 | hop0: 0.0301 | hop1: 0.0273 | hop2: 0.0615
+[consensus_rho0p2_seed4042] step 130/390 trained 36/36 | hop0: 0.0379 | hop1: 0.0285
+[consensus_rho0p2_seed4042] step 140/390 trained 36/36 | hop0: 0.0277 | hop1: 0.0142 | hop2: 0.0182
+[consensus_rho0p2_seed4042] step 150/390 trained 36/36 | hop0: 0.0241 | hop1: 0.0109 | hop2: 0.0163
+[consensus_rho0p2_seed4042] step 160/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0141 | hop2: 0.0246
+[consensus_rho0p2_seed4042] step 170/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0158 | hop2: 0.0270
+[consensus_rho0p2_seed4042] step 180/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0178 | hop2: 0.0251
+[consensus_rho0p2_seed4042] step 190/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0118 | hop2: 0.0209
+[consensus_rho0p2_seed4042] step 200/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0100 | hop2: 0.0146
+[consensus_rho0p2_seed4042] step 210/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0074 | hop2: 0.0073
+[consensus_rho0p2_seed4042] step 220/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0062 | hop2: 0.0227
+[consensus_rho0p2_seed4042] step 230/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0106
+[consensus_rho0p2_seed4042] step 240/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0143
+[consensus_rho0p2_seed4042] step 250/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0141 | hop2: 0.0157
+[consensus_rho0p2_seed4042] step 260/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0131 | hop2: 0.0073
+[consensus_rho0p2_seed4042] step 270/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0074 | hop2: 0.0030
+[consensus_rho0p2_seed4042] step 280/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0074 | hop2: 0.0097
+[consensus_rho0p2_seed4042] step 290/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0073 | hop2: 0.0190
+[consensus_rho0p2_seed4042] step 300/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0087 | hop2: 0.0100
+[consensus_rho0p2_seed4042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0042 | hop2: 0.0077
+[consensus_rho0p2_seed4042] step 320/390 trained 36/36 | hop0: 0.0009 | hop1: 0.0051 | hop2: 0.0043
+[consensus_rho0p2_seed4042] step 330/390 trained 36/36 | hop0: 0.0008 | hop1: 0.0029 | hop2: 0.0006
+[consensus_rho0p2_seed4042] step 340/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0028 | hop2: 0.0019
+[consensus_rho0p2_seed4042] step 350/390 trained 36/36 | hop0: 0.0137 | hop1: 0.0054 | hop2: 0.0039
+[consensus_rho0p2_seed4042] step 360/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0095
+[consensus_rho0p2_seed4042] step 370/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0170 | hop2: 0.0370
+[consensus_rho0p2_seed4042] step 380/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0164 | hop2: 0.0555
+[consensus_rho0p2_seed4042] mean MSE (last 50 steps): 0.0140 | cert-MSE r=-0.179
+[consensus_rho0p2_seed4042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p2_seed4042\figures\results.png
+### consensus_rho0p2_seed4042 (rho=0.2): last50=0.0140 whole_run=0.0256 r=-0.1790
+[consensus_rho0p5_seed4042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p5_seed4042] step 000/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0983 | hop2: 0.1189
+[consensus_rho0p5_seed4042] step 010/390 trained 36/36 | hop0: 0.0677 | hop1: 0.0836
+[consensus_rho0p5_seed4042] step 020/390 trained 36/36 | hop0: 0.0621 | hop1: 0.0794 | hop2: 0.1396
+[consensus_rho0p5_seed4042] step 030/390 trained 36/36 | hop0: 0.0628 | hop1: 0.0688 | hop2: 0.0740
+[consensus_rho0p5_seed4042] step 040/390 trained 36/36 | hop0: 0.0496 | hop1: 0.0579 | hop2: 0.0758
+[consensus_rho0p5_seed4042] step 050/390 trained 36/36 | hop0: 0.0382 | hop1: 0.0509 | hop2: 0.0876
+[consensus_rho0p5_seed4042] step 060/390 trained 36/36 | hop0: 0.0331 | hop1: 0.0369 | hop2: 0.0684
+[consensus_rho0p5_seed4042] step 070/390 trained 36/36 | hop0: 0.0270 | hop1: 0.0386 | hop2: 0.0637
+[consensus_rho0p5_seed4042] step 080/390 trained 36/36 | hop0: 0.0258 | hop1: 0.0305 | hop2: 0.0486
+[consensus_rho0p5_seed4042] step 090/390 trained 36/36 | hop0: 0.0149 | hop1: 0.0304 | hop2: 0.0497 | hop3: 0.0705
+[consensus_rho0p5_seed4042] step 100/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0217 | hop2: 0.0368 | hop3: 0.0536
+[consensus_rho0p5_seed4042] step 110/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0286 | hop2: 0.0811
+[consensus_rho0p5_seed4042] step 120/390 trained 36/36 | hop0: 0.0302 | hop1: 0.0273 | hop2: 0.0615
+[consensus_rho0p5_seed4042] step 130/390 trained 36/36 | hop0: 0.0380 | hop1: 0.0284
+[consensus_rho0p5_seed4042] step 140/390 trained 36/36 | hop0: 0.0278 | hop1: 0.0143 | hop2: 0.0182
+[consensus_rho0p5_seed4042] step 150/390 trained 36/36 | hop0: 0.0240 | hop1: 0.0110 | hop2: 0.0164
+[consensus_rho0p5_seed4042] step 160/390 trained 36/36 | hop0: 0.0099 | hop1: 0.0143 | hop2: 0.0247
+[consensus_rho0p5_seed4042] step 170/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0162 | hop2: 0.0272
+[consensus_rho0p5_seed4042] step 180/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0181 | hop2: 0.0255
+[consensus_rho0p5_seed4042] step 190/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0119 | hop2: 0.0213
+[consensus_rho0p5_seed4042] step 200/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0101 | hop2: 0.0147
+[consensus_rho0p5_seed4042] step 210/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0074 | hop2: 0.0073
+[consensus_rho0p5_seed4042] step 220/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0062 | hop2: 0.0227
+[consensus_rho0p5_seed4042] step 230/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0105
+[consensus_rho0p5_seed4042] step 240/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0142
+[consensus_rho0p5_seed4042] step 250/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0141 | hop2: 0.0157
+[consensus_rho0p5_seed4042] step 260/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0131 | hop2: 0.0074
+[consensus_rho0p5_seed4042] step 270/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0073 | hop2: 0.0029
+[consensus_rho0p5_seed4042] step 280/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0075 | hop2: 0.0091
+[consensus_rho0p5_seed4042] step 290/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0074 | hop2: 0.0185
+[consensus_rho0p5_seed4042] step 300/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0088 | hop2: 0.0104
+[consensus_rho0p5_seed4042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0043 | hop2: 0.0081
+[consensus_rho0p5_seed4042] step 320/390 trained 36/36 | hop0: 0.0009 | hop1: 0.0053 | hop2: 0.0044
+[consensus_rho0p5_seed4042] step 330/390 trained 36/36 | hop0: 0.0008 | hop1: 0.0030 | hop2: 0.0005
+[consensus_rho0p5_seed4042] step 340/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0028 | hop2: 0.0021
+[consensus_rho0p5_seed4042] step 350/390 trained 36/36 | hop0: 0.0137 | hop1: 0.0054 | hop2: 0.0036
+[consensus_rho0p5_seed4042] step 360/390 trained 36/36 | hop0: 0.0116 | hop1: 0.0095
+[consensus_rho0p5_seed4042] step 370/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0165 | hop2: 0.0378
+[consensus_rho0p5_seed4042] step 380/390 trained 36/36 | hop0: 0.0050 | hop1: 0.0164 | hop2: 0.0556
+[consensus_rho0p5_seed4042] mean MSE (last 50 steps): 0.0139 | cert-MSE r=-0.168
+[consensus_rho0p5_seed4042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p5_seed4042\figures\results.png
+### consensus_rho0p5_seed4042 (rho=0.5): last50=0.0139 whole_run=0.0257 r=-0.1683
+[consensus_rho0p8_seed4042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p8_seed4042] step 000/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0983 | hop2: 0.1189
+[consensus_rho0p8_seed4042] step 010/390 trained 36/36 | hop0: 0.0677 | hop1: 0.0836
+[consensus_rho0p8_seed4042] step 020/390 trained 36/36 | hop0: 0.0621 | hop1: 0.0793 | hop2: 0.1396
+[consensus_rho0p8_seed4042] step 030/390 trained 36/36 | hop0: 0.0628 | hop1: 0.0687 | hop2: 0.0740
+[consensus_rho0p8_seed4042] step 040/390 trained 36/36 | hop0: 0.0496 | hop1: 0.0579 | hop2: 0.0757
+[consensus_rho0p8_seed4042] step 050/390 trained 36/36 | hop0: 0.0383 | hop1: 0.0509 | hop2: 0.0876
+[consensus_rho0p8_seed4042] step 060/390 trained 36/36 | hop0: 0.0331 | hop1: 0.0369 | hop2: 0.0683
+[consensus_rho0p8_seed4042] step 070/390 trained 36/36 | hop0: 0.0270 | hop1: 0.0386 | hop2: 0.0636
+[consensus_rho0p8_seed4042] step 080/390 trained 36/36 | hop0: 0.0258 | hop1: 0.0305 | hop2: 0.0485
+[consensus_rho0p8_seed4042] step 090/390 trained 36/36 | hop0: 0.0148 | hop1: 0.0305 | hop2: 0.0494 | hop3: 0.0699
+[consensus_rho0p8_seed4042] step 100/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0217 | hop2: 0.0367 | hop3: 0.0527
+[consensus_rho0p8_seed4042] step 110/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0287 | hop2: 0.0812
+[consensus_rho0p8_seed4042] step 120/390 trained 36/36 | hop0: 0.0302 | hop1: 0.0275 | hop2: 0.0629
+[consensus_rho0p8_seed4042] step 130/390 trained 36/36 | hop0: 0.0379 | hop1: 0.0284
+[consensus_rho0p8_seed4042] step 140/390 trained 36/36 | hop0: 0.0276 | hop1: 0.0144 | hop2: 0.0182
+[consensus_rho0p8_seed4042] step 150/390 trained 36/36 | hop0: 0.0242 | hop1: 0.0109 | hop2: 0.0163
+[consensus_rho0p8_seed4042] step 160/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0140 | hop2: 0.0246
+[consensus_rho0p8_seed4042] step 170/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0159 | hop2: 0.0269
+[consensus_rho0p8_seed4042] step 180/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0176 | hop2: 0.0249
+[consensus_rho0p8_seed4042] step 190/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0118 | hop2: 0.0208
+[consensus_rho0p8_seed4042] step 200/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0101 | hop2: 0.0146
+[consensus_rho0p8_seed4042] step 210/390 trained 36/36 | hop0: 0.0048 | hop1: 0.0075 | hop2: 0.0072
+[consensus_rho0p8_seed4042] step 220/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0063 | hop2: 0.0227
+[consensus_rho0p8_seed4042] step 230/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0112
+[consensus_rho0p8_seed4042] step 240/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0145
+[consensus_rho0p8_seed4042] step 250/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0144 | hop2: 0.0157
+[consensus_rho0p8_seed4042] step 260/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0136 | hop2: 0.0081
+[consensus_rho0p8_seed4042] step 270/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0076 | hop2: 0.0031
+[consensus_rho0p8_seed4042] step 280/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0068 | hop2: 0.0078
+[consensus_rho0p8_seed4042] step 290/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0065 | hop2: 0.0173
+[consensus_rho0p8_seed4042] step 300/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0081 | hop2: 0.0098
+[consensus_rho0p8_seed4042] step 310/390 trained 36/36 | hop0: 0.0015 | hop1: 0.0045 | hop2: 0.0078
+[consensus_rho0p8_seed4042] step 320/390 trained 36/36 | hop0: 0.0008 | hop1: 0.0053 | hop2: 0.0042
+[consensus_rho0p8_seed4042] step 330/390 trained 36/36 | hop0: 0.0007 | hop1: 0.0026 | hop2: 0.0010
+[consensus_rho0p8_seed4042] step 340/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0025 | hop2: 0.0018
+[consensus_rho0p8_seed4042] step 350/390 trained 36/36 | hop0: 0.0134 | hop1: 0.0052 | hop2: 0.0042
+[consensus_rho0p8_seed4042] step 360/390 trained 36/36 | hop0: 0.0114 | hop1: 0.0095
+[consensus_rho0p8_seed4042] step 370/390 trained 36/36 | hop0: 0.0061 | hop1: 0.0178 | hop2: 0.0376
+[consensus_rho0p8_seed4042] step 380/390 trained 36/36 | hop0: 0.0048 | hop1: 0.0173 | hop2: 0.0645
+[consensus_rho0p8_seed4042] mean MSE (last 50 steps): 0.0144 | cert-MSE r=-0.179
+[consensus_rho0p8_seed4042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p8_seed4042\figures\results.png
+### consensus_rho0p8_seed4042 (rho=0.8): last50=0.0144 whole_run=0.0257 r=-0.1786
+[consensus_rho0p99_seed4042] nodes=36 coverage max=9 mode=consensus steps=390
+[consensus_rho0p99_seed4042] step 000/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0983 | hop2: 0.1189
+[consensus_rho0p99_seed4042] step 010/390 trained 36/36 | hop0: 0.0677 | hop1: 0.0836
+[consensus_rho0p99_seed4042] step 020/390 trained 36/36 | hop0: 0.0621 | hop1: 0.0793 | hop2: 0.1390
+[consensus_rho0p99_seed4042] step 030/390 trained 36/36 | hop0: 0.0628 | hop1: 0.0687 | hop2: 0.0738
+[consensus_rho0p99_seed4042] step 040/390 trained 36/36 | hop0: 0.0496 | hop1: 0.0578 | hop2: 0.0759
+[consensus_rho0p99_seed4042] step 050/390 trained 36/36 | hop0: 0.0383 | hop1: 0.0509 | hop2: 0.0878
+[consensus_rho0p99_seed4042] step 060/390 trained 36/36 | hop0: 0.0331 | hop1: 0.0369 | hop2: 0.0682
+[consensus_rho0p99_seed4042] step 070/390 trained 36/36 | hop0: 0.0270 | hop1: 0.0386 | hop2: 0.0638
+[consensus_rho0p99_seed4042] step 080/390 trained 36/36 | hop0: 0.0258 | hop1: 0.0305 | hop2: 0.0487
+[consensus_rho0p99_seed4042] step 090/390 trained 36/36 | hop0: 0.0148 | hop1: 0.0304 | hop2: 0.0494 | hop3: 0.0696
+[consensus_rho0p99_seed4042] step 100/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0217 | hop2: 0.0365 | hop3: 0.0529
+[consensus_rho0p99_seed4042] step 110/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0287 | hop2: 0.0814
+[consensus_rho0p99_seed4042] step 120/390 trained 36/36 | hop0: 0.0302 | hop1: 0.0274 | hop2: 0.0631
+[consensus_rho0p99_seed4042] step 130/390 trained 36/36 | hop0: 0.0379 | hop1: 0.0283
+[consensus_rho0p99_seed4042] step 140/390 trained 36/36 | hop0: 0.0277 | hop1: 0.0143 | hop2: 0.0182
+[consensus_rho0p99_seed4042] step 150/390 trained 36/36 | hop0: 0.0241 | hop1: 0.0109 | hop2: 0.0163
+[consensus_rho0p99_seed4042] step 160/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0141 | hop2: 0.0247
+[consensus_rho0p99_seed4042] step 170/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0159 | hop2: 0.0270
+[consensus_rho0p99_seed4042] step 180/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0177 | hop2: 0.0250
+[consensus_rho0p99_seed4042] step 190/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0117 | hop2: 0.0209
+[consensus_rho0p99_seed4042] step 200/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0101 | hop2: 0.0147
+[consensus_rho0p99_seed4042] step 210/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0075 | hop2: 0.0073
+[consensus_rho0p99_seed4042] step 220/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0063 | hop2: 0.0229
+[consensus_rho0p99_seed4042] step 230/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0112
+[consensus_rho0p99_seed4042] step 240/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0145
+[consensus_rho0p99_seed4042] step 250/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0143 | hop2: 0.0158
+[consensus_rho0p99_seed4042] step 260/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0135 | hop2: 0.0082
+[consensus_rho0p99_seed4042] step 270/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0074 | hop2: 0.0031
+[consensus_rho0p99_seed4042] step 280/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0067 | hop2: 0.0079
+[consensus_rho0p99_seed4042] step 290/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0066 | hop2: 0.0177
+[consensus_rho0p99_seed4042] step 300/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0082 | hop2: 0.0100
+[consensus_rho0p99_seed4042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0044 | hop2: 0.0078
+[consensus_rho0p99_seed4042] step 320/390 trained 36/36 | hop0: 0.0008 | hop1: 0.0051 | hop2: 0.0042
+[consensus_rho0p99_seed4042] step 330/390 trained 36/36 | hop0: 0.0007 | hop1: 0.0025 | hop2: 0.0009
+[consensus_rho0p99_seed4042] step 340/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0024 | hop2: 0.0018
+[consensus_rho0p99_seed4042] step 350/390 trained 36/36 | hop0: 0.0134 | hop1: 0.0052 | hop2: 0.0043
+[consensus_rho0p99_seed4042] step 360/390 trained 36/36 | hop0: 0.0112 | hop1: 0.0094
+[consensus_rho0p99_seed4042] step 370/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0173 | hop2: 0.0370
+[consensus_rho0p99_seed4042] step 380/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0175 | hop2: 0.0701
+[consensus_rho0p99_seed4042] mean MSE (last 50 steps): 0.0146 | cert-MSE r=-0.175
+[consensus_rho0p99_seed4042] saved runs\chapter5_v2\s5_9_consensus_rho\consensus_rho0p99_seed4042\figures\results.png
+### consensus_rho0p99_seed4042 (rho=0.99): last50=0.0146 whole_run=0.0257 r=-0.1750
+
+=== RHO ABLATION shard 0/1 (dynamic v2, lam=5, seed=42, random_wander) ===
+rho=0.01  n=2 whole_run=0.02508 +/- 0.00098
+rho=0.05  n=2 whole_run=0.02505 +/- 0.00089
+rho=0.1   n=2 whole_run=0.02503 +/- 0.00089
+rho=0.2   n=2 whole_run=0.02502 +/- 0.00088
+rho=0.5   n=2 whole_run=0.02504 +/- 0.00090
+rho=0.8   n=2 whole_run=0.02505 +/- 0.00091
+rho=0.99  n=2 whole_run=0.02506 +/- 0.00089
+=== DONE ===

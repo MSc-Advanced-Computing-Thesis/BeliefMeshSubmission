@@ -1,0 +1,53 @@
+wrapper check
+  product  nu*=7.0000 alpha*=12.0000 beta*=0.150500 gamma*=0.110000
+  averaged nu*=2.3333 alpha*=3.0000 beta*=0.050167 gamma*=0.110000
+  nu* sum->mean: 7.0000 -> 2.3333 (expect mean of [2.0, 4.0, 1.0] = 2.3333)
+  gamma* unchanged: |d| = 0.000e+00
+  PASSED
+
+rebound fuse_nig_product in stage6_spatial_mesh.runner
+[avg_training_seed42] nodes=36 coverage max=9 mode=nig_product steps=390
+[avg_training_seed42] step 000/390 trained 36/36 | hop0: 0.1081 | hop1: 0.1020
+[avg_training_seed42] step 010/390 trained 36/36 | hop0: 0.0684 | hop1: 0.0982
+[avg_training_seed42] step 020/390 trained 36/36 | hop0: 0.0810 | hop1: 0.0830 | hop2: 0.0958
+[avg_training_seed42] step 030/390 trained 36/36 | hop0: 0.0584 | hop1: 0.0859 | hop2: 0.1605
+[avg_training_seed42] step 040/390 trained 36/36 | hop0: 0.0493 | hop1: 0.0771 | hop2: 0.0994
+[avg_training_seed42] step 050/390 trained 36/36 | hop0: 0.0595 | hop1: 0.0602 | hop2: 0.0791
+[avg_training_seed42] step 060/390 trained 36/36 | hop0: 0.0369 | hop1: 0.0666 | hop2: 0.0746
+[avg_training_seed42] step 070/390 trained 36/36 | hop0: 0.0313 | hop1: 0.0600 | hop2: 0.0796
+[avg_training_seed42] step 080/390 trained 36/36 | hop0: 0.0216 | hop1: 0.0592 | hop2: 0.1067
+[avg_training_seed42] step 090/390 trained 36/36 | hop0: 0.0271 | hop1: 0.0591
+[avg_training_seed42] step 100/390 trained 36/36 | hop0: 0.0330 | hop1: 0.0547 | hop2: 0.0480
+[avg_training_seed42] step 110/390 trained 36/36 | hop0: 0.0424 | hop1: 0.0324 | hop2: 0.0428
+[avg_training_seed42] step 120/390 trained 36/36 | hop0: 0.0463 | hop1: 0.0536 | hop2: 0.0520
+[avg_training_seed42] step 130/390 trained 36/36 | hop0: 0.0366 | hop1: 0.0531 | hop2: 0.0789
+[avg_training_seed42] step 140/390 trained 36/36 | hop0: 0.0189 | hop1: 0.0507 | hop2: 0.0567
+[avg_training_seed42] step 150/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0362 | hop2: 0.0886
+[avg_training_seed42] step 160/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0273 | hop2: 0.0705
+[avg_training_seed42] step 170/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0258 | hop2: 0.0443
+[avg_training_seed42] step 180/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0104 | hop2: 0.0463
+[avg_training_seed42] step 190/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0183 | hop2: 0.0586
+[avg_training_seed42] step 200/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0212 | hop2: 0.0453
+[avg_training_seed42] step 210/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0080 | hop2: 0.0353
+[avg_training_seed42] step 220/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0144
+[avg_training_seed42] step 230/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0173 | hop2: 0.0136
+[avg_training_seed42] step 240/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0160 | hop2: 0.0234
+[avg_training_seed42] step 250/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0223 | hop2: 0.0244
+[avg_training_seed42] step 260/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0180
+[avg_training_seed42] step 270/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0120 | hop2: 0.0046
+[avg_training_seed42] step 280/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0120
+[avg_training_seed42] step 290/390 trained 36/36 | hop0: 0.0176 | hop1: 0.0071 | hop2: 0.0160
+[avg_training_seed42] step 300/390 trained 36/36 | hop0: 0.0181 | hop1: 0.0063 | hop2: 0.0150
+[avg_training_seed42] step 310/390 trained 36/36 | hop0: 0.0192 | hop1: 0.0098 | hop2: 0.0084
+[avg_training_seed42] step 320/390 trained 36/36 | hop0: 0.0065 | hop1: 0.0092 | hop2: 0.0047
+[avg_training_seed42] step 330/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0065 | hop2: 0.0046
+[avg_training_seed42] step 340/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0057
+[avg_training_seed42] step 350/390 trained 36/36 | hop0: 0.0109 | hop1: 0.0086 | hop2: 0.0043
+[avg_training_seed42] step 360/390 trained 36/36 | hop0: 0.0071 | hop1: 0.0114 | hop2: 0.0109
+[avg_training_seed42] step 370/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0107 | hop2: 0.0111
+[avg_training_seed42] step 380/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0093 | hop2: 0.0151
+[avg_training_seed42] mean MSE (last 50 steps): 0.0105 | cert-MSE r=-0.406
+[avg_training_seed42] saved runs\chapter5_v2\s5_diag_avg_training\avg_training_seed42\figures\results.png
+
+### avg_training_seed42 last50=0.01055
+=== DONE ===

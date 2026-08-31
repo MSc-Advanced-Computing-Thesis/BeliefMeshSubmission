@@ -17,6 +17,8 @@ import yaml
 from scipy import stats as sps
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from averaged_readout import load_run as _avg_load
+from averaged_readout import metrics as _avg_metrics
 from analyse_estimators import LAST, load
 
 OUT = Path("runs/chapter5_v2")
@@ -36,68 +38,49 @@ def fmt(t, p=5):
 
 
 def parity_table():
+    """AVERAGED-NIG convention. The frozen arm was regenerated with
+    cell_beliefs_steps (2026-08), so its interval quantities are now computable
+    -- previously they were not, and the row read 'not computable'."""
     G = defaultdict(list)
     for p in sorted(glob.glob("runs/chapter5_v2/s531_b2/*_sampled_seed*/manifest.yaml")):
         d = Path(os.path.dirname(p))
         arm = d.name.rsplit("_seed", 1)[0].replace("_sampled", "")
-        R = load(d)
-        mse, nig = R["mse"], R["nig"]
-        T = mse.shape[0]
-        sl = slice(T - LAST, T)
-        e = np.sqrt(mse[sl])
-        nu, al, be = (nig[sl, ..., i] for i in range(3))
-        k = np.isfinite(e) & np.isfinite(nu) & (al > 1.0)
-        sc = np.sqrt(be[k] * (1 + nu[k]) / (nu[k] * al[k]))
-        hw = sps.t.ppf(0.95, df=2 * al[k]) * sc
-        m = float(np.nanmean(mse[sl]))
-        G[arm].append(dict(whole=float(np.nanmean(mse)), last50=m,
-                           cov=float((e[k] <= hw).mean()),
-                           ratio=float(np.mean(hw) * 180 / (np.sqrt(m) * 180))))
-    fw, fl = [], []
-    for f in sorted(glob.glob(FROZEN_GLOB)):
-        a = np.load(f)
-        fw.append(float(np.nanmean(a)))
-        fl.append(float(np.nanmean(a[-LAST:])))
+        sd = int(yaml.safe_load(open(p))["env_seed"])
+        G[arm].append(_avg_metrics(_avg_load(d, sd), last=LAST)["averaged"])
+    for p in sorted(glob.glob("runs/chapter5_v2/s5_3_1_frozen/*/manifest.yaml")):
+        d = Path(os.path.dirname(p))
+        sd = int(yaml.safe_load(open(p))["env_seed"])
+        G["frozen"].append(_avg_metrics(_avg_load(d, sd), last=LAST)["averaged"])
 
     ref = ms([r["whole"] for r in G["nig_product"]])[0]
     rows = []
-    for arm in ARMS:
-        v = G[arm]
+    for arm in ARMS + ["frozen"]:
+        v = G.get(arm)
+        if not v:
+            continue
         w = ms([r["whole"] for r in v])
         rows.append((arm, len(v), w, ms([r["last50"] for r in v]),
                      ms([r["cov"] for r in v]), ms([r["ratio"] for r in v]),
                      100 * (w[0] - ref) / ref))
-    if fw:
-        rows.append(("frozen", len(fw), ms(fw), ms(fl), None, None,
-                     100 * (ms(fw)[0] - ref) / ref))
 
     print("=" * 96)
-    print("TABLE 5.3.1 -- AGGREGATION PARITY   (cell space, last-50 window, 5 seeds, mean +/- sd)")
+    print("TABLE 5.3.1 -- AGGREGATION PARITY   (cell space, AVERAGED NIG readout,")
+    print("last-50 window, 5 seeds, mean +/- sd)")
     print("=" * 96)
     print("%-13s %3s %-21s %-21s %-15s %-15s %10s"
           % ("arm", "n", "whole-run MSE", "last-50 MSE", "90% coverage",
              "hw : RMS", "vs nig_prod"))
     for arm, n, w, l, c, r, pct in rows:
         print("%-13s %3d %-21s %-21s %-15s %-15s %+9.2f%%"
-              % (arm, n, fmt(w), fmt(l),
-                 fmt(c, 3) if c else "not computable ",
-                 fmt(r, 3) if r else "not computable ", pct))
-    print()
-    print("frozen: interval quantities are NOT computable. Frozen never trains, so its")
-    print("  cell-space MSE is independent of the target rule and the stored arm is")
-    print("  reused -- but that arm predates cell_nig_steps, so it has no (nu, alpha,")
-    print("  beta) and the Student-t interval cannot be reconstructed. Regenerating it")
-    print("  would take 5 runs; no new runs were requested.")
+              % (arm, n, fmt(w), fmt(l), fmt(c, 3), fmt(r, 3), pct))
 
     with open(OUT / "table_5_3_1_parity.csv", "w", encoding="utf8") as f:
         f.write("arm,n_seeds,whole_run_mse_mean,whole_run_mse_sd,last50_mse_mean,"
                 "last50_mse_sd,coverage90_mean,coverage90_sd,hw_rms_mean,hw_rms_sd,"
                 "whole_run_pct_diff_vs_nig_product\n")
         for arm, n, w, l, c, r, pct in rows:
-            cc = "%.6f,%.6f" % c if c else ","
-            rr = "%.6f,%.6f" % r if r else ","
-            f.write("%s,%d,%.6f,%.6f,%.6f,%.6f,%s,%s,%.4f\n"
-                    % (arm, n, w[0], w[1], l[0], l[1], cc, rr, pct))
+            f.write("%s,%d,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.4f\n"
+                    % (arm, n, w[0], w[1], l[0], l[1], c[0], c[1], r[0], r[1], pct))
     print("  wrote %s" % (OUT / "table_5_3_1_parity.csv"))
 
 

@@ -1,0 +1,241 @@
+[het_notemper/seed42_field0_original] heterogeneous=True temper_gradient=False
+[temper_het_notemper_seed42_field0_original] nodes=36 coverage max=9 mode=nig_product steps=390
+[temper_het_notemper_seed42_field0_original] step 000/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0302
+[temper_het_notemper_seed42_field0_original] step 010/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0163
+[temper_het_notemper_seed42_field0_original] step 020/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0101 | hop2: 0.0265
+[temper_het_notemper_seed42_field0_original] step 030/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0091 | hop2: 0.0286
+[temper_het_notemper_seed42_field0_original] step 040/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0102 | hop2: 0.0249
+[temper_het_notemper_seed42_field0_original] step 050/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0064 | hop2: 0.0179
+[temper_het_notemper_seed42_field0_original] step 060/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0066 | hop2: 0.0385
+[temper_het_notemper_seed42_field0_original] step 070/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0105 | hop2: 0.0475
+[temper_het_notemper_seed42_field0_original] step 080/390 trained 36/36 | hop0: 0.0019 | hop1: 0.0127 | hop2: 0.0393
+[temper_het_notemper_seed42_field0_original] step 090/390 trained 36/36 | hop0: 0.0114 | hop1: 0.0084
+[temper_het_notemper_seed42_field0_original] step 100/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0082 | hop2: 0.0038
+[temper_het_notemper_seed42_field0_original] step 110/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0123 | hop2: 0.0110
+[temper_het_notemper_seed42_field0_original] step 120/390 trained 36/36 | hop0: 0.0120 | hop1: 0.0202 | hop2: 0.0109
+[temper_het_notemper_seed42_field0_original] step 130/390 trained 36/36 | hop0: 0.0108 | hop1: 0.0346 | hop2: 0.0192
+[temper_het_notemper_seed42_field0_original] step 140/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0312 | hop2: 0.0271
+[temper_het_notemper_seed42_field0_original] step 150/390 trained 36/36 | hop0: 0.0115 | hop1: 0.0115 | hop2: 0.0477
+[temper_het_notemper_seed42_field0_original] step 160/390 trained 36/36 | hop0: 0.0095 | hop1: 0.0093 | hop2: 0.0337
+[temper_het_notemper_seed42_field0_original] step 170/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0069 | hop2: 0.0195
+[temper_het_notemper_seed42_field0_original] step 180/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0088 | hop2: 0.0127
+[temper_het_notemper_seed42_field0_original] step 190/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0096 | hop2: 0.0148
+[temper_het_notemper_seed42_field0_original] step 200/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0033 | hop2: 0.0108
+[temper_het_notemper_seed42_field0_original] step 210/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0041 | hop2: 0.0060
+[temper_het_notemper_seed42_field0_original] step 220/390 trained 36/36 | hop0: 0.0085 | hop1: 0.0053
+[temper_het_notemper_seed42_field0_original] step 230/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0059 | hop2: 0.0022
+[temper_het_notemper_seed42_field0_original] step 240/390 trained 36/36 | hop0: 0.0071 | hop1: 0.0071 | hop2: 0.0138
+[temper_het_notemper_seed42_field0_original] step 250/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0099 | hop2: 0.0206
+[temper_het_notemper_seed42_field0_original] step 260/390 trained 36/36 | hop0: 0.0132 | hop1: 0.0095
+[temper_het_notemper_seed42_field0_original] step 270/390 trained 36/36 | hop0: 0.0089 | hop1: 0.0091 | hop2: 0.0055
+[temper_het_notemper_seed42_field0_original] step 280/390 trained 36/36 | hop0: 0.0102 | hop1: 0.0122
+[temper_het_notemper_seed42_field0_original] step 290/390 trained 36/36 | hop0: 0.0153 | hop1: 0.0100 | hop2: 0.0138
+[temper_het_notemper_seed42_field0_original] step 300/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0091 | hop2: 0.0128
+[temper_het_notemper_seed42_field0_original] step 310/390 trained 36/36 | hop0: 0.0123 | hop1: 0.0091 | hop2: 0.0040
+[temper_het_notemper_seed42_field0_original] step 320/390 trained 36/36 | hop0: 0.0118 | hop1: 0.0077 | hop2: 0.0037
+[temper_het_notemper_seed42_field0_original] step 330/390 trained 36/36 | hop0: 0.0095 | hop1: 0.0110 | hop2: 0.0054
+[temper_het_notemper_seed42_field0_original] step 340/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0064
+[temper_het_notemper_seed42_field0_original] step 350/390 trained 36/36 | hop0: 0.0193 | hop1: 0.0099 | hop2: 0.0007
+[temper_het_notemper_seed42_field0_original] step 360/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0132 | hop2: 0.0161
+[temper_het_notemper_seed42_field0_original] step 370/390 trained 36/36 | hop0: 0.0033 | hop1: 0.0085 | hop2: 0.0189
+[temper_het_notemper_seed42_field0_original] step 380/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0090 | hop2: 0.0165
+[temper_het_notemper_seed42_field0_original] mean MSE (last 50 steps): 0.0103 | cert-MSE r=-0.516
+[temper_het_notemper_seed42_field0_original] per-variant whole-run MSE: wide=0.0092, baseline=0.0087, narrow=0.0159
+[temper_het_notemper_seed42_field0_original] saved runs\chapter5_v2\s5_9_temper_het_notemper\het_notemper\seed42_field0_original\figures\results.png
+
+### het_notemper/seed42_field0_original: whole_run=0.00964 last50=0.01032
+    trust_batch: n_updates=10107 cells/update=39.1 cert_mean=0.99677 WITHIN-UPDATE cv_mean=0.007718 cv_median=0.002630 range_mean=0.043895 cert_span=[0.2702,1.0000]
+    nu_cv_mean=0.15126 (BETWEEN-contributor, for contrast)
+[het_notemper/seed1042_field1_seed11] heterogeneous=True temper_gradient=False
+[temper_het_notemper_seed1042_field1_seed11] nodes=36 coverage max=9 mode=nig_product steps=390
+[temper_het_notemper_seed1042_field1_seed11] step 000/390 trained 36/36 | hop0: 0.0259 | hop1: 0.0280
+[temper_het_notemper_seed1042_field1_seed11] step 010/390 trained 36/36 | hop0: 0.0182 | hop1: 0.0155 | hop2: 0.0641
+[temper_het_notemper_seed1042_field1_seed11] step 020/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0148
+[temper_het_notemper_seed1042_field1_seed11] step 030/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0116 | hop2: 0.0474
+[temper_het_notemper_seed1042_field1_seed11] step 040/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0192 | hop2: 0.0660
+[temper_het_notemper_seed1042_field1_seed11] step 050/390 trained 36/36 | hop0: 0.0247 | hop1: 0.0185 | hop2: 0.0324
+[temper_het_notemper_seed1042_field1_seed11] step 060/390 trained 36/36 | hop0: 0.0210 | hop1: 0.0171 | hop2: 0.0168
+[temper_het_notemper_seed1042_field1_seed11] step 070/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0144 | hop2: 0.0204
+[temper_het_notemper_seed1042_field1_seed11] step 080/390 trained 36/36 | hop0: 0.0108 | hop1: 0.0125 | hop2: 0.0216
+[temper_het_notemper_seed1042_field1_seed11] step 090/390 trained 36/36 | hop0: 0.0131 | hop1: 0.0123 | hop2: 0.0112
+[temper_het_notemper_seed1042_field1_seed11] step 100/390 trained 36/36 | hop0: 0.0167 | hop1: 0.0202
+[temper_het_notemper_seed1042_field1_seed11] step 110/390 trained 36/36 | hop0: 0.0176 | hop1: 0.0244 | hop2: 0.0115
+[temper_het_notemper_seed1042_field1_seed11] step 120/390 trained 36/36 | hop0: 0.0143 | hop1: 0.0239 | hop2: 0.0103
+[temper_het_notemper_seed1042_field1_seed11] step 130/390 trained 36/36 | hop0: 0.0134 | hop1: 0.0150 | hop2: 0.0158
+[temper_het_notemper_seed1042_field1_seed11] step 140/390 trained 36/36 | hop0: 0.0116 | hop1: 0.0098 | hop2: 0.0108
+[temper_het_notemper_seed1042_field1_seed11] step 150/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0131 | hop2: 0.0082
+[temper_het_notemper_seed1042_field1_seed11] step 160/390 trained 36/36 | hop0: 0.0174 | hop1: 0.0100 | hop2: 0.0161
+[temper_het_notemper_seed1042_field1_seed11] step 170/390 trained 36/36 | hop0: 0.0169 | hop1: 0.0119 | hop2: 0.0193
+[temper_het_notemper_seed1042_field1_seed11] step 180/390 trained 36/36 | hop0: 0.0103 | hop1: 0.0155 | hop2: 0.0256
+[temper_het_notemper_seed1042_field1_seed11] step 190/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0206
+[temper_het_notemper_seed1042_field1_seed11] step 200/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0305 | hop2: 0.1316
+[temper_het_notemper_seed1042_field1_seed11] step 210/390 trained 36/36 | hop0: 0.0190 | hop1: 0.0554
+[temper_het_notemper_seed1042_field1_seed11] step 220/390 trained 36/36 | hop0: 0.0726 | hop1: 0.0335 | hop2: 0.0044
+[temper_het_notemper_seed1042_field1_seed11] step 230/390 trained 36/36 | hop0: 0.0877 | hop1: 0.0153 | hop2: 0.0048
+[temper_het_notemper_seed1042_field1_seed11] step 240/390 trained 36/36 | hop0: 0.0450 | hop1: 0.0216 | hop2: 0.0046
+[temper_het_notemper_seed1042_field1_seed11] step 250/390 trained 36/36 | hop0: 0.0181 | hop1: 0.0214 | hop2: 0.0059
+[temper_het_notemper_seed1042_field1_seed11] step 260/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0212 | hop2: 0.0012
+[temper_het_notemper_seed1042_field1_seed11] step 270/390 trained 36/36 | hop0: 0.0114 | hop1: 0.0189
+[temper_het_notemper_seed1042_field1_seed11] step 280/390 trained 36/36 | hop0: 0.0116 | hop1: 0.0199
+[temper_het_notemper_seed1042_field1_seed11] step 290/390 trained 36/36 | hop0: 0.0155 | hop1: 0.0178
+[temper_het_notemper_seed1042_field1_seed11] step 300/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0109 | hop2: 0.0484
+[temper_het_notemper_seed1042_field1_seed11] step 310/390 trained 36/36 | hop0: 0.0053 | hop1: 0.0141 | hop2: 0.0166
+[temper_het_notemper_seed1042_field1_seed11] step 320/390 trained 36/36 | hop0: 0.0206 | hop1: 0.0201 | hop2: 0.0107
+[temper_het_notemper_seed1042_field1_seed11] step 330/390 trained 36/36 | hop0: 0.0291 | hop1: 0.0136 | hop2: 0.0275
+[temper_het_notemper_seed1042_field1_seed11] step 340/390 trained 36/36 | hop0: 0.0189 | hop1: 0.0128 | hop2: 0.0135
+[temper_het_notemper_seed1042_field1_seed11] step 350/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0131 | hop2: 0.0161
+[temper_het_notemper_seed1042_field1_seed11] step 360/390 trained 36/36 | hop0: 0.0147 | hop1: 0.0192 | hop2: 0.0044
+[temper_het_notemper_seed1042_field1_seed11] step 370/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0396 | hop2: 0.0035
+[temper_het_notemper_seed1042_field1_seed11] step 380/390 trained 36/36 | hop0: 0.0436 | hop1: 0.0355 | hop2: 0.0064
+[temper_het_notemper_seed1042_field1_seed11] mean MSE (last 50 steps): 0.0194 | cert-MSE r=0.073
+[temper_het_notemper_seed1042_field1_seed11] per-variant whole-run MSE: narrow=0.0227, baseline=0.0180, wide=0.0188
+[temper_het_notemper_seed1042_field1_seed11] saved runs\chapter5_v2\s5_9_temper_het_notemper\het_notemper\seed1042_field1_seed11\figures\results.png
+
+### het_notemper/seed1042_field1_seed11: whole_run=0.01784 last50=0.01941
+    trust_batch: n_updates=9834 cells/update=39.2 cert_mean=0.99461 WITHIN-UPDATE cv_mean=0.010180 cv_median=0.003046 range_mean=0.054358 cert_span=[0.2177,1.0000]
+    nu_cv_mean=0.17921 (BETWEEN-contributor, for contrast)
+[het_notemper/seed2042_field2_seed23] heterogeneous=True temper_gradient=False
+[temper_het_notemper_seed2042_field2_seed23] nodes=36 coverage max=9 mode=nig_product steps=390
+[temper_het_notemper_seed2042_field2_seed23] step 000/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0202 | hop2: 0.0582
+[temper_het_notemper_seed2042_field2_seed23] step 010/390 trained 36/36 | hop0: 0.0126 | hop1: 0.0371 | hop2: 0.0871
+[temper_het_notemper_seed2042_field2_seed23] step 020/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0328 | hop2: 0.1357
+[temper_het_notemper_seed2042_field2_seed23] step 030/390 trained 36/36 | hop0: 0.0103 | hop1: 0.0763 | hop2: 0.1575
+[temper_het_notemper_seed2042_field2_seed23] step 040/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0672 | hop2: 0.1226
+[temper_het_notemper_seed2042_field2_seed23] step 050/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0284 | hop2: 0.0807 | hop3: 0.1383
+[temper_het_notemper_seed2042_field2_seed23] step 060/390 trained 36/36 | hop0: 0.0135 | hop1: 0.0115 | hop2: 0.0735
+[temper_het_notemper_seed2042_field2_seed23] step 070/390 trained 36/36 | hop0: 0.0107 | hop1: 0.0077 | hop2: 0.0311
+[temper_het_notemper_seed2042_field2_seed23] step 080/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0135 | hop2: 0.0295
+[temper_het_notemper_seed2042_field2_seed23] step 090/390 trained 36/36 | hop0: 0.0113 | hop1: 0.0128 | hop2: 0.0285
+[temper_het_notemper_seed2042_field2_seed23] step 100/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0066 | hop2: 0.0239
+[temper_het_notemper_seed2042_field2_seed23] step 110/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0127 | hop2: 0.0355
+[temper_het_notemper_seed2042_field2_seed23] step 120/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0222
+[temper_het_notemper_seed2042_field2_seed23] step 130/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0252 | hop2: 0.0297
+[temper_het_notemper_seed2042_field2_seed23] step 140/390 trained 36/36 | hop0: 0.0140 | hop1: 0.0217 | hop2: 0.0271
+[temper_het_notemper_seed2042_field2_seed23] step 150/390 trained 36/36 | hop0: 0.0108 | hop1: 0.0119 | hop2: 0.0302
+[temper_het_notemper_seed2042_field2_seed23] step 160/390 trained 36/36 | hop0: 0.0111 | hop1: 0.0116 | hop2: 0.0163
+[temper_het_notemper_seed2042_field2_seed23] step 170/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0137 | hop2: 0.0065
+[temper_het_notemper_seed2042_field2_seed23] step 180/390 trained 36/36 | hop0: 0.0166 | hop1: 0.0148 | hop2: 0.0173
+[temper_het_notemper_seed2042_field2_seed23] step 190/390 trained 36/36 | hop0: 0.0129 | hop1: 0.0080 | hop2: 0.0253
+[temper_het_notemper_seed2042_field2_seed23] step 200/390 trained 36/36 | hop0: 0.0103 | hop1: 0.0127
+[temper_het_notemper_seed2042_field2_seed23] step 210/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0147
+[temper_het_notemper_seed2042_field2_seed23] step 220/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0155 | hop2: 0.0313
+[temper_het_notemper_seed2042_field2_seed23] step 230/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0136 | hop2: 0.0376
+[temper_het_notemper_seed2042_field2_seed23] step 240/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0236 | hop2: 0.0918
+[temper_het_notemper_seed2042_field2_seed23] step 250/390 trained 36/36 | hop0: 0.0095 | hop1: 0.0195 | hop2: 0.0851
+[temper_het_notemper_seed2042_field2_seed23] step 260/390 trained 36/36 | hop0: 0.0141 | hop1: 0.0179 | hop2: 0.0629
+[temper_het_notemper_seed2042_field2_seed23] step 270/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0167 | hop2: 0.0369 | hop3: 0.0596
+[temper_het_notemper_seed2042_field2_seed23] step 280/390 trained 36/36 | hop0: 0.0065 | hop1: 0.0144 | hop2: 0.0348
+[temper_het_notemper_seed2042_field2_seed23] step 290/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0161 | hop2: 0.0296
+[temper_het_notemper_seed2042_field2_seed23] step 300/390 trained 36/36 | hop0: 0.0029 | hop1: 0.0103 | hop2: 0.0192 | hop3: 0.0330
+[temper_het_notemper_seed2042_field2_seed23] step 310/390 trained 36/36 | hop0: 0.0104 | hop1: 0.0124 | hop2: 0.0191 | hop3: 0.0358
+[temper_het_notemper_seed2042_field2_seed23] step 320/390 trained 36/36 | hop0: 0.0125 | hop1: 0.0115 | hop2: 0.0122
+[temper_het_notemper_seed2042_field2_seed23] step 330/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0114 | hop2: 0.0169 | hop3: 0.0181
+[temper_het_notemper_seed2042_field2_seed23] step 340/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0141 | hop2: 0.0235 | hop3: 0.0513
+[temper_het_notemper_seed2042_field2_seed23] step 350/390 trained 36/36 | hop0: 0.0164 | hop1: 0.0107 | hop2: 0.0191 | hop3: 0.0390
+[temper_het_notemper_seed2042_field2_seed23] step 360/390 trained 36/36 | hop0: 0.0114 | hop1: 0.0095 | hop2: 0.0103
+[temper_het_notemper_seed2042_field2_seed23] step 370/390 trained 36/36 | hop0: 0.0109 | hop1: 0.0122 | hop2: 0.0180
+[temper_het_notemper_seed2042_field2_seed23] step 380/390 trained 36/36 | hop0: 0.0022 | hop1: 0.0099 | hop2: 0.0200
+[temper_het_notemper_seed2042_field2_seed23] mean MSE (last 50 steps): 0.0106 | cert-MSE r=-0.459
+[temper_het_notemper_seed2042_field2_seed23] per-variant whole-run MSE: narrow=0.0242, baseline=0.0197, wide=0.0174
+[temper_het_notemper_seed2042_field2_seed23] saved runs\chapter5_v2\s5_9_temper_het_notemper\het_notemper\seed2042_field2_seed23\figures\results.png
+
+### het_notemper/seed2042_field2_seed23: whole_run=0.02020 last50=0.01061
+    trust_batch: n_updates=10619 cells/update=39.0 cert_mean=0.99641 WITHIN-UPDATE cv_mean=0.008321 cv_median=0.002619 range_mean=0.047183 cert_span=[0.3194,1.0000]
+    nu_cv_mean=0.14159 (BETWEEN-contributor, for contrast)
+[het_notemper/seed3042_field3_seed37] heterogeneous=True temper_gradient=False
+[temper_het_notemper_seed3042_field3_seed37] nodes=36 coverage max=9 mode=nig_product steps=390
+[temper_het_notemper_seed3042_field3_seed37] step 000/390 trained 36/36 | hop0: 0.0193 | hop1: 0.0267 | hop2: 0.0212
+[temper_het_notemper_seed3042_field3_seed37] step 010/390 trained 36/36 | hop0: 0.0123 | hop1: 0.0217
+[temper_het_notemper_seed3042_field3_seed37] step 020/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0162
+[temper_het_notemper_seed3042_field3_seed37] step 030/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0127
+[temper_het_notemper_seed3042_field3_seed37] step 040/390 trained 36/36 | hop0: 0.0099 | hop1: 0.0096
+[temper_het_notemper_seed3042_field3_seed37] step 050/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0126 | hop2: 0.0062
+[temper_het_notemper_seed3042_field3_seed37] step 060/390 trained 36/36 | hop0: 0.0093 | hop1: 0.0117 | hop2: 0.0137
+[temper_het_notemper_seed3042_field3_seed37] step 070/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0112 | hop2: 0.0316
+[temper_het_notemper_seed3042_field3_seed37] step 080/390 trained 36/36 | hop0: 0.0013 | hop1: 0.0090 | hop2: 0.0391
+[temper_het_notemper_seed3042_field3_seed37] step 090/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0142 | hop2: 0.0292 | hop3: 0.0518
+[temper_het_notemper_seed3042_field3_seed37] step 100/390 trained 36/36 | hop0: 0.0071 | hop1: 0.0160 | hop2: 0.0366
+[temper_het_notemper_seed3042_field3_seed37] step 110/390 trained 36/36 | hop0: 0.0226 | hop1: 0.0222 | hop2: 0.0535
+[temper_het_notemper_seed3042_field3_seed37] step 120/390 trained 36/36 | hop0: 0.0151 | hop1: 0.0199 | hop2: 0.0191
+[temper_het_notemper_seed3042_field3_seed37] step 130/390 trained 36/36 | hop0: 0.0102 | hop1: 0.0122 | hop2: 0.0373
+[temper_het_notemper_seed3042_field3_seed37] step 140/390 trained 36/36 | hop0: 0.0158 | hop1: 0.0117 | hop2: 0.0195
+[temper_het_notemper_seed3042_field3_seed37] step 150/390 trained 36/36 | hop0: 0.0113 | hop1: 0.0141 | hop2: 0.0097
+[temper_het_notemper_seed3042_field3_seed37] step 160/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0174 | hop2: 0.0218
+[temper_het_notemper_seed3042_field3_seed37] step 170/390 trained 36/36 | hop0: 0.0189 | hop1: 0.0095 | hop2: 0.0344
+[temper_het_notemper_seed3042_field3_seed37] step 180/390 trained 36/36 | hop0: 0.0065 | hop1: 0.0131
+[temper_het_notemper_seed3042_field3_seed37] step 190/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0133
+[temper_het_notemper_seed3042_field3_seed37] step 200/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0220
+[temper_het_notemper_seed3042_field3_seed37] step 210/390 trained 36/36 | hop0: 0.0111 | hop1: 0.0283 | hop2: 0.1200
+[temper_het_notemper_seed3042_field3_seed37] step 220/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0234 | hop2: 0.1209
+[temper_het_notemper_seed3042_field3_seed37] step 230/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0206 | hop2: 0.1080
+[temper_het_notemper_seed3042_field3_seed37] step 240/390 trained 36/36 | hop0: 0.0108 | hop1: 0.0197 | hop2: 0.0188
+[temper_het_notemper_seed3042_field3_seed37] step 250/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0096 | hop2: 0.0148
+[temper_het_notemper_seed3042_field3_seed37] step 260/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0121 | hop2: 0.0340
+[temper_het_notemper_seed3042_field3_seed37] step 270/390 trained 36/36 | hop0: 0.0099 | hop1: 0.0169 | hop2: 0.0383
+[temper_het_notemper_seed3042_field3_seed37] step 280/390 trained 36/36 | hop0: 0.0053 | hop1: 0.0133 | hop2: 0.0360
+[temper_het_notemper_seed3042_field3_seed37] step 290/390 trained 36/36 | hop0: 0.0103 | hop1: 0.0159
+[temper_het_notemper_seed3042_field3_seed37] step 300/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0193 | hop2: 0.0311
+[temper_het_notemper_seed3042_field3_seed37] step 310/390 trained 36/36 | hop0: 0.0129 | hop1: 0.0238 | hop2: 0.0846
+[temper_het_notemper_seed3042_field3_seed37] step 320/390 trained 36/36 | hop0: 0.0090 | hop1: 0.0295 | hop2: 0.1408
+[temper_het_notemper_seed3042_field3_seed37] step 330/390 trained 36/36 | hop0: 0.0217 | hop1: 0.0379
+[temper_het_notemper_seed3042_field3_seed37] step 340/390 trained 36/36 | hop0: 0.0129 | hop1: 0.0378
+[temper_het_notemper_seed3042_field3_seed37] step 350/390 trained 36/36 | hop0: 0.0125 | hop1: 0.0170 | hop2: 0.0020
+[temper_het_notemper_seed3042_field3_seed37] step 360/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0067 | hop2: 0.0082
+[temper_het_notemper_seed3042_field3_seed37] step 370/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0086
+[temper_het_notemper_seed3042_field3_seed37] step 380/390 trained 36/36 | hop0: 0.0135 | hop1: 0.0141 | hop2: 0.0208
+[temper_het_notemper_seed3042_field3_seed37] mean MSE (last 50 steps): 0.0129 | cert-MSE r=-0.109
+[temper_het_notemper_seed3042_field3_seed37] per-variant whole-run MSE: wide=0.0146, baseline=0.0154, narrow=0.0207
+[temper_het_notemper_seed3042_field3_seed37] saved runs\chapter5_v2\s5_9_temper_het_notemper\het_notemper\seed3042_field3_seed37\figures\results.png
+
+### het_notemper/seed3042_field3_seed37: whole_run=0.01513 last50=0.01291
+    trust_batch: n_updates=9679 cells/update=39.5 cert_mean=0.99596 WITHIN-UPDATE cv_mean=0.008324 cv_median=0.003094 range_mean=0.046421 cert_span=[0.3201,1.0000]
+    nu_cv_mean=0.16962 (BETWEEN-contributor, for contrast)
+[het_notemper/seed4042_field4_seed51_dual] heterogeneous=True temper_gradient=False
+[temper_het_notemper_seed4042_field4_seed51_dual] nodes=36 coverage max=9 mode=nig_product steps=390
+[temper_het_notemper_seed4042_field4_seed51_dual] step 000/390 trained 36/36 | hop0: 0.0151 | hop1: 0.0188 | hop2: 0.0210
+[temper_het_notemper_seed4042_field4_seed51_dual] step 010/390 trained 36/36 | hop0: 0.0171 | hop1: 0.0243
+[temper_het_notemper_seed4042_field4_seed51_dual] step 020/390 trained 36/36 | hop0: 0.0216 | hop1: 0.0225 | hop2: 0.0220
+[temper_het_notemper_seed4042_field4_seed51_dual] step 030/390 trained 36/36 | hop0: 0.0129 | hop1: 0.0210 | hop2: 0.0418
+[temper_het_notemper_seed4042_field4_seed51_dual] step 040/390 trained 36/36 | hop0: 0.0093 | hop1: 0.0231 | hop2: 0.0609
+[temper_het_notemper_seed4042_field4_seed51_dual] step 050/390 trained 36/36 | hop0: 0.0189 | hop1: 0.0239 | hop2: 0.1046
+[temper_het_notemper_seed4042_field4_seed51_dual] step 060/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0204 | hop2: 0.0767
+[temper_het_notemper_seed4042_field4_seed51_dual] step 070/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0346 | hop2: 0.0901
+[temper_het_notemper_seed4042_field4_seed51_dual] step 080/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0406 | hop2: 0.0824
+[temper_het_notemper_seed4042_field4_seed51_dual] step 090/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0221 | hop2: 0.1247 | hop3: 0.1191
+[temper_het_notemper_seed4042_field4_seed51_dual] step 100/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0164 | hop2: 0.0938 | hop3: 0.1449
+[temper_het_notemper_seed4042_field4_seed51_dual] step 110/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0220 | hop2: 0.1079
+[temper_het_notemper_seed4042_field4_seed51_dual] step 120/390 trained 36/36 | hop0: 0.0099 | hop1: 0.0248 | hop2: 0.1594
+[temper_het_notemper_seed4042_field4_seed51_dual] step 130/390 trained 36/36 | hop0: 0.0186 | hop1: 0.0225
+[temper_het_notemper_seed4042_field4_seed51_dual] step 140/390 trained 36/36 | hop0: 0.0232 | hop1: 0.0236 | hop2: 0.0110
+[temper_het_notemper_seed4042_field4_seed51_dual] step 150/390 trained 36/36 | hop0: 0.0353 | hop1: 0.0364 | hop2: 0.0081
+[temper_het_notemper_seed4042_field4_seed51_dual] step 160/390 trained 36/36 | hop0: 0.0368 | hop1: 0.0487 | hop2: 0.0095
+[temper_het_notemper_seed4042_field4_seed51_dual] step 170/390 trained 36/36 | hop0: 0.0431 | hop1: 0.0566 | hop2: 0.0200
+[temper_het_notemper_seed4042_field4_seed51_dual] step 180/390 trained 36/36 | hop0: 0.0398 | hop1: 0.0562 | hop2: 0.0353
+[temper_het_notemper_seed4042_field4_seed51_dual] step 190/390 trained 36/36 | hop0: 0.0418 | hop1: 0.0619 | hop2: 0.0291
+[temper_het_notemper_seed4042_field4_seed51_dual] step 200/390 trained 36/36 | hop0: 0.0283 | hop1: 0.0457 | hop2: 0.0194
+[temper_het_notemper_seed4042_field4_seed51_dual] step 210/390 trained 36/36 | hop0: 0.0159 | hop1: 0.0222 | hop2: 0.0272
+[temper_het_notemper_seed4042_field4_seed51_dual] step 220/390 trained 36/36 | hop0: 0.0125 | hop1: 0.0132 | hop2: 0.0247
+[temper_het_notemper_seed4042_field4_seed51_dual] step 230/390 trained 36/36 | hop0: 0.0177 | hop1: 0.0223
+[temper_het_notemper_seed4042_field4_seed51_dual] step 240/390 trained 36/36 | hop0: 0.0153 | hop1: 0.0300
+[temper_het_notemper_seed4042_field4_seed51_dual] step 250/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0310 | hop2: 0.0255
+[temper_het_notemper_seed4042_field4_seed51_dual] step 260/390 trained 36/36 | hop0: 0.0139 | hop1: 0.0232 | hop2: 0.0261
+[temper_het_notemper_seed4042_field4_seed51_dual] step 270/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0264 | hop2: 0.0095
+[temper_het_notemper_seed4042_field4_seed51_dual] step 280/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0297 | hop2: 0.0258
+[temper_het_notemper_seed4042_field4_seed51_dual] step 290/390 trained 36/36 | hop0: 0.0086 | hop1: 0.0425 | hop2: 0.0357
+[temper_het_notemper_seed4042_field4_seed51_dual] step 300/390 trained 36/36 | hop0: 0.0165 | hop1: 0.0375 | hop2: 0.0416
+[temper_het_notemper_seed4042_field4_seed51_dual] step 310/390 trained 36/36 | hop0: 0.0192 | hop1: 0.0249 | hop2: 0.0240
+[temper_het_notemper_seed4042_field4_seed51_dual] step 320/390 trained 36/36 | hop0: 0.0084 | hop1: 0.0154 | hop2: 0.0071
+[temper_het_notemper_seed4042_field4_seed51_dual] step 330/390 trained 36/36 | hop0: 0.0166 | hop1: 0.0122 | hop2: 0.0030
+[temper_het_notemper_seed4042_field4_seed51_dual] step 340/390 trained 36/36 | hop0: 0.0321 | hop1: 0.0204 | hop2: 0.0034
+[temper_het_notemper_seed4042_field4_seed51_dual] step 350/390 trained 36/36 | hop0: 0.0302 | hop1: 0.0179 | hop2: 0.0093
+[temper_het_notemper_seed4042_field4_seed51_dual] step 360/390 trained 36/36 | hop0: 0.0160 | hop1: 0.0205
+[temper_het_notemper_seed4042_field4_seed51_dual] step 370/390 trained 36/36 | hop0: 0.0110 | hop1: 0.0105 | hop2: 0.0233
+[temper_het_notemper_seed4042_field4_seed51_dual] step 380/390 trained 36/36 | hop0: 0.0104 | hop1: 0.0183 | hop2: 0.0262
+[temper_het_notemper_seed4042_field4_seed51_dual] mean MSE (last 50 steps): 0.0144 | cert-MSE r=-0.054
+[temper_het_notemper_seed4042_field4_seed51_dual] per-variant whole-run MSE: narrow=0.0276, baseline=0.0188, wide=0.0325
+[temper_het_notemper_seed4042_field4_seed51_dual] saved runs\chapter5_v2\s5_9_temper_het_notemper\het_notemper\seed4042_field4_seed51_dual\figures\results.png
+
+### het_notemper/seed4042_field4_seed51_dual: whole_run=0.02519 last50=0.01441
+    trust_batch: n_updates=9991 cells/update=39.0 cert_mean=0.99517 WITHIN-UPDATE cv_mean=0.009683 cv_median=0.003393 range_mean=0.052416 cert_span=[0.2624,1.0000]
+    nu_cv_mean=0.18955 (BETWEEN-contributor, for contrast)
+=== DONE ===

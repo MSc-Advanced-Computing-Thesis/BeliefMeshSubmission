@@ -8,11 +8,18 @@
 # offset field, since a coloured background would imply the placement relates
 # to the environment when it does not.
 #
-# Coverage takes only the values {1,2,3,4,6,9} -- it factorises as
-# (row factor) x (col factor) with each factor in {1,2,3} -- so 5, 7 and 8 are
-# unreachable. A continuous 1-9 ramp would therefore spend a third of its range
-# on empty levels and imply 6->9 is a bigger step than 4->6. The scale here is
-# DISCRETE: one colour band per occurring level, equally spaced.
+# In THIS mesh coverage takes only the values {1,2,3,4,6,9} -- it factorises as
+# (row factor) x (col factor) with each factor in {1,2,3} -- so 5, 7 and 8 do
+# not occur. The scale is nonetheless DISCRETE OVER THE FULL RANGE 1..9, one
+# equally spaced band per level, NOT one band per occurring level.
+#
+# The reason is the other figure. The Section 5.7 node-loss coverage maps
+# (make_block2_figures.fig_57_maps) plot the same quantity for a PARTIALLY
+# FAILED mesh, which does produce 5, 7 and 8. Binning those onto occurring-only
+# levels would silently report a 5-covered cell as a 6 and an 8 as a 9 -- an
+# error no reader could detect. Sharing the full 1..9 scale costs this figure
+# nothing: it simply leaves three bands unused, and a cell with 4 covering
+# nodes renders identically in both figures. THE TWO MUST STAY IN STEP.
 #
 # Run: python -u experiments/stage6_spatial_mesh/make_mesh_geometry_figure.py
 
@@ -71,8 +78,14 @@ def build():
 
 
 def draw(centres, cov, G, annotate: bool, out: Path):
-    levels = sorted(np.unique(cov).tolist())
-    # discrete: one equal-width band per OCCURRING level
+    # FIXED levels 1..9, not the occurring ones. The node-loss coverage maps
+    # (make_block2_figures.fig_57_maps) plot the same quantity and DO exercise
+    # 5, 7 and 8; binning those onto occurring-only levels would misreport the
+    # count in a way a reader cannot detect. Sharing the full scale costs this
+    # figure nothing -- it simply leaves three bands unused. The two must stay
+    # in step.
+    levels = list(range(1, 10))
+    # discrete: one equal-width band per level
     base = plt.get_cmap("YlGnBu")
     colours = [base(0.12 + 0.80 * i / (len(levels) - 1)) for i in range(len(levels))]
     cmap = ListedColormap(colours)
@@ -105,7 +118,10 @@ def draw(centres, cov, G, annotate: bool, out: Path):
     for hc, col in zip(HIGHLIGHT_CENTRES, FOV_COLOURS):
         axL.scatter([hc[0]], [hc[1]], s=28, c=col,
                     edgecolors="white", linewidths=0.8, zorder=4)
-    axL.set_xticks([]); axL.set_yticks([])
+    axL.set_xticks([0, 7, 14, 21]); axL.set_yticks([0, 7, 14, 21])
+    axL.tick_params(labelsize=7.5, length=2, pad=1.5)
+    axL.set_xlabel("cell column", fontsize=8)
+    axL.set_ylabel("cell row", fontsize=8)
     for s in axL.spines.values():
         s.set_color("#999999"); s.set_linewidth(0.6)
     axL.set_title("Node placement", fontsize=10, pad=6)
@@ -113,16 +129,25 @@ def draw(centres, cov, G, annotate: bool, out: Path):
     # ---- right: coverage ------------------------------------------------
     axR.imshow(idx, cmap=cmap, norm=norm, interpolation="nearest")
     axR.set_aspect("equal")
-    axR.set_xticks([]); axR.set_yticks([])
+    # node_centres[:,0] is the COLUMN (cx), [:,1] the ROW (cy) -- same
+    # convention as make_block2_figures.fig_57_maps
+    if not annotate:
+        axR.plot(centres[:, 0], centres[:, 1], "o", ms=3.6, mfc="white",
+                 mec="#22252a", mew=0.8, ls="none", zorder=5)
+    axR.set_xticks([0, 7, 14, 21]); axR.set_yticks([0, 7, 14, 21])
+    axR.tick_params(labelsize=7.5, length=2, pad=1.5)
+    axR.set_xlabel("cell column", fontsize=8)
     for s in axR.spines.values():
         s.set_color("#999999"); s.set_linewidth(0.6)
     axR.set_title("Cell coverage", fontsize=10, pad=6)
     if annotate:
         for r in range(G):
             for c in range(G):
+                rgb = colours[idx[r, c]][:3]
+                lum = 0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]
                 axR.text(c, r, str(cov[r, c]), ha="center", va="center",
                          fontsize=3.1,
-                         color="white" if idx[r, c] >= len(levels) - 2 else "#333333")
+                         color="white" if lum < 0.55 else "#333333")
 
     cb = fig.colorbar(plt.cm.ScalarMappable(norm=norm, cmap=cmap), cax=cax,
                       ticks=np.arange(len(levels)))
@@ -131,7 +156,6 @@ def draw(centres, cov, G, annotate: bool, out: Path):
     cb.outline.set_visible(False)
     cb.ax.tick_params(length=0)
 
-    fig.savefig(out, bbox_inches="tight")
     fig.savefig(out.with_suffix(".png"), dpi=200, bbox_inches="tight")
     plt.close(fig)
     return levels
@@ -163,7 +187,7 @@ def main():
     print(f"cells with >=2 nodes (fusible): {int((cov>=2).sum())} "
           f"({100*(cov>=2).mean():.1f}%)")
     print(f"unreachable levels in [1,9]: {[v for v in range(1,10) if v not in levels]}")
-    print(f"\nsaved {OUT_DIR/'mesh_geometry.pdf'} and {OUT_DIR/'mesh_geometry_annotated.pdf'}")
+    print(f"\nsaved {OUT_DIR/'mesh_geometry.png'} and {OUT_DIR/'mesh_geometry_annotated.png'}")
 
 
 if __name__ == "__main__":

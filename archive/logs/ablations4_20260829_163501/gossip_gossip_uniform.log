@@ -1,0 +1,231 @@
+[gossip_cmp_gossip_uniform] nodes=36 coverage max=9 mode=gossip_uniform steps=390
+[gossip_cmp_gossip_uniform] step 000/390 trained 36/36 | hop0: 0.1081 | hop1: 0.0994
+[gossip_cmp_gossip_uniform] step 010/390 trained 36/36 | hop0: 0.0638 | hop1: 0.0775
+[gossip_cmp_gossip_uniform] step 020/390 trained 36/36 | hop0: 0.0628 | hop1: 0.0583 | hop2: 0.0589
+[gossip_cmp_gossip_uniform] step 030/390 trained 36/36 | hop0: 0.0458 | hop1: 0.0511 | hop2: 0.0713
+[gossip_cmp_gossip_uniform] step 040/390 trained 36/36 | hop0: 0.0348 | hop1: 0.0394 | hop2: 0.0495
+[gossip_cmp_gossip_uniform] step 050/390 trained 36/36 | hop0: 0.0318 | hop1: 0.0250 | hop2: 0.0298
+[gossip_cmp_gossip_uniform] step 060/390 trained 36/36 | hop0: 0.0189 | hop1: 0.0213 | hop2: 0.0251
+[gossip_cmp_gossip_uniform] step 070/390 trained 36/36 | hop0: 0.0131 | hop1: 0.0179 | hop2: 0.0235
+[gossip_cmp_gossip_uniform] step 080/390 trained 36/36 | hop0: 0.0100 | hop1: 0.0141 | hop2: 0.0319
+[gossip_cmp_gossip_uniform] step 090/390 trained 36/36 | hop0: 0.0093 | hop1: 0.0130
+[gossip_cmp_gossip_uniform] step 100/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0151 | hop2: 0.0265
+[gossip_cmp_gossip_uniform] step 110/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0182 | hop2: 0.0608
+[gossip_cmp_gossip_uniform] step 120/390 trained 36/36 | hop0: 0.0172 | hop1: 0.0284 | hop2: 0.0708
+[gossip_cmp_gossip_uniform] step 130/390 trained 36/36 | hop0: 0.0116 | hop1: 0.0409 | hop2: 0.0628
+[gossip_cmp_gossip_uniform] step 140/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0311 | hop2: 0.0469
+[gossip_cmp_gossip_uniform] step 150/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0112 | hop2: 0.0590
+[gossip_cmp_gossip_uniform] step 160/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0069 | hop2: 0.0270
+[gossip_cmp_gossip_uniform] step 170/390 trained 36/36 | hop0: 0.0030 | hop1: 0.0052 | hop2: 0.0121
+[gossip_cmp_gossip_uniform] step 180/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0042 | hop2: 0.0102
+[gossip_cmp_gossip_uniform] step 190/390 trained 36/36 | hop0: 0.0029 | hop1: 0.0053 | hop2: 0.0147
+[gossip_cmp_gossip_uniform] step 200/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0038 | hop2: 0.0096
+[gossip_cmp_gossip_uniform] step 210/390 trained 36/36 | hop0: 0.0030 | hop1: 0.0050 | hop2: 0.0045
+[gossip_cmp_gossip_uniform] step 220/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0039
+[gossip_cmp_gossip_uniform] step 230/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0041 | hop2: 0.0037
+[gossip_cmp_gossip_uniform] step 240/390 trained 36/36 | hop0: 0.0027 | hop1: 0.0058 | hop2: 0.0059
+[gossip_cmp_gossip_uniform] step 250/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0103 | hop2: 0.0179
+[gossip_cmp_gossip_uniform] step 260/390 trained 36/36 | hop0: 0.0071 | hop1: 0.0078
+[gossip_cmp_gossip_uniform] step 270/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0086 | hop2: 0.0316
+[gossip_cmp_gossip_uniform] step 280/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0083
+[gossip_cmp_gossip_uniform] step 290/390 trained 36/36 | hop0: 0.0107 | hop1: 0.0053 | hop2: 0.0110
+[gossip_cmp_gossip_uniform] step 300/390 trained 36/36 | hop0: 0.0127 | hop1: 0.0020 | hop2: 0.0047
+[gossip_cmp_gossip_uniform] step 310/390 trained 36/36 | hop0: 0.0082 | hop1: 0.0019 | hop2: 0.0019
+[gossip_cmp_gossip_uniform] step 320/390 trained 36/36 | hop0: 0.0018 | hop1: 0.0013 | hop2: 0.0004
+[gossip_cmp_gossip_uniform] step 330/390 trained 36/36 | hop0: 0.0018 | hop1: 0.0006 | hop2: 0.0003
+[gossip_cmp_gossip_uniform] step 340/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0018
+[gossip_cmp_gossip_uniform] step 350/390 trained 36/36 | hop0: 0.0098 | hop1: 0.0042 | hop2: 0.0010
+[gossip_cmp_gossip_uniform] step 360/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0150 | hop2: 0.0131
+[gossip_cmp_gossip_uniform] step 370/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0189 | hop2: 0.0375
+[gossip_cmp_gossip_uniform] step 380/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0212 | hop2: 0.0443
+[gossip_cmp_gossip_uniform] mean MSE (last 50 steps): 0.0163 | cert-MSE r=-0.454
+[gossip_cmp_gossip_uniform] saved runs\chapter5_v2\s5_5_gossip_gossip_uniform\gossip_cmp_gossip_uniform\figures\results.png
+
+### gossip_cmp_gossip_uniform: last50=0.0163 whole_run=0.0199 r=-0.4543
+    comm_bytes_total=146,109,292,400 (146109.29 MB over the run) mean/step=374,639,211 bytes
+[gossip_cmp_gossip_uniform_seed1042] nodes=36 coverage max=9 mode=gossip_uniform steps=390
+[gossip_cmp_gossip_uniform_seed1042] step 000/390 trained 36/36 | hop0: 0.0928 | hop1: 0.1051
+[gossip_cmp_gossip_uniform_seed1042] step 010/390 trained 36/36 | hop0: 0.0728 | hop1: 0.0775 | hop2: 0.1337
+[gossip_cmp_gossip_uniform_seed1042] step 020/390 trained 36/36 | hop0: 0.0504 | hop1: 0.0562
+[gossip_cmp_gossip_uniform_seed1042] step 030/390 trained 36/36 | hop0: 0.0561 | hop1: 0.0520 | hop2: 0.0542
+[gossip_cmp_gossip_uniform_seed1042] step 040/390 trained 36/36 | hop0: 0.0381 | hop1: 0.0387 | hop2: 0.0537
+[gossip_cmp_gossip_uniform_seed1042] step 050/390 trained 36/36 | hop0: 0.0280 | hop1: 0.0236 | hop2: 0.0351
+[gossip_cmp_gossip_uniform_seed1042] step 060/390 trained 36/36 | hop0: 0.0234 | hop1: 0.0205 | hop2: 0.0300
+[gossip_cmp_gossip_uniform_seed1042] step 070/390 trained 36/36 | hop0: 0.0142 | hop1: 0.0145 | hop2: 0.0296
+[gossip_cmp_gossip_uniform_seed1042] step 080/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0139 | hop2: 0.0461
+[gossip_cmp_gossip_uniform_seed1042] step 090/390 trained 36/36 | hop0: 0.0089 | hop1: 0.0104 | hop2: 0.0206
+[gossip_cmp_gossip_uniform_seed1042] step 100/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0082
+[gossip_cmp_gossip_uniform_seed1042] step 110/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0058 | hop2: 0.0157
+[gossip_cmp_gossip_uniform_seed1042] step 120/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0100 | hop2: 0.0451
+[gossip_cmp_gossip_uniform_seed1042] step 130/390 trained 36/36 | hop0: 0.0133 | hop1: 0.0165 | hop2: 0.0453
+[gossip_cmp_gossip_uniform_seed1042] step 140/390 trained 36/36 | hop0: 0.0148 | hop1: 0.0143 | hop2: 0.0532
+[gossip_cmp_gossip_uniform_seed1042] step 150/390 trained 36/36 | hop0: 0.0118 | hop1: 0.0115 | hop2: 0.0379
+[gossip_cmp_gossip_uniform_seed1042] step 160/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0088 | hop2: 0.0402
+[gossip_cmp_gossip_uniform_seed1042] step 170/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0151 | hop2: 0.0353
+[gossip_cmp_gossip_uniform_seed1042] step 180/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0119 | hop2: 0.0263
+[gossip_cmp_gossip_uniform_seed1042] step 190/390 trained 36/36 | hop0: 0.0079 | hop1: 0.0111
+[gossip_cmp_gossip_uniform_seed1042] step 200/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0078 | hop2: 0.0128
+[gossip_cmp_gossip_uniform_seed1042] step 210/390 trained 36/36 | hop0: 0.0032 | hop1: 0.0083
+[gossip_cmp_gossip_uniform_seed1042] step 220/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0044 | hop2: 0.0031
+[gossip_cmp_gossip_uniform_seed1042] step 230/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0040 | hop2: 0.0061
+[gossip_cmp_gossip_uniform_seed1042] step 240/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0082 | hop2: 0.0148
+[gossip_cmp_gossip_uniform_seed1042] step 250/390 trained 36/36 | hop0: 0.0049 | hop1: 0.0090 | hop2: 0.0156
+[gossip_cmp_gossip_uniform_seed1042] step 260/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0127 | hop2: 0.0156
+[gossip_cmp_gossip_uniform_seed1042] step 270/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0096
+[gossip_cmp_gossip_uniform_seed1042] step 280/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0077
+[gossip_cmp_gossip_uniform_seed1042] step 290/390 trained 36/36 | hop0: 0.0018 | hop1: 0.0070
+[gossip_cmp_gossip_uniform_seed1042] step 300/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0091 | hop2: 0.0116
+[gossip_cmp_gossip_uniform_seed1042] step 310/390 trained 36/36 | hop0: 0.0027 | hop1: 0.0061 | hop2: 0.0088
+[gossip_cmp_gossip_uniform_seed1042] step 320/390 trained 36/36 | hop0: 0.0019 | hop1: 0.0017 | hop2: 0.0014
+[gossip_cmp_gossip_uniform_seed1042] step 330/390 trained 36/36 | hop0: 0.0007 | hop1: 0.0005 | hop2: 0.0007
+[gossip_cmp_gossip_uniform_seed1042] step 340/390 trained 36/36 | hop0: 0.0020 | hop1: 0.0040 | hop2: 0.0024
+[gossip_cmp_gossip_uniform_seed1042] step 350/390 trained 36/36 | hop0: 0.0015 | hop1: 0.0114 | hop2: 0.0164
+[gossip_cmp_gossip_uniform_seed1042] step 360/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0112 | hop2: 0.0600
+[gossip_cmp_gossip_uniform_seed1042] step 370/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0259 | hop2: 0.0616
+[gossip_cmp_gossip_uniform_seed1042] step 380/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0186 | hop2: 0.0477
+[gossip_cmp_gossip_uniform_seed1042] mean MSE (last 50 steps): 0.0174 | cert-MSE r=-0.157
+[gossip_cmp_gossip_uniform_seed1042] saved runs\chapter5_v2\s5_5_gossip_gossip_uniform\gossip_cmp_gossip_uniform_seed1042\figures\results.png
+
+### gossip_cmp_gossip_uniform_seed1042: last50=0.0174 whole_run=0.0192 r=-0.1571
+    comm_bytes_total=143,458,716,480 (143458.72 MB over the run) mean/step=367,842,863 bytes
+[gossip_cmp_gossip_uniform_seed2042] nodes=36 coverage max=9 mode=gossip_uniform steps=390
+[gossip_cmp_gossip_uniform_seed2042] step 000/390 trained 36/36 | hop0: 0.0980 | hop1: 0.0843 | hop2: 0.0967
+[gossip_cmp_gossip_uniform_seed2042] step 010/390 trained 36/36 | hop0: 0.0869 | hop1: 0.0863 | hop2: 0.0789
+[gossip_cmp_gossip_uniform_seed2042] step 020/390 trained 36/36 | hop0: 0.0663 | hop1: 0.0620 | hop2: 0.0641
+[gossip_cmp_gossip_uniform_seed2042] step 030/390 trained 36/36 | hop0: 0.0544 | hop1: 0.0408 | hop2: 0.0495
+[gossip_cmp_gossip_uniform_seed2042] step 040/390 trained 36/36 | hop0: 0.0311 | hop1: 0.0409 | hop2: 0.0491
+[gossip_cmp_gossip_uniform_seed2042] step 050/390 trained 36/36 | hop0: 0.0322 | hop1: 0.0294 | hop2: 0.0285 | hop3: 0.0393
+[gossip_cmp_gossip_uniform_seed2042] step 060/390 trained 36/36 | hop0: 0.0209 | hop1: 0.0194 | hop2: 0.0303
+[gossip_cmp_gossip_uniform_seed2042] step 070/390 trained 36/36 | hop0: 0.0197 | hop1: 0.0197 | hop2: 0.0376
+[gossip_cmp_gossip_uniform_seed2042] step 080/390 trained 36/36 | hop0: 0.0137 | hop1: 0.0169 | hop2: 0.0353
+[gossip_cmp_gossip_uniform_seed2042] step 090/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0095 | hop2: 0.0169
+[gossip_cmp_gossip_uniform_seed2042] step 100/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0097 | hop2: 0.0068
+[gossip_cmp_gossip_uniform_seed2042] step 110/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0112 | hop2: 0.0224
+[gossip_cmp_gossip_uniform_seed2042] step 120/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0242
+[gossip_cmp_gossip_uniform_seed2042] step 130/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0284 | hop2: 0.1366
+[gossip_cmp_gossip_uniform_seed2042] step 140/390 trained 36/36 | hop0: 0.0082 | hop1: 0.0365 | hop2: 0.1419
+[gossip_cmp_gossip_uniform_seed2042] step 150/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0321 | hop2: 0.0944
+[gossip_cmp_gossip_uniform_seed2042] step 160/390 trained 36/36 | hop0: 0.0095 | hop1: 0.0226 | hop2: 0.0413
+[gossip_cmp_gossip_uniform_seed2042] step 170/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0182 | hop2: 0.0265
+[gossip_cmp_gossip_uniform_seed2042] step 180/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0078 | hop2: 0.0065
+[gossip_cmp_gossip_uniform_seed2042] step 190/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0072 | hop2: 0.0027
+[gossip_cmp_gossip_uniform_seed2042] step 200/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0095
+[gossip_cmp_gossip_uniform_seed2042] step 210/390 trained 36/36 | hop0: 0.0032 | hop1: 0.0110
+[gossip_cmp_gossip_uniform_seed2042] step 220/390 trained 36/36 | hop0: 0.0029 | hop1: 0.0082 | hop2: 0.0305
+[gossip_cmp_gossip_uniform_seed2042] step 230/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0141 | hop2: 0.0445
+[gossip_cmp_gossip_uniform_seed2042] step 240/390 trained 36/36 | hop0: 0.0082 | hop1: 0.0195 | hop2: 0.0408
+[gossip_cmp_gossip_uniform_seed2042] step 250/390 trained 36/36 | hop0: 0.0090 | hop1: 0.0180 | hop2: 0.0346
+[gossip_cmp_gossip_uniform_seed2042] step 260/390 trained 36/36 | hop0: 0.0179 | hop1: 0.0151 | hop2: 0.0391
+[gossip_cmp_gossip_uniform_seed2042] step 270/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0238 | hop2: 0.0576 | hop3: 0.0863
+[gossip_cmp_gossip_uniform_seed2042] step 280/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0174 | hop2: 0.0373
+[gossip_cmp_gossip_uniform_seed2042] step 290/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0161 | hop2: 0.0252
+[gossip_cmp_gossip_uniform_seed2042] step 300/390 trained 36/36 | hop0: 0.0014 | hop1: 0.0052 | hop2: 0.0239 | hop3: 0.0149
+[gossip_cmp_gossip_uniform_seed2042] step 310/390 trained 36/36 | hop0: 0.0012 | hop1: 0.0059 | hop2: 0.0223 | hop3: 0.0119
+[gossip_cmp_gossip_uniform_seed2042] step 320/390 trained 36/36 | hop0: 0.0020 | hop1: 0.0029 | hop2: 0.0070
+[gossip_cmp_gossip_uniform_seed2042] step 330/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0009 | hop2: 0.0007 | hop3: 0.0007
+[gossip_cmp_gossip_uniform_seed2042] step 340/390 trained 36/36 | hop0: 0.0011 | hop1: 0.0031 | hop2: 0.0103 | hop3: 0.0113
+[gossip_cmp_gossip_uniform_seed2042] step 350/390 trained 36/36 | hop0: 0.0022 | hop1: 0.0074 | hop2: 0.0296 | hop3: 0.0340
+[gossip_cmp_gossip_uniform_seed2042] step 360/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0094 | hop2: 0.0549
+[gossip_cmp_gossip_uniform_seed2042] step 370/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0130 | hop2: 0.0709
+[gossip_cmp_gossip_uniform_seed2042] step 380/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0102 | hop2: 0.0343
+[gossip_cmp_gossip_uniform_seed2042] mean MSE (last 50 steps): 0.0156 | cert-MSE r=-0.142
+[gossip_cmp_gossip_uniform_seed2042] saved runs\chapter5_v2\s5_5_gossip_gossip_uniform\gossip_cmp_gossip_uniform_seed2042\figures\results.png
+
+### gossip_cmp_gossip_uniform_seed2042: last50=0.0156 whole_run=0.0228 r=-0.1420
+    comm_bytes_total=150,095,296,800 (150095.30 MB over the run) mean/step=384,859,735 bytes
+[gossip_cmp_gossip_uniform_seed3042] nodes=36 coverage max=9 mode=gossip_uniform steps=390
+[gossip_cmp_gossip_uniform_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0920 | hop2: 0.1588
+[gossip_cmp_gossip_uniform_seed3042] step 010/390 trained 36/36 | hop0: 0.0678 | hop1: 0.0895
+[gossip_cmp_gossip_uniform_seed3042] step 020/390 trained 36/36 | hop0: 0.0659 | hop1: 0.0739
+[gossip_cmp_gossip_uniform_seed3042] step 030/390 trained 36/36 | hop0: 0.0589 | hop1: 0.0625
+[gossip_cmp_gossip_uniform_seed3042] step 040/390 trained 36/36 | hop0: 0.0418 | hop1: 0.0464
+[gossip_cmp_gossip_uniform_seed3042] step 050/390 trained 36/36 | hop0: 0.0255 | hop1: 0.0337 | hop2: 0.0365
+[gossip_cmp_gossip_uniform_seed3042] step 060/390 trained 36/36 | hop0: 0.0272 | hop1: 0.0239 | hop2: 0.0377
+[gossip_cmp_gossip_uniform_seed3042] step 070/390 trained 36/36 | hop0: 0.0164 | hop1: 0.0192 | hop2: 0.0346
+[gossip_cmp_gossip_uniform_seed3042] step 080/390 trained 36/36 | hop0: 0.0104 | hop1: 0.0133 | hop2: 0.0304
+[gossip_cmp_gossip_uniform_seed3042] step 090/390 trained 36/36 | hop0: 0.0086 | hop1: 0.0101 | hop2: 0.0155 | hop3: 0.0147
+[gossip_cmp_gossip_uniform_seed3042] step 100/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0109 | hop2: 0.0098
+[gossip_cmp_gossip_uniform_seed3042] step 110/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0137 | hop2: 0.0298
+[gossip_cmp_gossip_uniform_seed3042] step 120/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0180 | hop2: 0.0196
+[gossip_cmp_gossip_uniform_seed3042] step 130/390 trained 36/36 | hop0: 0.0105 | hop1: 0.0170 | hop2: 0.0136
+[gossip_cmp_gossip_uniform_seed3042] step 140/390 trained 36/36 | hop0: 0.0162 | hop1: 0.0065 | hop2: 0.0081
+[gossip_cmp_gossip_uniform_seed3042] step 150/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0077 | hop2: 0.0044
+[gossip_cmp_gossip_uniform_seed3042] step 160/390 trained 36/36 | hop0: 0.0092 | hop1: 0.0062 | hop2: 0.0023
+[gossip_cmp_gossip_uniform_seed3042] step 170/390 trained 36/36 | hop0: 0.0115 | hop1: 0.0074 | hop2: 0.0013
+[gossip_cmp_gossip_uniform_seed3042] step 180/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0102
+[gossip_cmp_gossip_uniform_seed3042] step 190/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0113
+[gossip_cmp_gossip_uniform_seed3042] step 200/390 trained 36/36 | hop0: 0.0050 | hop1: 0.0127
+[gossip_cmp_gossip_uniform_seed3042] step 210/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0106 | hop2: 0.0034
+[gossip_cmp_gossip_uniform_seed3042] step 220/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0060 | hop2: 0.0021
+[gossip_cmp_gossip_uniform_seed3042] step 230/390 trained 36/36 | hop0: 0.0049 | hop1: 0.0093 | hop2: 0.0083
+[gossip_cmp_gossip_uniform_seed3042] step 240/390 trained 36/36 | hop0: 0.0132 | hop1: 0.0150 | hop2: 0.0602
+[gossip_cmp_gossip_uniform_seed3042] step 250/390 trained 36/36 | hop0: 0.0137 | hop1: 0.0194 | hop2: 0.0898
+[gossip_cmp_gossip_uniform_seed3042] step 260/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0190 | hop2: 0.0759
+[gossip_cmp_gossip_uniform_seed3042] step 270/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0122 | hop2: 0.0360
+[gossip_cmp_gossip_uniform_seed3042] step 280/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0075 | hop2: 0.0229
+[gossip_cmp_gossip_uniform_seed3042] step 290/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0093
+[gossip_cmp_gossip_uniform_seed3042] step 300/390 trained 36/36 | hop0: 0.0029 | hop1: 0.0079 | hop2: 0.0056
+[gossip_cmp_gossip_uniform_seed3042] step 310/390 trained 36/36 | hop0: 0.0013 | hop1: 0.0056 | hop2: 0.0052
+[gossip_cmp_gossip_uniform_seed3042] step 320/390 trained 36/36 | hop0: 0.0010 | hop1: 0.0015 | hop2: 0.0016
+[gossip_cmp_gossip_uniform_seed3042] step 330/390 trained 36/36 | hop0: 0.0003 | hop1: 0.0003
+[gossip_cmp_gossip_uniform_seed3042] step 340/390 trained 36/36 | hop0: 0.0014 | hop1: 0.0027
+[gossip_cmp_gossip_uniform_seed3042] step 350/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0055 | hop2: 0.0155
+[gossip_cmp_gossip_uniform_seed3042] step 360/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0126 | hop2: 0.0127
+[gossip_cmp_gossip_uniform_seed3042] step 370/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0159
+[gossip_cmp_gossip_uniform_seed3042] step 380/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0157 | hop2: 0.0286
+[gossip_cmp_gossip_uniform_seed3042] mean MSE (last 50 steps): 0.0143 | cert-MSE r=-0.238
+[gossip_cmp_gossip_uniform_seed3042] saved runs\chapter5_v2\s5_5_gossip_gossip_uniform\gossip_cmp_gossip_uniform_seed3042\figures\results.png
+
+### gossip_cmp_gossip_uniform_seed3042: last50=0.0143 whole_run=0.0195 r=-0.2376
+    comm_bytes_total=143,188,822,640 (143188.82 MB over the run) mean/step=367,150,827 bytes
+[gossip_cmp_gossip_uniform_seed4042] nodes=36 coverage max=9 mode=gossip_uniform steps=390
+[gossip_cmp_gossip_uniform_seed4042] step 000/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0974 | hop2: 0.1196
+[gossip_cmp_gossip_uniform_seed4042] step 010/390 trained 36/36 | hop0: 0.0663 | hop1: 0.0765
+[gossip_cmp_gossip_uniform_seed4042] step 020/390 trained 36/36 | hop0: 0.0578 | hop1: 0.0629 | hop2: 0.1146
+[gossip_cmp_gossip_uniform_seed4042] step 030/390 trained 36/36 | hop0: 0.0568 | hop1: 0.0532 | hop2: 0.0532
+[gossip_cmp_gossip_uniform_seed4042] step 040/390 trained 36/36 | hop0: 0.0391 | hop1: 0.0404 | hop2: 0.0485
+[gossip_cmp_gossip_uniform_seed4042] step 050/390 trained 36/36 | hop0: 0.0256 | hop1: 0.0287 | hop2: 0.0459
+[gossip_cmp_gossip_uniform_seed4042] step 060/390 trained 36/36 | hop0: 0.0201 | hop1: 0.0191 | hop2: 0.0305
+[gossip_cmp_gossip_uniform_seed4042] step 070/390 trained 36/36 | hop0: 0.0159 | hop1: 0.0193 | hop2: 0.0286
+[gossip_cmp_gossip_uniform_seed4042] step 080/390 trained 36/36 | hop0: 0.0104 | hop1: 0.0138 | hop2: 0.0327
+[gossip_cmp_gossip_uniform_seed4042] step 090/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0110 | hop2: 0.0300 | hop3: 0.0605
+[gossip_cmp_gossip_uniform_seed4042] step 100/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0088 | hop2: 0.0332 | hop3: 0.0660
+[gossip_cmp_gossip_uniform_seed4042] step 110/390 trained 36/36 | hop0: 0.0071 | hop1: 0.0213 | hop2: 0.0684
+[gossip_cmp_gossip_uniform_seed4042] step 120/390 trained 36/36 | hop0: 0.0272 | hop1: 0.0208 | hop2: 0.0622
+[gossip_cmp_gossip_uniform_seed4042] step 130/390 trained 36/36 | hop0: 0.0337 | hop1: 0.0227
+[gossip_cmp_gossip_uniform_seed4042] step 140/390 trained 36/36 | hop0: 0.0267 | hop1: 0.0166 | hop2: 0.0361
+[gossip_cmp_gossip_uniform_seed4042] step 150/390 trained 36/36 | hop0: 0.0187 | hop1: 0.0119 | hop2: 0.0430
+[gossip_cmp_gossip_uniform_seed4042] step 160/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0233 | hop2: 0.0584
+[gossip_cmp_gossip_uniform_seed4042] step 170/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0206 | hop2: 0.0410
+[gossip_cmp_gossip_uniform_seed4042] step 180/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0127 | hop2: 0.0150
+[gossip_cmp_gossip_uniform_seed4042] step 190/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0097 | hop2: 0.0119
+[gossip_cmp_gossip_uniform_seed4042] step 200/390 trained 36/36 | hop0: 0.0033 | hop1: 0.0073 | hop2: 0.0094
+[gossip_cmp_gossip_uniform_seed4042] step 210/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0053 | hop2: 0.0106
+[gossip_cmp_gossip_uniform_seed4042] step 220/390 trained 36/36 | hop0: 0.0027 | hop1: 0.0064 | hop2: 0.0279
+[gossip_cmp_gossip_uniform_seed4042] step 230/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0091
+[gossip_cmp_gossip_uniform_seed4042] step 240/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0129
+[gossip_cmp_gossip_uniform_seed4042] step 250/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0128 | hop2: 0.0152
+[gossip_cmp_gossip_uniform_seed4042] step 260/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0136 | hop2: 0.0064
+[gossip_cmp_gossip_uniform_seed4042] step 270/390 trained 36/36 | hop0: 0.0048 | hop1: 0.0088 | hop2: 0.0021
+[gossip_cmp_gossip_uniform_seed4042] step 280/390 trained 36/36 | hop0: 0.0023 | hop1: 0.0068 | hop2: 0.0025
+[gossip_cmp_gossip_uniform_seed4042] step 290/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0047 | hop2: 0.0058
+[gossip_cmp_gossip_uniform_seed4042] step 300/390 trained 36/36 | hop0: 0.0032 | hop1: 0.0056 | hop2: 0.0033
+[gossip_cmp_gossip_uniform_seed4042] step 310/390 trained 36/36 | hop0: 0.0013 | hop1: 0.0076 | hop2: 0.0138
+[gossip_cmp_gossip_uniform_seed4042] step 320/390 trained 36/36 | hop0: 0.0014 | hop1: 0.0033 | hop2: 0.0026
+[gossip_cmp_gossip_uniform_seed4042] step 330/390 trained 36/36 | hop0: 0.0005 | hop1: 0.0005 | hop2: 0.0003
+[gossip_cmp_gossip_uniform_seed4042] step 340/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0018 | hop2: 0.0007
+[gossip_cmp_gossip_uniform_seed4042] step 350/390 trained 36/36 | hop0: 0.0114 | hop1: 0.0042 | hop2: 0.0016
+[gossip_cmp_gossip_uniform_seed4042] step 360/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0084
+[gossip_cmp_gossip_uniform_seed4042] step 370/390 trained 36/36 | hop0: 0.0049 | hop1: 0.0165 | hop2: 0.0462
+[gossip_cmp_gossip_uniform_seed4042] step 380/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0136 | hop2: 0.0719
+[gossip_cmp_gossip_uniform_seed4042] mean MSE (last 50 steps): 0.0126 | cert-MSE r=-0.378
+[gossip_cmp_gossip_uniform_seed4042] saved runs\chapter5_v2\s5_5_gossip_gossip_uniform\gossip_cmp_gossip_uniform_seed4042\figures\results.png
+
+### gossip_cmp_gossip_uniform_seed4042: last50=0.0126 whole_run=0.0211 r=-0.3776
+    comm_bytes_total=143,769,172,400 (143769.17 MB over the run) mean/step=368,638,904 bytes
+
+=== gossip_uniform 5-SEED SUMMARY (this invocation, seeds=[42, 1042, 2042, 3042, 4042]) ===
+whole_run MSE: mean=0.0205 std=0.0013 values=[np.float64(0.0199), np.float64(0.0192), np.float64(0.0228), np.float64(0.0195), np.float64(0.0211)]
+last50 MSE:    mean=0.0152 std=0.0017 values=[np.float64(0.0163), np.float64(0.0174), np.float64(0.0156), np.float64(0.0143), np.float64(0.0126)]
+r:             mean=-0.2737 std=0.1230 values=[np.float64(-0.4543), np.float64(-0.1571), np.float64(-0.142), np.float64(-0.2376), np.float64(-0.3776)]
+=== DONE ===

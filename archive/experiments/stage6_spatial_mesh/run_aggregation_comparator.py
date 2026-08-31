@@ -49,10 +49,11 @@ MODES = ["frozen", "naive", "certainty", "nig_product"]
 
 
 def run_one(mode: str, seed: int, world: str = "offset", lam: float = DEFAULT_LAM,
-           track_disagreement: bool = False):
+           track_disagreement: bool = False, root_override=None):
     cfg = load_config()
     cfg.model.lr = LR
-    root = Path(f"runs/stage6/{world}_world/aggregation_comparator")
+    root = (Path(root_override) if root_override
+            else Path(f"runs/stage6/{world}_world/aggregation_comparator"))
     if lam != DEFAULT_LAM:
         root = root.parent / f"{root.name}_lam{lam:g}"
     root.mkdir(parents=True, exist_ok=True)
@@ -99,11 +100,12 @@ def run_one(mode: str, seed: int, world: str = "offset", lam: float = DEFAULT_LA
 
 
 def main(mode: str, seeds: list[int], world: str = "offset", lam: float = DEFAULT_LAM,
-        track_disagreement: bool = False):
+        track_disagreement: bool = False, root_override=None):
     results = []
     for seed in seeds:
         results.append(run_one(mode, seed, world=world, lam=lam,
-                               track_disagreement=track_disagreement))
+                               track_disagreement=track_disagreement,
+                               root_override=root_override))
     if len(seeds) > 1:
         arr = np.array(results)  # (n_seeds, 4): whole_run, last50, r_mean, r_std
         print(f"\n=== {mode} {len(seeds)}-SEED SUMMARY (seeds={seeds}) ===")
@@ -123,6 +125,8 @@ if __name__ == "__main__":
     parser.add_argument("--world", choices=["offset", "colour"], default="offset")
     parser.add_argument("--lam", type=float, default=DEFAULT_LAM)
     parser.add_argument("--track-disagreement", action="store_true")
+    parser.add_argument("--root", type=str, default=None,
+                        help="output root; default (None) keeps the original path")
     args = parser.parse_args()
     main(args.mode, [int(s) for s in args.seeds.split(",")], world=args.world, lam=args.lam,
-        track_disagreement=args.track_disagreement)
+        track_disagreement=args.track_disagreement, root_override=args.root)

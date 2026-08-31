@@ -1,0 +1,141 @@
+[nig_cmp_nig_product_consensus_seed2042] nodes=36 coverage max=9 mode=nig_product_consensus steps=390
+[nig_cmp_nig_product_consensus_seed2042] step 000/390 trained 36/36 | hop0: 0.0980 | hop1: 0.0853 | hop2: 0.0981
+[nig_cmp_nig_product_consensus_seed2042] step 010/390 trained 36/36 | hop0: 0.0873 | hop1: 0.1014 | hop2: 0.0988
+[nig_cmp_nig_product_consensus_seed2042] step 020/390 trained 36/36 | hop0: 0.0688 | hop1: 0.0798 | hop2: 0.0933
+[nig_cmp_nig_product_consensus_seed2042] step 030/390 trained 36/36 | hop0: 0.0656 | hop1: 0.0613 | hop2: 0.0846
+[nig_cmp_nig_product_consensus_seed2042] step 040/390 trained 36/36 | hop0: 0.0431 | hop1: 0.0634 | hop2: 0.0934
+[nig_cmp_nig_product_consensus_seed2042] step 050/390 trained 36/36 | hop0: 0.0448 | hop1: 0.0504 | hop2: 0.0668 | hop3: 0.0950
+[nig_cmp_nig_product_consensus_seed2042] step 060/390 trained 36/36 | hop0: 0.0431 | hop1: 0.0384 | hop2: 0.0735
+[nig_cmp_nig_product_consensus_seed2042] step 070/390 trained 36/36 | hop0: 0.0341 | hop1: 0.0404 | hop2: 0.0655
+[nig_cmp_nig_product_consensus_seed2042] step 080/390 trained 36/36 | hop0: 0.0247 | hop1: 0.0325 | hop2: 0.0584
+[nig_cmp_nig_product_consensus_seed2042] step 090/390 trained 36/36 | hop0: 0.0153 | hop1: 0.0242 | hop2: 0.0507
+[nig_cmp_nig_product_consensus_seed2042] step 100/390 trained 36/36 | hop0: 0.0144 | hop1: 0.0182 | hop2: 0.0282
+[nig_cmp_nig_product_consensus_seed2042] step 110/390 trained 36/36 | hop0: 0.0140 | hop1: 0.0163 | hop2: 0.0224
+[nig_cmp_nig_product_consensus_seed2042] step 120/390 trained 36/36 | hop0: 0.0103 | hop1: 0.0283
+[nig_cmp_nig_product_consensus_seed2042] step 130/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0248 | hop2: 0.1374
+[nig_cmp_nig_product_consensus_seed2042] step 140/390 trained 36/36 | hop0: 0.0089 | hop1: 0.0327 | hop2: 0.1389
+[nig_cmp_nig_product_consensus_seed2042] step 150/390 trained 36/36 | hop0: 0.0050 | hop1: 0.0246 | hop2: 0.0725
+[nig_cmp_nig_product_consensus_seed2042] step 160/390 trained 36/36 | hop0: 0.0048 | hop1: 0.0279 | hop2: 0.0618
+[nig_cmp_nig_product_consensus_seed2042] step 170/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0263 | hop2: 0.0544
+[nig_cmp_nig_product_consensus_seed2042] step 180/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0131 | hop2: 0.0228
+[nig_cmp_nig_product_consensus_seed2042] step 190/390 trained 36/36 | hop0: 0.0101 | hop1: 0.0134 | hop2: 0.0173
+[nig_cmp_nig_product_consensus_seed2042] step 200/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0129
+[nig_cmp_nig_product_consensus_seed2042] step 210/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0123
+[nig_cmp_nig_product_consensus_seed2042] step 220/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0097 | hop2: 0.0320
+[nig_cmp_nig_product_consensus_seed2042] step 230/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0120 | hop2: 0.0335
+[nig_cmp_nig_product_consensus_seed2042] step 240/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0194 | hop2: 0.0376
+[nig_cmp_nig_product_consensus_seed2042] step 250/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0154 | hop2: 0.0414
+[nig_cmp_nig_product_consensus_seed2042] step 260/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0117 | hop2: 0.0345
+[nig_cmp_nig_product_consensus_seed2042] step 270/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0082 | hop2: 0.0185 | hop3: 0.0286
+[nig_cmp_nig_product_consensus_seed2042] step 280/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0146 | hop2: 0.0164
+[nig_cmp_nig_product_consensus_seed2042] step 290/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0213 | hop2: 0.0179
+[nig_cmp_nig_product_consensus_seed2042] step 300/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0054 | hop2: 0.0313 | hop3: 0.0216
+[nig_cmp_nig_product_consensus_seed2042] step 310/390 trained 36/36 | hop0: 0.0019 | hop1: 0.0044 | hop2: 0.0234 | hop3: 0.0169
+[nig_cmp_nig_product_consensus_seed2042] step 320/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0052 | hop2: 0.0143
+[nig_cmp_nig_product_consensus_seed2042] step 330/390 trained 36/36 | hop0: 0.0023 | hop1: 0.0038 | hop2: 0.0074 | hop3: 0.0116
+[nig_cmp_nig_product_consensus_seed2042] step 340/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0026 | hop2: 0.0070 | hop3: 0.0122
+[nig_cmp_nig_product_consensus_seed2042] step 350/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0064 | hop2: 0.0259 | hop3: 0.0422
+[nig_cmp_nig_product_consensus_seed2042] step 360/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0117 | hop2: 0.0668
+[nig_cmp_nig_product_consensus_seed2042] step 370/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0176 | hop2: 0.1006
+[nig_cmp_nig_product_consensus_seed2042] step 380/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0106 | hop2: 0.0320
+[nig_cmp_nig_product_consensus_seed2042] mean MSE (last 50 steps): 0.0180 | cert-MSE r=-0.052
+[nig_cmp_nig_product_consensus_seed2042] saved runs\chapter5_v2\s5_9_nig_weighted\nig_cmp_nig_product_consensus_seed2042\figures\results.png
+
+### nig_cmp_nig_product_consensus_seed2042: last50=0.0180 whole_run=0.0286 r=-0.0519
+    final_consensus: mean=0.8858 std=0.0767 min=0.7563 max=1.0000
+[nig_cmp_nig_product_consensus_seed3042] nodes=36 coverage max=9 mode=nig_product_consensus steps=390
+[nig_cmp_nig_product_consensus_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0930 | hop2: 0.1605
+[nig_cmp_nig_product_consensus_seed3042] step 010/390 trained 36/36 | hop0: 0.0726 | hop1: 0.1025
+[nig_cmp_nig_product_consensus_seed3042] step 020/390 trained 36/36 | hop0: 0.0753 | hop1: 0.0899
+[nig_cmp_nig_product_consensus_seed3042] step 030/390 trained 36/36 | hop0: 0.0679 | hop1: 0.0836
+[nig_cmp_nig_product_consensus_seed3042] step 040/390 trained 36/36 | hop0: 0.0590 | hop1: 0.0630
+[nig_cmp_nig_product_consensus_seed3042] step 050/390 trained 36/36 | hop0: 0.0415 | hop1: 0.0486 | hop2: 0.0510
+[nig_cmp_nig_product_consensus_seed3042] step 060/390 trained 36/36 | hop0: 0.0447 | hop1: 0.0409 | hop2: 0.0539
+[nig_cmp_nig_product_consensus_seed3042] step 070/390 trained 36/36 | hop0: 0.0278 | hop1: 0.0367 | hop2: 0.0752
+[nig_cmp_nig_product_consensus_seed3042] step 080/390 trained 36/36 | hop0: 0.0184 | hop1: 0.0285 | hop2: 0.0827
+[nig_cmp_nig_product_consensus_seed3042] step 090/390 trained 36/36 | hop0: 0.0141 | hop1: 0.0232 | hop2: 0.0537 | hop3: 0.0659
+[nig_cmp_nig_product_consensus_seed3042] step 100/390 trained 36/36 | hop0: 0.0152 | hop1: 0.0196 | hop2: 0.0354
+[nig_cmp_nig_product_consensus_seed3042] step 110/390 trained 36/36 | hop0: 0.0124 | hop1: 0.0208 | hop2: 0.0283
+[nig_cmp_nig_product_consensus_seed3042] step 120/390 trained 36/36 | hop0: 0.0128 | hop1: 0.0297 | hop2: 0.0244
+[nig_cmp_nig_product_consensus_seed3042] step 130/390 trained 36/36 | hop0: 0.0156 | hop1: 0.0345 | hop2: 0.0543
+[nig_cmp_nig_product_consensus_seed3042] step 140/390 trained 36/36 | hop0: 0.0267 | hop1: 0.0183 | hop2: 0.0106
+[nig_cmp_nig_product_consensus_seed3042] step 150/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0098 | hop2: 0.0039
+[nig_cmp_nig_product_consensus_seed3042] step 160/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0130 | hop2: 0.0064
+[nig_cmp_nig_product_consensus_seed3042] step 170/390 trained 36/36 | hop0: 0.0127 | hop1: 0.0160 | hop2: 0.0120
+[nig_cmp_nig_product_consensus_seed3042] step 180/390 trained 36/36 | hop0: 0.0195 | hop1: 0.0111
+[nig_cmp_nig_product_consensus_seed3042] step 190/390 trained 36/36 | hop0: 0.0173 | hop1: 0.0112
+[nig_cmp_nig_product_consensus_seed3042] step 200/390 trained 36/36 | hop0: 0.0132 | hop1: 0.0111
+[nig_cmp_nig_product_consensus_seed3042] step 210/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0100 | hop2: 0.0035
+[nig_cmp_nig_product_consensus_seed3042] step 220/390 trained 36/36 | hop0: 0.0053 | hop1: 0.0079 | hop2: 0.0040
+[nig_cmp_nig_product_consensus_seed3042] step 230/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0069 | hop2: 0.0035
+[nig_cmp_nig_product_consensus_seed3042] step 240/390 trained 36/36 | hop0: 0.0120 | hop1: 0.0081 | hop2: 0.0266
+[nig_cmp_nig_product_consensus_seed3042] step 250/390 trained 36/36 | hop0: 0.0101 | hop1: 0.0118 | hop2: 0.0561
+[nig_cmp_nig_product_consensus_seed3042] step 260/390 trained 36/36 | hop0: 0.0084 | hop1: 0.0194 | hop2: 0.0673
+[nig_cmp_nig_product_consensus_seed3042] step 270/390 trained 36/36 | hop0: 0.0053 | hop1: 0.0140 | hop2: 0.0344
+[nig_cmp_nig_product_consensus_seed3042] step 280/390 trained 36/36 | hop0: 0.0019 | hop1: 0.0095 | hop2: 0.0207
+[nig_cmp_nig_product_consensus_seed3042] step 290/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0101
+[nig_cmp_nig_product_consensus_seed3042] step 300/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0085 | hop2: 0.0068
+[nig_cmp_nig_product_consensus_seed3042] step 310/390 trained 36/36 | hop0: 0.0019 | hop1: 0.0069 | hop2: 0.0074
+[nig_cmp_nig_product_consensus_seed3042] step 320/390 trained 36/36 | hop0: 0.0012 | hop1: 0.0036 | hop2: 0.0059
+[nig_cmp_nig_product_consensus_seed3042] step 330/390 trained 36/36 | hop0: 0.0014 | hop1: 0.0016
+[nig_cmp_nig_product_consensus_seed3042] step 340/390 trained 36/36 | hop0: 0.0018 | hop1: 0.0028
+[nig_cmp_nig_product_consensus_seed3042] step 350/390 trained 36/36 | hop0: 0.0099 | hop1: 0.0049 | hop2: 0.0079
+[nig_cmp_nig_product_consensus_seed3042] step 360/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0124 | hop2: 0.0134
+[nig_cmp_nig_product_consensus_seed3042] step 370/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0203
+[nig_cmp_nig_product_consensus_seed3042] step 380/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0172 | hop2: 0.0181
+[nig_cmp_nig_product_consensus_seed3042] mean MSE (last 50 steps): 0.0137 | cert-MSE r=-0.249
+[nig_cmp_nig_product_consensus_seed3042] saved runs\chapter5_v2\s5_9_nig_weighted\nig_cmp_nig_product_consensus_seed3042\figures\results.png
+
+### nig_cmp_nig_product_consensus_seed3042: last50=0.0137 whole_run=0.0245 r=-0.2487
+    final_consensus: mean=0.8570 std=0.0890 min=0.7390 max=1.0000
+[nig_cmp_nig_product_consensus_seed4042] nodes=36 coverage max=9 mode=nig_product_consensus steps=390
+[nig_cmp_nig_product_consensus_seed4042] step 000/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0983 | hop2: 0.1189
+[nig_cmp_nig_product_consensus_seed4042] step 010/390 trained 36/36 | hop0: 0.0677 | hop1: 0.0835
+[nig_cmp_nig_product_consensus_seed4042] step 020/390 trained 36/36 | hop0: 0.0621 | hop1: 0.0793 | hop2: 0.1395
+[nig_cmp_nig_product_consensus_seed4042] step 030/390 trained 36/36 | hop0: 0.0628 | hop1: 0.0687 | hop2: 0.0741
+[nig_cmp_nig_product_consensus_seed4042] step 040/390 trained 36/36 | hop0: 0.0494 | hop1: 0.0578 | hop2: 0.0756
+[nig_cmp_nig_product_consensus_seed4042] step 050/390 trained 36/36 | hop0: 0.0380 | hop1: 0.0506 | hop2: 0.0876
+[nig_cmp_nig_product_consensus_seed4042] step 060/390 trained 36/36 | hop0: 0.0330 | hop1: 0.0366 | hop2: 0.0672
+[nig_cmp_nig_product_consensus_seed4042] step 070/390 trained 36/36 | hop0: 0.0269 | hop1: 0.0385 | hop2: 0.0630
+[nig_cmp_nig_product_consensus_seed4042] step 080/390 trained 36/36 | hop0: 0.0250 | hop1: 0.0306 | hop2: 0.0492
+[nig_cmp_nig_product_consensus_seed4042] step 090/390 trained 36/36 | hop0: 0.0145 | hop1: 0.0304 | hop2: 0.0506 | hop3: 0.0699
+[nig_cmp_nig_product_consensus_seed4042] step 100/390 trained 36/36 | hop0: 0.0177 | hop1: 0.0220 | hop2: 0.0365 | hop3: 0.0513
+[nig_cmp_nig_product_consensus_seed4042] step 110/390 trained 36/36 | hop0: 0.0184 | hop1: 0.0288 | hop2: 0.0828
+[nig_cmp_nig_product_consensus_seed4042] step 120/390 trained 36/36 | hop0: 0.0300 | hop1: 0.0263 | hop2: 0.0539
+[nig_cmp_nig_product_consensus_seed4042] step 130/390 trained 36/36 | hop0: 0.0380 | hop1: 0.0284
+[nig_cmp_nig_product_consensus_seed4042] step 140/390 trained 36/36 | hop0: 0.0279 | hop1: 0.0151 | hop2: 0.0189
+[nig_cmp_nig_product_consensus_seed4042] step 150/390 trained 36/36 | hop0: 0.0240 | hop1: 0.0114 | hop2: 0.0168
+[nig_cmp_nig_product_consensus_seed4042] step 160/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0136 | hop2: 0.0235
+[nig_cmp_nig_product_consensus_seed4042] step 170/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0156 | hop2: 0.0256
+[nig_cmp_nig_product_consensus_seed4042] step 180/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0178 | hop2: 0.0251
+[nig_cmp_nig_product_consensus_seed4042] step 190/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0117 | hop2: 0.0219
+[nig_cmp_nig_product_consensus_seed4042] step 200/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0100 | hop2: 0.0157
+[nig_cmp_nig_product_consensus_seed4042] step 210/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0074 | hop2: 0.0074
+[nig_cmp_nig_product_consensus_seed4042] step 220/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0063 | hop2: 0.0225
+[nig_cmp_nig_product_consensus_seed4042] step 230/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0109
+[nig_cmp_nig_product_consensus_seed4042] step 240/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0147
+[nig_cmp_nig_product_consensus_seed4042] step 250/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0149 | hop2: 0.0157
+[nig_cmp_nig_product_consensus_seed4042] step 260/390 trained 36/36 | hop0: 0.0079 | hop1: 0.0133 | hop2: 0.0072
+[nig_cmp_nig_product_consensus_seed4042] step 270/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0066 | hop2: 0.0027
+[nig_cmp_nig_product_consensus_seed4042] step 280/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0065 | hop2: 0.0085
+[nig_cmp_nig_product_consensus_seed4042] step 290/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0065 | hop2: 0.0189
+[nig_cmp_nig_product_consensus_seed4042] step 300/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0084 | hop2: 0.0116
+[nig_cmp_nig_product_consensus_seed4042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0041 | hop2: 0.0087
+[nig_cmp_nig_product_consensus_seed4042] step 320/390 trained 36/36 | hop0: 0.0009 | hop1: 0.0044 | hop2: 0.0048
+[nig_cmp_nig_product_consensus_seed4042] step 330/390 trained 36/36 | hop0: 0.0007 | hop1: 0.0022 | hop2: 0.0005
+[nig_cmp_nig_product_consensus_seed4042] step 340/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0025 | hop2: 0.0017
+[nig_cmp_nig_product_consensus_seed4042] step 350/390 trained 36/36 | hop0: 0.0127 | hop1: 0.0051 | hop2: 0.0043
+[nig_cmp_nig_product_consensus_seed4042] step 360/390 trained 36/36 | hop0: 0.0112 | hop1: 0.0089
+[nig_cmp_nig_product_consensus_seed4042] step 370/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0156 | hop2: 0.0346
+[nig_cmp_nig_product_consensus_seed4042] step 380/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0164 | hop2: 0.0683
+[nig_cmp_nig_product_consensus_seed4042] mean MSE (last 50 steps): 0.0136 | cert-MSE r=-0.222
+[nig_cmp_nig_product_consensus_seed4042] saved runs\chapter5_v2\s5_9_nig_weighted\nig_cmp_nig_product_consensus_seed4042\figures\results.png
+
+### nig_cmp_nig_product_consensus_seed4042: last50=0.0136 whole_run=0.0255 r=-0.2216
+    final_consensus: mean=0.8962 std=0.0798 min=0.7469 max=1.0000
+
+=== nig_product_consensus 3-SEED SUMMARY (seeds=[2042, 3042, 4042]) ===
+whole_run MSE: mean=0.0262 std=0.0017 values=[np.float64(0.0286), np.float64(0.0245), np.float64(0.0255)]
+last50 MSE:    mean=0.0151 std=0.0021 values=[np.float64(0.018), np.float64(0.0137), np.float64(0.0136)]
+r:             mean=-0.1741 std=0.0871 values=[np.float64(-0.0519), np.float64(-0.2487), np.float64(-0.2216)]
+=== DONE ===

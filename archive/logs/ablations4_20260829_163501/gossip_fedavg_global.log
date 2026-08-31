@@ -1,0 +1,231 @@
+[gossip_cmp_fedavg_global] nodes=36 coverage max=9 mode=fedavg_global steps=390
+[gossip_cmp_fedavg_global] step 000/390 trained 36/36 | hop0: 0.1082 | hop1: 0.0993
+[gossip_cmp_fedavg_global] step 010/390 trained 36/36 | hop0: 0.0639 | hop1: 0.0778
+[gossip_cmp_fedavg_global] step 020/390 trained 36/36 | hop0: 0.0624 | hop1: 0.0589 | hop2: 0.0592
+[gossip_cmp_fedavg_global] step 030/390 trained 36/36 | hop0: 0.0457 | hop1: 0.0519 | hop2: 0.0721
+[gossip_cmp_fedavg_global] step 040/390 trained 36/36 | hop0: 0.0350 | hop1: 0.0391 | hop2: 0.0453
+[gossip_cmp_fedavg_global] step 050/390 trained 36/36 | hop0: 0.0338 | hop1: 0.0257 | hop2: 0.0301
+[gossip_cmp_fedavg_global] step 060/390 trained 36/36 | hop0: 0.0253 | hop1: 0.0241 | hop2: 0.0338
+[gossip_cmp_fedavg_global] step 070/390 trained 36/36 | hop0: 0.0196 | hop1: 0.0207 | hop2: 0.0313
+[gossip_cmp_fedavg_global] step 080/390 trained 36/36 | hop0: 0.0183 | hop1: 0.0168 | hop2: 0.0422
+[gossip_cmp_fedavg_global] step 090/390 trained 36/36 | hop0: 0.0161 | hop1: 0.0152
+[gossip_cmp_fedavg_global] step 100/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0136 | hop2: 0.0257
+[gossip_cmp_fedavg_global] step 110/390 trained 36/36 | hop0: 0.0158 | hop1: 0.0118 | hop2: 0.0365
+[gossip_cmp_fedavg_global] step 120/390 trained 36/36 | hop0: 0.0263 | hop1: 0.0235 | hop2: 0.0480
+[gossip_cmp_fedavg_global] step 130/390 trained 36/36 | hop0: 0.0162 | hop1: 0.0433 | hop2: 0.0596
+[gossip_cmp_fedavg_global] step 140/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0335 | hop2: 0.0442
+[gossip_cmp_fedavg_global] step 150/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0130 | hop2: 0.0633
+[gossip_cmp_fedavg_global] step 160/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0114 | hop2: 0.0403
+[gossip_cmp_fedavg_global] step 170/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0122 | hop2: 0.0216
+[gossip_cmp_fedavg_global] step 180/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0083 | hop2: 0.0146
+[gossip_cmp_fedavg_global] step 190/390 trained 36/36 | hop0: 0.0102 | hop1: 0.0113 | hop2: 0.0199
+[gossip_cmp_fedavg_global] step 200/390 trained 36/36 | hop0: 0.0109 | hop1: 0.0112 | hop2: 0.0156
+[gossip_cmp_fedavg_global] step 210/390 trained 36/36 | hop0: 0.0111 | hop1: 0.0161 | hop2: 0.0101
+[gossip_cmp_fedavg_global] step 220/390 trained 36/36 | hop0: 0.0107 | hop1: 0.0130
+[gossip_cmp_fedavg_global] step 230/390 trained 36/36 | hop0: 0.0118 | hop1: 0.0136 | hop2: 0.0187
+[gossip_cmp_fedavg_global] step 240/390 trained 36/36 | hop0: 0.0203 | hop1: 0.0117 | hop2: 0.0134
+[gossip_cmp_fedavg_global] step 250/390 trained 36/36 | hop0: 0.0130 | hop1: 0.0170 | hop2: 0.0177
+[gossip_cmp_fedavg_global] step 260/390 trained 36/36 | hop0: 0.0218 | hop1: 0.0118
+[gossip_cmp_fedavg_global] step 270/390 trained 36/36 | hop0: 0.0152 | hop1: 0.0125 | hop2: 0.0277
+[gossip_cmp_fedavg_global] step 280/390 trained 36/36 | hop0: 0.0144 | hop1: 0.0146
+[gossip_cmp_fedavg_global] step 290/390 trained 36/36 | hop0: 0.0237 | hop1: 0.0108 | hop2: 0.0129
+[gossip_cmp_fedavg_global] step 300/390 trained 36/36 | hop0: 0.0271 | hop1: 0.0070 | hop2: 0.0129
+[gossip_cmp_fedavg_global] step 310/390 trained 36/36 | hop0: 0.0168 | hop1: 0.0045 | hop2: 0.0066
+[gossip_cmp_fedavg_global] step 320/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0015 | hop2: 0.0010
+[gossip_cmp_fedavg_global] step 330/390 trained 36/36 | hop0: 0.0006 | hop1: 0.0006 | hop2: 0.0004
+[gossip_cmp_fedavg_global] step 340/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0023
+[gossip_cmp_fedavg_global] step 350/390 trained 36/36 | hop0: 0.0141 | hop1: 0.0061 | hop2: 0.0014
+[gossip_cmp_fedavg_global] step 360/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0161 | hop2: 0.0097
+[gossip_cmp_fedavg_global] step 370/390 trained 36/36 | hop0: 0.0065 | hop1: 0.0152 | hop2: 0.0246
+[gossip_cmp_fedavg_global] step 380/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0204 | hop2: 0.0392
+[gossip_cmp_fedavg_global] mean MSE (last 50 steps): 0.0166 | cert-MSE r=-0.117
+[gossip_cmp_fedavg_global] saved runs\chapter5_v2\s5_5_gossip_fedavg_global\gossip_cmp_fedavg_global\figures\results.png
+
+### gossip_cmp_fedavg_global: last50=0.0166 whole_run=0.0237 r=-0.1172
+    comm_bytes_total=28,039,317,840 (28039.32 MB over the run) mean/step=71,895,687 bytes
+[gossip_cmp_fedavg_global_seed1042] nodes=36 coverage max=9 mode=fedavg_global steps=390
+[gossip_cmp_fedavg_global_seed1042] step 000/390 trained 36/36 | hop0: 0.0928 | hop1: 0.1051
+[gossip_cmp_fedavg_global_seed1042] step 010/390 trained 36/36 | hop0: 0.0725 | hop1: 0.0773 | hop2: 0.1332
+[gossip_cmp_fedavg_global_seed1042] step 020/390 trained 36/36 | hop0: 0.0502 | hop1: 0.0567
+[gossip_cmp_fedavg_global_seed1042] step 030/390 trained 36/36 | hop0: 0.0572 | hop1: 0.0531 | hop2: 0.0539
+[gossip_cmp_fedavg_global_seed1042] step 040/390 trained 36/36 | hop0: 0.0387 | hop1: 0.0392 | hop2: 0.0538
+[gossip_cmp_fedavg_global_seed1042] step 050/390 trained 36/36 | hop0: 0.0285 | hop1: 0.0236 | hop2: 0.0338
+[gossip_cmp_fedavg_global_seed1042] step 060/390 trained 36/36 | hop0: 0.0261 | hop1: 0.0228 | hop2: 0.0327
+[gossip_cmp_fedavg_global_seed1042] step 070/390 trained 36/36 | hop0: 0.0209 | hop1: 0.0180 | hop2: 0.0384
+[gossip_cmp_fedavg_global_seed1042] step 080/390 trained 36/36 | hop0: 0.0138 | hop1: 0.0181 | hop2: 0.0561
+[gossip_cmp_fedavg_global_seed1042] step 090/390 trained 36/36 | hop0: 0.0173 | hop1: 0.0151 | hop2: 0.0263
+[gossip_cmp_fedavg_global_seed1042] step 100/390 trained 36/36 | hop0: 0.0106 | hop1: 0.0124
+[gossip_cmp_fedavg_global_seed1042] step 110/390 trained 36/36 | hop0: 0.0130 | hop1: 0.0123 | hop2: 0.0247
+[gossip_cmp_fedavg_global_seed1042] step 120/390 trained 36/36 | hop0: 0.0155 | hop1: 0.0201 | hop2: 0.0673
+[gossip_cmp_fedavg_global_seed1042] step 130/390 trained 36/36 | hop0: 0.0282 | hop1: 0.0254 | hop2: 0.0639
+[gossip_cmp_fedavg_global_seed1042] step 140/390 trained 36/36 | hop0: 0.0235 | hop1: 0.0203 | hop2: 0.0714
+[gossip_cmp_fedavg_global_seed1042] step 150/390 trained 36/36 | hop0: 0.0164 | hop1: 0.0180 | hop2: 0.0719
+[gossip_cmp_fedavg_global_seed1042] step 160/390 trained 36/36 | hop0: 0.0100 | hop1: 0.0196 | hop2: 0.0757
+[gossip_cmp_fedavg_global_seed1042] step 170/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0201 | hop2: 0.0403
+[gossip_cmp_fedavg_global_seed1042] step 180/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0147 | hop2: 0.0312
+[gossip_cmp_fedavg_global_seed1042] step 190/390 trained 36/36 | hop0: 0.0091 | hop1: 0.0145
+[gossip_cmp_fedavg_global_seed1042] step 200/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0107 | hop2: 0.0089
+[gossip_cmp_fedavg_global_seed1042] step 210/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0101
+[gossip_cmp_fedavg_global_seed1042] step 220/390 trained 36/36 | hop0: 0.0125 | hop1: 0.0081 | hop2: 0.0033
+[gossip_cmp_fedavg_global_seed1042] step 230/390 trained 36/36 | hop0: 0.0183 | hop1: 0.0079 | hop2: 0.0083
+[gossip_cmp_fedavg_global_seed1042] step 240/390 trained 36/36 | hop0: 0.0182 | hop1: 0.0109 | hop2: 0.0146
+[gossip_cmp_fedavg_global_seed1042] step 250/390 trained 36/36 | hop0: 0.0150 | hop1: 0.0155 | hop2: 0.0160
+[gossip_cmp_fedavg_global_seed1042] step 260/390 trained 36/36 | hop0: 0.0143 | hop1: 0.0164 | hop2: 0.0231
+[gossip_cmp_fedavg_global_seed1042] step 270/390 trained 36/36 | hop0: 0.0131 | hop1: 0.0114
+[gossip_cmp_fedavg_global_seed1042] step 280/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0092
+[gossip_cmp_fedavg_global_seed1042] step 290/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0113
+[gossip_cmp_fedavg_global_seed1042] step 300/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0103 | hop2: 0.0057
+[gossip_cmp_fedavg_global_seed1042] step 310/390 trained 36/36 | hop0: 0.0018 | hop1: 0.0051 | hop2: 0.0075
+[gossip_cmp_fedavg_global_seed1042] step 320/390 trained 36/36 | hop0: 0.0019 | hop1: 0.0022 | hop2: 0.0024
+[gossip_cmp_fedavg_global_seed1042] step 330/390 trained 36/36 | hop0: 0.0008 | hop1: 0.0005 | hop2: 0.0003
+[gossip_cmp_fedavg_global_seed1042] step 340/390 trained 36/36 | hop0: 0.0020 | hop1: 0.0040 | hop2: 0.0022
+[gossip_cmp_fedavg_global_seed1042] step 350/390 trained 36/36 | hop0: 0.0020 | hop1: 0.0112 | hop2: 0.0144
+[gossip_cmp_fedavg_global_seed1042] step 360/390 trained 36/36 | hop0: 0.0022 | hop1: 0.0113 | hop2: 0.0590
+[gossip_cmp_fedavg_global_seed1042] step 370/390 trained 36/36 | hop0: 0.0050 | hop1: 0.0272 | hop2: 0.0638
+[gossip_cmp_fedavg_global_seed1042] step 380/390 trained 36/36 | hop0: 0.0093 | hop1: 0.0240 | hop2: 0.0579
+[gossip_cmp_fedavg_global_seed1042] mean MSE (last 50 steps): 0.0196 | cert-MSE r=-0.155
+[gossip_cmp_fedavg_global_seed1042] saved runs\chapter5_v2\s5_5_gossip_fedavg_global\gossip_cmp_fedavg_global_seed1042\figures\results.png
+
+### gossip_cmp_fedavg_global_seed1042: last50=0.0196 whole_run=0.0236 r=-0.1552
+    comm_bytes_total=28,465,219,680 (28465.22 MB over the run) mean/step=72,987,743 bytes
+[gossip_cmp_fedavg_global_seed2042] nodes=36 coverage max=9 mode=fedavg_global steps=390
+[gossip_cmp_fedavg_global_seed2042] step 000/390 trained 36/36 | hop0: 0.0980 | hop1: 0.0845 | hop2: 0.0971
+[gossip_cmp_fedavg_global_seed2042] step 010/390 trained 36/36 | hop0: 0.0875 | hop1: 0.0878 | hop2: 0.0806
+[gossip_cmp_fedavg_global_seed2042] step 020/390 trained 36/36 | hop0: 0.0673 | hop1: 0.0625 | hop2: 0.0643
+[gossip_cmp_fedavg_global_seed2042] step 030/390 trained 36/36 | hop0: 0.0561 | hop1: 0.0414 | hop2: 0.0502
+[gossip_cmp_fedavg_global_seed2042] step 040/390 trained 36/36 | hop0: 0.0335 | hop1: 0.0423 | hop2: 0.0500
+[gossip_cmp_fedavg_global_seed2042] step 050/390 trained 36/36 | hop0: 0.0344 | hop1: 0.0309 | hop2: 0.0306 | hop3: 0.0415
+[gossip_cmp_fedavg_global_seed2042] step 060/390 trained 36/36 | hop0: 0.0265 | hop1: 0.0224 | hop2: 0.0379
+[gossip_cmp_fedavg_global_seed2042] step 070/390 trained 36/36 | hop0: 0.0274 | hop1: 0.0244 | hop2: 0.0432
+[gossip_cmp_fedavg_global_seed2042] step 080/390 trained 36/36 | hop0: 0.0226 | hop1: 0.0262 | hop2: 0.0461
+[gossip_cmp_fedavg_global_seed2042] step 090/390 trained 36/36 | hop0: 0.0231 | hop1: 0.0199 | hop2: 0.0309
+[gossip_cmp_fedavg_global_seed2042] step 100/390 trained 36/36 | hop0: 0.0246 | hop1: 0.0170 | hop2: 0.0104
+[gossip_cmp_fedavg_global_seed2042] step 110/390 trained 36/36 | hop0: 0.0229 | hop1: 0.0145 | hop2: 0.0082
+[gossip_cmp_fedavg_global_seed2042] step 120/390 trained 36/36 | hop0: 0.0191 | hop1: 0.0223
+[gossip_cmp_fedavg_global_seed2042] step 130/390 trained 36/36 | hop0: 0.0209 | hop1: 0.0235 | hop2: 0.1118
+[gossip_cmp_fedavg_global_seed2042] step 140/390 trained 36/36 | hop0: 0.0196 | hop1: 0.0297 | hop2: 0.1259
+[gossip_cmp_fedavg_global_seed2042] step 150/390 trained 36/36 | hop0: 0.0195 | hop1: 0.0239 | hop2: 0.0706
+[gossip_cmp_fedavg_global_seed2042] step 160/390 trained 36/36 | hop0: 0.0279 | hop1: 0.0264 | hop2: 0.0374
+[gossip_cmp_fedavg_global_seed2042] step 170/390 trained 36/36 | hop0: 0.0228 | hop1: 0.0246 | hop2: 0.0313
+[gossip_cmp_fedavg_global_seed2042] step 180/390 trained 36/36 | hop0: 0.0264 | hop1: 0.0183 | hop2: 0.0155
+[gossip_cmp_fedavg_global_seed2042] step 190/390 trained 36/36 | hop0: 0.0225 | hop1: 0.0148 | hop2: 0.0073
+[gossip_cmp_fedavg_global_seed2042] step 200/390 trained 36/36 | hop0: 0.0115 | hop1: 0.0111
+[gossip_cmp_fedavg_global_seed2042] step 210/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0092
+[gossip_cmp_fedavg_global_seed2042] step 220/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0094 | hop2: 0.0333
+[gossip_cmp_fedavg_global_seed2042] step 230/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0182 | hop2: 0.0533
+[gossip_cmp_fedavg_global_seed2042] step 240/390 trained 36/36 | hop0: 0.0084 | hop1: 0.0204 | hop2: 0.0434
+[gossip_cmp_fedavg_global_seed2042] step 250/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0180 | hop2: 0.0357
+[gossip_cmp_fedavg_global_seed2042] step 260/390 trained 36/36 | hop0: 0.0235 | hop1: 0.0159 | hop2: 0.0374
+[gossip_cmp_fedavg_global_seed2042] step 270/390 trained 36/36 | hop0: 0.0168 | hop1: 0.0149 | hop2: 0.0359 | hop3: 0.0579
+[gossip_cmp_fedavg_global_seed2042] step 280/390 trained 36/36 | hop0: 0.0159 | hop1: 0.0211 | hop2: 0.0460
+[gossip_cmp_fedavg_global_seed2042] step 290/390 trained 36/36 | hop0: 0.0085 | hop1: 0.0214 | hop2: 0.0355
+[gossip_cmp_fedavg_global_seed2042] step 300/390 trained 36/36 | hop0: 0.0071 | hop1: 0.0086 | hop2: 0.0300 | hop3: 0.0210
+[gossip_cmp_fedavg_global_seed2042] step 310/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0067 | hop2: 0.0228 | hop3: 0.0125
+[gossip_cmp_fedavg_global_seed2042] step 320/390 trained 36/36 | hop0: 0.0021 | hop1: 0.0037 | hop2: 0.0081
+[gossip_cmp_fedavg_global_seed2042] step 330/390 trained 36/36 | hop0: 0.0014 | hop1: 0.0011 | hop2: 0.0007 | hop3: 0.0008
+[gossip_cmp_fedavg_global_seed2042] step 340/390 trained 36/36 | hop0: 0.0013 | hop1: 0.0027 | hop2: 0.0087 | hop3: 0.0097
+[gossip_cmp_fedavg_global_seed2042] step 350/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0064 | hop2: 0.0251 | hop3: 0.0295
+[gossip_cmp_fedavg_global_seed2042] step 360/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0093 | hop2: 0.0503
+[gossip_cmp_fedavg_global_seed2042] step 370/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0138 | hop2: 0.0695
+[gossip_cmp_fedavg_global_seed2042] step 380/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0100 | hop2: 0.0335
+[gossip_cmp_fedavg_global_seed2042] mean MSE (last 50 steps): 0.0154 | cert-MSE r=-0.131
+[gossip_cmp_fedavg_global_seed2042] saved runs\chapter5_v2\s5_5_gossip_fedavg_global\gossip_cmp_fedavg_global_seed2042\figures\results.png
+
+### gossip_cmp_fedavg_global_seed2042: last50=0.0154 whole_run=0.0264 r=-0.1313
+    comm_bytes_total=27,240,556,880 (27240.56 MB over the run) mean/step=69,847,582 bytes
+[gossip_cmp_fedavg_global_seed3042] nodes=36 coverage max=9 mode=fedavg_global steps=390
+[gossip_cmp_fedavg_global_seed3042] step 000/390 trained 36/36 | hop0: 0.0956 | hop1: 0.0925 | hop2: 0.1595
+[gossip_cmp_fedavg_global_seed3042] step 010/390 trained 36/36 | hop0: 0.0702 | hop1: 0.0910
+[gossip_cmp_fedavg_global_seed3042] step 020/390 trained 36/36 | hop0: 0.0653 | hop1: 0.0735
+[gossip_cmp_fedavg_global_seed3042] step 030/390 trained 36/36 | hop0: 0.0570 | hop1: 0.0608
+[gossip_cmp_fedavg_global_seed3042] step 040/390 trained 36/36 | hop0: 0.0414 | hop1: 0.0456
+[gossip_cmp_fedavg_global_seed3042] step 050/390 trained 36/36 | hop0: 0.0273 | hop1: 0.0348 | hop2: 0.0366
+[gossip_cmp_fedavg_global_seed3042] step 060/390 trained 36/36 | hop0: 0.0301 | hop1: 0.0258 | hop2: 0.0390
+[gossip_cmp_fedavg_global_seed3042] step 070/390 trained 36/36 | hop0: 0.0261 | hop1: 0.0237 | hop2: 0.0466
+[gossip_cmp_fedavg_global_seed3042] step 080/390 trained 36/36 | hop0: 0.0189 | hop1: 0.0169 | hop2: 0.0432
+[gossip_cmp_fedavg_global_seed3042] step 090/390 trained 36/36 | hop0: 0.0199 | hop1: 0.0170 | hop2: 0.0219 | hop3: 0.0223
+[gossip_cmp_fedavg_global_seed3042] step 100/390 trained 36/36 | hop0: 0.0203 | hop1: 0.0145 | hop2: 0.0105
+[gossip_cmp_fedavg_global_seed3042] step 110/390 trained 36/36 | hop0: 0.0172 | hop1: 0.0155 | hop2: 0.0121
+[gossip_cmp_fedavg_global_seed3042] step 120/390 trained 36/36 | hop0: 0.0235 | hop1: 0.0221 | hop2: 0.0169
+[gossip_cmp_fedavg_global_seed3042] step 130/390 trained 36/36 | hop0: 0.0302 | hop1: 0.0303 | hop2: 0.0171
+[gossip_cmp_fedavg_global_seed3042] step 140/390 trained 36/36 | hop0: 0.0368 | hop1: 0.0193 | hop2: 0.0273
+[gossip_cmp_fedavg_global_seed3042] step 150/390 trained 36/36 | hop0: 0.0221 | hop1: 0.0234 | hop2: 0.0153
+[gossip_cmp_fedavg_global_seed3042] step 160/390 trained 36/36 | hop0: 0.0160 | hop1: 0.0224 | hop2: 0.0087
+[gossip_cmp_fedavg_global_seed3042] step 170/390 trained 36/36 | hop0: 0.0120 | hop1: 0.0201 | hop2: 0.0056
+[gossip_cmp_fedavg_global_seed3042] step 180/390 trained 36/36 | hop0: 0.0098 | hop1: 0.0202
+[gossip_cmp_fedavg_global_seed3042] step 190/390 trained 36/36 | hop0: 0.0125 | hop1: 0.0159
+[gossip_cmp_fedavg_global_seed3042] step 200/390 trained 36/36 | hop0: 0.0049 | hop1: 0.0131
+[gossip_cmp_fedavg_global_seed3042] step 210/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0110 | hop2: 0.0054
+[gossip_cmp_fedavg_global_seed3042] step 220/390 trained 36/36 | hop0: 0.0089 | hop1: 0.0096 | hop2: 0.0050
+[gossip_cmp_fedavg_global_seed3042] step 230/390 trained 36/36 | hop0: 0.0079 | hop1: 0.0134 | hop2: 0.0094
+[gossip_cmp_fedavg_global_seed3042] step 240/390 trained 36/36 | hop0: 0.0135 | hop1: 0.0169 | hop2: 0.0682
+[gossip_cmp_fedavg_global_seed3042] step 250/390 trained 36/36 | hop0: 0.0155 | hop1: 0.0217 | hop2: 0.0937
+[gossip_cmp_fedavg_global_seed3042] step 260/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0257 | hop2: 0.0919
+[gossip_cmp_fedavg_global_seed3042] step 270/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0175 | hop2: 0.0481
+[gossip_cmp_fedavg_global_seed3042] step 280/390 trained 36/36 | hop0: 0.0027 | hop1: 0.0119 | hop2: 0.0328
+[gossip_cmp_fedavg_global_seed3042] step 290/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0129
+[gossip_cmp_fedavg_global_seed3042] step 300/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0095 | hop2: 0.0063
+[gossip_cmp_fedavg_global_seed3042] step 310/390 trained 36/36 | hop0: 0.0022 | hop1: 0.0057 | hop2: 0.0045
+[gossip_cmp_fedavg_global_seed3042] step 320/390 trained 36/36 | hop0: 0.0011 | hop1: 0.0017 | hop2: 0.0018
+[gossip_cmp_fedavg_global_seed3042] step 330/390 trained 36/36 | hop0: 0.0003 | hop1: 0.0004
+[gossip_cmp_fedavg_global_seed3042] step 340/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0033
+[gossip_cmp_fedavg_global_seed3042] step 350/390 trained 36/36 | hop0: 0.0120 | hop1: 0.0063 | hop2: 0.0187
+[gossip_cmp_fedavg_global_seed3042] step 360/390 trained 36/36 | hop0: 0.0086 | hop1: 0.0124 | hop2: 0.0114
+[gossip_cmp_fedavg_global_seed3042] step 370/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0155
+[gossip_cmp_fedavg_global_seed3042] step 380/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0153 | hop2: 0.0249
+[gossip_cmp_fedavg_global_seed3042] mean MSE (last 50 steps): 0.0143 | cert-MSE r=-0.143
+[gossip_cmp_fedavg_global_seed3042] saved runs\chapter5_v2\s5_5_gossip_fedavg_global\gossip_cmp_fedavg_global_seed3042\figures\results.png
+
+### gossip_cmp_fedavg_global_seed3042: last50=0.0143 whole_run=0.0242 r=-0.1428
+    comm_bytes_total=28,707,032,080 (28707.03 MB over the run) mean/step=73,607,775 bytes
+[gossip_cmp_fedavg_global_seed4042] nodes=36 coverage max=9 mode=fedavg_global steps=390
+[gossip_cmp_fedavg_global_seed4042] step 000/390 trained 36/36 | hop0: 0.0885 | hop1: 0.0972 | hop2: 0.1197
+[gossip_cmp_fedavg_global_seed4042] step 010/390 trained 36/36 | hop0: 0.0656 | hop1: 0.0751
+[gossip_cmp_fedavg_global_seed4042] step 020/390 trained 36/36 | hop0: 0.0574 | hop1: 0.0625 | hop2: 0.1124
+[gossip_cmp_fedavg_global_seed4042] step 030/390 trained 36/36 | hop0: 0.0560 | hop1: 0.0517 | hop2: 0.0517
+[gossip_cmp_fedavg_global_seed4042] step 040/390 trained 36/36 | hop0: 0.0379 | hop1: 0.0394 | hop2: 0.0473
+[gossip_cmp_fedavg_global_seed4042] step 050/390 trained 36/36 | hop0: 0.0238 | hop1: 0.0285 | hop2: 0.0478
+[gossip_cmp_fedavg_global_seed4042] step 060/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0184 | hop2: 0.0329
+[gossip_cmp_fedavg_global_seed4042] step 070/390 trained 36/36 | hop0: 0.0147 | hop1: 0.0183 | hop2: 0.0331
+[gossip_cmp_fedavg_global_seed4042] step 080/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0127 | hop2: 0.0354
+[gossip_cmp_fedavg_global_seed4042] step 090/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0111 | hop2: 0.0374 | hop3: 0.0751
+[gossip_cmp_fedavg_global_seed4042] step 100/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0103 | hop2: 0.0388 | hop3: 0.0760
+[gossip_cmp_fedavg_global_seed4042] step 110/390 trained 36/36 | hop0: 0.0095 | hop1: 0.0231 | hop2: 0.0680
+[gossip_cmp_fedavg_global_seed4042] step 120/390 trained 36/36 | hop0: 0.0325 | hop1: 0.0225 | hop2: 0.0665
+[gossip_cmp_fedavg_global_seed4042] step 130/390 trained 36/36 | hop0: 0.0389 | hop1: 0.0248
+[gossip_cmp_fedavg_global_seed4042] step 140/390 trained 36/36 | hop0: 0.0292 | hop1: 0.0161 | hop2: 0.0329
+[gossip_cmp_fedavg_global_seed4042] step 150/390 trained 36/36 | hop0: 0.0186 | hop1: 0.0110 | hop2: 0.0413
+[gossip_cmp_fedavg_global_seed4042] step 160/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0244 | hop2: 0.0595
+[gossip_cmp_fedavg_global_seed4042] step 170/390 trained 36/36 | hop0: 0.0091 | hop1: 0.0188 | hop2: 0.0379
+[gossip_cmp_fedavg_global_seed4042] step 180/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0165 | hop2: 0.0189
+[gossip_cmp_fedavg_global_seed4042] step 190/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0115 | hop2: 0.0141
+[gossip_cmp_fedavg_global_seed4042] step 200/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0091 | hop2: 0.0111
+[gossip_cmp_fedavg_global_seed4042] step 210/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0081 | hop2: 0.0113
+[gossip_cmp_fedavg_global_seed4042] step 220/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0083 | hop2: 0.0274
+[gossip_cmp_fedavg_global_seed4042] step 230/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0125
+[gossip_cmp_fedavg_global_seed4042] step 240/390 trained 36/36 | hop0: 0.0082 | hop1: 0.0194
+[gossip_cmp_fedavg_global_seed4042] step 250/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0195 | hop2: 0.0179
+[gossip_cmp_fedavg_global_seed4042] step 260/390 trained 36/36 | hop0: 0.0184 | hop1: 0.0174 | hop2: 0.0087
+[gossip_cmp_fedavg_global_seed4042] step 270/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0144 | hop2: 0.0016
+[gossip_cmp_fedavg_global_seed4042] step 280/390 trained 36/36 | hop0: 0.0053 | hop1: 0.0120 | hop2: 0.0042
+[gossip_cmp_fedavg_global_seed4042] step 290/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0108 | hop2: 0.0100
+[gossip_cmp_fedavg_global_seed4042] step 300/390 trained 36/36 | hop0: 0.0061 | hop1: 0.0125 | hop2: 0.0101
+[gossip_cmp_fedavg_global_seed4042] step 310/390 trained 36/36 | hop0: 0.0050 | hop1: 0.0045 | hop2: 0.0066
+[gossip_cmp_fedavg_global_seed4042] step 320/390 trained 36/36 | hop0: 0.0006 | hop1: 0.0022 | hop2: 0.0023
+[gossip_cmp_fedavg_global_seed4042] step 330/390 trained 36/36 | hop0: 0.0004 | hop1: 0.0005 | hop2: 0.0001
+[gossip_cmp_fedavg_global_seed4042] step 340/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0025 | hop2: 0.0009
+[gossip_cmp_fedavg_global_seed4042] step 350/390 trained 36/36 | hop0: 0.0139 | hop1: 0.0061 | hop2: 0.0006
+[gossip_cmp_fedavg_global_seed4042] step 360/390 trained 36/36 | hop0: 0.0141 | hop1: 0.0107
+[gossip_cmp_fedavg_global_seed4042] step 370/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0172 | hop2: 0.0478
+[gossip_cmp_fedavg_global_seed4042] step 380/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0132 | hop2: 0.0638
+[gossip_cmp_fedavg_global_seed4042] mean MSE (last 50 steps): 0.0137 | cert-MSE r=-0.181
+[gossip_cmp_fedavg_global_seed4042] saved runs\chapter5_v2\s5_5_gossip_fedavg_global\gossip_cmp_fedavg_global_seed4042\figures\results.png
+
+### gossip_cmp_fedavg_global_seed4042: last50=0.0137 whole_run=0.0230 r=-0.1805
+    comm_bytes_total=28,220,287,120 (28220.29 MB over the run) mean/step=72,359,711 bytes
+
+=== fedavg_global 5-SEED SUMMARY (this invocation, seeds=[42, 1042, 2042, 3042, 4042]) ===
+whole_run MSE: mean=0.0242 std=0.0012 values=[np.float64(0.0237), np.float64(0.0236), np.float64(0.0264), np.float64(0.0242), np.float64(0.023)]
+last50 MSE:    mean=0.0159 std=0.0021 values=[np.float64(0.0166), np.float64(0.0196), np.float64(0.0154), np.float64(0.0143), np.float64(0.0137)]
+r:             mean=-0.1454 std=0.0216 values=[np.float64(-0.1172), np.float64(-0.1552), np.float64(-0.1313), np.float64(-0.1428), np.float64(-0.1805)]
+=== DONE ===

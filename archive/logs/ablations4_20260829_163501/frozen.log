@@ -1,0 +1,226 @@
+[agg_cmp_frozen] nodes=36 coverage max=9 mode=frozen steps=390
+[agg_cmp_frozen] step 000/390 trained 36/36 | hop0: 0.1103 | hop1: 0.1012
+[agg_cmp_frozen] step 010/390 trained 36/36 | hop0: 0.0792 | hop1: 0.0953
+[agg_cmp_frozen] step 020/390 trained 36/36 | hop0: 0.0920 | hop1: 0.0885 | hop2: 0.0861
+[agg_cmp_frozen] step 030/390 trained 36/36 | hop0: 0.0879 | hop1: 0.0912 | hop2: 0.1198
+[agg_cmp_frozen] step 040/390 trained 36/36 | hop0: 0.0834 | hop1: 0.0904 | hop2: 0.0904
+[agg_cmp_frozen] step 050/390 trained 36/36 | hop0: 0.0946 | hop1: 0.0807 | hop2: 0.0926
+[agg_cmp_frozen] step 060/390 trained 36/36 | hop0: 0.0936 | hop1: 0.0931 | hop2: 0.0990
+[agg_cmp_frozen] step 070/390 trained 36/36 | hop0: 0.0843 | hop1: 0.0948 | hop2: 0.1003
+[agg_cmp_frozen] step 080/390 trained 36/36 | hop0: 0.0880 | hop1: 0.0909 | hop2: 0.1286
+[agg_cmp_frozen] step 090/390 trained 36/36 | hop0: 0.0846 | hop1: 0.0901
+[agg_cmp_frozen] step 100/390 trained 36/36 | hop0: 0.0849 | hop1: 0.0981 | hop2: 0.1155
+[agg_cmp_frozen] step 110/390 trained 36/36 | hop0: 0.0979 | hop1: 0.0826 | hop2: 0.0717
+[agg_cmp_frozen] step 120/390 trained 36/36 | hop0: 0.1049 | hop1: 0.1001 | hop2: 0.0953
+[agg_cmp_frozen] step 130/390 trained 36/36 | hop0: 0.0894 | hop1: 0.1157 | hop2: 0.1321
+[agg_cmp_frozen] step 140/390 trained 36/36 | hop0: 0.0926 | hop1: 0.1080 | hop2: 0.0864
+[agg_cmp_frozen] step 150/390 trained 36/36 | hop0: 0.1045 | hop1: 0.1051 | hop2: 0.1157
+[agg_cmp_frozen] step 160/390 trained 36/36 | hop0: 0.1121 | hop1: 0.0881 | hop2: 0.0985
+[agg_cmp_frozen] step 170/390 trained 36/36 | hop0: 0.1029 | hop1: 0.0825 | hop2: 0.0833
+[agg_cmp_frozen] step 180/390 trained 36/36 | hop0: 0.0936 | hop1: 0.0875 | hop2: 0.0946
+[agg_cmp_frozen] step 190/390 trained 36/36 | hop0: 0.0834 | hop1: 0.0760 | hop2: 0.1040
+[agg_cmp_frozen] step 200/390 trained 36/36 | hop0: 0.0987 | hop1: 0.0822 | hop2: 0.0835
+[agg_cmp_frozen] step 210/390 trained 36/36 | hop0: 0.1214 | hop1: 0.1018 | hop2: 0.0866
+[agg_cmp_frozen] step 220/390 trained 36/36 | hop0: 0.0903 | hop1: 0.0841
+[agg_cmp_frozen] step 230/390 trained 36/36 | hop0: 0.1109 | hop1: 0.0892 | hop2: 0.0757
+[agg_cmp_frozen] step 240/390 trained 36/36 | hop0: 0.0980 | hop1: 0.0862 | hop2: 0.0758
+[agg_cmp_frozen] step 250/390 trained 36/36 | hop0: 0.1004 | hop1: 0.1001 | hop2: 0.1264
+[agg_cmp_frozen] step 260/390 trained 36/36 | hop0: 0.1104 | hop1: 0.0933
+[agg_cmp_frozen] step 270/390 trained 36/36 | hop0: 0.0924 | hop1: 0.0878 | hop2: 0.0952
+[agg_cmp_frozen] step 280/390 trained 36/36 | hop0: 0.0966 | hop1: 0.0974
+[agg_cmp_frozen] step 290/390 trained 36/36 | hop0: 0.1017 | hop1: 0.0919 | hop2: 0.0825
+[agg_cmp_frozen] step 300/390 trained 36/36 | hop0: 0.1122 | hop1: 0.0928 | hop2: 0.1076
+[agg_cmp_frozen] step 310/390 trained 36/36 | hop0: 0.0936 | hop1: 0.0882 | hop2: 0.0837
+[agg_cmp_frozen] step 320/390 trained 36/36 | hop0: 0.0853 | hop1: 0.0865 | hop2: 0.0679
+[agg_cmp_frozen] step 330/390 trained 36/36 | hop0: 0.0928 | hop1: 0.0876 | hop2: 0.0801
+[agg_cmp_frozen] step 340/390 trained 36/36 | hop0: 0.0827 | hop1: 0.0826
+[agg_cmp_frozen] step 350/390 trained 36/36 | hop0: 0.0987 | hop1: 0.0867 | hop2: 0.0824
+[agg_cmp_frozen] step 360/390 trained 36/36 | hop0: 0.1021 | hop1: 0.0840 | hop2: 0.0953
+[agg_cmp_frozen] step 370/390 trained 36/36 | hop0: 0.1089 | hop1: 0.1057 | hop2: 0.0936
+[agg_cmp_frozen] step 380/390 trained 36/36 | hop0: 0.1059 | hop1: 0.0948 | hop2: 0.0888
+[agg_cmp_frozen] mean MSE (last 50 steps): 0.0995 | cert-MSE r=-0.299
+[agg_cmp_frozen] saved runs\chapter5_v2\s5_3_1_frozen\agg_cmp_frozen\figures\results.png
+
+### agg_cmp_frozen [offset, lam=5.0]: last50=0.0995 whole_run=0.0969 r(new)=-0.4578+/-0.0649 (n_t=50)
+[agg_cmp_frozen_seed1042] nodes=36 coverage max=9 mode=frozen steps=390
+[agg_cmp_frozen_seed1042] step 000/390 trained 36/36 | hop0: 0.0939 | hop1: 0.1062
+[agg_cmp_frozen_seed1042] step 010/390 trained 36/36 | hop0: 0.0883 | hop1: 0.0931 | hop2: 0.1496
+[agg_cmp_frozen_seed1042] step 020/390 trained 36/36 | hop0: 0.0758 | hop1: 0.0831
+[agg_cmp_frozen_seed1042] step 030/390 trained 36/36 | hop0: 0.1067 | hop1: 0.0948 | hop2: 0.0862
+[agg_cmp_frozen_seed1042] step 040/390 trained 36/36 | hop0: 0.0929 | hop1: 0.0914 | hop2: 0.1150
+[agg_cmp_frozen_seed1042] step 050/390 trained 36/36 | hop0: 0.0922 | hop1: 0.0767 | hop2: 0.0898
+[agg_cmp_frozen_seed1042] step 060/390 trained 36/36 | hop0: 0.0972 | hop1: 0.0863 | hop2: 0.0881
+[agg_cmp_frozen_seed1042] step 070/390 trained 36/36 | hop0: 0.0808 | hop1: 0.0872 | hop2: 0.0881
+[agg_cmp_frozen_seed1042] step 080/390 trained 36/36 | hop0: 0.0793 | hop1: 0.0889 | hop2: 0.1347
+[agg_cmp_frozen_seed1042] step 090/390 trained 36/36 | hop0: 0.0936 | hop1: 0.0909 | hop2: 0.1101
+[agg_cmp_frozen_seed1042] step 100/390 trained 36/36 | hop0: 0.0957 | hop1: 0.0878
+[agg_cmp_frozen_seed1042] step 110/390 trained 36/36 | hop0: 0.0947 | hop1: 0.0970 | hop2: 0.1000
+[agg_cmp_frozen_seed1042] step 120/390 trained 36/36 | hop0: 0.1076 | hop1: 0.1071 | hop2: 0.1212
+[agg_cmp_frozen_seed1042] step 130/390 trained 36/36 | hop0: 0.1141 | hop1: 0.0993 | hop2: 0.1015
+[agg_cmp_frozen_seed1042] step 140/390 trained 36/36 | hop0: 0.1006 | hop1: 0.0927 | hop2: 0.1437
+[agg_cmp_frozen_seed1042] step 150/390 trained 36/36 | hop0: 0.1024 | hop1: 0.0980 | hop2: 0.1076
+[agg_cmp_frozen_seed1042] step 160/390 trained 36/36 | hop0: 0.0880 | hop1: 0.0977 | hop2: 0.1169
+[agg_cmp_frozen_seed1042] step 170/390 trained 36/36 | hop0: 0.0881 | hop1: 0.1051 | hop2: 0.1356
+[agg_cmp_frozen_seed1042] step 180/390 trained 36/36 | hop0: 0.0796 | hop1: 0.0971 | hop2: 0.1365
+[agg_cmp_frozen_seed1042] step 190/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0933
+[agg_cmp_frozen_seed1042] step 200/390 trained 36/36 | hop0: 0.0912 | hop1: 0.0992 | hop2: 0.0921
+[agg_cmp_frozen_seed1042] step 210/390 trained 36/36 | hop0: 0.0950 | hop1: 0.0919
+[agg_cmp_frozen_seed1042] step 220/390 trained 36/36 | hop0: 0.0775 | hop1: 0.0937 | hop2: 0.1133
+[agg_cmp_frozen_seed1042] step 230/390 trained 36/36 | hop0: 0.0881 | hop1: 0.0807 | hop2: 0.0787
+[agg_cmp_frozen_seed1042] step 240/390 trained 36/36 | hop0: 0.1001 | hop1: 0.1001 | hop2: 0.0987
+[agg_cmp_frozen_seed1042] step 250/390 trained 36/36 | hop0: 0.0954 | hop1: 0.0890 | hop2: 0.1339
+[agg_cmp_frozen_seed1042] step 260/390 trained 36/36 | hop0: 0.1020 | hop1: 0.0924 | hop2: 0.1114
+[agg_cmp_frozen_seed1042] step 270/390 trained 36/36 | hop0: 0.1051 | hop1: 0.0999
+[agg_cmp_frozen_seed1042] step 280/390 trained 36/36 | hop0: 0.0927 | hop1: 0.0853
+[agg_cmp_frozen_seed1042] step 290/390 trained 36/36 | hop0: 0.0756 | hop1: 0.0969
+[agg_cmp_frozen_seed1042] step 300/390 trained 36/36 | hop0: 0.0929 | hop1: 0.1090 | hop2: 0.0999
+[agg_cmp_frozen_seed1042] step 310/390 trained 36/36 | hop0: 0.0882 | hop1: 0.0986 | hop2: 0.1092
+[agg_cmp_frozen_seed1042] step 320/390 trained 36/36 | hop0: 0.0923 | hop1: 0.0902 | hop2: 0.0809
+[agg_cmp_frozen_seed1042] step 330/390 trained 36/36 | hop0: 0.0966 | hop1: 0.0982 | hop2: 0.0817
+[agg_cmp_frozen_seed1042] step 340/390 trained 36/36 | hop0: 0.0830 | hop1: 0.0830 | hop2: 0.0819
+[agg_cmp_frozen_seed1042] step 350/390 trained 36/36 | hop0: 0.0907 | hop1: 0.0940 | hop2: 0.0783
+[agg_cmp_frozen_seed1042] step 360/390 trained 36/36 | hop0: 0.0972 | hop1: 0.0891 | hop2: 0.0868
+[agg_cmp_frozen_seed1042] step 370/390 trained 36/36 | hop0: 0.1104 | hop1: 0.0892 | hop2: 0.1100
+[agg_cmp_frozen_seed1042] step 380/390 trained 36/36 | hop0: 0.1190 | hop1: 0.0975 | hop2: 0.1018
+[agg_cmp_frozen_seed1042] mean MSE (last 50 steps): 0.0981 | cert-MSE r=-0.329
+[agg_cmp_frozen_seed1042] saved runs\chapter5_v2\s5_3_1_frozen\agg_cmp_frozen_seed1042\figures\results.png
+
+### agg_cmp_frozen_seed1042 [offset, lam=5.0]: last50=0.0981 whole_run=0.0967 r(new)=-0.4576+/-0.0701 (n_t=50)
+[agg_cmp_frozen_seed2042] nodes=36 coverage max=9 mode=frozen steps=390
+[agg_cmp_frozen_seed2042] step 000/390 trained 36/36 | hop0: 0.0992 | hop1: 0.0855 | hop2: 0.0979
+[agg_cmp_frozen_seed2042] step 010/390 trained 36/36 | hop0: 0.1067 | hop1: 0.1067 | hop2: 0.0962
+[agg_cmp_frozen_seed2042] step 020/390 trained 36/36 | hop0: 0.0983 | hop1: 0.0904 | hop2: 0.0925
+[agg_cmp_frozen_seed2042] step 030/390 trained 36/36 | hop0: 0.1025 | hop1: 0.0774 | hop2: 0.0869
+[agg_cmp_frozen_seed2042] step 040/390 trained 36/36 | hop0: 0.0802 | hop1: 0.0959 | hop2: 0.1060
+[agg_cmp_frozen_seed2042] step 050/390 trained 36/36 | hop0: 0.0964 | hop1: 0.0927 | hop2: 0.0917 | hop3: 0.1170
+[agg_cmp_frozen_seed2042] step 060/390 trained 36/36 | hop0: 0.0896 | hop1: 0.0861 | hop2: 0.0956
+[agg_cmp_frozen_seed2042] step 070/390 trained 36/36 | hop0: 0.1053 | hop1: 0.0972 | hop2: 0.1060
+[agg_cmp_frozen_seed2042] step 080/390 trained 36/36 | hop0: 0.1050 | hop1: 0.0893 | hop2: 0.0890
+[agg_cmp_frozen_seed2042] step 090/390 trained 36/36 | hop0: 0.0843 | hop1: 0.0880 | hop2: 0.0982
+[agg_cmp_frozen_seed2042] step 100/390 trained 36/36 | hop0: 0.0997 | hop1: 0.0952 | hop2: 0.0817
+[agg_cmp_frozen_seed2042] step 110/390 trained 36/36 | hop0: 0.1101 | hop1: 0.0932 | hop2: 0.0833
+[agg_cmp_frozen_seed2042] step 120/390 trained 36/36 | hop0: 0.1039 | hop1: 0.1066
+[agg_cmp_frozen_seed2042] step 130/390 trained 36/36 | hop0: 0.1225 | hop1: 0.1034 | hop2: 0.1639
+[agg_cmp_frozen_seed2042] step 140/390 trained 36/36 | hop0: 0.1336 | hop1: 0.1010 | hop2: 0.1603
+[agg_cmp_frozen_seed2042] step 150/390 trained 36/36 | hop0: 0.1129 | hop1: 0.0851 | hop2: 0.0879
+[agg_cmp_frozen_seed2042] step 160/390 trained 36/36 | hop0: 0.1231 | hop1: 0.0869 | hop2: 0.0762
+[agg_cmp_frozen_seed2042] step 170/390 trained 36/36 | hop0: 0.0922 | hop1: 0.0788 | hop2: 0.0846
+[agg_cmp_frozen_seed2042] step 180/390 trained 36/36 | hop0: 0.0822 | hop1: 0.0968 | hop2: 0.0951
+[agg_cmp_frozen_seed2042] step 190/390 trained 36/36 | hop0: 0.1119 | hop1: 0.0946 | hop2: 0.1003
+[agg_cmp_frozen_seed2042] step 200/390 trained 36/36 | hop0: 0.0984 | hop1: 0.1054
+[agg_cmp_frozen_seed2042] step 210/390 trained 36/36 | hop0: 0.0828 | hop1: 0.0884
+[agg_cmp_frozen_seed2042] step 220/390 trained 36/36 | hop0: 0.0884 | hop1: 0.0823 | hop2: 0.1167
+[agg_cmp_frozen_seed2042] step 230/390 trained 36/36 | hop0: 0.0857 | hop1: 0.0949 | hop2: 0.1153
+[agg_cmp_frozen_seed2042] step 240/390 trained 36/36 | hop0: 0.0759 | hop1: 0.0893 | hop2: 0.1267
+[agg_cmp_frozen_seed2042] step 250/390 trained 36/36 | hop0: 0.0944 | hop1: 0.0892 | hop2: 0.1204
+[agg_cmp_frozen_seed2042] step 260/390 trained 36/36 | hop0: 0.0933 | hop1: 0.0988 | hop2: 0.1298
+[agg_cmp_frozen_seed2042] step 270/390 trained 36/36 | hop0: 0.0892 | hop1: 0.0908 | hop2: 0.1157 | hop3: 0.1140
+[agg_cmp_frozen_seed2042] step 280/390 trained 36/36 | hop0: 0.1070 | hop1: 0.1010 | hop2: 0.1064
+[agg_cmp_frozen_seed2042] step 290/390 trained 36/36 | hop0: 0.0832 | hop1: 0.0903 | hop2: 0.1326
+[agg_cmp_frozen_seed2042] step 300/390 trained 36/36 | hop0: 0.0952 | hop1: 0.0881 | hop2: 0.0945 | hop3: 0.1076
+[agg_cmp_frozen_seed2042] step 310/390 trained 36/36 | hop0: 0.0861 | hop1: 0.0808 | hop2: 0.1223 | hop3: 0.1085
+[agg_cmp_frozen_seed2042] step 320/390 trained 36/36 | hop0: 0.0739 | hop1: 0.0701 | hop2: 0.0823
+[agg_cmp_frozen_seed2042] step 330/390 trained 36/36 | hop0: 0.0839 | hop1: 0.0865 | hop2: 0.0876 | hop3: 0.0801
+[agg_cmp_frozen_seed2042] step 340/390 trained 36/36 | hop0: 0.0848 | hop1: 0.1055 | hop2: 0.0993 | hop3: 0.0770
+[agg_cmp_frozen_seed2042] step 350/390 trained 36/36 | hop0: 0.0899 | hop1: 0.0860 | hop2: 0.0838 | hop3: 0.0816
+[agg_cmp_frozen_seed2042] step 360/390 trained 36/36 | hop0: 0.0981 | hop1: 0.0962 | hop2: 0.0949
+[agg_cmp_frozen_seed2042] step 370/390 trained 36/36 | hop0: 0.0849 | hop1: 0.0981 | hop2: 0.1111
+[agg_cmp_frozen_seed2042] step 380/390 trained 36/36 | hop0: 0.0813 | hop1: 0.0988 | hop2: 0.1081
+[agg_cmp_frozen_seed2042] mean MSE (last 50 steps): 0.0978 | cert-MSE r=-0.327
+[agg_cmp_frozen_seed2042] saved runs\chapter5_v2\s5_3_1_frozen\agg_cmp_frozen_seed2042\figures\results.png
+
+### agg_cmp_frozen_seed2042 [offset, lam=5.0]: last50=0.0978 whole_run=0.0972 r(new)=-0.4539+/-0.0637 (n_t=50)
+[agg_cmp_frozen_seed3042] nodes=36 coverage max=9 mode=frozen steps=390
+[agg_cmp_frozen_seed3042] step 000/390 trained 36/36 | hop0: 0.0967 | hop1: 0.0933 | hop2: 0.1599
+[agg_cmp_frozen_seed3042] step 010/390 trained 36/36 | hop0: 0.0837 | hop1: 0.1075
+[agg_cmp_frozen_seed3042] step 020/390 trained 36/36 | hop0: 0.0914 | hop1: 0.1053
+[agg_cmp_frozen_seed3042] step 030/390 trained 36/36 | hop0: 0.0980 | hop1: 0.1041
+[agg_cmp_frozen_seed3042] step 040/390 trained 36/36 | hop0: 0.0921 | hop1: 0.0964
+[agg_cmp_frozen_seed3042] step 050/390 trained 36/36 | hop0: 0.0762 | hop1: 0.0936 | hop2: 0.0908
+[agg_cmp_frozen_seed3042] step 060/390 trained 36/36 | hop0: 0.0965 | hop1: 0.0873 | hop2: 0.0911
+[agg_cmp_frozen_seed3042] step 070/390 trained 36/36 | hop0: 0.0897 | hop1: 0.0878 | hop2: 0.1083
+[agg_cmp_frozen_seed3042] step 080/390 trained 36/36 | hop0: 0.0809 | hop1: 0.0823 | hop2: 0.1062
+[agg_cmp_frozen_seed3042] step 090/390 trained 36/36 | hop0: 0.0829 | hop1: 0.0947 | hop2: 0.1066 | hop3: 0.0907
+[agg_cmp_frozen_seed3042] step 100/390 trained 36/36 | hop0: 0.1026 | hop1: 0.0913 | hop2: 0.0865
+[agg_cmp_frozen_seed3042] step 110/390 trained 36/36 | hop0: 0.0927 | hop1: 0.0996 | hop2: 0.0771
+[agg_cmp_frozen_seed3042] step 120/390 trained 36/36 | hop0: 0.1085 | hop1: 0.1133 | hop2: 0.0827
+[agg_cmp_frozen_seed3042] step 130/390 trained 36/36 | hop0: 0.1049 | hop1: 0.1025 | hop2: 0.0839
+[agg_cmp_frozen_seed3042] step 140/390 trained 36/36 | hop0: 0.1090 | hop1: 0.0964 | hop2: 0.0901
+[agg_cmp_frozen_seed3042] step 150/390 trained 36/36 | hop0: 0.1005 | hop1: 0.0956 | hop2: 0.0877
+[agg_cmp_frozen_seed3042] step 160/390 trained 36/36 | hop0: 0.0897 | hop1: 0.0946 | hop2: 0.0778
+[agg_cmp_frozen_seed3042] step 170/390 trained 36/36 | hop0: 0.0827 | hop1: 0.0969 | hop2: 0.0612
+[agg_cmp_frozen_seed3042] step 180/390 trained 36/36 | hop0: 0.0926 | hop1: 0.0947
+[agg_cmp_frozen_seed3042] step 190/390 trained 36/36 | hop0: 0.1010 | hop1: 0.0967
+[agg_cmp_frozen_seed3042] step 200/390 trained 36/36 | hop0: 0.1015 | hop1: 0.1053
+[agg_cmp_frozen_seed3042] step 210/390 trained 36/36 | hop0: 0.0842 | hop1: 0.0883 | hop2: 0.0867
+[agg_cmp_frozen_seed3042] step 220/390 trained 36/36 | hop0: 0.0922 | hop1: 0.0913 | hop2: 0.0832
+[agg_cmp_frozen_seed3042] step 230/390 trained 36/36 | hop0: 0.1075 | hop1: 0.1013 | hop2: 0.0812
+[agg_cmp_frozen_seed3042] step 240/390 trained 36/36 | hop0: 0.1066 | hop1: 0.0911 | hop2: 0.1058
+[agg_cmp_frozen_seed3042] step 250/390 trained 36/36 | hop0: 0.1035 | hop1: 0.0995 | hop2: 0.0925
+[agg_cmp_frozen_seed3042] step 260/390 trained 36/36 | hop0: 0.1171 | hop1: 0.0954 | hop2: 0.0945
+[agg_cmp_frozen_seed3042] step 270/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0968 | hop2: 0.0946
+[agg_cmp_frozen_seed3042] step 280/390 trained 36/36 | hop0: 0.0849 | hop1: 0.0917 | hop2: 0.0892
+[agg_cmp_frozen_seed3042] step 290/390 trained 36/36 | hop0: 0.0837 | hop1: 0.0913
+[agg_cmp_frozen_seed3042] step 300/390 trained 36/36 | hop0: 0.0929 | hop1: 0.0922 | hop2: 0.0527
+[agg_cmp_frozen_seed3042] step 310/390 trained 36/36 | hop0: 0.0936 | hop1: 0.0970 | hop2: 0.0916
+[agg_cmp_frozen_seed3042] step 320/390 trained 36/36 | hop0: 0.0727 | hop1: 0.0747 | hop2: 0.0711
+[agg_cmp_frozen_seed3042] step 330/390 trained 36/36 | hop0: 0.0679 | hop1: 0.0845
+[agg_cmp_frozen_seed3042] step 340/390 trained 36/36 | hop0: 0.0889 | hop1: 0.0867
+[agg_cmp_frozen_seed3042] step 350/390 trained 36/36 | hop0: 0.0842 | hop1: 0.0895 | hop2: 0.1089
+[agg_cmp_frozen_seed3042] step 360/390 trained 36/36 | hop0: 0.1011 | hop1: 0.1006 | hop2: 0.1036
+[agg_cmp_frozen_seed3042] step 370/390 trained 36/36 | hop0: 0.0963 | hop1: 0.1107
+[agg_cmp_frozen_seed3042] step 380/390 trained 36/36 | hop0: 0.0855 | hop1: 0.0906 | hop2: 0.0861
+[agg_cmp_frozen_seed3042] mean MSE (last 50 steps): 0.0994 | cert-MSE r=-0.300
+[agg_cmp_frozen_seed3042] saved runs\chapter5_v2\s5_3_1_frozen\agg_cmp_frozen_seed3042\figures\results.png
+
+### agg_cmp_frozen_seed3042 [offset, lam=5.0]: last50=0.0994 whole_run=0.0972 r(new)=-0.4692+/-0.0678 (n_t=50)
+[agg_cmp_frozen_seed4042] nodes=36 coverage max=9 mode=frozen steps=390
+[agg_cmp_frozen_seed4042] step 000/390 trained 36/36 | hop0: 0.0900 | hop1: 0.0985 | hop2: 0.1207
+[agg_cmp_frozen_seed4042] step 010/390 trained 36/36 | hop0: 0.0810 | hop1: 0.0905
+[agg_cmp_frozen_seed4042] step 020/390 trained 36/36 | hop0: 0.0845 | hop1: 0.0920 | hop2: 0.1501
+[agg_cmp_frozen_seed4042] step 030/390 trained 36/36 | hop0: 0.0994 | hop1: 0.0940 | hop2: 0.0836
+[agg_cmp_frozen_seed4042] step 040/390 trained 36/36 | hop0: 0.0902 | hop1: 0.0907 | hop2: 0.0927
+[agg_cmp_frozen_seed4042] step 050/390 trained 36/36 | hop0: 0.0759 | hop1: 0.0903 | hop2: 0.1086
+[agg_cmp_frozen_seed4042] step 060/390 trained 36/36 | hop0: 0.0788 | hop1: 0.0791 | hop2: 0.1019
+[agg_cmp_frozen_seed4042] step 070/390 trained 36/36 | hop0: 0.0846 | hop1: 0.0863 | hop2: 0.1127
+[agg_cmp_frozen_seed4042] step 080/390 trained 36/36 | hop0: 0.0870 | hop1: 0.0821 | hop2: 0.1010
+[agg_cmp_frozen_seed4042] step 090/390 trained 36/36 | hop0: 0.1012 | hop1: 0.0909 | hop2: 0.1095 | hop3: 0.1271
+[agg_cmp_frozen_seed4042] step 100/390 trained 36/36 | hop0: 0.0881 | hop1: 0.0852 | hop2: 0.0905 | hop3: 0.0908
+[agg_cmp_frozen_seed4042] step 110/390 trained 36/36 | hop0: 0.1004 | hop1: 0.1016 | hop2: 0.1306
+[agg_cmp_frozen_seed4042] step 120/390 trained 36/36 | hop0: 0.0976 | hop1: 0.0988 | hop2: 0.0657
+[agg_cmp_frozen_seed4042] step 130/390 trained 36/36 | hop0: 0.0995 | hop1: 0.1001
+[agg_cmp_frozen_seed4042] step 140/390 trained 36/36 | hop0: 0.1077 | hop1: 0.0906 | hop2: 0.1124
+[agg_cmp_frozen_seed4042] step 150/390 trained 36/36 | hop0: 0.1092 | hop1: 0.0974 | hop2: 0.1252
+[agg_cmp_frozen_seed4042] step 160/390 trained 36/36 | hop0: 0.0865 | hop1: 0.0931 | hop2: 0.1169
+[agg_cmp_frozen_seed4042] step 170/390 trained 36/36 | hop0: 0.0740 | hop1: 0.0881 | hop2: 0.1035
+[agg_cmp_frozen_seed4042] step 180/390 trained 36/36 | hop0: 0.1016 | hop1: 0.0968 | hop2: 0.1013
+[agg_cmp_frozen_seed4042] step 190/390 trained 36/36 | hop0: 0.0997 | hop1: 0.1031 | hop2: 0.1009
+[agg_cmp_frozen_seed4042] step 200/390 trained 36/36 | hop0: 0.0992 | hop1: 0.0882 | hop2: 0.0834
+[agg_cmp_frozen_seed4042] step 210/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0824 | hop2: 0.0826
+[agg_cmp_frozen_seed4042] step 220/390 trained 36/36 | hop0: 0.0997 | hop1: 0.1017 | hop2: 0.1064
+[agg_cmp_frozen_seed4042] step 230/390 trained 36/36 | hop0: 0.0941 | hop1: 0.0922
+[agg_cmp_frozen_seed4042] step 240/390 trained 36/36 | hop0: 0.0917 | hop1: 0.0907
+[agg_cmp_frozen_seed4042] step 250/390 trained 36/36 | hop0: 0.0839 | hop1: 0.0902 | hop2: 0.0946
+[agg_cmp_frozen_seed4042] step 260/390 trained 36/36 | hop0: 0.0921 | hop1: 0.1012 | hop2: 0.0995
+[agg_cmp_frozen_seed4042] step 270/390 trained 36/36 | hop0: 0.0862 | hop1: 0.0963 | hop2: 0.0948
+[agg_cmp_frozen_seed4042] step 280/390 trained 36/36 | hop0: 0.1046 | hop1: 0.0976 | hop2: 0.0807
+[agg_cmp_frozen_seed4042] step 290/390 trained 36/36 | hop0: 0.0858 | hop1: 0.0964 | hop2: 0.0954
+[agg_cmp_frozen_seed4042] step 300/390 trained 36/36 | hop0: 0.0962 | hop1: 0.1047 | hop2: 0.0804
+[agg_cmp_frozen_seed4042] step 310/390 trained 36/36 | hop0: 0.0810 | hop1: 0.0936 | hop2: 0.1114
+[agg_cmp_frozen_seed4042] step 320/390 trained 36/36 | hop0: 0.0875 | hop1: 0.1022 | hop2: 0.0966
+[agg_cmp_frozen_seed4042] step 330/390 trained 36/36 | hop0: 0.0868 | hop1: 0.0893 | hop2: 0.0683
+[agg_cmp_frozen_seed4042] step 340/390 trained 36/36 | hop0: 0.1025 | hop1: 0.0892 | hop2: 0.0987
+[agg_cmp_frozen_seed4042] step 350/390 trained 36/36 | hop0: 0.0864 | hop1: 0.0895 | hop2: 0.1088
+[agg_cmp_frozen_seed4042] step 360/390 trained 36/36 | hop0: 0.0996 | hop1: 0.0887
+[agg_cmp_frozen_seed4042] step 370/390 trained 36/36 | hop0: 0.1006 | hop1: 0.1107 | hop2: 0.1668
+[agg_cmp_frozen_seed4042] step 380/390 trained 36/36 | hop0: 0.1075 | hop1: 0.1095 | hop2: 0.2235
+[agg_cmp_frozen_seed4042] mean MSE (last 50 steps): 0.0990 | cert-MSE r=-0.363
+[agg_cmp_frozen_seed4042] saved runs\chapter5_v2\s5_3_1_frozen\agg_cmp_frozen_seed4042\figures\results.png
+
+### agg_cmp_frozen_seed4042 [offset, lam=5.0]: last50=0.0990 whole_run=0.0969 r(new)=-0.4584+/-0.0677 (n_t=50)
+
+=== frozen 5-SEED SUMMARY (seeds=[42, 1042, 2042, 3042, 4042]) ===
+whole_run MSE: mean=0.0970 std=0.0002 values=[np.float64(0.0969), np.float64(0.0967), np.float64(0.0972), np.float64(0.0972), np.float64(0.0969)]
+last50 MSE:    mean=0.0988 std=0.0007 values=[np.float64(0.0995), np.float64(0.0981), np.float64(0.0978), np.float64(0.0994), np.float64(0.099)]
+r (new, per-timestep-then-avg): mean=-0.4594 std_across_seeds=0.0052 avg_within_run_std=0.0669 values=[np.float64(-0.4578), np.float64(-0.4576), np.float64(-0.4539), np.float64(-0.4692), np.float64(-0.4584)]
+=== DONE ===

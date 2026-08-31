@@ -1,0 +1,226 @@
+[unc_cmp_aleatoric] nodes=36 coverage max=9 mode=nig_product steps=390
+[unc_cmp_aleatoric] step 000/390 trained 36/36 | hop0: 0.1081 | hop1: 0.1006
+[unc_cmp_aleatoric] step 010/390 trained 36/36 | hop0: 0.0652 | hop1: 0.0884
+[unc_cmp_aleatoric] step 020/390 trained 36/36 | hop0: 0.0704 | hop1: 0.0695 | hop2: 0.0830
+[unc_cmp_aleatoric] step 030/390 trained 36/36 | hop0: 0.0518 | hop1: 0.0679 | hop2: 0.1035
+[unc_cmp_aleatoric] step 040/390 trained 36/36 | hop0: 0.0413 | hop1: 0.0584 | hop2: 0.0640
+[unc_cmp_aleatoric] step 050/390 trained 36/36 | hop0: 0.0415 | hop1: 0.0424 | hop2: 0.0511
+[unc_cmp_aleatoric] step 060/390 trained 36/36 | hop0: 0.0250 | hop1: 0.0422 | hop2: 0.0596
+[unc_cmp_aleatoric] step 070/390 trained 36/36 | hop0: 0.0197 | hop1: 0.0344 | hop2: 0.0608
+[unc_cmp_aleatoric] step 080/390 trained 36/36 | hop0: 0.0141 | hop1: 0.0303 | hop2: 0.0808
+[unc_cmp_aleatoric] step 090/390 trained 36/36 | hop0: 0.0161 | hop1: 0.0263
+[unc_cmp_aleatoric] step 100/390 trained 36/36 | hop0: 0.0146 | hop1: 0.0233 | hop2: 0.0233
+[unc_cmp_aleatoric] step 110/390 trained 36/36 | hop0: 0.0225 | hop1: 0.0179 | hop2: 0.0251
+[unc_cmp_aleatoric] step 120/390 trained 36/36 | hop0: 0.0220 | hop1: 0.0351 | hop2: 0.0448
+[unc_cmp_aleatoric] step 130/390 trained 36/36 | hop0: 0.0159 | hop1: 0.0432 | hop2: 0.0962
+[unc_cmp_aleatoric] step 140/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0364 | hop2: 0.0745
+[unc_cmp_aleatoric] step 150/390 trained 36/36 | hop0: 0.0030 | hop1: 0.0122 | hop2: 0.0779
+[unc_cmp_aleatoric] step 160/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0092 | hop2: 0.0369
+[unc_cmp_aleatoric] step 170/390 trained 36/36 | hop0: 0.0033 | hop1: 0.0064 | hop2: 0.0147
+[unc_cmp_aleatoric] step 180/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0039 | hop2: 0.0117
+[unc_cmp_aleatoric] step 190/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0047 | hop2: 0.0188
+[unc_cmp_aleatoric] step 200/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0047 | hop2: 0.0116
+[unc_cmp_aleatoric] step 210/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0043 | hop2: 0.0072
+[unc_cmp_aleatoric] step 220/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0060
+[unc_cmp_aleatoric] step 230/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0071 | hop2: 0.0082
+[unc_cmp_aleatoric] step 240/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0099 | hop2: 0.0132
+[unc_cmp_aleatoric] step 250/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0139 | hop2: 0.0259
+[unc_cmp_aleatoric] step 260/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0137
+[unc_cmp_aleatoric] step 270/390 trained 36/36 | hop0: 0.0061 | hop1: 0.0104 | hop2: 0.0061
+[unc_cmp_aleatoric] step 280/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0104
+[unc_cmp_aleatoric] step 290/390 trained 36/36 | hop0: 0.0134 | hop1: 0.0067 | hop2: 0.0168
+[unc_cmp_aleatoric] step 300/390 trained 36/36 | hop0: 0.0148 | hop1: 0.0053 | hop2: 0.0130
+[unc_cmp_aleatoric] step 310/390 trained 36/36 | hop0: 0.0091 | hop1: 0.0062 | hop2: 0.0040
+[unc_cmp_aleatoric] step 320/390 trained 36/36 | hop0: 0.0049 | hop1: 0.0057 | hop2: 0.0011
+[unc_cmp_aleatoric] step 330/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0037 | hop2: 0.0016
+[unc_cmp_aleatoric] step 340/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0043
+[unc_cmp_aleatoric] step 350/390 trained 36/36 | hop0: 0.0116 | hop1: 0.0063 | hop2: 0.0084
+[unc_cmp_aleatoric] step 360/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0104 | hop2: 0.0104
+[unc_cmp_aleatoric] step 370/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0088 | hop2: 0.0160
+[unc_cmp_aleatoric] step 380/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0101 | hop2: 0.0265
+[unc_cmp_aleatoric] mean MSE (last 50 steps): 0.0122 | cert-MSE r=-0.476
+[unc_cmp_aleatoric] saved runs\chapter5_v2\s5_9_uncertainty_aleatoric\unc_cmp_aleatoric\figures\results.png
+
+### unc_cmp_aleatoric: last50=0.0122 whole_run=0.0236 r=-0.4758
+[unc_cmp_aleatoric_seed1042] nodes=36 coverage max=9 mode=nig_product steps=390
+[unc_cmp_aleatoric_seed1042] step 000/390 trained 36/36 | hop0: 0.0928 | hop1: 0.1057
+[unc_cmp_aleatoric_seed1042] step 010/390 trained 36/36 | hop0: 0.0766 | hop1: 0.0841 | hop2: 0.1450
+[unc_cmp_aleatoric_seed1042] step 020/390 trained 36/36 | hop0: 0.0594 | hop1: 0.0681
+[unc_cmp_aleatoric_seed1042] step 030/390 trained 36/36 | hop0: 0.0662 | hop1: 0.0733 | hop2: 0.0723
+[unc_cmp_aleatoric_seed1042] step 040/390 trained 36/36 | hop0: 0.0519 | hop1: 0.0574 | hop2: 0.0950
+[unc_cmp_aleatoric_seed1042] step 050/390 trained 36/36 | hop0: 0.0422 | hop1: 0.0414 | hop2: 0.0654
+[unc_cmp_aleatoric_seed1042] step 060/390 trained 36/36 | hop0: 0.0365 | hop1: 0.0381 | hop2: 0.0566
+[unc_cmp_aleatoric_seed1042] step 070/390 trained 36/36 | hop0: 0.0261 | hop1: 0.0306 | hop2: 0.0573
+[unc_cmp_aleatoric_seed1042] step 080/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0299 | hop2: 0.0956
+[unc_cmp_aleatoric_seed1042] step 090/390 trained 36/36 | hop0: 0.0159 | hop1: 0.0225 | hop2: 0.0504
+[unc_cmp_aleatoric_seed1042] step 100/390 trained 36/36 | hop0: 0.0153 | hop1: 0.0173
+[unc_cmp_aleatoric_seed1042] step 110/390 trained 36/36 | hop0: 0.0109 | hop1: 0.0158 | hop2: 0.0259
+[unc_cmp_aleatoric_seed1042] step 120/390 trained 36/36 | hop0: 0.0144 | hop1: 0.0155 | hop2: 0.0333
+[unc_cmp_aleatoric_seed1042] step 130/390 trained 36/36 | hop0: 0.0167 | hop1: 0.0158 | hop2: 0.0335
+[unc_cmp_aleatoric_seed1042] step 140/390 trained 36/36 | hop0: 0.0311 | hop1: 0.0104 | hop2: 0.0249
+[unc_cmp_aleatoric_seed1042] step 150/390 trained 36/36 | hop0: 0.0234 | hop1: 0.0141 | hop2: 0.0203
+[unc_cmp_aleatoric_seed1042] step 160/390 trained 36/36 | hop0: 0.0091 | hop1: 0.0117 | hop2: 0.0258
+[unc_cmp_aleatoric_seed1042] step 170/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0117 | hop2: 0.0303
+[unc_cmp_aleatoric_seed1042] step 180/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0131 | hop2: 0.0274
+[unc_cmp_aleatoric_seed1042] step 190/390 trained 36/36 | hop0: 0.0102 | hop1: 0.0163
+[unc_cmp_aleatoric_seed1042] step 200/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0149 | hop2: 0.0097
+[unc_cmp_aleatoric_seed1042] step 210/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0119
+[unc_cmp_aleatoric_seed1042] step 220/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0088 | hop2: 0.0155
+[unc_cmp_aleatoric_seed1042] step 230/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0067 | hop2: 0.0114
+[unc_cmp_aleatoric_seed1042] step 240/390 trained 36/36 | hop0: 0.0079 | hop1: 0.0152 | hop2: 0.0199
+[unc_cmp_aleatoric_seed1042] step 250/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0180 | hop2: 0.0617
+[unc_cmp_aleatoric_seed1042] step 260/390 trained 36/36 | hop0: 0.0118 | hop1: 0.0251 | hop2: 0.0770
+[unc_cmp_aleatoric_seed1042] step 270/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0207
+[unc_cmp_aleatoric_seed1042] step 280/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0172
+[unc_cmp_aleatoric_seed1042] step 290/390 trained 36/36 | hop0: 0.0023 | hop1: 0.0139
+[unc_cmp_aleatoric_seed1042] step 300/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0113 | hop2: 0.0011
+[unc_cmp_aleatoric_seed1042] step 310/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0066 | hop2: 0.0123
+[unc_cmp_aleatoric_seed1042] step 320/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0041 | hop2: 0.0074
+[unc_cmp_aleatoric_seed1042] step 330/390 trained 36/36 | hop0: 0.0010 | hop1: 0.0022 | hop2: 0.0042
+[unc_cmp_aleatoric_seed1042] step 340/390 trained 36/36 | hop0: 0.0018 | hop1: 0.0038 | hop2: 0.0049
+[unc_cmp_aleatoric_seed1042] step 350/390 trained 36/36 | hop0: 0.0015 | hop1: 0.0107 | hop2: 0.0166
+[unc_cmp_aleatoric_seed1042] step 360/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0092 | hop2: 0.0448
+[unc_cmp_aleatoric_seed1042] step 370/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0210 | hop2: 0.0463
+[unc_cmp_aleatoric_seed1042] step 380/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0261 | hop2: 0.0628
+[unc_cmp_aleatoric_seed1042] mean MSE (last 50 steps): 0.0185 | cert-MSE r=-0.459
+[unc_cmp_aleatoric_seed1042] saved runs\chapter5_v2\s5_9_uncertainty_aleatoric\unc_cmp_aleatoric_seed1042\figures\results.png
+
+### unc_cmp_aleatoric_seed1042: last50=0.0185 whole_run=0.0254 r=-0.4585
+[unc_cmp_aleatoric_seed2042] nodes=36 coverage max=9 mode=nig_product steps=390
+[unc_cmp_aleatoric_seed2042] step 000/390 trained 36/36 | hop0: 0.0980 | hop1: 0.0853 | hop2: 0.0981
+[unc_cmp_aleatoric_seed2042] step 010/390 trained 36/36 | hop0: 0.0873 | hop1: 0.1014 | hop2: 0.0987
+[unc_cmp_aleatoric_seed2042] step 020/390 trained 36/36 | hop0: 0.0687 | hop1: 0.0797 | hop2: 0.0931
+[unc_cmp_aleatoric_seed2042] step 030/390 trained 36/36 | hop0: 0.0654 | hop1: 0.0612 | hop2: 0.0844
+[unc_cmp_aleatoric_seed2042] step 040/390 trained 36/36 | hop0: 0.0430 | hop1: 0.0633 | hop2: 0.0931
+[unc_cmp_aleatoric_seed2042] step 050/390 trained 36/36 | hop0: 0.0447 | hop1: 0.0503 | hop2: 0.0666 | hop3: 0.0949
+[unc_cmp_aleatoric_seed2042] step 060/390 trained 36/36 | hop0: 0.0430 | hop1: 0.0383 | hop2: 0.0731
+[unc_cmp_aleatoric_seed2042] step 070/390 trained 36/36 | hop0: 0.0339 | hop1: 0.0402 | hop2: 0.0652
+[unc_cmp_aleatoric_seed2042] step 080/390 trained 36/36 | hop0: 0.0245 | hop1: 0.0323 | hop2: 0.0588
+[unc_cmp_aleatoric_seed2042] step 090/390 trained 36/36 | hop0: 0.0151 | hop1: 0.0240 | hop2: 0.0500
+[unc_cmp_aleatoric_seed2042] step 100/390 trained 36/36 | hop0: 0.0143 | hop1: 0.0180 | hop2: 0.0279
+[unc_cmp_aleatoric_seed2042] step 110/390 trained 36/36 | hop0: 0.0139 | hop1: 0.0162 | hop2: 0.0221
+[unc_cmp_aleatoric_seed2042] step 120/390 trained 36/36 | hop0: 0.0101 | hop1: 0.0284
+[unc_cmp_aleatoric_seed2042] step 130/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0252 | hop2: 0.1336
+[unc_cmp_aleatoric_seed2042] step 140/390 trained 36/36 | hop0: 0.0092 | hop1: 0.0328 | hop2: 0.1403
+[unc_cmp_aleatoric_seed2042] step 150/390 trained 36/36 | hop0: 0.0050 | hop1: 0.0247 | hop2: 0.0719
+[unc_cmp_aleatoric_seed2042] step 160/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0270 | hop2: 0.0597
+[unc_cmp_aleatoric_seed2042] step 170/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0254 | hop2: 0.0516
+[unc_cmp_aleatoric_seed2042] step 180/390 trained 36/36 | hop0: 0.0089 | hop1: 0.0124 | hop2: 0.0225
+[unc_cmp_aleatoric_seed2042] step 190/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0134 | hop2: 0.0159
+[unc_cmp_aleatoric_seed2042] step 200/390 trained 36/36 | hop0: 0.0061 | hop1: 0.0122
+[unc_cmp_aleatoric_seed2042] step 210/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0120
+[unc_cmp_aleatoric_seed2042] step 220/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0089 | hop2: 0.0300
+[unc_cmp_aleatoric_seed2042] step 230/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0122 | hop2: 0.0335
+[unc_cmp_aleatoric_seed2042] step 240/390 trained 36/36 | hop0: 0.0067 | hop1: 0.0201 | hop2: 0.0407
+[unc_cmp_aleatoric_seed2042] step 250/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0149 | hop2: 0.0412
+[unc_cmp_aleatoric_seed2042] step 260/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0114 | hop2: 0.0311
+[unc_cmp_aleatoric_seed2042] step 270/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0080 | hop2: 0.0186 | hop3: 0.0218
+[unc_cmp_aleatoric_seed2042] step 280/390 trained 36/36 | hop0: 0.0087 | hop1: 0.0149 | hop2: 0.0166
+[unc_cmp_aleatoric_seed2042] step 290/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0209 | hop2: 0.0195
+[unc_cmp_aleatoric_seed2042] step 300/390 trained 36/36 | hop0: 0.0023 | hop1: 0.0051 | hop2: 0.0307 | hop3: 0.0216
+[unc_cmp_aleatoric_seed2042] step 310/390 trained 36/36 | hop0: 0.0018 | hop1: 0.0044 | hop2: 0.0236 | hop3: 0.0162
+[unc_cmp_aleatoric_seed2042] step 320/390 trained 36/36 | hop0: 0.0022 | hop1: 0.0052 | hop2: 0.0142
+[unc_cmp_aleatoric_seed2042] step 330/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0036 | hop2: 0.0071 | hop3: 0.0107
+[unc_cmp_aleatoric_seed2042] step 340/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0025 | hop2: 0.0072 | hop3: 0.0115
+[unc_cmp_aleatoric_seed2042] step 350/390 trained 36/36 | hop0: 0.0018 | hop1: 0.0067 | hop2: 0.0278 | hop3: 0.0473
+[unc_cmp_aleatoric_seed2042] step 360/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0121 | hop2: 0.0685
+[unc_cmp_aleatoric_seed2042] step 370/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0159 | hop2: 0.0918
+[unc_cmp_aleatoric_seed2042] step 380/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0109 | hop2: 0.0324
+[unc_cmp_aleatoric_seed2042] mean MSE (last 50 steps): 0.0179 | cert-MSE r=0.000
+[unc_cmp_aleatoric_seed2042] saved runs\chapter5_v2\s5_9_uncertainty_aleatoric\unc_cmp_aleatoric_seed2042\figures\results.png
+
+### unc_cmp_aleatoric_seed2042: last50=0.0179 whole_run=0.0284 r=0.0002
+[unc_cmp_aleatoric_seed3042] nodes=36 coverage max=9 mode=nig_product steps=390
+[unc_cmp_aleatoric_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0930 | hop2: 0.1605
+[unc_cmp_aleatoric_seed3042] step 010/390 trained 36/36 | hop0: 0.0726 | hop1: 0.1025
+[unc_cmp_aleatoric_seed3042] step 020/390 trained 36/36 | hop0: 0.0752 | hop1: 0.0899
+[unc_cmp_aleatoric_seed3042] step 030/390 trained 36/36 | hop0: 0.0678 | hop1: 0.0836
+[unc_cmp_aleatoric_seed3042] step 040/390 trained 36/36 | hop0: 0.0589 | hop1: 0.0630
+[unc_cmp_aleatoric_seed3042] step 050/390 trained 36/36 | hop0: 0.0414 | hop1: 0.0485 | hop2: 0.0511
+[unc_cmp_aleatoric_seed3042] step 060/390 trained 36/36 | hop0: 0.0445 | hop1: 0.0408 | hop2: 0.0540
+[unc_cmp_aleatoric_seed3042] step 070/390 trained 36/36 | hop0: 0.0277 | hop1: 0.0365 | hop2: 0.0751
+[unc_cmp_aleatoric_seed3042] step 080/390 trained 36/36 | hop0: 0.0182 | hop1: 0.0283 | hop2: 0.0825
+[unc_cmp_aleatoric_seed3042] step 090/390 trained 36/36 | hop0: 0.0140 | hop1: 0.0230 | hop2: 0.0534 | hop3: 0.0655
+[unc_cmp_aleatoric_seed3042] step 100/390 trained 36/36 | hop0: 0.0148 | hop1: 0.0194 | hop2: 0.0351
+[unc_cmp_aleatoric_seed3042] step 110/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0208 | hop2: 0.0282
+[unc_cmp_aleatoric_seed3042] step 120/390 trained 36/36 | hop0: 0.0127 | hop1: 0.0299 | hop2: 0.0243
+[unc_cmp_aleatoric_seed3042] step 130/390 trained 36/36 | hop0: 0.0156 | hop1: 0.0346 | hop2: 0.0550
+[unc_cmp_aleatoric_seed3042] step 140/390 trained 36/36 | hop0: 0.0270 | hop1: 0.0181 | hop2: 0.0102
+[unc_cmp_aleatoric_seed3042] step 150/390 trained 36/36 | hop0: 0.0179 | hop1: 0.0097 | hop2: 0.0039
+[unc_cmp_aleatoric_seed3042] step 160/390 trained 36/36 | hop0: 0.0118 | hop1: 0.0130 | hop2: 0.0069
+[unc_cmp_aleatoric_seed3042] step 170/390 trained 36/36 | hop0: 0.0126 | hop1: 0.0156 | hop2: 0.0121
+[unc_cmp_aleatoric_seed3042] step 180/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0104
+[unc_cmp_aleatoric_seed3042] step 190/390 trained 36/36 | hop0: 0.0166 | hop1: 0.0106
+[unc_cmp_aleatoric_seed3042] step 200/390 trained 36/36 | hop0: 0.0124 | hop1: 0.0108
+[unc_cmp_aleatoric_seed3042] step 210/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0097 | hop2: 0.0038
+[unc_cmp_aleatoric_seed3042] step 220/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0076 | hop2: 0.0040
+[unc_cmp_aleatoric_seed3042] step 230/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0069 | hop2: 0.0034
+[unc_cmp_aleatoric_seed3042] step 240/390 trained 36/36 | hop0: 0.0118 | hop1: 0.0081 | hop2: 0.0299
+[unc_cmp_aleatoric_seed3042] step 250/390 trained 36/36 | hop0: 0.0100 | hop1: 0.0123 | hop2: 0.0592
+[unc_cmp_aleatoric_seed3042] step 260/390 trained 36/36 | hop0: 0.0086 | hop1: 0.0202 | hop2: 0.0699
+[unc_cmp_aleatoric_seed3042] step 270/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0143 | hop2: 0.0354
+[unc_cmp_aleatoric_seed3042] step 280/390 trained 36/36 | hop0: 0.0020 | hop1: 0.0094 | hop2: 0.0203
+[unc_cmp_aleatoric_seed3042] step 290/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0100
+[unc_cmp_aleatoric_seed3042] step 300/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0085 | hop2: 0.0068
+[unc_cmp_aleatoric_seed3042] step 310/390 trained 36/36 | hop0: 0.0018 | hop1: 0.0070 | hop2: 0.0077
+[unc_cmp_aleatoric_seed3042] step 320/390 trained 36/36 | hop0: 0.0012 | hop1: 0.0036 | hop2: 0.0062
+[unc_cmp_aleatoric_seed3042] step 330/390 trained 36/36 | hop0: 0.0013 | hop1: 0.0016
+[unc_cmp_aleatoric_seed3042] step 340/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0027
+[unc_cmp_aleatoric_seed3042] step 350/390 trained 36/36 | hop0: 0.0100 | hop1: 0.0049 | hop2: 0.0072
+[unc_cmp_aleatoric_seed3042] step 360/390 trained 36/36 | hop0: 0.0093 | hop1: 0.0125 | hop2: 0.0127
+[unc_cmp_aleatoric_seed3042] step 370/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0203
+[unc_cmp_aleatoric_seed3042] step 380/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0176 | hop2: 0.0190
+[unc_cmp_aleatoric_seed3042] mean MSE (last 50 steps): 0.0137 | cert-MSE r=-0.271
+[unc_cmp_aleatoric_seed3042] saved runs\chapter5_v2\s5_9_uncertainty_aleatoric\unc_cmp_aleatoric_seed3042\figures\results.png
+
+### unc_cmp_aleatoric_seed3042: last50=0.0137 whole_run=0.0245 r=-0.2715
+[unc_cmp_aleatoric_seed4042] nodes=36 coverage max=9 mode=nig_product steps=390
+[unc_cmp_aleatoric_seed4042] step 000/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0983 | hop2: 0.1188
+[unc_cmp_aleatoric_seed4042] step 010/390 trained 36/36 | hop0: 0.0676 | hop1: 0.0834
+[unc_cmp_aleatoric_seed4042] step 020/390 trained 36/36 | hop0: 0.0620 | hop1: 0.0792 | hop2: 0.1396
+[unc_cmp_aleatoric_seed4042] step 030/390 trained 36/36 | hop0: 0.0628 | hop1: 0.0686 | hop2: 0.0740
+[unc_cmp_aleatoric_seed4042] step 040/390 trained 36/36 | hop0: 0.0494 | hop1: 0.0577 | hop2: 0.0756
+[unc_cmp_aleatoric_seed4042] step 050/390 trained 36/36 | hop0: 0.0379 | hop1: 0.0504 | hop2: 0.0870
+[unc_cmp_aleatoric_seed4042] step 060/390 trained 36/36 | hop0: 0.0331 | hop1: 0.0365 | hop2: 0.0665
+[unc_cmp_aleatoric_seed4042] step 070/390 trained 36/36 | hop0: 0.0270 | hop1: 0.0384 | hop2: 0.0620
+[unc_cmp_aleatoric_seed4042] step 080/390 trained 36/36 | hop0: 0.0252 | hop1: 0.0306 | hop2: 0.0488
+[unc_cmp_aleatoric_seed4042] step 090/390 trained 36/36 | hop0: 0.0146 | hop1: 0.0303 | hop2: 0.0503 | hop3: 0.0693
+[unc_cmp_aleatoric_seed4042] step 100/390 trained 36/36 | hop0: 0.0177 | hop1: 0.0221 | hop2: 0.0364 | hop3: 0.0507
+[unc_cmp_aleatoric_seed4042] step 110/390 trained 36/36 | hop0: 0.0183 | hop1: 0.0288 | hop2: 0.0826
+[unc_cmp_aleatoric_seed4042] step 120/390 trained 36/36 | hop0: 0.0301 | hop1: 0.0262 | hop2: 0.0523
+[unc_cmp_aleatoric_seed4042] step 130/390 trained 36/36 | hop0: 0.0385 | hop1: 0.0283
+[unc_cmp_aleatoric_seed4042] step 140/390 trained 36/36 | hop0: 0.0281 | hop1: 0.0152 | hop2: 0.0180
+[unc_cmp_aleatoric_seed4042] step 150/390 trained 36/36 | hop0: 0.0239 | hop1: 0.0114 | hop2: 0.0164
+[unc_cmp_aleatoric_seed4042] step 160/390 trained 36/36 | hop0: 0.0095 | hop1: 0.0138 | hop2: 0.0233
+[unc_cmp_aleatoric_seed4042] step 170/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0154 | hop2: 0.0255
+[unc_cmp_aleatoric_seed4042] step 180/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0179 | hop2: 0.0248
+[unc_cmp_aleatoric_seed4042] step 190/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0118 | hop2: 0.0218
+[unc_cmp_aleatoric_seed4042] step 200/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0101 | hop2: 0.0154
+[unc_cmp_aleatoric_seed4042] step 210/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0073 | hop2: 0.0071
+[unc_cmp_aleatoric_seed4042] step 220/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0059 | hop2: 0.0205
+[unc_cmp_aleatoric_seed4042] step 230/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0105
+[unc_cmp_aleatoric_seed4042] step 240/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0146
+[unc_cmp_aleatoric_seed4042] step 250/390 trained 36/36 | hop0: 0.0048 | hop1: 0.0148 | hop2: 0.0156
+[unc_cmp_aleatoric_seed4042] step 260/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0134 | hop2: 0.0073
+[unc_cmp_aleatoric_seed4042] step 270/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0065 | hop2: 0.0027
+[unc_cmp_aleatoric_seed4042] step 280/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0063 | hop2: 0.0084
+[unc_cmp_aleatoric_seed4042] step 290/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0065 | hop2: 0.0183
+[unc_cmp_aleatoric_seed4042] step 300/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0083 | hop2: 0.0117
+[unc_cmp_aleatoric_seed4042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0040 | hop2: 0.0092
+[unc_cmp_aleatoric_seed4042] step 320/390 trained 36/36 | hop0: 0.0009 | hop1: 0.0045 | hop2: 0.0052
+[unc_cmp_aleatoric_seed4042] step 330/390 trained 36/36 | hop0: 0.0007 | hop1: 0.0021 | hop2: 0.0005
+[unc_cmp_aleatoric_seed4042] step 340/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0024 | hop2: 0.0017
+[unc_cmp_aleatoric_seed4042] step 350/390 trained 36/36 | hop0: 0.0126 | hop1: 0.0051 | hop2: 0.0043
+[unc_cmp_aleatoric_seed4042] step 360/390 trained 36/36 | hop0: 0.0114 | hop1: 0.0089
+[unc_cmp_aleatoric_seed4042] step 370/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0158 | hop2: 0.0341
+[unc_cmp_aleatoric_seed4042] step 380/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0160 | hop2: 0.0673
+[unc_cmp_aleatoric_seed4042] mean MSE (last 50 steps): 0.0135 | cert-MSE r=-0.218
+[unc_cmp_aleatoric_seed4042] saved runs\chapter5_v2\s5_9_uncertainty_aleatoric\unc_cmp_aleatoric_seed4042\figures\results.png
+
+### unc_cmp_aleatoric_seed4042: last50=0.0135 whole_run=0.0254 r=-0.2179
+
+=== aleatoric 5-SEED SUMMARY (seeds=[42, 1042, 2042, 3042, 4042]) ===
+whole_run MSE: mean=0.0254 std=0.0016 values=[np.float64(0.0236), np.float64(0.0254), np.float64(0.0284), np.float64(0.0245), np.float64(0.0254)]
+last50 MSE:    mean=0.0152 std=0.0025 values=[np.float64(0.0122), np.float64(0.0185), np.float64(0.0179), np.float64(0.0137), np.float64(0.0135)]
+r:             mean=-0.2847 std=0.1747 values=[np.float64(-0.4758), np.float64(-0.4585), np.float64(0.0002), np.float64(-0.2715), np.float64(-0.2179)]
+=== DONE ===

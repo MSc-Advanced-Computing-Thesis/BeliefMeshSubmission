@@ -1,0 +1,226 @@
+[unc_cmp_epistemic] nodes=36 coverage max=9 mode=nig_product steps=390
+[unc_cmp_epistemic] step 000/390 trained 36/36 | hop0: 0.1081 | hop1: 0.1006
+[unc_cmp_epistemic] step 010/390 trained 36/36 | hop0: 0.0651 | hop1: 0.0882
+[unc_cmp_epistemic] step 020/390 trained 36/36 | hop0: 0.0705 | hop1: 0.0694 | hop2: 0.0823
+[unc_cmp_epistemic] step 030/390 trained 36/36 | hop0: 0.0517 | hop1: 0.0678 | hop2: 0.1025
+[unc_cmp_epistemic] step 040/390 trained 36/36 | hop0: 0.0412 | hop1: 0.0582 | hop2: 0.0638
+[unc_cmp_epistemic] step 050/390 trained 36/36 | hop0: 0.0414 | hop1: 0.0422 | hop2: 0.0514
+[unc_cmp_epistemic] step 060/390 trained 36/36 | hop0: 0.0249 | hop1: 0.0419 | hop2: 0.0596
+[unc_cmp_epistemic] step 070/390 trained 36/36 | hop0: 0.0196 | hop1: 0.0342 | hop2: 0.0608
+[unc_cmp_epistemic] step 080/390 trained 36/36 | hop0: 0.0140 | hop1: 0.0302 | hop2: 0.0801
+[unc_cmp_epistemic] step 090/390 trained 36/36 | hop0: 0.0160 | hop1: 0.0263
+[unc_cmp_epistemic] step 100/390 trained 36/36 | hop0: 0.0140 | hop1: 0.0232 | hop2: 0.0238
+[unc_cmp_epistemic] step 110/390 trained 36/36 | hop0: 0.0224 | hop1: 0.0176 | hop2: 0.0254
+[unc_cmp_epistemic] step 120/390 trained 36/36 | hop0: 0.0216 | hop1: 0.0359 | hop2: 0.0457
+[unc_cmp_epistemic] step 130/390 trained 36/36 | hop0: 0.0159 | hop1: 0.0430 | hop2: 0.0997
+[unc_cmp_epistemic] step 140/390 trained 36/36 | hop0: 0.0061 | hop1: 0.0365 | hop2: 0.0727
+[unc_cmp_epistemic] step 150/390 trained 36/36 | hop0: 0.0029 | hop1: 0.0135 | hop2: 0.0783
+[unc_cmp_epistemic] step 160/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0092 | hop2: 0.0387
+[unc_cmp_epistemic] step 170/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0062 | hop2: 0.0153
+[unc_cmp_epistemic] step 180/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0041 | hop2: 0.0121
+[unc_cmp_epistemic] step 190/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0048 | hop2: 0.0195
+[unc_cmp_epistemic] step 200/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0047 | hop2: 0.0119
+[unc_cmp_epistemic] step 210/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0043 | hop2: 0.0073
+[unc_cmp_epistemic] step 220/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0059
+[unc_cmp_epistemic] step 230/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0070 | hop2: 0.0078
+[unc_cmp_epistemic] step 240/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0103 | hop2: 0.0119
+[unc_cmp_epistemic] step 250/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0131 | hop2: 0.0227
+[unc_cmp_epistemic] step 260/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0133
+[unc_cmp_epistemic] step 270/390 trained 36/36 | hop0: 0.0065 | hop1: 0.0107 | hop2: 0.0055
+[unc_cmp_epistemic] step 280/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0112
+[unc_cmp_epistemic] step 290/390 trained 36/36 | hop0: 0.0135 | hop1: 0.0073 | hop2: 0.0172
+[unc_cmp_epistemic] step 300/390 trained 36/36 | hop0: 0.0142 | hop1: 0.0055 | hop2: 0.0138
+[unc_cmp_epistemic] step 310/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0059 | hop2: 0.0045
+[unc_cmp_epistemic] step 320/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0056 | hop2: 0.0015
+[unc_cmp_epistemic] step 330/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0037 | hop2: 0.0016
+[unc_cmp_epistemic] step 340/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0041
+[unc_cmp_epistemic] step 350/390 trained 36/36 | hop0: 0.0110 | hop1: 0.0061 | hop2: 0.0101
+[unc_cmp_epistemic] step 360/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0100 | hop2: 0.0108
+[unc_cmp_epistemic] step 370/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0087 | hop2: 0.0158
+[unc_cmp_epistemic] step 380/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0103 | hop2: 0.0258
+[unc_cmp_epistemic] mean MSE (last 50 steps): 0.0120 | cert-MSE r=-0.477
+[unc_cmp_epistemic] saved runs\chapter5_v2\s5_9_uncertainty_epistemic\unc_cmp_epistemic\figures\results.png
+
+### unc_cmp_epistemic: last50=0.0120 whole_run=0.0236 r=-0.4771
+[unc_cmp_epistemic_seed1042] nodes=36 coverage max=9 mode=nig_product steps=390
+[unc_cmp_epistemic_seed1042] step 000/390 trained 36/36 | hop0: 0.0928 | hop1: 0.1057
+[unc_cmp_epistemic_seed1042] step 010/390 trained 36/36 | hop0: 0.0765 | hop1: 0.0840 | hop2: 0.1446
+[unc_cmp_epistemic_seed1042] step 020/390 trained 36/36 | hop0: 0.0593 | hop1: 0.0680
+[unc_cmp_epistemic_seed1042] step 030/390 trained 36/36 | hop0: 0.0661 | hop1: 0.0731 | hop2: 0.0727
+[unc_cmp_epistemic_seed1042] step 040/390 trained 36/36 | hop0: 0.0518 | hop1: 0.0572 | hop2: 0.0948
+[unc_cmp_epistemic_seed1042] step 050/390 trained 36/36 | hop0: 0.0420 | hop1: 0.0413 | hop2: 0.0653
+[unc_cmp_epistemic_seed1042] step 060/390 trained 36/36 | hop0: 0.0364 | hop1: 0.0380 | hop2: 0.0563
+[unc_cmp_epistemic_seed1042] step 070/390 trained 36/36 | hop0: 0.0260 | hop1: 0.0305 | hop2: 0.0575
+[unc_cmp_epistemic_seed1042] step 080/390 trained 36/36 | hop0: 0.0179 | hop1: 0.0297 | hop2: 0.0961
+[unc_cmp_epistemic_seed1042] step 090/390 trained 36/36 | hop0: 0.0158 | hop1: 0.0223 | hop2: 0.0496
+[unc_cmp_epistemic_seed1042] step 100/390 trained 36/36 | hop0: 0.0152 | hop1: 0.0172
+[unc_cmp_epistemic_seed1042] step 110/390 trained 36/36 | hop0: 0.0109 | hop1: 0.0157 | hop2: 0.0257
+[unc_cmp_epistemic_seed1042] step 120/390 trained 36/36 | hop0: 0.0143 | hop1: 0.0153 | hop2: 0.0327
+[unc_cmp_epistemic_seed1042] step 130/390 trained 36/36 | hop0: 0.0167 | hop1: 0.0158 | hop2: 0.0335
+[unc_cmp_epistemic_seed1042] step 140/390 trained 36/36 | hop0: 0.0309 | hop1: 0.0104 | hop2: 0.0248
+[unc_cmp_epistemic_seed1042] step 150/390 trained 36/36 | hop0: 0.0232 | hop1: 0.0140 | hop2: 0.0203
+[unc_cmp_epistemic_seed1042] step 160/390 trained 36/36 | hop0: 0.0091 | hop1: 0.0117 | hop2: 0.0261
+[unc_cmp_epistemic_seed1042] step 170/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0117 | hop2: 0.0300
+[unc_cmp_epistemic_seed1042] step 180/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0131 | hop2: 0.0270
+[unc_cmp_epistemic_seed1042] step 190/390 trained 36/36 | hop0: 0.0102 | hop1: 0.0162
+[unc_cmp_epistemic_seed1042] step 200/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0149 | hop2: 0.0097
+[unc_cmp_epistemic_seed1042] step 210/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0119
+[unc_cmp_epistemic_seed1042] step 220/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0087 | hop2: 0.0156
+[unc_cmp_epistemic_seed1042] step 230/390 trained 36/36 | hop0: 0.0086 | hop1: 0.0066 | hop2: 0.0113
+[unc_cmp_epistemic_seed1042] step 240/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0155 | hop2: 0.0200
+[unc_cmp_epistemic_seed1042] step 250/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0186 | hop2: 0.0624
+[unc_cmp_epistemic_seed1042] step 260/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0258 | hop2: 0.0785
+[unc_cmp_epistemic_seed1042] step 270/390 trained 36/36 | hop0: 0.0127 | hop1: 0.0212
+[unc_cmp_epistemic_seed1042] step 280/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0178
+[unc_cmp_epistemic_seed1042] step 290/390 trained 36/36 | hop0: 0.0023 | hop1: 0.0143
+[unc_cmp_epistemic_seed1042] step 300/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0116 | hop2: 0.0012
+[unc_cmp_epistemic_seed1042] step 310/390 trained 36/36 | hop0: 0.0023 | hop1: 0.0066 | hop2: 0.0127
+[unc_cmp_epistemic_seed1042] step 320/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0040 | hop2: 0.0075
+[unc_cmp_epistemic_seed1042] step 330/390 trained 36/36 | hop0: 0.0010 | hop1: 0.0020 | hop2: 0.0040
+[unc_cmp_epistemic_seed1042] step 340/390 trained 36/36 | hop0: 0.0018 | hop1: 0.0037 | hop2: 0.0049
+[unc_cmp_epistemic_seed1042] step 350/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0109 | hop2: 0.0161
+[unc_cmp_epistemic_seed1042] step 360/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0093 | hop2: 0.0463
+[unc_cmp_epistemic_seed1042] step 370/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0202 | hop2: 0.0456
+[unc_cmp_epistemic_seed1042] step 380/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0255 | hop2: 0.0581
+[unc_cmp_epistemic_seed1042] mean MSE (last 50 steps): 0.0183 | cert-MSE r=-0.454
+[unc_cmp_epistemic_seed1042] saved runs\chapter5_v2\s5_9_uncertainty_epistemic\unc_cmp_epistemic_seed1042\figures\results.png
+
+### unc_cmp_epistemic_seed1042: last50=0.0183 whole_run=0.0254 r=-0.4544
+[unc_cmp_epistemic_seed2042] nodes=36 coverage max=9 mode=nig_product steps=390
+[unc_cmp_epistemic_seed2042] step 000/390 trained 36/36 | hop0: 0.0980 | hop1: 0.0853 | hop2: 0.0981
+[unc_cmp_epistemic_seed2042] step 010/390 trained 36/36 | hop0: 0.0873 | hop1: 0.1014 | hop2: 0.0987
+[unc_cmp_epistemic_seed2042] step 020/390 trained 36/36 | hop0: 0.0686 | hop1: 0.0796 | hop2: 0.0929
+[unc_cmp_epistemic_seed2042] step 030/390 trained 36/36 | hop0: 0.0654 | hop1: 0.0609 | hop2: 0.0839
+[unc_cmp_epistemic_seed2042] step 040/390 trained 36/36 | hop0: 0.0428 | hop1: 0.0628 | hop2: 0.0915
+[unc_cmp_epistemic_seed2042] step 050/390 trained 36/36 | hop0: 0.0446 | hop1: 0.0498 | hop2: 0.0654 | hop3: 0.0920
+[unc_cmp_epistemic_seed2042] step 060/390 trained 36/36 | hop0: 0.0426 | hop1: 0.0381 | hop2: 0.0731
+[unc_cmp_epistemic_seed2042] step 070/390 trained 36/36 | hop0: 0.0341 | hop1: 0.0399 | hop2: 0.0645
+[unc_cmp_epistemic_seed2042] step 080/390 trained 36/36 | hop0: 0.0245 | hop1: 0.0327 | hop2: 0.0586
+[unc_cmp_epistemic_seed2042] step 090/390 trained 36/36 | hop0: 0.0153 | hop1: 0.0241 | hop2: 0.0524
+[unc_cmp_epistemic_seed2042] step 100/390 trained 36/36 | hop0: 0.0148 | hop1: 0.0181 | hop2: 0.0287
+[unc_cmp_epistemic_seed2042] step 110/390 trained 36/36 | hop0: 0.0144 | hop1: 0.0165 | hop2: 0.0218
+[unc_cmp_epistemic_seed2042] step 120/390 trained 36/36 | hop0: 0.0105 | hop1: 0.0289
+[unc_cmp_epistemic_seed2042] step 130/390 trained 36/36 | hop0: 0.0083 | hop1: 0.0255 | hop2: 0.1408
+[unc_cmp_epistemic_seed2042] step 140/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0332 | hop2: 0.1405
+[unc_cmp_epistemic_seed2042] step 150/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0248 | hop2: 0.0733
+[unc_cmp_epistemic_seed2042] step 160/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0291 | hop2: 0.0593
+[unc_cmp_epistemic_seed2042] step 170/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0268 | hop2: 0.0538
+[unc_cmp_epistemic_seed2042] step 180/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0129 | hop2: 0.0249
+[unc_cmp_epistemic_seed2042] step 190/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0138 | hop2: 0.0196
+[unc_cmp_epistemic_seed2042] step 200/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0128
+[unc_cmp_epistemic_seed2042] step 210/390 trained 36/36 | hop0: 0.0083 | hop1: 0.0104
+[unc_cmp_epistemic_seed2042] step 220/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0092 | hop2: 0.0280
+[unc_cmp_epistemic_seed2042] step 230/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0127 | hop2: 0.0332
+[unc_cmp_epistemic_seed2042] step 240/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0190 | hop2: 0.0403
+[unc_cmp_epistemic_seed2042] step 250/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0156 | hop2: 0.0402
+[unc_cmp_epistemic_seed2042] step 260/390 trained 36/36 | hop0: 0.0082 | hop1: 0.0116 | hop2: 0.0310
+[unc_cmp_epistemic_seed2042] step 270/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0081 | hop2: 0.0191 | hop3: 0.0204
+[unc_cmp_epistemic_seed2042] step 280/390 trained 36/36 | hop0: 0.0086 | hop1: 0.0146 | hop2: 0.0187
+[unc_cmp_epistemic_seed2042] step 290/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0211 | hop2: 0.0199
+[unc_cmp_epistemic_seed2042] step 300/390 trained 36/36 | hop0: 0.0021 | hop1: 0.0052 | hop2: 0.0317 | hop3: 0.0192
+[unc_cmp_epistemic_seed2042] step 310/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0041 | hop2: 0.0238 | hop3: 0.0164
+[unc_cmp_epistemic_seed2042] step 320/390 trained 36/36 | hop0: 0.0020 | hop1: 0.0048 | hop2: 0.0146
+[unc_cmp_epistemic_seed2042] step 330/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0033 | hop2: 0.0066 | hop3: 0.0111
+[unc_cmp_epistemic_seed2042] step 340/390 trained 36/36 | hop0: 0.0016 | hop1: 0.0025 | hop2: 0.0074 | hop3: 0.0122
+[unc_cmp_epistemic_seed2042] step 350/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0068 | hop2: 0.0296 | hop3: 0.0474
+[unc_cmp_epistemic_seed2042] step 360/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0118 | hop2: 0.0645
+[unc_cmp_epistemic_seed2042] step 370/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0162 | hop2: 0.0931
+[unc_cmp_epistemic_seed2042] step 380/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0117 | hop2: 0.0344
+[unc_cmp_epistemic_seed2042] mean MSE (last 50 steps): 0.0181 | cert-MSE r=0.048
+[unc_cmp_epistemic_seed2042] saved runs\chapter5_v2\s5_9_uncertainty_epistemic\unc_cmp_epistemic_seed2042\figures\results.png
+
+### unc_cmp_epistemic_seed2042: last50=0.0181 whole_run=0.0285 r=0.0481
+[unc_cmp_epistemic_seed3042] nodes=36 coverage max=9 mode=nig_product steps=390
+[unc_cmp_epistemic_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0930 | hop2: 0.1606
+[unc_cmp_epistemic_seed3042] step 010/390 trained 36/36 | hop0: 0.0726 | hop1: 0.1023
+[unc_cmp_epistemic_seed3042] step 020/390 trained 36/36 | hop0: 0.0751 | hop1: 0.0898
+[unc_cmp_epistemic_seed3042] step 030/390 trained 36/36 | hop0: 0.0678 | hop1: 0.0834
+[unc_cmp_epistemic_seed3042] step 040/390 trained 36/36 | hop0: 0.0587 | hop1: 0.0629
+[unc_cmp_epistemic_seed3042] step 050/390 trained 36/36 | hop0: 0.0412 | hop1: 0.0485 | hop2: 0.0510
+[unc_cmp_epistemic_seed3042] step 060/390 trained 36/36 | hop0: 0.0444 | hop1: 0.0407 | hop2: 0.0540
+[unc_cmp_epistemic_seed3042] step 070/390 trained 36/36 | hop0: 0.0276 | hop1: 0.0365 | hop2: 0.0752
+[unc_cmp_epistemic_seed3042] step 080/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0283 | hop2: 0.0826
+[unc_cmp_epistemic_seed3042] step 090/390 trained 36/36 | hop0: 0.0140 | hop1: 0.0229 | hop2: 0.0534 | hop3: 0.0659
+[unc_cmp_epistemic_seed3042] step 100/390 trained 36/36 | hop0: 0.0148 | hop1: 0.0193 | hop2: 0.0351
+[unc_cmp_epistemic_seed3042] step 110/390 trained 36/36 | hop0: 0.0123 | hop1: 0.0208 | hop2: 0.0282
+[unc_cmp_epistemic_seed3042] step 120/390 trained 36/36 | hop0: 0.0128 | hop1: 0.0301 | hop2: 0.0244
+[unc_cmp_epistemic_seed3042] step 130/390 trained 36/36 | hop0: 0.0157 | hop1: 0.0348 | hop2: 0.0555
+[unc_cmp_epistemic_seed3042] step 140/390 trained 36/36 | hop0: 0.0270 | hop1: 0.0183 | hop2: 0.0099
+[unc_cmp_epistemic_seed3042] step 150/390 trained 36/36 | hop0: 0.0179 | hop1: 0.0101 | hop2: 0.0040
+[unc_cmp_epistemic_seed3042] step 160/390 trained 36/36 | hop0: 0.0118 | hop1: 0.0132 | hop2: 0.0071
+[unc_cmp_epistemic_seed3042] step 170/390 trained 36/36 | hop0: 0.0126 | hop1: 0.0157 | hop2: 0.0126
+[unc_cmp_epistemic_seed3042] step 180/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0105
+[unc_cmp_epistemic_seed3042] step 190/390 trained 36/36 | hop0: 0.0167 | hop1: 0.0106
+[unc_cmp_epistemic_seed3042] step 200/390 trained 36/36 | hop0: 0.0125 | hop1: 0.0109
+[unc_cmp_epistemic_seed3042] step 210/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0097 | hop2: 0.0036
+[unc_cmp_epistemic_seed3042] step 220/390 trained 36/36 | hop0: 0.0048 | hop1: 0.0076 | hop2: 0.0040
+[unc_cmp_epistemic_seed3042] step 230/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0068 | hop2: 0.0035
+[unc_cmp_epistemic_seed3042] step 240/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0081 | hop2: 0.0296
+[unc_cmp_epistemic_seed3042] step 250/390 trained 36/36 | hop0: 0.0099 | hop1: 0.0122 | hop2: 0.0591
+[unc_cmp_epistemic_seed3042] step 260/390 trained 36/36 | hop0: 0.0086 | hop1: 0.0200 | hop2: 0.0694
+[unc_cmp_epistemic_seed3042] step 270/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0140 | hop2: 0.0349
+[unc_cmp_epistemic_seed3042] step 280/390 trained 36/36 | hop0: 0.0019 | hop1: 0.0093 | hop2: 0.0199
+[unc_cmp_epistemic_seed3042] step 290/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0099
+[unc_cmp_epistemic_seed3042] step 300/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0086 | hop2: 0.0069
+[unc_cmp_epistemic_seed3042] step 310/390 trained 36/36 | hop0: 0.0019 | hop1: 0.0071 | hop2: 0.0078
+[unc_cmp_epistemic_seed3042] step 320/390 trained 36/36 | hop0: 0.0012 | hop1: 0.0036 | hop2: 0.0063
+[unc_cmp_epistemic_seed3042] step 330/390 trained 36/36 | hop0: 0.0014 | hop1: 0.0016
+[unc_cmp_epistemic_seed3042] step 340/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0027
+[unc_cmp_epistemic_seed3042] step 350/390 trained 36/36 | hop0: 0.0102 | hop1: 0.0049 | hop2: 0.0072
+[unc_cmp_epistemic_seed3042] step 360/390 trained 36/36 | hop0: 0.0093 | hop1: 0.0124 | hop2: 0.0125
+[unc_cmp_epistemic_seed3042] step 370/390 trained 36/36 | hop0: 0.0079 | hop1: 0.0204
+[unc_cmp_epistemic_seed3042] step 380/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0178 | hop2: 0.0197
+[unc_cmp_epistemic_seed3042] mean MSE (last 50 steps): 0.0138 | cert-MSE r=-0.271
+[unc_cmp_epistemic_seed3042] saved runs\chapter5_v2\s5_9_uncertainty_epistemic\unc_cmp_epistemic_seed3042\figures\results.png
+
+### unc_cmp_epistemic_seed3042: last50=0.0138 whole_run=0.0244 r=-0.2708
+[unc_cmp_epistemic_seed4042] nodes=36 coverage max=9 mode=nig_product steps=390
+[unc_cmp_epistemic_seed4042] step 000/390 trained 36/36 | hop0: 0.0888 | hop1: 0.0983 | hop2: 0.1188
+[unc_cmp_epistemic_seed4042] step 010/390 trained 36/36 | hop0: 0.0676 | hop1: 0.0834
+[unc_cmp_epistemic_seed4042] step 020/390 trained 36/36 | hop0: 0.0619 | hop1: 0.0792 | hop2: 0.1395
+[unc_cmp_epistemic_seed4042] step 030/390 trained 36/36 | hop0: 0.0625 | hop1: 0.0683 | hop2: 0.0740
+[unc_cmp_epistemic_seed4042] step 040/390 trained 36/36 | hop0: 0.0490 | hop1: 0.0575 | hop2: 0.0756
+[unc_cmp_epistemic_seed4042] step 050/390 trained 36/36 | hop0: 0.0376 | hop1: 0.0502 | hop2: 0.0874
+[unc_cmp_epistemic_seed4042] step 060/390 trained 36/36 | hop0: 0.0328 | hop1: 0.0363 | hop2: 0.0665
+[unc_cmp_epistemic_seed4042] step 070/390 trained 36/36 | hop0: 0.0264 | hop1: 0.0380 | hop2: 0.0622
+[unc_cmp_epistemic_seed4042] step 080/390 trained 36/36 | hop0: 0.0246 | hop1: 0.0304 | hop2: 0.0479
+[unc_cmp_epistemic_seed4042] step 090/390 trained 36/36 | hop0: 0.0145 | hop1: 0.0298 | hop2: 0.0493 | hop3: 0.0667
+[unc_cmp_epistemic_seed4042] step 100/390 trained 36/36 | hop0: 0.0177 | hop1: 0.0216 | hop2: 0.0367 | hop3: 0.0536
+[unc_cmp_epistemic_seed4042] step 110/390 trained 36/36 | hop0: 0.0182 | hop1: 0.0285 | hop2: 0.0826
+[unc_cmp_epistemic_seed4042] step 120/390 trained 36/36 | hop0: 0.0296 | hop1: 0.0264 | hop2: 0.0567
+[unc_cmp_epistemic_seed4042] step 130/390 trained 36/36 | hop0: 0.0385 | hop1: 0.0279
+[unc_cmp_epistemic_seed4042] step 140/390 trained 36/36 | hop0: 0.0281 | hop1: 0.0151 | hop2: 0.0180
+[unc_cmp_epistemic_seed4042] step 150/390 trained 36/36 | hop0: 0.0238 | hop1: 0.0117 | hop2: 0.0161
+[unc_cmp_epistemic_seed4042] step 160/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0139 | hop2: 0.0231
+[unc_cmp_epistemic_seed4042] step 170/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0156 | hop2: 0.0256
+[unc_cmp_epistemic_seed4042] step 180/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0182 | hop2: 0.0250
+[unc_cmp_epistemic_seed4042] step 190/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0119 | hop2: 0.0220
+[unc_cmp_epistemic_seed4042] step 200/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0100 | hop2: 0.0155
+[unc_cmp_epistemic_seed4042] step 210/390 trained 36/36 | hop0: 0.0045 | hop1: 0.0073 | hop2: 0.0071
+[unc_cmp_epistemic_seed4042] step 220/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0060 | hop2: 0.0208
+[unc_cmp_epistemic_seed4042] step 230/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0107
+[unc_cmp_epistemic_seed4042] step 240/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0147
+[unc_cmp_epistemic_seed4042] step 250/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0147 | hop2: 0.0155
+[unc_cmp_epistemic_seed4042] step 260/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0133 | hop2: 0.0070
+[unc_cmp_epistemic_seed4042] step 270/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0067 | hop2: 0.0028
+[unc_cmp_epistemic_seed4042] step 280/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0065 | hop2: 0.0085
+[unc_cmp_epistemic_seed4042] step 290/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0067 | hop2: 0.0190
+[unc_cmp_epistemic_seed4042] step 300/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0085 | hop2: 0.0121
+[unc_cmp_epistemic_seed4042] step 310/390 trained 36/36 | hop0: 0.0017 | hop1: 0.0042 | hop2: 0.0093
+[unc_cmp_epistemic_seed4042] step 320/390 trained 36/36 | hop0: 0.0010 | hop1: 0.0047 | hop2: 0.0054
+[unc_cmp_epistemic_seed4042] step 330/390 trained 36/36 | hop0: 0.0007 | hop1: 0.0024 | hop2: 0.0005
+[unc_cmp_epistemic_seed4042] step 340/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0026 | hop2: 0.0016
+[unc_cmp_epistemic_seed4042] step 350/390 trained 36/36 | hop0: 0.0131 | hop1: 0.0052 | hop2: 0.0041
+[unc_cmp_epistemic_seed4042] step 360/390 trained 36/36 | hop0: 0.0113 | hop1: 0.0090
+[unc_cmp_epistemic_seed4042] step 370/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0158 | hop2: 0.0333
+[unc_cmp_epistemic_seed4042] step 380/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0157 | hop2: 0.0573
+[unc_cmp_epistemic_seed4042] mean MSE (last 50 steps): 0.0134 | cert-MSE r=-0.210
+[unc_cmp_epistemic_seed4042] saved runs\chapter5_v2\s5_9_uncertainty_epistemic\unc_cmp_epistemic_seed4042\figures\results.png
+
+### unc_cmp_epistemic_seed4042: last50=0.0134 whole_run=0.0253 r=-0.2101
+
+=== epistemic 5-SEED SUMMARY (seeds=[42, 1042, 2042, 3042, 4042]) ===
+whole_run MSE: mean=0.0255 std=0.0017 values=[np.float64(0.0236), np.float64(0.0254), np.float64(0.0285), np.float64(0.0244), np.float64(0.0253)]
+last50 MSE:    mean=0.0151 std=0.0026 values=[np.float64(0.012), np.float64(0.0183), np.float64(0.0181), np.float64(0.0138), np.float64(0.0134)]
+r:             mean=-0.2728 std=0.1906 values=[np.float64(-0.4771), np.float64(-0.4544), np.float64(0.0481), np.float64(-0.2708), np.float64(-0.2101)]
+=== DONE ===

@@ -68,7 +68,10 @@ def run_one(measure: str, seed: int):
     return whole_run_mse, res['mean_mse_last_50'], r
 
 
-def main(measure: str, seeds: list[int]):
+def main(measure: str, seeds: list[int], root: str | None = None):
+    global ROOT
+    if root:
+        ROOT = Path(root)
     for seed in seeds:
         run_one(measure, seed)
     print("=== DONE ===")
@@ -78,5 +81,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--measure", choices=MEASURES, required=True)
     parser.add_argument("--seeds", type=str, default=str(SEED))
+    parser.add_argument("--root", type=str, default=None,
+                        help="output root; default (None) keeps the original path")
     args = parser.parse_args()
-    main(args.measure, [int(s) for s in args.seeds.split(",")])
+    main(args.measure, [int(s) for s in args.seeds.split(",")], args.root)
