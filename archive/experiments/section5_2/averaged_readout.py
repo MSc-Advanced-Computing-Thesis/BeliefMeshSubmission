@@ -43,6 +43,11 @@ def offset_field_for(run_dir: Path, G: int, T: int):
     rd = str(run_dir).replace("\\", "/")
     if "s5_4_2_static" in rd:
         return np.load(STATIC_FIELD)
+    if "s5_3_colour_three_node" in rd:
+        # colour-world three-node experiment: offset_field=None, so labels
+        # carry no displacement. _label reads only the angle and the offset
+        # field, never the colour, so truth is colour-independent.
+        return np.zeros((T, G, G))
     if "s5_6_multifield" in rd:
         from stage6_spatial_mesh.offset_field_variants import build_field
         name = run_dir.name.split("_seed", 1)[1]

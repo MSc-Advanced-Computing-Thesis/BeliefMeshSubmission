@@ -20,6 +20,8 @@ import yaml
 from scipy import stats as sps
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from calibration_band import draw as _cal_band, ensure_visible as _cal_ylim
+from arm_names import name as _arm_name
 from averaged_readout import load_run as _avg_load
 from averaged_readout import metrics as _avg_metrics
 from analyse_estimators import LAST, load, truth_for, wrap
@@ -167,7 +169,10 @@ def fig_52():
         a = fig.add_subplot(gs[1, col_i])
         a.bar(x, [v[0] for v in vals], 0.66, yerr=[v[1] for v in vals], capsize=3,
               color=cols, edgecolor="white", lw=0.6)
-        a.axhline(ref, color=RED, ls=":", lw=1.0)
+        if abs(ref - 1.0) < 1e-9:
+            _cal_band(a); _cal_ylim(a)
+        else:
+            a.axhline(ref, color=RED, ls=":", lw=1.0)
         a.axvline(0.5, color="#c9ced6", lw=0.9, zorder=0)
         a.axvline(1.5, color="#c9ced6", lw=0.9, zorder=0)
         a.set_xticks(x)
@@ -260,14 +265,15 @@ def fig_55():
         data[name] = (ms(w), ms(l), st.mean(c) if c else np.nan, col, sampled)
     names = [a[0] for a in arms]
     fig, axes = plt.subplots(1, 3, figsize=(W, 2.35))
-    fig.subplots_adjust(left=0.10, right=0.99, bottom=0.215, top=0.90, wspace=0.42)
+    fig.subplots_adjust(left=0.10, right=0.99, bottom=0.275, top=0.90, wspace=0.42)
     for ax, idx, lab in ((axes[0], 0, "whole-run MSE"), (axes[1], 1, "last-50 MSE")):
         mu = [data[n][idx][0] for n in names]
         sd = [data[n][idx][1] for n in names]
         ax.bar(range(4), mu, 0.6, yerr=sd, capsize=3,
                color=[data[n][3] for n in names], edgecolor="white", lw=0.6)
         ax.set_xticks(range(4))
-        ax.set_xticklabels(["fusion", "goss_u", "goss_w", "fedavg"], fontsize=7, rotation=30)
+        ax.set_xticklabels([_arm_name(n) for n in names], fontsize=6.3,
+                           rotation=22, ha="right", rotation_mode="anchor")
         ax.set_ylabel(lab, fontsize=8)
         ax.tick_params(labelsize=8)
     ax = axes[2]
@@ -275,7 +281,8 @@ def fig_55():
            color=[data[n][3] for n in names], edgecolor="white", lw=0.6)
     ax.set_yscale("log")
     ax.set_xticks(range(4))
-    ax.set_xticklabels(["fusion", "goss_u", "goss_w", "fedavg"], fontsize=7, rotation=30)
+    ax.set_xticklabels([_arm_name(n) for n in names], fontsize=6.3,
+                           rotation=22, ha="right", rotation_mode="anchor")
     ax.set_ylabel("bytes transmitted", fontsize=8)
     ax.tick_params(labelsize=8)
     axes[0].set_title("accuracy", fontsize=9)

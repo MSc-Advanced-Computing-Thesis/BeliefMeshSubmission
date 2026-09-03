@@ -22,6 +22,7 @@ import yaml
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
+from calibration_band import draw as _cal_band, ensure_visible as _cal_ylim
 from averaged_readout import load_run, metrics
 
 LAST = 50
@@ -184,7 +185,10 @@ def fig_routing():
         ax_.bar(x, [a[1][key][0] for a in A], 0.55,
                 yerr=[a[1][key][1] for a in A], capsize=3,
                 color=[a[2] for a in A], edgecolor="white", lw=0.5)
-        ax_.axhline(ref, color=RED, ls=":", lw=1.0)
+        if abs(ref - 1.0) < 1e-9:
+            _cal_band(ax_); _cal_ylim(ax_)
+        else:
+            ax_.axhline(ref, color=RED, ls=":", lw=1.0)
         ax_.set_ylabel(lab, fontsize=8)
         ax_.set_title(title, fontsize=9, pad=11)
 

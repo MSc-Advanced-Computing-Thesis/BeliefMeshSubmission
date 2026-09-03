@@ -23,6 +23,8 @@ import yaml
 from scipy import stats as sps
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from calibration_band import draw as _cal_band, ensure_visible as _cal_ylim
+from arm_names import name as _arm_name
 from averaged_readout import load_run as _avg_load
 from averaged_readout import metrics as _avg_metrics
 from analyse_estimators import LAST, load
@@ -96,7 +98,10 @@ def fig_density():
         mu = [ms([r[key] for r, _ in v])[0] for _, v in pts]
         sd = [ms([r[key] for r, _ in v])[1] for _, v in pts]
         ax_.errorbar(x, mu, yerr=sd, fmt="o-", color=col, ms=4, lw=1.3, capsize=2.5)
-        ax_.axhline(ref, color=RED, ls=":", lw=1.0)
+        if key == "ratio":
+            _cal_band(ax_); _cal_ylim(ax_)
+        else:
+            ax_.axhline(ref, color=RED, ls=":", lw=1.0)
         ax_.set_ylabel(lab, fontsize=8)
         ax_.set_title(title, fontsize=9, pad=11)
 
@@ -145,10 +150,11 @@ def fig_heterogeneity():
                        hatch=hatch, edgecolor="white", linewidth=0.5,
                        label=tag if i == 0 else None)
         ax.set_xticks(range(len(arms)))
-        ax.set_xticklabels(["nig_prod", "naive", "certainty"], fontsize=7.5)
+        ax.set_xticklabels([_arm_name(a_, wrapped=True) for a_ in arms],
+                           fontsize=7.5)
         ax.set_ylabel(lab, fontsize=8)
         ax.tick_params(labelsize=8)
-    axes[2].axhline(1.0, color=RED, ls=":", lw=1.0)
+    _cal_band(axes[2], on_top=True); _cal_ylim(axes[2])
     axes[1].legend(fontsize=6.5, frameon=False, loc="upper left")
     axes[0].set_title("accuracy", fontsize=9)
     axes[1].set_title("steady state", fontsize=9)

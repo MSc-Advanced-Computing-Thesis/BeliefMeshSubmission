@@ -1,0 +1,1091 @@
+========================================================================================
+GEOMETRY  (cx, cy) = (column, row);  grid 22x22, FOV 7
+========================================================================================
+  A (red anchor)  centre (8, 10)   49 cells
+  C (blue anchor) centre (12, 10)   49 cells
+  B (third node)  centre (10, 13)   49 cells
+  pairwise overlap : A&C 21   A&B 20   C&B 20
+  TRIPLE overlap   : 12 cells, rows 10-13 cols 9-11
+  exclusive        : A 20   C 20   B 21
+
+  colour value (1.0 = red, 0.0 = blue), min..max per region:
+    A exclusive 1.00 .. 1.00
+    C exclusive 0.00 .. 0.00
+    triple      0.25 .. 0.75
+  offset field: None (labels carry no displacement)
+[frozen_seed42] nodes=3 coverage max=3 mode=frozen steps=390
+[frozen_seed42] step 000/390 trained 3/3 | hop0: 0.1977 | hop1: 0.1660
+[frozen_seed42] step 010/390 trained 3/3 | hop0: 0.1249 | hop1: 0.1201
+[frozen_seed42] step 020/390 trained 3/3 | hop0: 0.1228 | hop1: 0.1055
+[frozen_seed42] step 030/390 trained 3/3 | hop0: 0.0967 | hop1: 0.0952
+[frozen_seed42] step 040/390 trained 3/3 | hop0: 0.1264 | hop1: 0.1286
+[frozen_seed42] step 050/390 trained 3/3 | hop0: 0.1302 | hop1: 0.1444
+[frozen_seed42] step 060/390 trained 3/3 | hop0: 0.1385 | hop1: 0.1373
+[frozen_seed42] step 070/390 trained 3/3 | hop0: 0.1360 | hop1: 0.1338
+[frozen_seed42] step 080/390 trained 3/3 | hop0: 0.1341 | hop1: 0.1163
+[frozen_seed42] step 090/390 trained 3/3 | hop0: 0.1123 | hop1: 0.1062
+[frozen_seed42] step 100/390 trained 3/3 | hop0: 0.1368 | hop1: 0.1317
+[frozen_seed42] step 110/390 trained 3/3 | hop0: 0.0891 | hop1: 0.0961
+[frozen_seed42] step 120/390 trained 3/3 | hop0: 0.1359 | hop1: 0.1174
+[frozen_seed42] step 130/390 trained 3/3 | hop0: 0.0984 | hop1: 0.0999
+[frozen_seed42] step 140/390 trained 3/3 | hop0: 0.1258 | hop1: 0.1189
+[frozen_seed42] step 150/390 trained 3/3 | hop0: 0.1295 | hop1: 0.1775
+[frozen_seed42] step 160/390 trained 3/3 | hop0: 0.1375 | hop1: 0.1203
+[frozen_seed42] step 170/390 trained 3/3 | hop0: 0.1169 | hop1: 0.1056
+[frozen_seed42] step 180/390 trained 3/3 | hop0: 0.1175 | hop1: 0.1275
+[frozen_seed42] step 190/390 trained 3/3 | hop0: 0.1079 | hop1: 0.1073
+[frozen_seed42] step 200/390 trained 3/3 | hop0: 0.1022 | hop1: 0.0941
+[frozen_seed42] step 210/390 trained 3/3 | hop0: 0.1495 | hop1: 0.1109
+[frozen_seed42] step 220/390 trained 3/3 | hop0: 0.0983 | hop1: 0.1028
+[frozen_seed42] step 230/390 trained 3/3 | hop0: 0.1403 | hop1: 0.1450
+[frozen_seed42] step 240/390 trained 3/3 | hop0: 0.1169 | hop1: 0.1167
+[frozen_seed42] step 250/390 trained 3/3 | hop0: 0.1403 | hop1: 0.0856
+[frozen_seed42] step 260/390 trained 3/3 | hop0: 0.1242 | hop1: 0.1295
+[frozen_seed42] step 270/390 trained 3/3 | hop0: 0.1112 | hop1: 0.0951
+[frozen_seed42] step 280/390 trained 3/3 | hop0: 0.1154 | hop1: 0.1023
+[frozen_seed42] step 290/390 trained 3/3 | hop0: 0.1065 | hop1: 0.1189
+[frozen_seed42] step 300/390 trained 3/3 | hop0: 0.1424 | hop1: 0.1579
+[frozen_seed42] step 310/390 trained 3/3 | hop0: 0.1181 | hop1: 0.1095
+[frozen_seed42] step 320/390 trained 3/3 | hop0: 0.1349 | hop1: 0.1375
+[frozen_seed42] step 330/390 trained 3/3 | hop0: 0.1224 | hop1: 0.1334
+[frozen_seed42] step 340/390 trained 3/3 | hop0: 0.1046 | hop1: 0.0826
+[frozen_seed42] step 350/390 trained 3/3 | hop0: 0.1507 | hop1: 0.1313
+[frozen_seed42] step 360/390 trained 3/3 | hop0: 0.1238 | hop1: 0.1025
+[frozen_seed42] step 370/390 trained 3/3 | hop0: 0.1122 | hop1: 0.1163
+[frozen_seed42] step 380/390 trained 3/3 | hop0: 0.0937 | hop1: 0.0766
+[frozen_seed42] mean MSE (last 50 steps): 0.1304 | cert-MSE r=-0.884
+[frozen_seed42] saved runs\chapter5_v2\s5_3_colour_three_node\frozen_seed42\figures\results.png
+### frozen_seed42 last50=0.13037
+[naive_seed42] nodes=3 coverage max=3 mode=naive steps=390
+[naive_seed42] step 000/390 trained 3/3 | hop0: 0.1959 | hop1: 0.1667
+[naive_seed42] step 010/390 trained 3/3 | hop0: 0.1130 | hop1: 0.1228
+[naive_seed42] step 020/390 trained 3/3 | hop0: 0.0973 | hop1: 0.1026
+[naive_seed42] step 030/390 trained 3/3 | hop0: 0.0725 | hop1: 0.0871
+[naive_seed42] step 040/390 trained 3/3 | hop0: 0.0940 | hop1: 0.1143
+[naive_seed42] step 050/390 trained 3/3 | hop0: 0.0819 | hop1: 0.1068
+[naive_seed42] step 060/390 trained 3/3 | hop0: 0.0725 | hop1: 0.0841
+[naive_seed42] step 070/390 trained 3/3 | hop0: 0.0756 | hop1: 0.0884
+[naive_seed42] step 080/390 trained 3/3 | hop0: 0.0671 | hop1: 0.0672
+[naive_seed42] step 090/390 trained 3/3 | hop0: 0.0388 | hop1: 0.0531
+[naive_seed42] step 100/390 trained 3/3 | hop0: 0.0571 | hop1: 0.0612
+[naive_seed42] step 110/390 trained 3/3 | hop0: 0.0278 | hop1: 0.0518
+[naive_seed42] step 120/390 trained 3/3 | hop0: 0.0444 | hop1: 0.0584
+[naive_seed42] step 130/390 trained 3/3 | hop0: 0.0247 | hop1: 0.0426
+[naive_seed42] step 140/390 trained 3/3 | hop0: 0.0321 | hop1: 0.0392
+[naive_seed42] step 150/390 trained 3/3 | hop0: 0.0243 | hop1: 0.0975
+[naive_seed42] step 160/390 trained 3/3 | hop0: 0.0181 | hop1: 0.0478
+[naive_seed42] step 170/390 trained 3/3 | hop0: 0.0139 | hop1: 0.0314
+[naive_seed42] step 180/390 trained 3/3 | hop0: 0.0091 | hop1: 0.0442
+[naive_seed42] step 190/390 trained 3/3 | hop0: 0.0070 | hop1: 0.0202
+[naive_seed42] step 200/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0245
+[naive_seed42] step 210/390 trained 3/3 | hop0: 0.0067 | hop1: 0.0232
+[naive_seed42] step 220/390 trained 3/3 | hop0: 0.0038 | hop1: 0.0129
+[naive_seed42] step 230/390 trained 3/3 | hop0: 0.0080 | hop1: 0.0112
+[naive_seed42] step 240/390 trained 3/3 | hop0: 0.0038 | hop1: 0.0107
+[naive_seed42] step 250/390 trained 3/3 | hop0: 0.0066 | hop1: 0.0054
+[naive_seed42] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0089
+[naive_seed42] step 270/390 trained 3/3 | hop0: 0.0036 | hop1: 0.0058
+[naive_seed42] step 280/390 trained 3/3 | hop0: 0.0049 | hop1: 0.0053
+[naive_seed42] step 290/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0060
+[naive_seed42] step 300/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0055
+[naive_seed42] step 310/390 trained 3/3 | hop0: 0.0053 | hop1: 0.0039
+[naive_seed42] step 320/390 trained 3/3 | hop0: 0.0090 | hop1: 0.0042
+[naive_seed42] step 330/390 trained 3/3 | hop0: 0.0049 | hop1: 0.0034
+[naive_seed42] step 340/390 trained 3/3 | hop0: 0.0052 | hop1: 0.0024
+[naive_seed42] step 350/390 trained 3/3 | hop0: 0.0053 | hop1: 0.0034
+[naive_seed42] step 360/390 trained 3/3 | hop0: 0.0066 | hop1: 0.0031
+[naive_seed42] step 370/390 trained 3/3 | hop0: 0.0029 | hop1: 0.0050
+[naive_seed42] step 380/390 trained 3/3 | hop0: 0.0024 | hop1: 0.0017
+[naive_seed42] mean MSE (last 50 steps): 0.0019 | cert-MSE r=-0.886
+[naive_seed42] saved runs\chapter5_v2\s5_3_colour_three_node\naive_seed42\figures\results.png
+### naive_seed42 last50=0.00190
+[certainty_seed42] nodes=3 coverage max=3 mode=certainty steps=390
+[certainty_seed42] step 000/390 trained 3/3 | hop0: 0.1959 | hop1: 0.1667
+[certainty_seed42] step 010/390 trained 3/3 | hop0: 0.1130 | hop1: 0.1228
+[certainty_seed42] step 020/390 trained 3/3 | hop0: 0.0973 | hop1: 0.1026
+[certainty_seed42] step 030/390 trained 3/3 | hop0: 0.0725 | hop1: 0.0871
+[certainty_seed42] step 040/390 trained 3/3 | hop0: 0.0940 | hop1: 0.1143
+[certainty_seed42] step 050/390 trained 3/3 | hop0: 0.0819 | hop1: 0.1067
+[certainty_seed42] step 060/390 trained 3/3 | hop0: 0.0725 | hop1: 0.0841
+[certainty_seed42] step 070/390 trained 3/3 | hop0: 0.0756 | hop1: 0.0884
+[certainty_seed42] step 080/390 trained 3/3 | hop0: 0.0671 | hop1: 0.0671
+[certainty_seed42] step 090/390 trained 3/3 | hop0: 0.0388 | hop1: 0.0530
+[certainty_seed42] step 100/390 trained 3/3 | hop0: 0.0571 | hop1: 0.0610
+[certainty_seed42] step 110/390 trained 3/3 | hop0: 0.0278 | hop1: 0.0519
+[certainty_seed42] step 120/390 trained 3/3 | hop0: 0.0444 | hop1: 0.0586
+[certainty_seed42] step 130/390 trained 3/3 | hop0: 0.0247 | hop1: 0.0427
+[certainty_seed42] step 140/390 trained 3/3 | hop0: 0.0321 | hop1: 0.0392
+[certainty_seed42] step 150/390 trained 3/3 | hop0: 0.0243 | hop1: 0.0976
+[certainty_seed42] step 160/390 trained 3/3 | hop0: 0.0181 | hop1: 0.0476
+[certainty_seed42] step 170/390 trained 3/3 | hop0: 0.0139 | hop1: 0.0312
+[certainty_seed42] step 180/390 trained 3/3 | hop0: 0.0091 | hop1: 0.0440
+[certainty_seed42] step 190/390 trained 3/3 | hop0: 0.0070 | hop1: 0.0200
+[certainty_seed42] step 200/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0246
+[certainty_seed42] step 210/390 trained 3/3 | hop0: 0.0067 | hop1: 0.0235
+[certainty_seed42] step 220/390 trained 3/3 | hop0: 0.0038 | hop1: 0.0129
+[certainty_seed42] step 230/390 trained 3/3 | hop0: 0.0080 | hop1: 0.0111
+[certainty_seed42] step 240/390 trained 3/3 | hop0: 0.0038 | hop1: 0.0104
+[certainty_seed42] step 250/390 trained 3/3 | hop0: 0.0066 | hop1: 0.0053
+[certainty_seed42] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0089
+[certainty_seed42] step 270/390 trained 3/3 | hop0: 0.0036 | hop1: 0.0058
+[certainty_seed42] step 280/390 trained 3/3 | hop0: 0.0049 | hop1: 0.0052
+[certainty_seed42] step 290/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0059
+[certainty_seed42] step 300/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0053
+[certainty_seed42] step 310/390 trained 3/3 | hop0: 0.0053 | hop1: 0.0038
+[certainty_seed42] step 320/390 trained 3/3 | hop0: 0.0090 | hop1: 0.0039
+[certainty_seed42] step 330/390 trained 3/3 | hop0: 0.0049 | hop1: 0.0032
+[certainty_seed42] step 340/390 trained 3/3 | hop0: 0.0053 | hop1: 0.0024
+[certainty_seed42] step 350/390 trained 3/3 | hop0: 0.0054 | hop1: 0.0035
+[certainty_seed42] step 360/390 trained 3/3 | hop0: 0.0068 | hop1: 0.0032
+[certainty_seed42] step 370/390 trained 3/3 | hop0: 0.0030 | hop1: 0.0049
+[certainty_seed42] step 380/390 trained 3/3 | hop0: 0.0024 | hop1: 0.0017
+[certainty_seed42] mean MSE (last 50 steps): 0.0019 | cert-MSE r=-0.865
+[certainty_seed42] saved runs\chapter5_v2\s5_3_colour_three_node\certainty_seed42\figures\results.png
+### certainty_seed42 last50=0.00193
+[nig_product_seed42] nodes=3 coverage max=3 mode=nig_product steps=390
+[nig_product_seed42] step 000/390 trained 3/3 | hop0: 0.1959 | hop1: 0.1666
+[nig_product_seed42] step 010/390 trained 3/3 | hop0: 0.1130 | hop1: 0.1220
+[nig_product_seed42] step 020/390 trained 3/3 | hop0: 0.0973 | hop1: 0.1024
+[nig_product_seed42] step 030/390 trained 3/3 | hop0: 0.0725 | hop1: 0.0865
+[nig_product_seed42] step 040/390 trained 3/3 | hop0: 0.0940 | hop1: 0.1132
+[nig_product_seed42] step 050/390 trained 3/3 | hop0: 0.0819 | hop1: 0.1057
+[nig_product_seed42] step 060/390 trained 3/3 | hop0: 0.0725 | hop1: 0.0829
+[nig_product_seed42] step 070/390 trained 3/3 | hop0: 0.0756 | hop1: 0.0875
+[nig_product_seed42] step 080/390 trained 3/3 | hop0: 0.0671 | hop1: 0.0658
+[nig_product_seed42] step 090/390 trained 3/3 | hop0: 0.0388 | hop1: 0.0518
+[nig_product_seed42] step 100/390 trained 3/3 | hop0: 0.0571 | hop1: 0.0587
+[nig_product_seed42] step 110/390 trained 3/3 | hop0: 0.0278 | hop1: 0.0503
+[nig_product_seed42] step 120/390 trained 3/3 | hop0: 0.0444 | hop1: 0.0571
+[nig_product_seed42] step 130/390 trained 3/3 | hop0: 0.0247 | hop1: 0.0416
+[nig_product_seed42] step 140/390 trained 3/3 | hop0: 0.0321 | hop1: 0.0385
+[nig_product_seed42] step 150/390 trained 3/3 | hop0: 0.0243 | hop1: 0.0946
+[nig_product_seed42] step 160/390 trained 3/3 | hop0: 0.0181 | hop1: 0.0469
+[nig_product_seed42] step 170/390 trained 3/3 | hop0: 0.0139 | hop1: 0.0322
+[nig_product_seed42] step 180/390 trained 3/3 | hop0: 0.0091 | hop1: 0.0448
+[nig_product_seed42] step 190/390 trained 3/3 | hop0: 0.0070 | hop1: 0.0222
+[nig_product_seed42] step 200/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0247
+[nig_product_seed42] step 210/390 trained 3/3 | hop0: 0.0067 | hop1: 0.0253
+[nig_product_seed42] step 220/390 trained 3/3 | hop0: 0.0038 | hop1: 0.0153
+[nig_product_seed42] step 230/390 trained 3/3 | hop0: 0.0080 | hop1: 0.0144
+[nig_product_seed42] step 240/390 trained 3/3 | hop0: 0.0038 | hop1: 0.0150
+[nig_product_seed42] step 250/390 trained 3/3 | hop0: 0.0066 | hop1: 0.0073
+[nig_product_seed42] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0114
+[nig_product_seed42] step 270/390 trained 3/3 | hop0: 0.0036 | hop1: 0.0069
+[nig_product_seed42] step 280/390 trained 3/3 | hop0: 0.0049 | hop1: 0.0077
+[nig_product_seed42] step 290/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0078
+[nig_product_seed42] step 300/390 trained 3/3 | hop0: 0.0060 | hop1: 0.0070
+[nig_product_seed42] step 310/390 trained 3/3 | hop0: 0.0052 | hop1: 0.0053
+[nig_product_seed42] step 320/390 trained 3/3 | hop0: 0.0090 | hop1: 0.0057
+[nig_product_seed42] step 330/390 trained 3/3 | hop0: 0.0046 | hop1: 0.0040
+[nig_product_seed42] step 340/390 trained 3/3 | hop0: 0.0050 | hop1: 0.0033
+[nig_product_seed42] step 350/390 trained 3/3 | hop0: 0.0055 | hop1: 0.0038
+[nig_product_seed42] step 360/390 trained 3/3 | hop0: 0.0067 | hop1: 0.0029
+[nig_product_seed42] step 370/390 trained 3/3 | hop0: 0.0031 | hop1: 0.0066
+[nig_product_seed42] step 380/390 trained 3/3 | hop0: 0.0026 | hop1: 0.0024
+[nig_product_seed42] mean MSE (last 50 steps): 0.0021 | cert-MSE r=-0.887
+[nig_product_seed42] saved runs\chapter5_v2\s5_3_colour_three_node\nig_product_seed42\figures\results.png
+### nig_product_seed42 last50=0.00207
+[nig_product_avgtrain_seed42] nodes=3 coverage max=3 mode=nig_product steps=390
+[nig_product_avgtrain_seed42] step 000/390 trained 3/3 | hop0: 0.1959 | hop1: 0.1642
+[nig_product_avgtrain_seed42] step 010/390 trained 3/3 | hop0: 0.1130 | hop1: 0.1204
+[nig_product_avgtrain_seed42] step 020/390 trained 3/3 | hop0: 0.0973 | hop1: 0.1074
+[nig_product_avgtrain_seed42] step 030/390 trained 3/3 | hop0: 0.0725 | hop1: 0.0889
+[nig_product_avgtrain_seed42] step 040/390 trained 3/3 | hop0: 0.0940 | hop1: 0.1162
+[nig_product_avgtrain_seed42] step 050/390 trained 3/3 | hop0: 0.0819 | hop1: 0.1131
+[nig_product_avgtrain_seed42] step 060/390 trained 3/3 | hop0: 0.0725 | hop1: 0.0970
+[nig_product_avgtrain_seed42] step 070/390 trained 3/3 | hop0: 0.0756 | hop1: 0.0919
+[nig_product_avgtrain_seed42] step 080/390 trained 3/3 | hop0: 0.0671 | hop1: 0.0623
+[nig_product_avgtrain_seed42] step 090/390 trained 3/3 | hop0: 0.0388 | hop1: 0.0515
+[nig_product_avgtrain_seed42] step 100/390 trained 3/3 | hop0: 0.0571 | hop1: 0.0594
+[nig_product_avgtrain_seed42] step 110/390 trained 3/3 | hop0: 0.0278 | hop1: 0.0495
+[nig_product_avgtrain_seed42] step 120/390 trained 3/3 | hop0: 0.0444 | hop1: 0.0554
+[nig_product_avgtrain_seed42] step 130/390 trained 3/3 | hop0: 0.0247 | hop1: 0.0448
+[nig_product_avgtrain_seed42] step 140/390 trained 3/3 | hop0: 0.0321 | hop1: 0.0433
+[nig_product_avgtrain_seed42] step 150/390 trained 3/3 | hop0: 0.0243 | hop1: 0.0946
+[nig_product_avgtrain_seed42] step 160/390 trained 3/3 | hop0: 0.0181 | hop1: 0.0474
+[nig_product_avgtrain_seed42] step 170/390 trained 3/3 | hop0: 0.0139 | hop1: 0.0354
+[nig_product_avgtrain_seed42] step 180/390 trained 3/3 | hop0: 0.0091 | hop1: 0.0483
+[nig_product_avgtrain_seed42] step 190/390 trained 3/3 | hop0: 0.0070 | hop1: 0.0261
+[nig_product_avgtrain_seed42] step 200/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0228
+[nig_product_avgtrain_seed42] step 210/390 trained 3/3 | hop0: 0.0067 | hop1: 0.0277
+[nig_product_avgtrain_seed42] step 220/390 trained 3/3 | hop0: 0.0038 | hop1: 0.0180
+[nig_product_avgtrain_seed42] step 230/390 trained 3/3 | hop0: 0.0080 | hop1: 0.0192
+[nig_product_avgtrain_seed42] step 240/390 trained 3/3 | hop0: 0.0038 | hop1: 0.0186
+[nig_product_avgtrain_seed42] step 250/390 trained 3/3 | hop0: 0.0066 | hop1: 0.0091
+[nig_product_avgtrain_seed42] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0133
+[nig_product_avgtrain_seed42] step 270/390 trained 3/3 | hop0: 0.0036 | hop1: 0.0072
+[nig_product_avgtrain_seed42] step 280/390 trained 3/3 | hop0: 0.0049 | hop1: 0.0086
+[nig_product_avgtrain_seed42] step 290/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0070
+[nig_product_avgtrain_seed42] step 300/390 trained 3/3 | hop0: 0.0060 | hop1: 0.0077
+[nig_product_avgtrain_seed42] step 310/390 trained 3/3 | hop0: 0.0052 | hop1: 0.0065
+[nig_product_avgtrain_seed42] step 320/390 trained 3/3 | hop0: 0.0091 | hop1: 0.0051
+[nig_product_avgtrain_seed42] step 330/390 trained 3/3 | hop0: 0.0047 | hop1: 0.0046
+[nig_product_avgtrain_seed42] step 340/390 trained 3/3 | hop0: 0.0050 | hop1: 0.0038
+[nig_product_avgtrain_seed42] step 350/390 trained 3/3 | hop0: 0.0055 | hop1: 0.0037
+[nig_product_avgtrain_seed42] step 360/390 trained 3/3 | hop0: 0.0066 | hop1: 0.0024
+[nig_product_avgtrain_seed42] step 370/390 trained 3/3 | hop0: 0.0030 | hop1: 0.0049
+[nig_product_avgtrain_seed42] step 380/390 trained 3/3 | hop0: 0.0026 | hop1: 0.0028
+[nig_product_avgtrain_seed42] mean MSE (last 50 steps): 0.0020 | cert-MSE r=-0.898
+[nig_product_avgtrain_seed42] saved runs\chapter5_v2\s5_3_colour_three_node\nig_product_avgtrain_seed42\figures\results.png
+### nig_product_avgtrain_seed42 last50=0.00202
+[frozen_seed1042] nodes=3 coverage max=3 mode=frozen steps=390
+[frozen_seed1042] step 000/390 trained 3/3 | hop0: 0.1365 | hop1: 0.1088
+[frozen_seed1042] step 010/390 trained 3/3 | hop0: 0.1087 | hop1: 0.1427
+[frozen_seed1042] step 020/390 trained 3/3 | hop0: 0.0960 | hop1: 0.1118
+[frozen_seed1042] step 030/390 trained 3/3 | hop0: 0.1350 | hop1: 0.1067
+[frozen_seed1042] step 040/390 trained 3/3 | hop0: 0.1308 | hop1: 0.1464
+[frozen_seed1042] step 050/390 trained 3/3 | hop0: 0.1041 | hop1: 0.1001
+[frozen_seed1042] step 060/390 trained 3/3 | hop0: 0.1131 | hop1: 0.1522
+[frozen_seed1042] step 070/390 trained 3/3 | hop0: 0.1214 | hop1: 0.1408
+[frozen_seed1042] step 080/390 trained 3/3 | hop0: 0.1247 | hop1: 0.1320
+[frozen_seed1042] step 090/390 trained 3/3 | hop0: 0.1228 | hop1: 0.1116
+[frozen_seed1042] step 100/390 trained 3/3 | hop0: 0.1324 | hop1: 0.1085
+[frozen_seed1042] step 110/390 trained 3/3 | hop0: 0.1488 | hop1: 0.1278
+[frozen_seed1042] step 120/390 trained 3/3 | hop0: 0.1418 | hop1: 0.1210
+[frozen_seed1042] step 130/390 trained 3/3 | hop0: 0.1170 | hop1: 0.1597
+[frozen_seed1042] step 140/390 trained 3/3 | hop0: 0.1255 | hop1: 0.1102
+[frozen_seed1042] step 150/390 trained 3/3 | hop0: 0.1670 | hop1: 0.1498
+[frozen_seed1042] step 160/390 trained 3/3 | hop0: 0.1046 | hop1: 0.0808
+[frozen_seed1042] step 170/390 trained 3/3 | hop0: 0.1448 | hop1: 0.1518
+[frozen_seed1042] step 180/390 trained 3/3 | hop0: 0.1114 | hop1: 0.1146
+[frozen_seed1042] step 190/390 trained 3/3 | hop0: 0.1404 | hop1: 0.1171
+[frozen_seed1042] step 200/390 trained 3/3 | hop0: 0.1421 | hop1: 0.1456
+[frozen_seed1042] step 210/390 trained 3/3 | hop0: 0.1224 | hop1: 0.1306
+[frozen_seed1042] step 220/390 trained 3/3 | hop0: 0.1059 | hop1: 0.1166
+[frozen_seed1042] step 230/390 trained 3/3 | hop0: 0.1061 | hop1: 0.0984
+[frozen_seed1042] step 240/390 trained 3/3 | hop0: 0.1388 | hop1: 0.1354
+[frozen_seed1042] step 250/390 trained 3/3 | hop0: 0.1365 | hop1: 0.1330
+[frozen_seed1042] step 260/390 trained 3/3 | hop0: 0.1165 | hop1: 0.1112
+[frozen_seed1042] step 270/390 trained 3/3 | hop0: 0.1204 | hop1: 0.1155
+[frozen_seed1042] step 280/390 trained 3/3 | hop0: 0.1236 | hop1: 0.1161
+[frozen_seed1042] step 290/390 trained 3/3 | hop0: 0.0981 | hop1: 0.1073
+[frozen_seed1042] step 300/390 trained 3/3 | hop0: 0.1515 | hop1: 0.1135
+[frozen_seed1042] step 310/390 trained 3/3 | hop0: 0.1235 | hop1: 0.1297
+[frozen_seed1042] step 320/390 trained 3/3 | hop0: 0.1091 | hop1: 0.1050
+[frozen_seed1042] step 330/390 trained 3/3 | hop0: 0.1354 | hop1: 0.1475
+[frozen_seed1042] step 340/390 trained 3/3 | hop0: 0.0971 | hop1: 0.1104
+[frozen_seed1042] step 350/390 trained 3/3 | hop0: 0.1106 | hop1: 0.1585
+[frozen_seed1042] step 360/390 trained 3/3 | hop0: 0.1117 | hop1: 0.1123
+[frozen_seed1042] step 370/390 trained 3/3 | hop0: 0.1268 | hop1: 0.1151
+[frozen_seed1042] step 380/390 trained 3/3 | hop0: 0.1345 | hop1: 0.1112
+[frozen_seed1042] mean MSE (last 50 steps): 0.1246 | cert-MSE r=-0.887
+[frozen_seed1042] saved runs\chapter5_v2\s5_3_colour_three_node\frozen_seed1042\figures\results.png
+### frozen_seed1042 last50=0.12462
+[naive_seed1042] nodes=3 coverage max=3 mode=naive steps=390
+[naive_seed1042] step 000/390 trained 3/3 | hop0: 0.1365 | hop1: 0.1074
+[naive_seed1042] step 010/390 trained 3/3 | hop0: 0.0995 | hop1: 0.1391
+[naive_seed1042] step 020/390 trained 3/3 | hop0: 0.0795 | hop1: 0.1021
+[naive_seed1042] step 030/390 trained 3/3 | hop0: 0.0972 | hop1: 0.0886
+[naive_seed1042] step 040/390 trained 3/3 | hop0: 0.0857 | hop1: 0.1119
+[naive_seed1042] step 050/390 trained 3/3 | hop0: 0.0626 | hop1: 0.0741
+[naive_seed1042] step 060/390 trained 3/3 | hop0: 0.0573 | hop1: 0.0973
+[naive_seed1042] step 070/390 trained 3/3 | hop0: 0.0559 | hop1: 0.0651
+[naive_seed1042] step 080/390 trained 3/3 | hop0: 0.0622 | hop1: 0.0761
+[naive_seed1042] step 090/390 trained 3/3 | hop0: 0.0443 | hop1: 0.0500
+[naive_seed1042] step 100/390 trained 3/3 | hop0: 0.0440 | hop1: 0.0534
+[naive_seed1042] step 110/390 trained 3/3 | hop0: 0.0500 | hop1: 0.0555
+[naive_seed1042] step 120/390 trained 3/3 | hop0: 0.0432 | hop1: 0.0437
+[naive_seed1042] step 130/390 trained 3/3 | hop0: 0.0305 | hop1: 0.0694
+[naive_seed1042] step 140/390 trained 3/3 | hop0: 0.0292 | hop1: 0.0403
+[naive_seed1042] step 150/390 trained 3/3 | hop0: 0.0456 | hop1: 0.0575
+[naive_seed1042] step 160/390 trained 3/3 | hop0: 0.0143 | hop1: 0.0148
+[naive_seed1042] step 170/390 trained 3/3 | hop0: 0.0238 | hop1: 0.0517
+[naive_seed1042] step 180/390 trained 3/3 | hop0: 0.0179 | hop1: 0.0339
+[naive_seed1042] step 190/390 trained 3/3 | hop0: 0.0141 | hop1: 0.0348
+[naive_seed1042] step 200/390 trained 3/3 | hop0: 0.0109 | hop1: 0.0339
+[naive_seed1042] step 210/390 trained 3/3 | hop0: 0.0074 | hop1: 0.0177
+[naive_seed1042] step 220/390 trained 3/3 | hop0: 0.0086 | hop1: 0.0255
+[naive_seed1042] step 230/390 trained 3/3 | hop0: 0.0066 | hop1: 0.0155
+[naive_seed1042] step 240/390 trained 3/3 | hop0: 0.0057 | hop1: 0.0078
+[naive_seed1042] step 250/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0087
+[naive_seed1042] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0105
+[naive_seed1042] step 270/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0050
+[naive_seed1042] step 280/390 trained 3/3 | hop0: 0.0069 | hop1: 0.0028
+[naive_seed1042] step 290/390 trained 3/3 | hop0: 0.0069 | hop1: 0.0025
+[naive_seed1042] step 300/390 trained 3/3 | hop0: 0.0105 | hop1: 0.0027
+[naive_seed1042] step 310/390 trained 3/3 | hop0: 0.0042 | hop1: 0.0032
+[naive_seed1042] step 320/390 trained 3/3 | hop0: 0.0048 | hop1: 0.0032
+[naive_seed1042] step 330/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0025
+[naive_seed1042] step 340/390 trained 3/3 | hop0: 0.0043 | hop1: 0.0029
+[naive_seed1042] step 350/390 trained 3/3 | hop0: 0.0062 | hop1: 0.0067
+[naive_seed1042] step 360/390 trained 3/3 | hop0: 0.0034 | hop1: 0.0024
+[naive_seed1042] step 370/390 trained 3/3 | hop0: 0.0071 | hop1: 0.0028
+[naive_seed1042] step 380/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0025
+[naive_seed1042] mean MSE (last 50 steps): 0.0018 | cert-MSE r=-0.856
+[naive_seed1042] saved runs\chapter5_v2\s5_3_colour_three_node\naive_seed1042\figures\results.png
+### naive_seed1042 last50=0.00178
+[certainty_seed1042] nodes=3 coverage max=3 mode=certainty steps=390
+[certainty_seed1042] step 000/390 trained 3/3 | hop0: 0.1365 | hop1: 0.1074
+[certainty_seed1042] step 010/390 trained 3/3 | hop0: 0.0995 | hop1: 0.1391
+[certainty_seed1042] step 020/390 trained 3/3 | hop0: 0.0795 | hop1: 0.1021
+[certainty_seed1042] step 030/390 trained 3/3 | hop0: 0.0972 | hop1: 0.0886
+[certainty_seed1042] step 040/390 trained 3/3 | hop0: 0.0857 | hop1: 0.1119
+[certainty_seed1042] step 050/390 trained 3/3 | hop0: 0.0626 | hop1: 0.0741
+[certainty_seed1042] step 060/390 trained 3/3 | hop0: 0.0573 | hop1: 0.0972
+[certainty_seed1042] step 070/390 trained 3/3 | hop0: 0.0559 | hop1: 0.0650
+[certainty_seed1042] step 080/390 trained 3/3 | hop0: 0.0622 | hop1: 0.0761
+[certainty_seed1042] step 090/390 trained 3/3 | hop0: 0.0443 | hop1: 0.0499
+[certainty_seed1042] step 100/390 trained 3/3 | hop0: 0.0440 | hop1: 0.0533
+[certainty_seed1042] step 110/390 trained 3/3 | hop0: 0.0500 | hop1: 0.0555
+[certainty_seed1042] step 120/390 trained 3/3 | hop0: 0.0432 | hop1: 0.0437
+[certainty_seed1042] step 130/390 trained 3/3 | hop0: 0.0305 | hop1: 0.0695
+[certainty_seed1042] step 140/390 trained 3/3 | hop0: 0.0292 | hop1: 0.0403
+[certainty_seed1042] step 150/390 trained 3/3 | hop0: 0.0456 | hop1: 0.0575
+[certainty_seed1042] step 160/390 trained 3/3 | hop0: 0.0143 | hop1: 0.0149
+[certainty_seed1042] step 170/390 trained 3/3 | hop0: 0.0238 | hop1: 0.0516
+[certainty_seed1042] step 180/390 trained 3/3 | hop0: 0.0179 | hop1: 0.0339
+[certainty_seed1042] step 190/390 trained 3/3 | hop0: 0.0141 | hop1: 0.0350
+[certainty_seed1042] step 200/390 trained 3/3 | hop0: 0.0109 | hop1: 0.0338
+[certainty_seed1042] step 210/390 trained 3/3 | hop0: 0.0074 | hop1: 0.0175
+[certainty_seed1042] step 220/390 trained 3/3 | hop0: 0.0086 | hop1: 0.0254
+[certainty_seed1042] step 230/390 trained 3/3 | hop0: 0.0066 | hop1: 0.0154
+[certainty_seed1042] step 240/390 trained 3/3 | hop0: 0.0057 | hop1: 0.0077
+[certainty_seed1042] step 250/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0087
+[certainty_seed1042] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0105
+[certainty_seed1042] step 270/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0050
+[certainty_seed1042] step 280/390 trained 3/3 | hop0: 0.0070 | hop1: 0.0027
+[certainty_seed1042] step 290/390 trained 3/3 | hop0: 0.0072 | hop1: 0.0024
+[certainty_seed1042] step 300/390 trained 3/3 | hop0: 0.0104 | hop1: 0.0027
+[certainty_seed1042] step 310/390 trained 3/3 | hop0: 0.0043 | hop1: 0.0030
+[certainty_seed1042] step 320/390 trained 3/3 | hop0: 0.0048 | hop1: 0.0027
+[certainty_seed1042] step 330/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0029
+[certainty_seed1042] step 340/390 trained 3/3 | hop0: 0.0041 | hop1: 0.0031
+[certainty_seed1042] step 350/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0063
+[certainty_seed1042] step 360/390 trained 3/3 | hop0: 0.0034 | hop1: 0.0023
+[certainty_seed1042] step 370/390 trained 3/3 | hop0: 0.0069 | hop1: 0.0023
+[certainty_seed1042] step 380/390 trained 3/3 | hop0: 0.0055 | hop1: 0.0020
+[certainty_seed1042] mean MSE (last 50 steps): 0.0017 | cert-MSE r=-0.868
+[certainty_seed1042] saved runs\chapter5_v2\s5_3_colour_three_node\certainty_seed1042\figures\results.png
+### certainty_seed1042 last50=0.00175
+[nig_product_seed1042] nodes=3 coverage max=3 mode=nig_product steps=390
+[nig_product_seed1042] step 000/390 trained 3/3 | hop0: 0.1365 | hop1: 0.1072
+[nig_product_seed1042] step 010/390 trained 3/3 | hop0: 0.0995 | hop1: 0.1381
+[nig_product_seed1042] step 020/390 trained 3/3 | hop0: 0.0795 | hop1: 0.1014
+[nig_product_seed1042] step 030/390 trained 3/3 | hop0: 0.0972 | hop1: 0.0876
+[nig_product_seed1042] step 040/390 trained 3/3 | hop0: 0.0857 | hop1: 0.1102
+[nig_product_seed1042] step 050/390 trained 3/3 | hop0: 0.0626 | hop1: 0.0731
+[nig_product_seed1042] step 060/390 trained 3/3 | hop0: 0.0573 | hop1: 0.0957
+[nig_product_seed1042] step 070/390 trained 3/3 | hop0: 0.0559 | hop1: 0.0644
+[nig_product_seed1042] step 080/390 trained 3/3 | hop0: 0.0622 | hop1: 0.0753
+[nig_product_seed1042] step 090/390 trained 3/3 | hop0: 0.0443 | hop1: 0.0497
+[nig_product_seed1042] step 100/390 trained 3/3 | hop0: 0.0440 | hop1: 0.0523
+[nig_product_seed1042] step 110/390 trained 3/3 | hop0: 0.0500 | hop1: 0.0537
+[nig_product_seed1042] step 120/390 trained 3/3 | hop0: 0.0432 | hop1: 0.0428
+[nig_product_seed1042] step 130/390 trained 3/3 | hop0: 0.0305 | hop1: 0.0688
+[nig_product_seed1042] step 140/390 trained 3/3 | hop0: 0.0292 | hop1: 0.0385
+[nig_product_seed1042] step 150/390 trained 3/3 | hop0: 0.0456 | hop1: 0.0570
+[nig_product_seed1042] step 160/390 trained 3/3 | hop0: 0.0143 | hop1: 0.0157
+[nig_product_seed1042] step 170/390 trained 3/3 | hop0: 0.0238 | hop1: 0.0525
+[nig_product_seed1042] step 180/390 trained 3/3 | hop0: 0.0179 | hop1: 0.0350
+[nig_product_seed1042] step 190/390 trained 3/3 | hop0: 0.0141 | hop1: 0.0366
+[nig_product_seed1042] step 200/390 trained 3/3 | hop0: 0.0109 | hop1: 0.0375
+[nig_product_seed1042] step 210/390 trained 3/3 | hop0: 0.0074 | hop1: 0.0211
+[nig_product_seed1042] step 220/390 trained 3/3 | hop0: 0.0086 | hop1: 0.0292
+[nig_product_seed1042] step 230/390 trained 3/3 | hop0: 0.0066 | hop1: 0.0196
+[nig_product_seed1042] step 240/390 trained 3/3 | hop0: 0.0057 | hop1: 0.0121
+[nig_product_seed1042] step 250/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0129
+[nig_product_seed1042] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0151
+[nig_product_seed1042] step 270/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0071
+[nig_product_seed1042] step 280/390 trained 3/3 | hop0: 0.0069 | hop1: 0.0052
+[nig_product_seed1042] step 290/390 trained 3/3 | hop0: 0.0070 | hop1: 0.0048
+[nig_product_seed1042] step 300/390 trained 3/3 | hop0: 0.0105 | hop1: 0.0041
+[nig_product_seed1042] step 310/390 trained 3/3 | hop0: 0.0042 | hop1: 0.0047
+[nig_product_seed1042] step 320/390 trained 3/3 | hop0: 0.0047 | hop1: 0.0056
+[nig_product_seed1042] step 330/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0043
+[nig_product_seed1042] step 340/390 trained 3/3 | hop0: 0.0039 | hop1: 0.0040
+[nig_product_seed1042] step 350/390 trained 3/3 | hop0: 0.0060 | hop1: 0.0100
+[nig_product_seed1042] step 360/390 trained 3/3 | hop0: 0.0036 | hop1: 0.0033
+[nig_product_seed1042] step 370/390 trained 3/3 | hop0: 0.0070 | hop1: 0.0030
+[nig_product_seed1042] step 380/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0025
+[nig_product_seed1042] mean MSE (last 50 steps): 0.0020 | cert-MSE r=-0.890
+[nig_product_seed1042] saved runs\chapter5_v2\s5_3_colour_three_node\nig_product_seed1042\figures\results.png
+### nig_product_seed1042 last50=0.00200
+[nig_product_avgtrain_seed1042] nodes=3 coverage max=3 mode=nig_product steps=390
+[nig_product_avgtrain_seed1042] step 000/390 trained 3/3 | hop0: 0.1365 | hop1: 0.1076
+[nig_product_avgtrain_seed1042] step 010/390 trained 3/3 | hop0: 0.0995 | hop1: 0.1456
+[nig_product_avgtrain_seed1042] step 020/390 trained 3/3 | hop0: 0.0795 | hop1: 0.1070
+[nig_product_avgtrain_seed1042] step 030/390 trained 3/3 | hop0: 0.0972 | hop1: 0.0944
+[nig_product_avgtrain_seed1042] step 040/390 trained 3/3 | hop0: 0.0857 | hop1: 0.1160
+[nig_product_avgtrain_seed1042] step 050/390 trained 3/3 | hop0: 0.0626 | hop1: 0.0744
+[nig_product_avgtrain_seed1042] step 060/390 trained 3/3 | hop0: 0.0573 | hop1: 0.0978
+[nig_product_avgtrain_seed1042] step 070/390 trained 3/3 | hop0: 0.0559 | hop1: 0.0638
+[nig_product_avgtrain_seed1042] step 080/390 trained 3/3 | hop0: 0.0622 | hop1: 0.0776
+[nig_product_avgtrain_seed1042] step 090/390 trained 3/3 | hop0: 0.0443 | hop1: 0.0524
+[nig_product_avgtrain_seed1042] step 100/390 trained 3/3 | hop0: 0.0440 | hop1: 0.0555
+[nig_product_avgtrain_seed1042] step 110/390 trained 3/3 | hop0: 0.0500 | hop1: 0.0565
+[nig_product_avgtrain_seed1042] step 120/390 trained 3/3 | hop0: 0.0432 | hop1: 0.0478
+[nig_product_avgtrain_seed1042] step 130/390 trained 3/3 | hop0: 0.0305 | hop1: 0.0731
+[nig_product_avgtrain_seed1042] step 140/390 trained 3/3 | hop0: 0.0292 | hop1: 0.0447
+[nig_product_avgtrain_seed1042] step 150/390 trained 3/3 | hop0: 0.0456 | hop1: 0.0669
+[nig_product_avgtrain_seed1042] step 160/390 trained 3/3 | hop0: 0.0143 | hop1: 0.0201
+[nig_product_avgtrain_seed1042] step 170/390 trained 3/3 | hop0: 0.0238 | hop1: 0.0658
+[nig_product_avgtrain_seed1042] step 180/390 trained 3/3 | hop0: 0.0179 | hop1: 0.0435
+[nig_product_avgtrain_seed1042] step 190/390 trained 3/3 | hop0: 0.0141 | hop1: 0.0429
+[nig_product_avgtrain_seed1042] step 200/390 trained 3/3 | hop0: 0.0109 | hop1: 0.0460
+[nig_product_avgtrain_seed1042] step 210/390 trained 3/3 | hop0: 0.0074 | hop1: 0.0280
+[nig_product_avgtrain_seed1042] step 220/390 trained 3/3 | hop0: 0.0086 | hop1: 0.0348
+[nig_product_avgtrain_seed1042] step 230/390 trained 3/3 | hop0: 0.0066 | hop1: 0.0235
+[nig_product_avgtrain_seed1042] step 240/390 trained 3/3 | hop0: 0.0057 | hop1: 0.0167
+[nig_product_avgtrain_seed1042] step 250/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0171
+[nig_product_avgtrain_seed1042] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0186
+[nig_product_avgtrain_seed1042] step 270/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0093
+[nig_product_avgtrain_seed1042] step 280/390 trained 3/3 | hop0: 0.0069 | hop1: 0.0063
+[nig_product_avgtrain_seed1042] step 290/390 trained 3/3 | hop0: 0.0070 | hop1: 0.0056
+[nig_product_avgtrain_seed1042] step 300/390 trained 3/3 | hop0: 0.0104 | hop1: 0.0057
+[nig_product_avgtrain_seed1042] step 310/390 trained 3/3 | hop0: 0.0042 | hop1: 0.0060
+[nig_product_avgtrain_seed1042] step 320/390 trained 3/3 | hop0: 0.0048 | hop1: 0.0062
+[nig_product_avgtrain_seed1042] step 330/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0046
+[nig_product_avgtrain_seed1042] step 340/390 trained 3/3 | hop0: 0.0041 | hop1: 0.0042
+[nig_product_avgtrain_seed1042] step 350/390 trained 3/3 | hop0: 0.0060 | hop1: 0.0087
+[nig_product_avgtrain_seed1042] step 360/390 trained 3/3 | hop0: 0.0035 | hop1: 0.0032
+[nig_product_avgtrain_seed1042] step 370/390 trained 3/3 | hop0: 0.0070 | hop1: 0.0026
+[nig_product_avgtrain_seed1042] step 380/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0031
+[nig_product_avgtrain_seed1042] mean MSE (last 50 steps): 0.0020 | cert-MSE r=-0.915
+[nig_product_avgtrain_seed1042] saved runs\chapter5_v2\s5_3_colour_three_node\nig_product_avgtrain_seed1042\figures\results.png
+### nig_product_avgtrain_seed1042 last50=0.00200
+[frozen_seed2042] nodes=3 coverage max=3 mode=frozen steps=390
+[frozen_seed2042] step 000/390 trained 3/3 | hop0: 0.1258 | hop1: 0.1402
+[frozen_seed2042] step 010/390 trained 3/3 | hop0: 0.1297 | hop1: 0.1095
+[frozen_seed2042] step 020/390 trained 3/3 | hop0: 0.1151 | hop1: 0.1168
+[frozen_seed2042] step 030/390 trained 3/3 | hop0: 0.1035 | hop1: 0.0866
+[frozen_seed2042] step 040/390 trained 3/3 | hop0: 0.1052 | hop1: 0.1749
+[frozen_seed2042] step 050/390 trained 3/3 | hop0: 0.1411 | hop1: 0.1475
+[frozen_seed2042] step 060/390 trained 3/3 | hop0: 0.1112 | hop1: 0.0968
+[frozen_seed2042] step 070/390 trained 3/3 | hop0: 0.1444 | hop1: 0.1281
+[frozen_seed2042] step 080/390 trained 3/3 | hop0: 0.1099 | hop1: 0.1355
+[frozen_seed2042] step 090/390 trained 3/3 | hop0: 0.1273 | hop1: 0.0941
+[frozen_seed2042] step 100/390 trained 3/3 | hop0: 0.1151 | hop1: 0.1128
+[frozen_seed2042] step 110/390 trained 3/3 | hop0: 0.1542 | hop1: 0.1417
+[frozen_seed2042] step 120/390 trained 3/3 | hop0: 0.1136 | hop1: 0.1206
+[frozen_seed2042] step 130/390 trained 3/3 | hop0: 0.1256 | hop1: 0.1358
+[frozen_seed2042] step 140/390 trained 3/3 | hop0: 0.1315 | hop1: 0.1545
+[frozen_seed2042] step 150/390 trained 3/3 | hop0: 0.1265 | hop1: 0.1589
+[frozen_seed2042] step 160/390 trained 3/3 | hop0: 0.1181 | hop1: 0.1032
+[frozen_seed2042] step 170/390 trained 3/3 | hop0: 0.1426 | hop1: 0.1347
+[frozen_seed2042] step 180/390 trained 3/3 | hop0: 0.1419 | hop1: 0.1412
+[frozen_seed2042] step 190/390 trained 3/3 | hop0: 0.1111 | hop1: 0.1202
+[frozen_seed2042] step 200/390 trained 3/3 | hop0: 0.1516 | hop1: 0.1496
+[frozen_seed2042] step 210/390 trained 3/3 | hop0: 0.1129 | hop1: 0.1184
+[frozen_seed2042] step 220/390 trained 3/3 | hop0: 0.1421 | hop1: 0.1571
+[frozen_seed2042] step 230/390 trained 3/3 | hop0: 0.1153 | hop1: 0.1067
+[frozen_seed2042] step 240/390 trained 3/3 | hop0: 0.1278 | hop1: 0.0931
+[frozen_seed2042] step 250/390 trained 3/3 | hop0: 0.1229 | hop1: 0.1123
+[frozen_seed2042] step 260/390 trained 3/3 | hop0: 0.1232 | hop1: 0.1305
+[frozen_seed2042] step 270/390 trained 3/3 | hop0: 0.1273 | hop1: 0.1325
+[frozen_seed2042] step 280/390 trained 3/3 | hop0: 0.1472 | hop1: 0.1141
+[frozen_seed2042] step 290/390 trained 3/3 | hop0: 0.1221 | hop1: 0.1297
+[frozen_seed2042] step 300/390 trained 3/3 | hop0: 0.1113 | hop1: 0.1124
+[frozen_seed2042] step 310/390 trained 3/3 | hop0: 0.1056 | hop1: 0.1240
+[frozen_seed2042] step 320/390 trained 3/3 | hop0: 0.1114 | hop1: 0.1167
+[frozen_seed2042] step 330/390 trained 3/3 | hop0: 0.1221 | hop1: 0.1144
+[frozen_seed2042] step 340/390 trained 3/3 | hop0: 0.1552 | hop1: 0.1764
+[frozen_seed2042] step 350/390 trained 3/3 | hop0: 0.0963 | hop1: 0.1007
+[frozen_seed2042] step 360/390 trained 3/3 | hop0: 0.1094 | hop1: 0.1158
+[frozen_seed2042] step 370/390 trained 3/3 | hop0: 0.1100 | hop1: 0.1019
+[frozen_seed2042] step 380/390 trained 3/3 | hop0: 0.1090 | hop1: 0.1115
+[frozen_seed2042] mean MSE (last 50 steps): 0.1287 | cert-MSE r=-0.914
+[frozen_seed2042] saved runs\chapter5_v2\s5_3_colour_three_node\frozen_seed2042\figures\results.png
+### frozen_seed2042 last50=0.12868
+[naive_seed2042] nodes=3 coverage max=3 mode=naive steps=390
+[naive_seed2042] step 000/390 trained 3/3 | hop0: 0.1245 | hop1: 0.1420
+[naive_seed2042] step 010/390 trained 3/3 | hop0: 0.1198 | hop1: 0.1160
+[naive_seed2042] step 020/390 trained 3/3 | hop0: 0.0962 | hop1: 0.1209
+[naive_seed2042] step 030/390 trained 3/3 | hop0: 0.0736 | hop1: 0.0789
+[naive_seed2042] step 040/390 trained 3/3 | hop0: 0.0685 | hop1: 0.1414
+[naive_seed2042] step 050/390 trained 3/3 | hop0: 0.0852 | hop1: 0.1040
+[naive_seed2042] step 060/390 trained 3/3 | hop0: 0.0558 | hop1: 0.0602
+[naive_seed2042] step 070/390 trained 3/3 | hop0: 0.0662 | hop1: 0.0716
+[naive_seed2042] step 080/390 trained 3/3 | hop0: 0.0542 | hop1: 0.0688
+[naive_seed2042] step 090/390 trained 3/3 | hop0: 0.0468 | hop1: 0.0483
+[naive_seed2042] step 100/390 trained 3/3 | hop0: 0.0315 | hop1: 0.0500
+[naive_seed2042] step 110/390 trained 3/3 | hop0: 0.0488 | hop1: 0.0702
+[naive_seed2042] step 120/390 trained 3/3 | hop0: 0.0348 | hop1: 0.0548
+[naive_seed2042] step 130/390 trained 3/3 | hop0: 0.0429 | hop1: 0.0666
+[naive_seed2042] step 140/390 trained 3/3 | hop0: 0.0421 | hop1: 0.0816
+[naive_seed2042] step 150/390 trained 3/3 | hop0: 0.0332 | hop1: 0.0650
+[naive_seed2042] step 160/390 trained 3/3 | hop0: 0.0206 | hop1: 0.0372
+[naive_seed2042] step 170/390 trained 3/3 | hop0: 0.0205 | hop1: 0.0357
+[naive_seed2042] step 180/390 trained 3/3 | hop0: 0.0158 | hop1: 0.0375
+[naive_seed2042] step 190/390 trained 3/3 | hop0: 0.0078 | hop1: 0.0279
+[naive_seed2042] step 200/390 trained 3/3 | hop0: 0.0106 | hop1: 0.0290
+[naive_seed2042] step 210/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0199
+[naive_seed2042] step 220/390 trained 3/3 | hop0: 0.0077 | hop1: 0.0297
+[naive_seed2042] step 230/390 trained 3/3 | hop0: 0.0050 | hop1: 0.0080
+[naive_seed2042] step 240/390 trained 3/3 | hop0: 0.0068 | hop1: 0.0074
+[naive_seed2042] step 250/390 trained 3/3 | hop0: 0.0045 | hop1: 0.0053
+[naive_seed2042] step 260/390 trained 3/3 | hop0: 0.0026 | hop1: 0.0080
+[naive_seed2042] step 270/390 trained 3/3 | hop0: 0.0060 | hop1: 0.0050
+[naive_seed2042] step 280/390 trained 3/3 | hop0: 0.0064 | hop1: 0.0033
+[naive_seed2042] step 290/390 trained 3/3 | hop0: 0.0055 | hop1: 0.0044
+[naive_seed2042] step 300/390 trained 3/3 | hop0: 0.0039 | hop1: 0.0070
+[naive_seed2042] step 310/390 trained 3/3 | hop0: 0.0054 | hop1: 0.0037
+[naive_seed2042] step 320/390 trained 3/3 | hop0: 0.0075 | hop1: 0.0025
+[naive_seed2042] step 330/390 trained 3/3 | hop0: 0.0057 | hop1: 0.0023
+[naive_seed2042] step 340/390 trained 3/3 | hop0: 0.0057 | hop1: 0.0041
+[naive_seed2042] step 350/390 trained 3/3 | hop0: 0.0042 | hop1: 0.0016
+[naive_seed2042] step 360/390 trained 3/3 | hop0: 0.0031 | hop1: 0.0017
+[naive_seed2042] step 370/390 trained 3/3 | hop0: 0.0049 | hop1: 0.0019
+[naive_seed2042] step 380/390 trained 3/3 | hop0: 0.0046 | hop1: 0.0025
+[naive_seed2042] mean MSE (last 50 steps): 0.0014 | cert-MSE r=-0.780
+[naive_seed2042] saved runs\chapter5_v2\s5_3_colour_three_node\naive_seed2042\figures\results.png
+### naive_seed2042 last50=0.00143
+[certainty_seed2042] nodes=3 coverage max=3 mode=certainty steps=390
+[certainty_seed2042] step 000/390 trained 3/3 | hop0: 0.1245 | hop1: 0.1420
+[certainty_seed2042] step 010/390 trained 3/3 | hop0: 0.1198 | hop1: 0.1160
+[certainty_seed2042] step 020/390 trained 3/3 | hop0: 0.0962 | hop1: 0.1209
+[certainty_seed2042] step 030/390 trained 3/3 | hop0: 0.0736 | hop1: 0.0788
+[certainty_seed2042] step 040/390 trained 3/3 | hop0: 0.0685 | hop1: 0.1414
+[certainty_seed2042] step 050/390 trained 3/3 | hop0: 0.0852 | hop1: 0.1040
+[certainty_seed2042] step 060/390 trained 3/3 | hop0: 0.0558 | hop1: 0.0602
+[certainty_seed2042] step 070/390 trained 3/3 | hop0: 0.0662 | hop1: 0.0716
+[certainty_seed2042] step 080/390 trained 3/3 | hop0: 0.0542 | hop1: 0.0688
+[certainty_seed2042] step 090/390 trained 3/3 | hop0: 0.0468 | hop1: 0.0483
+[certainty_seed2042] step 100/390 trained 3/3 | hop0: 0.0315 | hop1: 0.0500
+[certainty_seed2042] step 110/390 trained 3/3 | hop0: 0.0488 | hop1: 0.0701
+[certainty_seed2042] step 120/390 trained 3/3 | hop0: 0.0348 | hop1: 0.0549
+[certainty_seed2042] step 130/390 trained 3/3 | hop0: 0.0429 | hop1: 0.0666
+[certainty_seed2042] step 140/390 trained 3/3 | hop0: 0.0421 | hop1: 0.0811
+[certainty_seed2042] step 150/390 trained 3/3 | hop0: 0.0332 | hop1: 0.0647
+[certainty_seed2042] step 160/390 trained 3/3 | hop0: 0.0206 | hop1: 0.0371
+[certainty_seed2042] step 170/390 trained 3/3 | hop0: 0.0205 | hop1: 0.0356
+[certainty_seed2042] step 180/390 trained 3/3 | hop0: 0.0158 | hop1: 0.0373
+[certainty_seed2042] step 190/390 trained 3/3 | hop0: 0.0078 | hop1: 0.0277
+[certainty_seed2042] step 200/390 trained 3/3 | hop0: 0.0106 | hop1: 0.0291
+[certainty_seed2042] step 210/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0198
+[certainty_seed2042] step 220/390 trained 3/3 | hop0: 0.0077 | hop1: 0.0300
+[certainty_seed2042] step 230/390 trained 3/3 | hop0: 0.0050 | hop1: 0.0080
+[certainty_seed2042] step 240/390 trained 3/3 | hop0: 0.0068 | hop1: 0.0073
+[certainty_seed2042] step 250/390 trained 3/3 | hop0: 0.0045 | hop1: 0.0053
+[certainty_seed2042] step 260/390 trained 3/3 | hop0: 0.0026 | hop1: 0.0080
+[certainty_seed2042] step 270/390 trained 3/3 | hop0: 0.0060 | hop1: 0.0050
+[certainty_seed2042] step 280/390 trained 3/3 | hop0: 0.0063 | hop1: 0.0033
+[certainty_seed2042] step 290/390 trained 3/3 | hop0: 0.0055 | hop1: 0.0043
+[certainty_seed2042] step 300/390 trained 3/3 | hop0: 0.0039 | hop1: 0.0070
+[certainty_seed2042] step 310/390 trained 3/3 | hop0: 0.0054 | hop1: 0.0037
+[certainty_seed2042] step 320/390 trained 3/3 | hop0: 0.0075 | hop1: 0.0025
+[certainty_seed2042] step 330/390 trained 3/3 | hop0: 0.0056 | hop1: 0.0023
+[certainty_seed2042] step 340/390 trained 3/3 | hop0: 0.0057 | hop1: 0.0040
+[certainty_seed2042] step 350/390 trained 3/3 | hop0: 0.0042 | hop1: 0.0016
+[certainty_seed2042] step 360/390 trained 3/3 | hop0: 0.0030 | hop1: 0.0017
+[certainty_seed2042] step 370/390 trained 3/3 | hop0: 0.0047 | hop1: 0.0020
+[certainty_seed2042] step 380/390 trained 3/3 | hop0: 0.0045 | hop1: 0.0024
+[certainty_seed2042] mean MSE (last 50 steps): 0.0014 | cert-MSE r=-0.790
+[certainty_seed2042] saved runs\chapter5_v2\s5_3_colour_three_node\certainty_seed2042\figures\results.png
+### certainty_seed2042 last50=0.00145
+[nig_product_seed2042] nodes=3 coverage max=3 mode=nig_product steps=390
+[nig_product_seed2042] step 000/390 trained 3/3 | hop0: 0.1245 | hop1: 0.1421
+[nig_product_seed2042] step 010/390 trained 3/3 | hop0: 0.1198 | hop1: 0.1141
+[nig_product_seed2042] step 020/390 trained 3/3 | hop0: 0.0962 | hop1: 0.1205
+[nig_product_seed2042] step 030/390 trained 3/3 | hop0: 0.0736 | hop1: 0.0787
+[nig_product_seed2042] step 040/390 trained 3/3 | hop0: 0.0685 | hop1: 0.1408
+[nig_product_seed2042] step 050/390 trained 3/3 | hop0: 0.0852 | hop1: 0.1035
+[nig_product_seed2042] step 060/390 trained 3/3 | hop0: 0.0558 | hop1: 0.0597
+[nig_product_seed2042] step 070/390 trained 3/3 | hop0: 0.0662 | hop1: 0.0712
+[nig_product_seed2042] step 080/390 trained 3/3 | hop0: 0.0542 | hop1: 0.0689
+[nig_product_seed2042] step 090/390 trained 3/3 | hop0: 0.0468 | hop1: 0.0477
+[nig_product_seed2042] step 100/390 trained 3/3 | hop0: 0.0315 | hop1: 0.0497
+[nig_product_seed2042] step 110/390 trained 3/3 | hop0: 0.0488 | hop1: 0.0691
+[nig_product_seed2042] step 120/390 trained 3/3 | hop0: 0.0348 | hop1: 0.0547
+[nig_product_seed2042] step 130/390 trained 3/3 | hop0: 0.0429 | hop1: 0.0661
+[nig_product_seed2042] step 140/390 trained 3/3 | hop0: 0.0421 | hop1: 0.0791
+[nig_product_seed2042] step 150/390 trained 3/3 | hop0: 0.0332 | hop1: 0.0639
+[nig_product_seed2042] step 160/390 trained 3/3 | hop0: 0.0206 | hop1: 0.0365
+[nig_product_seed2042] step 170/390 trained 3/3 | hop0: 0.0205 | hop1: 0.0362
+[nig_product_seed2042] step 180/390 trained 3/3 | hop0: 0.0158 | hop1: 0.0370
+[nig_product_seed2042] step 190/390 trained 3/3 | hop0: 0.0078 | hop1: 0.0295
+[nig_product_seed2042] step 200/390 trained 3/3 | hop0: 0.0106 | hop1: 0.0318
+[nig_product_seed2042] step 210/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0240
+[nig_product_seed2042] step 220/390 trained 3/3 | hop0: 0.0077 | hop1: 0.0339
+[nig_product_seed2042] step 230/390 trained 3/3 | hop0: 0.0051 | hop1: 0.0107
+[nig_product_seed2042] step 240/390 trained 3/3 | hop0: 0.0068 | hop1: 0.0097
+[nig_product_seed2042] step 250/390 trained 3/3 | hop0: 0.0045 | hop1: 0.0054
+[nig_product_seed2042] step 260/390 trained 3/3 | hop0: 0.0027 | hop1: 0.0102
+[nig_product_seed2042] step 270/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0075
+[nig_product_seed2042] step 280/390 trained 3/3 | hop0: 0.0067 | hop1: 0.0041
+[nig_product_seed2042] step 290/390 trained 3/3 | hop0: 0.0055 | hop1: 0.0059
+[nig_product_seed2042] step 300/390 trained 3/3 | hop0: 0.0037 | hop1: 0.0065
+[nig_product_seed2042] step 310/390 trained 3/3 | hop0: 0.0054 | hop1: 0.0037
+[nig_product_seed2042] step 320/390 trained 3/3 | hop0: 0.0076 | hop1: 0.0033
+[nig_product_seed2042] step 330/390 trained 3/3 | hop0: 0.0056 | hop1: 0.0035
+[nig_product_seed2042] step 340/390 trained 3/3 | hop0: 0.0056 | hop1: 0.0063
+[nig_product_seed2042] step 350/390 trained 3/3 | hop0: 0.0044 | hop1: 0.0028
+[nig_product_seed2042] step 360/390 trained 3/3 | hop0: 0.0031 | hop1: 0.0026
+[nig_product_seed2042] step 370/390 trained 3/3 | hop0: 0.0048 | hop1: 0.0026
+[nig_product_seed2042] step 380/390 trained 3/3 | hop0: 0.0045 | hop1: 0.0032
+[nig_product_seed2042] mean MSE (last 50 steps): 0.0017 | cert-MSE r=-0.854
+[nig_product_seed2042] saved runs\chapter5_v2\s5_3_colour_three_node\nig_product_seed2042\figures\results.png
+### nig_product_seed2042 last50=0.00168
+[nig_product_avgtrain_seed2042] nodes=3 coverage max=3 mode=nig_product steps=390
+[nig_product_avgtrain_seed2042] step 000/390 trained 3/3 | hop0: 0.1245 | hop1: 0.1422
+[nig_product_avgtrain_seed2042] step 010/390 trained 3/3 | hop0: 0.1198 | hop1: 0.1163
+[nig_product_avgtrain_seed2042] step 020/390 trained 3/3 | hop0: 0.0962 | hop1: 0.1225
+[nig_product_avgtrain_seed2042] step 030/390 trained 3/3 | hop0: 0.0736 | hop1: 0.0807
+[nig_product_avgtrain_seed2042] step 040/390 trained 3/3 | hop0: 0.0685 | hop1: 0.1522
+[nig_product_avgtrain_seed2042] step 050/390 trained 3/3 | hop0: 0.0852 | hop1: 0.1109
+[nig_product_avgtrain_seed2042] step 060/390 trained 3/3 | hop0: 0.0558 | hop1: 0.0637
+[nig_product_avgtrain_seed2042] step 070/390 trained 3/3 | hop0: 0.0662 | hop1: 0.0735
+[nig_product_avgtrain_seed2042] step 080/390 trained 3/3 | hop0: 0.0542 | hop1: 0.0786
+[nig_product_avgtrain_seed2042] step 090/390 trained 3/3 | hop0: 0.0468 | hop1: 0.0518
+[nig_product_avgtrain_seed2042] step 100/390 trained 3/3 | hop0: 0.0315 | hop1: 0.0549
+[nig_product_avgtrain_seed2042] step 110/390 trained 3/3 | hop0: 0.0488 | hop1: 0.0731
+[nig_product_avgtrain_seed2042] step 120/390 trained 3/3 | hop0: 0.0348 | hop1: 0.0589
+[nig_product_avgtrain_seed2042] step 130/390 trained 3/3 | hop0: 0.0429 | hop1: 0.0722
+[nig_product_avgtrain_seed2042] step 140/390 trained 3/3 | hop0: 0.0421 | hop1: 0.0835
+[nig_product_avgtrain_seed2042] step 150/390 trained 3/3 | hop0: 0.0332 | hop1: 0.0737
+[nig_product_avgtrain_seed2042] step 160/390 trained 3/3 | hop0: 0.0206 | hop1: 0.0430
+[nig_product_avgtrain_seed2042] step 170/390 trained 3/3 | hop0: 0.0205 | hop1: 0.0432
+[nig_product_avgtrain_seed2042] step 180/390 trained 3/3 | hop0: 0.0158 | hop1: 0.0459
+[nig_product_avgtrain_seed2042] step 190/390 trained 3/3 | hop0: 0.0078 | hop1: 0.0360
+[nig_product_avgtrain_seed2042] step 200/390 trained 3/3 | hop0: 0.0106 | hop1: 0.0426
+[nig_product_avgtrain_seed2042] step 210/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0275
+[nig_product_avgtrain_seed2042] step 220/390 trained 3/3 | hop0: 0.0077 | hop1: 0.0403
+[nig_product_avgtrain_seed2042] step 230/390 trained 3/3 | hop0: 0.0050 | hop1: 0.0147
+[nig_product_avgtrain_seed2042] step 240/390 trained 3/3 | hop0: 0.0068 | hop1: 0.0148
+[nig_product_avgtrain_seed2042] step 250/390 trained 3/3 | hop0: 0.0044 | hop1: 0.0100
+[nig_product_avgtrain_seed2042] step 260/390 trained 3/3 | hop0: 0.0026 | hop1: 0.0166
+[nig_product_avgtrain_seed2042] step 270/390 trained 3/3 | hop0: 0.0060 | hop1: 0.0099
+[nig_product_avgtrain_seed2042] step 280/390 trained 3/3 | hop0: 0.0063 | hop1: 0.0057
+[nig_product_avgtrain_seed2042] step 290/390 trained 3/3 | hop0: 0.0055 | hop1: 0.0061
+[nig_product_avgtrain_seed2042] step 300/390 trained 3/3 | hop0: 0.0039 | hop1: 0.0080
+[nig_product_avgtrain_seed2042] step 310/390 trained 3/3 | hop0: 0.0054 | hop1: 0.0040
+[nig_product_avgtrain_seed2042] step 320/390 trained 3/3 | hop0: 0.0075 | hop1: 0.0034
+[nig_product_avgtrain_seed2042] step 330/390 trained 3/3 | hop0: 0.0057 | hop1: 0.0030
+[nig_product_avgtrain_seed2042] step 340/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0063
+[nig_product_avgtrain_seed2042] step 350/390 trained 3/3 | hop0: 0.0043 | hop1: 0.0030
+[nig_product_avgtrain_seed2042] step 360/390 trained 3/3 | hop0: 0.0031 | hop1: 0.0019
+[nig_product_avgtrain_seed2042] step 370/390 trained 3/3 | hop0: 0.0048 | hop1: 0.0025
+[nig_product_avgtrain_seed2042] step 380/390 trained 3/3 | hop0: 0.0046 | hop1: 0.0034
+[nig_product_avgtrain_seed2042] mean MSE (last 50 steps): 0.0016 | cert-MSE r=-0.876
+[nig_product_avgtrain_seed2042] saved runs\chapter5_v2\s5_3_colour_three_node\nig_product_avgtrain_seed2042\figures\results.png
+### nig_product_avgtrain_seed2042 last50=0.00164
+[frozen_seed3042] nodes=3 coverage max=3 mode=frozen steps=390
+[frozen_seed3042] step 000/390 trained 3/3 | hop0: 0.1126 | hop1: 0.1049
+[frozen_seed3042] step 010/390 trained 3/3 | hop0: 0.1245 | hop1: 0.1226
+[frozen_seed3042] step 020/390 trained 3/3 | hop0: 0.1258 | hop1: 0.1246
+[frozen_seed3042] step 030/390 trained 3/3 | hop0: 0.1476 | hop1: 0.1232
+[frozen_seed3042] step 040/390 trained 3/3 | hop0: 0.1210 | hop1: 0.1324
+[frozen_seed3042] step 050/390 trained 3/3 | hop0: 0.1274 | hop1: 0.1363
+[frozen_seed3042] step 060/390 trained 3/3 | hop0: 0.1093 | hop1: 0.0902
+[frozen_seed3042] step 070/390 trained 3/3 | hop0: 0.1199 | hop1: 0.1096
+[frozen_seed3042] step 080/390 trained 3/3 | hop0: 0.1094 | hop1: 0.1211
+[frozen_seed3042] step 090/390 trained 3/3 | hop0: 0.1590 | hop1: 0.1472
+[frozen_seed3042] step 100/390 trained 3/3 | hop0: 0.1297 | hop1: 0.1017
+[frozen_seed3042] step 110/390 trained 3/3 | hop0: 0.1375 | hop1: 0.1349
+[frozen_seed3042] step 120/390 trained 3/3 | hop0: 0.1064 | hop1: 0.1239
+[frozen_seed3042] step 130/390 trained 3/3 | hop0: 0.1167 | hop1: 0.1455
+[frozen_seed3042] step 140/390 trained 3/3 | hop0: 0.1430 | hop1: 0.0948
+[frozen_seed3042] step 150/390 trained 3/3 | hop0: 0.1202 | hop1: 0.1328
+[frozen_seed3042] step 160/390 trained 3/3 | hop0: 0.0947 | hop1: 0.1034
+[frozen_seed3042] step 170/390 trained 3/3 | hop0: 0.1292 | hop1: 0.1498
+[frozen_seed3042] step 180/390 trained 3/3 | hop0: 0.1222 | hop1: 0.1301
+[frozen_seed3042] step 190/390 trained 3/3 | hop0: 0.1393 | hop1: 0.1494
+[frozen_seed3042] step 200/390 trained 3/3 | hop0: 0.1217 | hop1: 0.1377
+[frozen_seed3042] step 210/390 trained 3/3 | hop0: 0.1323 | hop1: 0.1018
+[frozen_seed3042] step 220/390 trained 3/3 | hop0: 0.1098 | hop1: 0.1163
+[frozen_seed3042] step 230/390 trained 3/3 | hop0: 0.1369 | hop1: 0.1454
+[frozen_seed3042] step 240/390 trained 3/3 | hop0: 0.1160 | hop1: 0.1311
+[frozen_seed3042] step 250/390 trained 3/3 | hop0: 0.1351 | hop1: 0.1108
+[frozen_seed3042] step 260/390 trained 3/3 | hop0: 0.1183 | hop1: 0.1163
+[frozen_seed3042] step 270/390 trained 3/3 | hop0: 0.1267 | hop1: 0.1458
+[frozen_seed3042] step 280/390 trained 3/3 | hop0: 0.0940 | hop1: 0.1113
+[frozen_seed3042] step 290/390 trained 3/3 | hop0: 0.1300 | hop1: 0.1127
+[frozen_seed3042] step 300/390 trained 3/3 | hop0: 0.1189 | hop1: 0.1187
+[frozen_seed3042] step 310/390 trained 3/3 | hop0: 0.1194 | hop1: 0.1441
+[frozen_seed3042] step 320/390 trained 3/3 | hop0: 0.1027 | hop1: 0.0737
+[frozen_seed3042] step 330/390 trained 3/3 | hop0: 0.1109 | hop1: 0.1237
+[frozen_seed3042] step 340/390 trained 3/3 | hop0: 0.1274 | hop1: 0.1193
+[frozen_seed3042] step 350/390 trained 3/3 | hop0: 0.1369 | hop1: 0.1241
+[frozen_seed3042] step 360/390 trained 3/3 | hop0: 0.1622 | hop1: 0.1251
+[frozen_seed3042] step 370/390 trained 3/3 | hop0: 0.1305 | hop1: 0.1024
+[frozen_seed3042] step 380/390 trained 3/3 | hop0: 0.1050 | hop1: 0.1140
+[frozen_seed3042] mean MSE (last 50 steps): 0.1229 | cert-MSE r=-0.861
+[frozen_seed3042] saved runs\chapter5_v2\s5_3_colour_three_node\frozen_seed3042\figures\results.png
+### frozen_seed3042 last50=0.12286
+[naive_seed3042] nodes=3 coverage max=3 mode=naive steps=390
+[naive_seed3042] step 000/390 trained 3/3 | hop0: 0.1106 | hop1: 0.1047
+[naive_seed3042] step 010/390 trained 3/3 | hop0: 0.1125 | hop1: 0.1321
+[naive_seed3042] step 020/390 trained 3/3 | hop0: 0.1048 | hop1: 0.1291
+[naive_seed3042] step 030/390 trained 3/3 | hop0: 0.1155 | hop1: 0.1126
+[naive_seed3042] step 040/390 trained 3/3 | hop0: 0.0771 | hop1: 0.1030
+[naive_seed3042] step 050/390 trained 3/3 | hop0: 0.0755 | hop1: 0.1066
+[naive_seed3042] step 060/390 trained 3/3 | hop0: 0.0652 | hop1: 0.0607
+[naive_seed3042] step 070/390 trained 3/3 | hop0: 0.0578 | hop1: 0.0641
+[naive_seed3042] step 080/390 trained 3/3 | hop0: 0.0477 | hop1: 0.0673
+[naive_seed3042] step 090/390 trained 3/3 | hop0: 0.0678 | hop1: 0.0737
+[naive_seed3042] step 100/390 trained 3/3 | hop0: 0.0489 | hop1: 0.0445
+[naive_seed3042] step 110/390 trained 3/3 | hop0: 0.0518 | hop1: 0.0547
+[naive_seed3042] step 120/390 trained 3/3 | hop0: 0.0379 | hop1: 0.0649
+[naive_seed3042] step 130/390 trained 3/3 | hop0: 0.0286 | hop1: 0.0707
+[naive_seed3042] step 140/390 trained 3/3 | hop0: 0.0423 | hop1: 0.0367
+[naive_seed3042] step 150/390 trained 3/3 | hop0: 0.0272 | hop1: 0.0470
+[naive_seed3042] step 160/390 trained 3/3 | hop0: 0.0279 | hop1: 0.0470
+[naive_seed3042] step 170/390 trained 3/3 | hop0: 0.0262 | hop1: 0.0566
+[naive_seed3042] step 180/390 trained 3/3 | hop0: 0.0325 | hop1: 0.0536
+[naive_seed3042] step 190/390 trained 3/3 | hop0: 0.0134 | hop1: 0.0295
+[naive_seed3042] step 200/390 trained 3/3 | hop0: 0.0149 | hop1: 0.0280
+[naive_seed3042] step 210/390 trained 3/3 | hop0: 0.0159 | hop1: 0.0203
+[naive_seed3042] step 220/390 trained 3/3 | hop0: 0.0085 | hop1: 0.0191
+[naive_seed3042] step 230/390 trained 3/3 | hop0: 0.0128 | hop1: 0.0317
+[naive_seed3042] step 240/390 trained 3/3 | hop0: 0.0122 | hop1: 0.0093
+[naive_seed3042] step 250/390 trained 3/3 | hop0: 0.0110 | hop1: 0.0099
+[naive_seed3042] step 260/390 trained 3/3 | hop0: 0.0080 | hop1: 0.0103
+[naive_seed3042] step 270/390 trained 3/3 | hop0: 0.0078 | hop1: 0.0086
+[naive_seed3042] step 280/390 trained 3/3 | hop0: 0.0031 | hop1: 0.0058
+[naive_seed3042] step 290/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0053
+[naive_seed3042] step 300/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0044
+[naive_seed3042] step 310/390 trained 3/3 | hop0: 0.0076 | hop1: 0.0040
+[naive_seed3042] step 320/390 trained 3/3 | hop0: 0.0040 | hop1: 0.0022
+[naive_seed3042] step 330/390 trained 3/3 | hop0: 0.0046 | hop1: 0.0038
+[naive_seed3042] step 340/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0038
+[naive_seed3042] step 350/390 trained 3/3 | hop0: 0.0085 | hop1: 0.0040
+[naive_seed3042] step 360/390 trained 3/3 | hop0: 0.0093 | hop1: 0.0030
+[naive_seed3042] step 370/390 trained 3/3 | hop0: 0.0044 | hop1: 0.0020
+[naive_seed3042] step 380/390 trained 3/3 | hop0: 0.0033 | hop1: 0.0015
+[naive_seed3042] mean MSE (last 50 steps): 0.0017 | cert-MSE r=-0.683
+[naive_seed3042] saved runs\chapter5_v2\s5_3_colour_three_node\naive_seed3042\figures\results.png
+### naive_seed3042 last50=0.00168
+[certainty_seed3042] nodes=3 coverage max=3 mode=certainty steps=390
+[certainty_seed3042] step 000/390 trained 3/3 | hop0: 0.1106 | hop1: 0.1047
+[certainty_seed3042] step 010/390 trained 3/3 | hop0: 0.1125 | hop1: 0.1321
+[certainty_seed3042] step 020/390 trained 3/3 | hop0: 0.1048 | hop1: 0.1291
+[certainty_seed3042] step 030/390 trained 3/3 | hop0: 0.1155 | hop1: 0.1126
+[certainty_seed3042] step 040/390 trained 3/3 | hop0: 0.0771 | hop1: 0.1029
+[certainty_seed3042] step 050/390 trained 3/3 | hop0: 0.0755 | hop1: 0.1059
+[certainty_seed3042] step 060/390 trained 3/3 | hop0: 0.0652 | hop1: 0.0603
+[certainty_seed3042] step 070/390 trained 3/3 | hop0: 0.0578 | hop1: 0.0638
+[certainty_seed3042] step 080/390 trained 3/3 | hop0: 0.0477 | hop1: 0.0669
+[certainty_seed3042] step 090/390 trained 3/3 | hop0: 0.0678 | hop1: 0.0731
+[certainty_seed3042] step 100/390 trained 3/3 | hop0: 0.0489 | hop1: 0.0443
+[certainty_seed3042] step 110/390 trained 3/3 | hop0: 0.0518 | hop1: 0.0544
+[certainty_seed3042] step 120/390 trained 3/3 | hop0: 0.0379 | hop1: 0.0647
+[certainty_seed3042] step 130/390 trained 3/3 | hop0: 0.0286 | hop1: 0.0704
+[certainty_seed3042] step 140/390 trained 3/3 | hop0: 0.0423 | hop1: 0.0364
+[certainty_seed3042] step 150/390 trained 3/3 | hop0: 0.0272 | hop1: 0.0465
+[certainty_seed3042] step 160/390 trained 3/3 | hop0: 0.0279 | hop1: 0.0469
+[certainty_seed3042] step 170/390 trained 3/3 | hop0: 0.0262 | hop1: 0.0563
+[certainty_seed3042] step 180/390 trained 3/3 | hop0: 0.0325 | hop1: 0.0532
+[certainty_seed3042] step 190/390 trained 3/3 | hop0: 0.0133 | hop1: 0.0294
+[certainty_seed3042] step 200/390 trained 3/3 | hop0: 0.0149 | hop1: 0.0273
+[certainty_seed3042] step 210/390 trained 3/3 | hop0: 0.0159 | hop1: 0.0199
+[certainty_seed3042] step 220/390 trained 3/3 | hop0: 0.0085 | hop1: 0.0189
+[certainty_seed3042] step 230/390 trained 3/3 | hop0: 0.0128 | hop1: 0.0310
+[certainty_seed3042] step 240/390 trained 3/3 | hop0: 0.0122 | hop1: 0.0092
+[certainty_seed3042] step 250/390 trained 3/3 | hop0: 0.0110 | hop1: 0.0098
+[certainty_seed3042] step 260/390 trained 3/3 | hop0: 0.0080 | hop1: 0.0100
+[certainty_seed3042] step 270/390 trained 3/3 | hop0: 0.0078 | hop1: 0.0084
+[certainty_seed3042] step 280/390 trained 3/3 | hop0: 0.0031 | hop1: 0.0058
+[certainty_seed3042] step 290/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0052
+[certainty_seed3042] step 300/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0044
+[certainty_seed3042] step 310/390 trained 3/3 | hop0: 0.0076 | hop1: 0.0039
+[certainty_seed3042] step 320/390 trained 3/3 | hop0: 0.0040 | hop1: 0.0021
+[certainty_seed3042] step 330/390 trained 3/3 | hop0: 0.0047 | hop1: 0.0038
+[certainty_seed3042] step 340/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0038
+[certainty_seed3042] step 350/390 trained 3/3 | hop0: 0.0085 | hop1: 0.0040
+[certainty_seed3042] step 360/390 trained 3/3 | hop0: 0.0092 | hop1: 0.0030
+[certainty_seed3042] step 370/390 trained 3/3 | hop0: 0.0044 | hop1: 0.0020
+[certainty_seed3042] step 380/390 trained 3/3 | hop0: 0.0032 | hop1: 0.0014
+[certainty_seed3042] mean MSE (last 50 steps): 0.0017 | cert-MSE r=-0.687
+[certainty_seed3042] saved runs\chapter5_v2\s5_3_colour_three_node\certainty_seed3042\figures\results.png
+### certainty_seed3042 last50=0.00166
+[nig_product_seed3042] nodes=3 coverage max=3 mode=nig_product steps=390
+[nig_product_seed3042] step 000/390 trained 3/3 | hop0: 0.1106 | hop1: 0.1046
+[nig_product_seed3042] step 010/390 trained 3/3 | hop0: 0.1125 | hop1: 0.1317
+[nig_product_seed3042] step 020/390 trained 3/3 | hop0: 0.1048 | hop1: 0.1283
+[nig_product_seed3042] step 030/390 trained 3/3 | hop0: 0.1155 | hop1: 0.1106
+[nig_product_seed3042] step 040/390 trained 3/3 | hop0: 0.0771 | hop1: 0.1017
+[nig_product_seed3042] step 050/390 trained 3/3 | hop0: 0.0755 | hop1: 0.1035
+[nig_product_seed3042] step 060/390 trained 3/3 | hop0: 0.0652 | hop1: 0.0587
+[nig_product_seed3042] step 070/390 trained 3/3 | hop0: 0.0578 | hop1: 0.0629
+[nig_product_seed3042] step 080/390 trained 3/3 | hop0: 0.0477 | hop1: 0.0658
+[nig_product_seed3042] step 090/390 trained 3/3 | hop0: 0.0678 | hop1: 0.0715
+[nig_product_seed3042] step 100/390 trained 3/3 | hop0: 0.0489 | hop1: 0.0432
+[nig_product_seed3042] step 110/390 trained 3/3 | hop0: 0.0518 | hop1: 0.0533
+[nig_product_seed3042] step 120/390 trained 3/3 | hop0: 0.0379 | hop1: 0.0640
+[nig_product_seed3042] step 130/390 trained 3/3 | hop0: 0.0286 | hop1: 0.0689
+[nig_product_seed3042] step 140/390 trained 3/3 | hop0: 0.0423 | hop1: 0.0354
+[nig_product_seed3042] step 150/390 trained 3/3 | hop0: 0.0272 | hop1: 0.0457
+[nig_product_seed3042] step 160/390 trained 3/3 | hop0: 0.0279 | hop1: 0.0466
+[nig_product_seed3042] step 170/390 trained 3/3 | hop0: 0.0262 | hop1: 0.0556
+[nig_product_seed3042] step 180/390 trained 3/3 | hop0: 0.0325 | hop1: 0.0530
+[nig_product_seed3042] step 190/390 trained 3/3 | hop0: 0.0133 | hop1: 0.0310
+[nig_product_seed3042] step 200/390 trained 3/3 | hop0: 0.0149 | hop1: 0.0294
+[nig_product_seed3042] step 210/390 trained 3/3 | hop0: 0.0159 | hop1: 0.0213
+[nig_product_seed3042] step 220/390 trained 3/3 | hop0: 0.0085 | hop1: 0.0200
+[nig_product_seed3042] step 230/390 trained 3/3 | hop0: 0.0128 | hop1: 0.0330
+[nig_product_seed3042] step 240/390 trained 3/3 | hop0: 0.0123 | hop1: 0.0119
+[nig_product_seed3042] step 250/390 trained 3/3 | hop0: 0.0110 | hop1: 0.0117
+[nig_product_seed3042] step 260/390 trained 3/3 | hop0: 0.0080 | hop1: 0.0136
+[nig_product_seed3042] step 270/390 trained 3/3 | hop0: 0.0078 | hop1: 0.0117
+[nig_product_seed3042] step 280/390 trained 3/3 | hop0: 0.0031 | hop1: 0.0076
+[nig_product_seed3042] step 290/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0079
+[nig_product_seed3042] step 300/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0060
+[nig_product_seed3042] step 310/390 trained 3/3 | hop0: 0.0076 | hop1: 0.0054
+[nig_product_seed3042] step 320/390 trained 3/3 | hop0: 0.0040 | hop1: 0.0026
+[nig_product_seed3042] step 330/390 trained 3/3 | hop0: 0.0047 | hop1: 0.0053
+[nig_product_seed3042] step 340/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0053
+[nig_product_seed3042] step 350/390 trained 3/3 | hop0: 0.0087 | hop1: 0.0059
+[nig_product_seed3042] step 360/390 trained 3/3 | hop0: 0.0093 | hop1: 0.0045
+[nig_product_seed3042] step 370/390 trained 3/3 | hop0: 0.0044 | hop1: 0.0033
+[nig_product_seed3042] step 380/390 trained 3/3 | hop0: 0.0033 | hop1: 0.0019
+[nig_product_seed3042] mean MSE (last 50 steps): 0.0019 | cert-MSE r=-0.761
+[nig_product_seed3042] saved runs\chapter5_v2\s5_3_colour_three_node\nig_product_seed3042\figures\results.png
+### nig_product_seed3042 last50=0.00190
+[nig_product_avgtrain_seed3042] nodes=3 coverage max=3 mode=nig_product steps=390
+[nig_product_avgtrain_seed3042] step 000/390 trained 3/3 | hop0: 0.1106 | hop1: 0.1048
+[nig_product_avgtrain_seed3042] step 010/390 trained 3/3 | hop0: 0.1125 | hop1: 0.1286
+[nig_product_avgtrain_seed3042] step 020/390 trained 3/3 | hop0: 0.1048 | hop1: 0.1277
+[nig_product_avgtrain_seed3042] step 030/390 trained 3/3 | hop0: 0.1155 | hop1: 0.1149
+[nig_product_avgtrain_seed3042] step 040/390 trained 3/3 | hop0: 0.0771 | hop1: 0.1052
+[nig_product_avgtrain_seed3042] step 050/390 trained 3/3 | hop0: 0.0755 | hop1: 0.1046
+[nig_product_avgtrain_seed3042] step 060/390 trained 3/3 | hop0: 0.0652 | hop1: 0.0614
+[nig_product_avgtrain_seed3042] step 070/390 trained 3/3 | hop0: 0.0578 | hop1: 0.0717
+[nig_product_avgtrain_seed3042] step 080/390 trained 3/3 | hop0: 0.0477 | hop1: 0.0729
+[nig_product_avgtrain_seed3042] step 090/390 trained 3/3 | hop0: 0.0678 | hop1: 0.0781
+[nig_product_avgtrain_seed3042] step 100/390 trained 3/3 | hop0: 0.0489 | hop1: 0.0466
+[nig_product_avgtrain_seed3042] step 110/390 trained 3/3 | hop0: 0.0518 | hop1: 0.0553
+[nig_product_avgtrain_seed3042] step 120/390 trained 3/3 | hop0: 0.0379 | hop1: 0.0630
+[nig_product_avgtrain_seed3042] step 130/390 trained 3/3 | hop0: 0.0286 | hop1: 0.0717
+[nig_product_avgtrain_seed3042] step 140/390 trained 3/3 | hop0: 0.0423 | hop1: 0.0402
+[nig_product_avgtrain_seed3042] step 150/390 trained 3/3 | hop0: 0.0272 | hop1: 0.0486
+[nig_product_avgtrain_seed3042] step 160/390 trained 3/3 | hop0: 0.0279 | hop1: 0.0453
+[nig_product_avgtrain_seed3042] step 170/390 trained 3/3 | hop0: 0.0262 | hop1: 0.0577
+[nig_product_avgtrain_seed3042] step 180/390 trained 3/3 | hop0: 0.0325 | hop1: 0.0533
+[nig_product_avgtrain_seed3042] step 190/390 trained 3/3 | hop0: 0.0133 | hop1: 0.0332
+[nig_product_avgtrain_seed3042] step 200/390 trained 3/3 | hop0: 0.0149 | hop1: 0.0318
+[nig_product_avgtrain_seed3042] step 210/390 trained 3/3 | hop0: 0.0159 | hop1: 0.0254
+[nig_product_avgtrain_seed3042] step 220/390 trained 3/3 | hop0: 0.0085 | hop1: 0.0211
+[nig_product_avgtrain_seed3042] step 230/390 trained 3/3 | hop0: 0.0128 | hop1: 0.0354
+[nig_product_avgtrain_seed3042] step 240/390 trained 3/3 | hop0: 0.0123 | hop1: 0.0133
+[nig_product_avgtrain_seed3042] step 250/390 trained 3/3 | hop0: 0.0110 | hop1: 0.0133
+[nig_product_avgtrain_seed3042] step 260/390 trained 3/3 | hop0: 0.0080 | hop1: 0.0156
+[nig_product_avgtrain_seed3042] step 270/390 trained 3/3 | hop0: 0.0078 | hop1: 0.0170
+[nig_product_avgtrain_seed3042] step 280/390 trained 3/3 | hop0: 0.0031 | hop1: 0.0103
+[nig_product_avgtrain_seed3042] step 290/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0098
+[nig_product_avgtrain_seed3042] step 300/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0070
+[nig_product_avgtrain_seed3042] step 310/390 trained 3/3 | hop0: 0.0076 | hop1: 0.0076
+[nig_product_avgtrain_seed3042] step 320/390 trained 3/3 | hop0: 0.0040 | hop1: 0.0028
+[nig_product_avgtrain_seed3042] step 330/390 trained 3/3 | hop0: 0.0047 | hop1: 0.0053
+[nig_product_avgtrain_seed3042] step 340/390 trained 3/3 | hop0: 0.0057 | hop1: 0.0056
+[nig_product_avgtrain_seed3042] step 350/390 trained 3/3 | hop0: 0.0085 | hop1: 0.0059
+[nig_product_avgtrain_seed3042] step 360/390 trained 3/3 | hop0: 0.0092 | hop1: 0.0052
+[nig_product_avgtrain_seed3042] step 370/390 trained 3/3 | hop0: 0.0044 | hop1: 0.0032
+[nig_product_avgtrain_seed3042] step 380/390 trained 3/3 | hop0: 0.0032 | hop1: 0.0026
+[nig_product_avgtrain_seed3042] mean MSE (last 50 steps): 0.0021 | cert-MSE r=-0.862
+[nig_product_avgtrain_seed3042] saved runs\chapter5_v2\s5_3_colour_three_node\nig_product_avgtrain_seed3042\figures\results.png
+### nig_product_avgtrain_seed3042 last50=0.00208
+[frozen_seed4042] nodes=3 coverage max=3 mode=frozen steps=390
+[frozen_seed4042] step 000/390 trained 3/3 | hop0: 0.1150 | hop1: 0.1448
+[frozen_seed4042] step 010/390 trained 3/3 | hop0: 0.1424 | hop1: 0.1114
+[frozen_seed4042] step 020/390 trained 3/3 | hop0: 0.1140 | hop1: 0.0723
+[frozen_seed4042] step 030/390 trained 3/3 | hop0: 0.1414 | hop1: 0.1643
+[frozen_seed4042] step 040/390 trained 3/3 | hop0: 0.1389 | hop1: 0.1273
+[frozen_seed4042] step 050/390 trained 3/3 | hop0: 0.1145 | hop1: 0.1179
+[frozen_seed4042] step 060/390 trained 3/3 | hop0: 0.1188 | hop1: 0.1268
+[frozen_seed4042] step 070/390 trained 3/3 | hop0: 0.1280 | hop1: 0.1166
+[frozen_seed4042] step 080/390 trained 3/3 | hop0: 0.1103 | hop1: 0.1419
+[frozen_seed4042] step 090/390 trained 3/3 | hop0: 0.1122 | hop1: 0.0871
+[frozen_seed4042] step 100/390 trained 3/3 | hop0: 0.1262 | hop1: 0.1322
+[frozen_seed4042] step 110/390 trained 3/3 | hop0: 0.1367 | hop1: 0.1428
+[frozen_seed4042] step 120/390 trained 3/3 | hop0: 0.1253 | hop1: 0.1431
+[frozen_seed4042] step 130/390 trained 3/3 | hop0: 0.1124 | hop1: 0.1303
+[frozen_seed4042] step 140/390 trained 3/3 | hop0: 0.1005 | hop1: 0.1300
+[frozen_seed4042] step 150/390 trained 3/3 | hop0: 0.1155 | hop1: 0.1310
+[frozen_seed4042] step 160/390 trained 3/3 | hop0: 0.1295 | hop1: 0.1111
+[frozen_seed4042] step 170/390 trained 3/3 | hop0: 0.1155 | hop1: 0.1318
+[frozen_seed4042] step 180/390 trained 3/3 | hop0: 0.1203 | hop1: 0.1144
+[frozen_seed4042] step 190/390 trained 3/3 | hop0: 0.1344 | hop1: 0.1625
+[frozen_seed4042] step 200/390 trained 3/3 | hop0: 0.1255 | hop1: 0.1215
+[frozen_seed4042] step 210/390 trained 3/3 | hop0: 0.1003 | hop1: 0.0616
+[frozen_seed4042] step 220/390 trained 3/3 | hop0: 0.1453 | hop1: 0.1341
+[frozen_seed4042] step 230/390 trained 3/3 | hop0: 0.1378 | hop1: 0.0759
+[frozen_seed4042] step 240/390 trained 3/3 | hop0: 0.1326 | hop1: 0.1103
+[frozen_seed4042] step 250/390 trained 3/3 | hop0: 0.1149 | hop1: 0.1054
+[frozen_seed4042] step 260/390 trained 3/3 | hop0: 0.1191 | hop1: 0.1125
+[frozen_seed4042] step 270/390 trained 3/3 | hop0: 0.0983 | hop1: 0.1009
+[frozen_seed4042] step 280/390 trained 3/3 | hop0: 0.1427 | hop1: 0.1051
+[frozen_seed4042] step 290/390 trained 3/3 | hop0: 0.1572 | hop1: 0.1291
+[frozen_seed4042] step 300/390 trained 3/3 | hop0: 0.1328 | hop1: 0.1564
+[frozen_seed4042] step 310/390 trained 3/3 | hop0: 0.1253 | hop1: 0.1555
+[frozen_seed4042] step 320/390 trained 3/3 | hop0: 0.1251 | hop1: 0.1207
+[frozen_seed4042] step 330/390 trained 3/3 | hop0: 0.1148 | hop1: 0.1509
+[frozen_seed4042] step 340/390 trained 3/3 | hop0: 0.1147 | hop1: 0.1439
+[frozen_seed4042] step 350/390 trained 3/3 | hop0: 0.1146 | hop1: 0.0923
+[frozen_seed4042] step 360/390 trained 3/3 | hop0: 0.1540 | hop1: 0.1377
+[frozen_seed4042] step 370/390 trained 3/3 | hop0: 0.1102 | hop1: 0.1537
+[frozen_seed4042] step 380/390 trained 3/3 | hop0: 0.1523 | hop1: 0.1209
+[frozen_seed4042] mean MSE (last 50 steps): 0.1248 | cert-MSE r=-0.903
+[frozen_seed4042] saved runs\chapter5_v2\s5_3_colour_three_node\frozen_seed4042\figures\results.png
+### frozen_seed4042 last50=0.12483
+[naive_seed4042] nodes=3 coverage max=3 mode=naive steps=390
+[naive_seed4042] step 000/390 trained 3/3 | hop0: 0.1146 | hop1: 0.1470
+[naive_seed4042] step 010/390 trained 3/3 | hop0: 0.1297 | hop1: 0.1166
+[naive_seed4042] step 020/390 trained 3/3 | hop0: 0.0904 | hop1: 0.0723
+[naive_seed4042] step 030/390 trained 3/3 | hop0: 0.1094 | hop1: 0.1428
+[naive_seed4042] step 040/390 trained 3/3 | hop0: 0.0947 | hop1: 0.0973
+[naive_seed4042] step 050/390 trained 3/3 | hop0: 0.0677 | hop1: 0.0883
+[naive_seed4042] step 060/390 trained 3/3 | hop0: 0.0704 | hop1: 0.0737
+[naive_seed4042] step 070/390 trained 3/3 | hop0: 0.0579 | hop1: 0.0677
+[naive_seed4042] step 080/390 trained 3/3 | hop0: 0.0434 | hop1: 0.0870
+[naive_seed4042] step 090/390 trained 3/3 | hop0: 0.0467 | hop1: 0.0362
+[naive_seed4042] step 100/390 trained 3/3 | hop0: 0.0481 | hop1: 0.0671
+[naive_seed4042] step 110/390 trained 3/3 | hop0: 0.0444 | hop1: 0.0698
+[naive_seed4042] step 120/390 trained 3/3 | hop0: 0.0315 | hop1: 0.0650
+[naive_seed4042] step 130/390 trained 3/3 | hop0: 0.0268 | hop1: 0.0593
+[naive_seed4042] step 140/390 trained 3/3 | hop0: 0.0215 | hop1: 0.0526
+[naive_seed4042] step 150/390 trained 3/3 | hop0: 0.0172 | hop1: 0.0312
+[naive_seed4042] step 160/390 trained 3/3 | hop0: 0.0266 | hop1: 0.0409
+[naive_seed4042] step 170/390 trained 3/3 | hop0: 0.0213 | hop1: 0.0410
+[naive_seed4042] step 180/390 trained 3/3 | hop0: 0.0125 | hop1: 0.0202
+[naive_seed4042] step 190/390 trained 3/3 | hop0: 0.0253 | hop1: 0.0550
+[naive_seed4042] step 200/390 trained 3/3 | hop0: 0.0184 | hop1: 0.0237
+[naive_seed4042] step 210/390 trained 3/3 | hop0: 0.0131 | hop1: 0.0105
+[naive_seed4042] step 220/390 trained 3/3 | hop0: 0.0116 | hop1: 0.0168
+[naive_seed4042] step 230/390 trained 3/3 | hop0: 0.0088 | hop1: 0.0074
+[naive_seed4042] step 240/390 trained 3/3 | hop0: 0.0068 | hop1: 0.0077
+[naive_seed4042] step 250/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0098
+[naive_seed4042] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0085
+[naive_seed4042] step 270/390 trained 3/3 | hop0: 0.0037 | hop1: 0.0028
+[naive_seed4042] step 280/390 trained 3/3 | hop0: 0.0087 | hop1: 0.0034
+[naive_seed4042] step 290/390 trained 3/3 | hop0: 0.0103 | hop1: 0.0056
+[naive_seed4042] step 300/390 trained 3/3 | hop0: 0.0103 | hop1: 0.0030
+[naive_seed4042] step 310/390 trained 3/3 | hop0: 0.0056 | hop1: 0.0033
+[naive_seed4042] step 320/390 trained 3/3 | hop0: 0.0046 | hop1: 0.0028
+[naive_seed4042] step 330/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0029
+[naive_seed4042] step 340/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0025
+[naive_seed4042] step 350/390 trained 3/3 | hop0: 0.0038 | hop1: 0.0026
+[naive_seed4042] step 360/390 trained 3/3 | hop0: 0.0051 | hop1: 0.0032
+[naive_seed4042] step 370/390 trained 3/3 | hop0: 0.0026 | hop1: 0.0021
+[naive_seed4042] step 380/390 trained 3/3 | hop0: 0.0071 | hop1: 0.0028
+[naive_seed4042] mean MSE (last 50 steps): 0.0014 | cert-MSE r=-0.833
+[naive_seed4042] saved runs\chapter5_v2\s5_3_colour_three_node\naive_seed4042\figures\results.png
+### naive_seed4042 last50=0.00144
+[certainty_seed4042] nodes=3 coverage max=3 mode=certainty steps=390
+[certainty_seed4042] step 000/390 trained 3/3 | hop0: 0.1146 | hop1: 0.1470
+[certainty_seed4042] step 010/390 trained 3/3 | hop0: 0.1297 | hop1: 0.1166
+[certainty_seed4042] step 020/390 trained 3/3 | hop0: 0.0904 | hop1: 0.0723
+[certainty_seed4042] step 030/390 trained 3/3 | hop0: 0.1094 | hop1: 0.1428
+[certainty_seed4042] step 040/390 trained 3/3 | hop0: 0.0947 | hop1: 0.0973
+[certainty_seed4042] step 050/390 trained 3/3 | hop0: 0.0677 | hop1: 0.0883
+[certainty_seed4042] step 060/390 trained 3/3 | hop0: 0.0704 | hop1: 0.0737
+[certainty_seed4042] step 070/390 trained 3/3 | hop0: 0.0579 | hop1: 0.0677
+[certainty_seed4042] step 080/390 trained 3/3 | hop0: 0.0434 | hop1: 0.0869
+[certainty_seed4042] step 090/390 trained 3/3 | hop0: 0.0467 | hop1: 0.0362
+[certainty_seed4042] step 100/390 trained 3/3 | hop0: 0.0481 | hop1: 0.0670
+[certainty_seed4042] step 110/390 trained 3/3 | hop0: 0.0444 | hop1: 0.0697
+[certainty_seed4042] step 120/390 trained 3/3 | hop0: 0.0315 | hop1: 0.0648
+[certainty_seed4042] step 130/390 trained 3/3 | hop0: 0.0268 | hop1: 0.0590
+[certainty_seed4042] step 140/390 trained 3/3 | hop0: 0.0215 | hop1: 0.0524
+[certainty_seed4042] step 150/390 trained 3/3 | hop0: 0.0172 | hop1: 0.0314
+[certainty_seed4042] step 160/390 trained 3/3 | hop0: 0.0266 | hop1: 0.0408
+[certainty_seed4042] step 170/390 trained 3/3 | hop0: 0.0213 | hop1: 0.0408
+[certainty_seed4042] step 180/390 trained 3/3 | hop0: 0.0125 | hop1: 0.0201
+[certainty_seed4042] step 190/390 trained 3/3 | hop0: 0.0253 | hop1: 0.0551
+[certainty_seed4042] step 200/390 trained 3/3 | hop0: 0.0184 | hop1: 0.0238
+[certainty_seed4042] step 210/390 trained 3/3 | hop0: 0.0131 | hop1: 0.0104
+[certainty_seed4042] step 220/390 trained 3/3 | hop0: 0.0116 | hop1: 0.0168
+[certainty_seed4042] step 230/390 trained 3/3 | hop0: 0.0087 | hop1: 0.0074
+[certainty_seed4042] step 240/390 trained 3/3 | hop0: 0.0068 | hop1: 0.0076
+[certainty_seed4042] step 250/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0096
+[certainty_seed4042] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0085
+[certainty_seed4042] step 270/390 trained 3/3 | hop0: 0.0036 | hop1: 0.0029
+[certainty_seed4042] step 280/390 trained 3/3 | hop0: 0.0087 | hop1: 0.0035
+[certainty_seed4042] step 290/390 trained 3/3 | hop0: 0.0102 | hop1: 0.0055
+[certainty_seed4042] step 300/390 trained 3/3 | hop0: 0.0102 | hop1: 0.0030
+[certainty_seed4042] step 310/390 trained 3/3 | hop0: 0.0056 | hop1: 0.0033
+[certainty_seed4042] step 320/390 trained 3/3 | hop0: 0.0045 | hop1: 0.0027
+[certainty_seed4042] step 330/390 trained 3/3 | hop0: 0.0060 | hop1: 0.0029
+[certainty_seed4042] step 340/390 trained 3/3 | hop0: 0.0058 | hop1: 0.0025
+[certainty_seed4042] step 350/390 trained 3/3 | hop0: 0.0038 | hop1: 0.0025
+[certainty_seed4042] step 360/390 trained 3/3 | hop0: 0.0050 | hop1: 0.0032
+[certainty_seed4042] step 370/390 trained 3/3 | hop0: 0.0025 | hop1: 0.0021
+[certainty_seed4042] step 380/390 trained 3/3 | hop0: 0.0072 | hop1: 0.0031
+[certainty_seed4042] mean MSE (last 50 steps): 0.0014 | cert-MSE r=-0.838
+[certainty_seed4042] saved runs\chapter5_v2\s5_3_colour_three_node\certainty_seed4042\figures\results.png
+### certainty_seed4042 last50=0.00145
+[nig_product_seed4042] nodes=3 coverage max=3 mode=nig_product steps=390
+[nig_product_seed4042] step 000/390 trained 3/3 | hop0: 0.1146 | hop1: 0.1473
+[nig_product_seed4042] step 010/390 trained 3/3 | hop0: 0.1297 | hop1: 0.1167
+[nig_product_seed4042] step 020/390 trained 3/3 | hop0: 0.0904 | hop1: 0.0722
+[nig_product_seed4042] step 030/390 trained 3/3 | hop0: 0.1094 | hop1: 0.1420
+[nig_product_seed4042] step 040/390 trained 3/3 | hop0: 0.0947 | hop1: 0.0964
+[nig_product_seed4042] step 050/390 trained 3/3 | hop0: 0.0677 | hop1: 0.0876
+[nig_product_seed4042] step 060/390 trained 3/3 | hop0: 0.0704 | hop1: 0.0728
+[nig_product_seed4042] step 070/390 trained 3/3 | hop0: 0.0579 | hop1: 0.0672
+[nig_product_seed4042] step 080/390 trained 3/3 | hop0: 0.0434 | hop1: 0.0861
+[nig_product_seed4042] step 090/390 trained 3/3 | hop0: 0.0467 | hop1: 0.0352
+[nig_product_seed4042] step 100/390 trained 3/3 | hop0: 0.0481 | hop1: 0.0664
+[nig_product_seed4042] step 110/390 trained 3/3 | hop0: 0.0444 | hop1: 0.0686
+[nig_product_seed4042] step 120/390 trained 3/3 | hop0: 0.0315 | hop1: 0.0629
+[nig_product_seed4042] step 130/390 trained 3/3 | hop0: 0.0268 | hop1: 0.0582
+[nig_product_seed4042] step 140/390 trained 3/3 | hop0: 0.0215 | hop1: 0.0514
+[nig_product_seed4042] step 150/390 trained 3/3 | hop0: 0.0172 | hop1: 0.0307
+[nig_product_seed4042] step 160/390 trained 3/3 | hop0: 0.0266 | hop1: 0.0420
+[nig_product_seed4042] step 170/390 trained 3/3 | hop0: 0.0213 | hop1: 0.0436
+[nig_product_seed4042] step 180/390 trained 3/3 | hop0: 0.0126 | hop1: 0.0223
+[nig_product_seed4042] step 190/390 trained 3/3 | hop0: 0.0253 | hop1: 0.0564
+[nig_product_seed4042] step 200/390 trained 3/3 | hop0: 0.0184 | hop1: 0.0266
+[nig_product_seed4042] step 210/390 trained 3/3 | hop0: 0.0131 | hop1: 0.0124
+[nig_product_seed4042] step 220/390 trained 3/3 | hop0: 0.0116 | hop1: 0.0206
+[nig_product_seed4042] step 230/390 trained 3/3 | hop0: 0.0088 | hop1: 0.0104
+[nig_product_seed4042] step 240/390 trained 3/3 | hop0: 0.0068 | hop1: 0.0107
+[nig_product_seed4042] step 250/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0136
+[nig_product_seed4042] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0126
+[nig_product_seed4042] step 270/390 trained 3/3 | hop0: 0.0036 | hop1: 0.0035
+[nig_product_seed4042] step 280/390 trained 3/3 | hop0: 0.0087 | hop1: 0.0068
+[nig_product_seed4042] step 290/390 trained 3/3 | hop0: 0.0103 | hop1: 0.0101
+[nig_product_seed4042] step 300/390 trained 3/3 | hop0: 0.0103 | hop1: 0.0064
+[nig_product_seed4042] step 310/390 trained 3/3 | hop0: 0.0056 | hop1: 0.0061
+[nig_product_seed4042] step 320/390 trained 3/3 | hop0: 0.0047 | hop1: 0.0047
+[nig_product_seed4042] step 330/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0045
+[nig_product_seed4042] step 340/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0043
+[nig_product_seed4042] step 350/390 trained 3/3 | hop0: 0.0038 | hop1: 0.0039
+[nig_product_seed4042] step 360/390 trained 3/3 | hop0: 0.0050 | hop1: 0.0055
+[nig_product_seed4042] step 370/390 trained 3/3 | hop0: 0.0025 | hop1: 0.0035
+[nig_product_seed4042] step 380/390 trained 3/3 | hop0: 0.0070 | hop1: 0.0041
+[nig_product_seed4042] mean MSE (last 50 steps): 0.0017 | cert-MSE r=-0.894
+[nig_product_seed4042] saved runs\chapter5_v2\s5_3_colour_three_node\nig_product_seed4042\figures\results.png
+### nig_product_seed4042 last50=0.00173
+[nig_product_avgtrain_seed4042] nodes=3 coverage max=3 mode=nig_product steps=390
+[nig_product_avgtrain_seed4042] step 000/390 trained 3/3 | hop0: 0.1146 | hop1: 0.1475
+[nig_product_avgtrain_seed4042] step 010/390 trained 3/3 | hop0: 0.1297 | hop1: 0.1201
+[nig_product_avgtrain_seed4042] step 020/390 trained 3/3 | hop0: 0.0904 | hop1: 0.0773
+[nig_product_avgtrain_seed4042] step 030/390 trained 3/3 | hop0: 0.1094 | hop1: 0.1604
+[nig_product_avgtrain_seed4042] step 040/390 trained 3/3 | hop0: 0.0947 | hop1: 0.1078
+[nig_product_avgtrain_seed4042] step 050/390 trained 3/3 | hop0: 0.0677 | hop1: 0.0921
+[nig_product_avgtrain_seed4042] step 060/390 trained 3/3 | hop0: 0.0704 | hop1: 0.0821
+[nig_product_avgtrain_seed4042] step 070/390 trained 3/3 | hop0: 0.0579 | hop1: 0.0747
+[nig_product_avgtrain_seed4042] step 080/390 trained 3/3 | hop0: 0.0434 | hop1: 0.0917
+[nig_product_avgtrain_seed4042] step 090/390 trained 3/3 | hop0: 0.0467 | hop1: 0.0365
+[nig_product_avgtrain_seed4042] step 100/390 trained 3/3 | hop0: 0.0481 | hop1: 0.0670
+[nig_product_avgtrain_seed4042] step 110/390 trained 3/3 | hop0: 0.0444 | hop1: 0.0704
+[nig_product_avgtrain_seed4042] step 120/390 trained 3/3 | hop0: 0.0315 | hop1: 0.0657
+[nig_product_avgtrain_seed4042] step 130/390 trained 3/3 | hop0: 0.0268 | hop1: 0.0618
+[nig_product_avgtrain_seed4042] step 140/390 trained 3/3 | hop0: 0.0215 | hop1: 0.0578
+[nig_product_avgtrain_seed4042] step 150/390 trained 3/3 | hop0: 0.0172 | hop1: 0.0342
+[nig_product_avgtrain_seed4042] step 160/390 trained 3/3 | hop0: 0.0266 | hop1: 0.0445
+[nig_product_avgtrain_seed4042] step 170/390 trained 3/3 | hop0: 0.0213 | hop1: 0.0500
+[nig_product_avgtrain_seed4042] step 180/390 trained 3/3 | hop0: 0.0125 | hop1: 0.0231
+[nig_product_avgtrain_seed4042] step 190/390 trained 3/3 | hop0: 0.0253 | hop1: 0.0607
+[nig_product_avgtrain_seed4042] step 200/390 trained 3/3 | hop0: 0.0184 | hop1: 0.0292
+[nig_product_avgtrain_seed4042] step 210/390 trained 3/3 | hop0: 0.0131 | hop1: 0.0145
+[nig_product_avgtrain_seed4042] step 220/390 trained 3/3 | hop0: 0.0116 | hop1: 0.0216
+[nig_product_avgtrain_seed4042] step 230/390 trained 3/3 | hop0: 0.0088 | hop1: 0.0110
+[nig_product_avgtrain_seed4042] step 240/390 trained 3/3 | hop0: 0.0068 | hop1: 0.0115
+[nig_product_avgtrain_seed4042] step 250/390 trained 3/3 | hop0: 0.0059 | hop1: 0.0162
+[nig_product_avgtrain_seed4042] step 260/390 trained 3/3 | hop0: 0.0061 | hop1: 0.0139
+[nig_product_avgtrain_seed4042] step 270/390 trained 3/3 | hop0: 0.0036 | hop1: 0.0044
+[nig_product_avgtrain_seed4042] step 280/390 trained 3/3 | hop0: 0.0086 | hop1: 0.0069
+[nig_product_avgtrain_seed4042] step 290/390 trained 3/3 | hop0: 0.0103 | hop1: 0.0093
+[nig_product_avgtrain_seed4042] step 300/390 trained 3/3 | hop0: 0.0103 | hop1: 0.0057
+[nig_product_avgtrain_seed4042] step 310/390 trained 3/3 | hop0: 0.0056 | hop1: 0.0061
+[nig_product_avgtrain_seed4042] step 320/390 trained 3/3 | hop0: 0.0046 | hop1: 0.0043
+[nig_product_avgtrain_seed4042] step 330/390 trained 3/3 | hop0: 0.0062 | hop1: 0.0035
+[nig_product_avgtrain_seed4042] step 340/390 trained 3/3 | hop0: 0.0060 | hop1: 0.0041
+[nig_product_avgtrain_seed4042] step 350/390 trained 3/3 | hop0: 0.0040 | hop1: 0.0041
+[nig_product_avgtrain_seed4042] step 360/390 trained 3/3 | hop0: 0.0052 | hop1: 0.0030
+[nig_product_avgtrain_seed4042] step 370/390 trained 3/3 | hop0: 0.0026 | hop1: 0.0022
+[nig_product_avgtrain_seed4042] step 380/390 trained 3/3 | hop0: 0.0072 | hop1: 0.0038
+[nig_product_avgtrain_seed4042] mean MSE (last 50 steps): 0.0016 | cert-MSE r=-0.873
+[nig_product_avgtrain_seed4042] saved runs\chapter5_v2\s5_3_colour_three_node\nig_product_avgtrain_seed4042\figures\results.png
+### nig_product_avgtrain_seed4042 last50=0.00163
+=== DONE ===

@@ -17,6 +17,7 @@ import yaml
 from scipy import stats as sps
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from arm_names import name as _arm_name
 from averaged_readout import load_run as _avg_load
 from averaged_readout import metrics as _avg_metrics
 from analyse_estimators import LAST, load
@@ -67,12 +68,12 @@ def parity_table():
     print("TABLE 5.3.1 -- AGGREGATION PARITY   (cell space, AVERAGED NIG readout,")
     print("last-50 window, 5 seeds, mean +/- sd)")
     print("=" * 96)
-    print("%-13s %3s %-21s %-21s %-15s %-15s %10s"
+    print("%-16s %3s %-21s %-21s %-15s %-15s %10s"
           % ("arm", "n", "whole-run MSE", "last-50 MSE", "90% coverage",
-             "hw : RMS", "vs nig_prod"))
+             "hw : RMS", "vs Product"))
     for arm, n, w, l, c, r, pct in rows:
-        print("%-13s %3d %-21s %-21s %-15s %-15s %+9.2f%%"
-              % (arm, n, fmt(w), fmt(l), fmt(c, 3), fmt(r, 3), pct))
+        print("%-16s %3d %-21s %-21s %-15s %-15s %+9.2f%%"
+              % (_arm_name(arm), n, fmt(w), fmt(l), fmt(c, 3), fmt(r, 3), pct))
 
     with open(OUT / "table_5_3_1_parity.csv", "w", encoding="utf8") as f:
         f.write("arm,n_seeds,whole_run_mse_mean,whole_run_mse_sd,last50_mse_mean,"
@@ -107,8 +108,11 @@ def cost_table():
     for arm in sorted(G):
         v = G[arm]
         f = lambda i: st.mean([x[i] for x in v])
+        lab = _arm_name(arm.replace("_sampled", "").replace("_unsampled", ""))
+        if arm.endswith("_unsampled"):
+            lab += " (mode target)"
         print("%-26s %3d %10.2f %10.2f %10.2f %11.1f %11.2f%%"
-              % (arm, len(v), f(0), f(1), f(2), f(3), f(4)))
+              % (lab, len(v), f(0), f(1), f(2), f(3), f(4)))
     print()
     print("NOTE -- instrumentation artefact, not a measurement:")
     print("  naive and certainty register 0.00 s of fusion time because their")
