@@ -399,6 +399,7 @@ class Mesh:
                  track_trust_batches: bool = False,
                  wearable_reliability: list[float] | None = None,
                  wearable_label_jitter: list[float] | None = None,
+                 wearable_label_bias: list[float] | None = None,
                  sensor_seed: int = 42):
         """pretrained_path: a single path (applied to every node -- prior
         behaviour, still correct for a homogeneous mesh) OR a dict mapping
@@ -472,8 +473,16 @@ class Mesh:
         #   low assigned reliability can be backed by genuinely worse data
         #   rather than being an arbitrary discount. Evaluation always scores
         #   against environment truth, never against a jittered label.
+        # wearable_label_bias[i]: CONSTANT offset (normalised label units,
+        #   1.0 = 180 deg) added to wearable i's reported measurement for the
+        #   whole run. Unlike jitter this is a systematic miscalibration, not
+        #   noise: it cannot average out, and because it is independent of
+        #   wearable_reliability the sensor still enters training at full
+        #   certainty -- a sensor that is wrong and does not know it. Default
+        #   None leaves every existing call path byte-identical.
         self.wearable_reliability = wearable_reliability
         self.wearable_label_jitter = wearable_label_jitter
+        self.wearable_label_bias = wearable_label_bias
         self._sensor_rng = np.random.default_rng(sensor_seed)
         # (step, node_id, n_samples, n_distinct_reliabilities, w_min, w_max)
         self.anchor_weight_log: list[tuple[int, int, int, int, float, float]] = []
@@ -1034,6 +1043,15 @@ class Mesh:
                             tgts = [torch.tensor(
                                 ((t.item() + float(self._sensor_rng.normal(0.0, std)) + 1.0) % 2.0) - 1.0,
                                 dtype=torch.float32) for t in tgts]
+                    if self.wearable_label_bias is not None:
+                        # systematic miscalibration: a CONSTANT offset, wrapped
+                        # the same way as the jitter above. Draws no RNG, so it
+                        # cannot shift the sample stream.
+                        b = float(self.wearable_label_bias[wi])
+                        if b != 0.0:
+                            tgts = [torch.tensor(
+                                ((t.item() + b + 1.0) % 2.0) - 1.0,
+                                dtype=torch.float32) for t in tgts]
                     if self.wearable_reliability is not None:
                         sample_w.extend([float(self.wearable_reliability[wi])] * len(imgs))
                     images.extend(imgs)
@@ -1138,6 +1156,15 @@ class Mesh:
                         if std > 0:
                             tgts = [torch.tensor(
                                 ((t.item() + float(self._sensor_rng.normal(0.0, std)) + 1.0) % 2.0) - 1.0,
+                                dtype=torch.float32) for t in tgts]
+                    if self.wearable_label_bias is not None:
+                        # systematic miscalibration: a CONSTANT offset, wrapped
+                        # the same way as the jitter above. Draws no RNG, so it
+                        # cannot shift the sample stream.
+                        b = float(self.wearable_label_bias[wi])
+                        if b != 0.0:
+                            tgts = [torch.tensor(
+                                ((t.item() + b + 1.0) % 2.0) - 1.0,
                                 dtype=torch.float32) for t in tgts]
                     images.extend(imgs)
                     targets.extend(tgts)

@@ -1,0 +1,4 @@
+C:\Users\chris\OneDrive\Documents\Imperial\Research Project\Experiments\Experiments_V2\experiments\stage6_spatial_mesh\run_node_failure.py:148: RuntimeWarning: Mean of empty slice
+  return np.nanmean(arr[lo:hi], axis=0)
+C:\Users\chris\OneDrive\Documents\Imperial\Research Project\Experiments\Experiments_V2\experiments\stage6_spatial_mesh\run_node_failure.py:392: RuntimeWarning: Mean of empty slice
+  mm = np.nanmean(cell_mse_steps[step]); mc = np.nanmean(cell_cert_steps[step])

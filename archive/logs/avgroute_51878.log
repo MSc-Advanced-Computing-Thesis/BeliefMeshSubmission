@@ -1,0 +1,265 @@
+[random_seed42] nodes=36 coverage max=9 mode=nig_product steps=390
+[random_seed42] step 000/390 trained 36/36 | hop0: 0.1081 | hop1: 0.1020
+[random_seed42] step 010/390 trained 36/36 | hop0: 0.0684 | hop1: 0.0982
+[random_seed42] step 020/390 trained 36/36 | hop0: 0.0810 | hop1: 0.0830 | hop2: 0.0958
+[random_seed42] step 030/390 trained 36/36 | hop0: 0.0584 | hop1: 0.0859 | hop2: 0.1605
+[random_seed42] step 040/390 trained 36/36 | hop0: 0.0493 | hop1: 0.0771 | hop2: 0.0994
+[random_seed42] step 050/390 trained 36/36 | hop0: 0.0595 | hop1: 0.0603 | hop2: 0.0791
+[random_seed42] step 060/390 trained 36/36 | hop0: 0.0369 | hop1: 0.0666 | hop2: 0.0746
+[random_seed42] step 070/390 trained 36/36 | hop0: 0.0313 | hop1: 0.0600 | hop2: 0.0796
+[random_seed42] step 080/390 trained 36/36 | hop0: 0.0216 | hop1: 0.0592 | hop2: 0.1068
+[random_seed42] step 090/390 trained 36/36 | hop0: 0.0271 | hop1: 0.0591
+[random_seed42] step 100/390 trained 36/36 | hop0: 0.0330 | hop1: 0.0547 | hop2: 0.0479
+[random_seed42] step 110/390 trained 36/36 | hop0: 0.0425 | hop1: 0.0324 | hop2: 0.0428
+[random_seed42] step 120/390 trained 36/36 | hop0: 0.0464 | hop1: 0.0536 | hop2: 0.0520
+[random_seed42] step 130/390 trained 36/36 | hop0: 0.0366 | hop1: 0.0531 | hop2: 0.0786
+[random_seed42] step 140/390 trained 36/36 | hop0: 0.0188 | hop1: 0.0506 | hop2: 0.0566
+[random_seed42] step 150/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0362 | hop2: 0.0885
+[random_seed42] step 160/390 trained 36/36 | hop0: 0.0087 | hop1: 0.0271 | hop2: 0.0704
+[random_seed42] step 170/390 trained 36/36 | hop0: 0.0050 | hop1: 0.0256 | hop2: 0.0441
+[random_seed42] step 180/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0103 | hop2: 0.0461
+[random_seed42] step 190/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0183 | hop2: 0.0586
+[random_seed42] step 200/390 trained 36/36 | hop0: 0.0053 | hop1: 0.0212 | hop2: 0.0455
+[random_seed42] step 210/390 trained 36/36 | hop0: 0.0047 | hop1: 0.0080 | hop2: 0.0354
+[random_seed42] step 220/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0144
+[random_seed42] step 230/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0172 | hop2: 0.0133
+[random_seed42] step 240/390 trained 36/36 | hop0: 0.0050 | hop1: 0.0158 | hop2: 0.0236
+[random_seed42] step 250/390 trained 36/36 | hop0: 0.0046 | hop1: 0.0222 | hop2: 0.0246
+[random_seed42] step 260/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0179
+[random_seed42] step 270/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0121 | hop2: 0.0047
+[random_seed42] step 280/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0121
+[random_seed42] step 290/390 trained 36/36 | hop0: 0.0175 | hop1: 0.0072 | hop2: 0.0165
+[random_seed42] step 300/390 trained 36/36 | hop0: 0.0184 | hop1: 0.0063 | hop2: 0.0151
+[random_seed42] step 310/390 trained 36/36 | hop0: 0.0187 | hop1: 0.0098 | hop2: 0.0082
+[random_seed42] step 320/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0093 | hop2: 0.0044
+[random_seed42] step 330/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0064 | hop2: 0.0044
+[random_seed42] step 340/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0057
+[random_seed42] step 350/390 trained 36/36 | hop0: 0.0108 | hop1: 0.0087 | hop2: 0.0044
+[random_seed42] step 360/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0116 | hop2: 0.0114
+[random_seed42] step 370/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0108 | hop2: 0.0119
+[random_seed42] step 380/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0092 | hop2: 0.0156
+[random_seed42] mean MSE (last 50 steps): 0.0107 | cert-MSE r=-0.418
+[random_seed42] saved runs\chapter5_v2\s5_9_routing_matched_avgfusion\random_seed42\figures\results.png
+### AVGFUSION random seed=42: last50=0.01066 whole_run=0.02803
+[uncertainty_guided_seed42] nodes=36 coverage max=9 mode=nig_product steps=390
+[uncertainty_guided_seed42] step 000/390 trained 36/36 | hop0: 0.0986 | hop1: 0.1076
+[uncertainty_guided_seed42] step 010/390 trained 36/36 | hop0: 0.0764 | hop1: 0.0959
+[uncertainty_guided_seed42] step 020/390 trained 36/36 | hop0: 0.0747 | hop1: 0.0943
+[uncertainty_guided_seed42] step 030/390 trained 36/36 | hop0: 0.0818 | hop1: 0.0835
+[uncertainty_guided_seed42] step 040/390 trained 36/36 | hop0: 0.0668 | hop1: 0.0850
+[uncertainty_guided_seed42] step 050/390 trained 36/36 | hop0: 0.0665 | hop1: 0.0729
+[uncertainty_guided_seed42] step 060/390 trained 36/36 | hop0: 0.0758 | hop1: 0.0644
+[uncertainty_guided_seed42] step 070/390 trained 36/36 | hop0: 0.0574 | hop1: 0.0632 | hop2: 0.1011
+[uncertainty_guided_seed42] step 080/390 trained 36/36 | hop0: 0.0473 | hop1: 0.0565 | hop2: 0.1054
+[uncertainty_guided_seed42] step 090/390 trained 36/36 | hop0: 0.0378 | hop1: 0.0425 | hop2: 0.1033
+[uncertainty_guided_seed42] step 100/390 trained 36/36 | hop0: 0.0290 | hop1: 0.0435 | hop2: 0.0626 | hop3: 0.1117
+[uncertainty_guided_seed42] step 110/390 trained 36/36 | hop0: 0.0224 | hop1: 0.0284 | hop2: 0.0807
+[uncertainty_guided_seed42] step 120/390 trained 36/36 | hop0: 0.0301 | hop1: 0.0438 | hop2: 0.1427
+[uncertainty_guided_seed42] step 130/390 trained 36/36 | hop0: 0.0408 | hop1: 0.0441 | hop2: 0.1103
+[uncertainty_guided_seed42] step 140/390 trained 36/36 | hop0: 0.0715 | hop1: 0.0346
+[uncertainty_guided_seed42] step 150/390 trained 36/36 | hop0: 0.0610 | hop1: 0.0325 | hop2: 0.0300
+[uncertainty_guided_seed42] step 160/390 trained 36/36 | hop0: 0.0355 | hop1: 0.0280 | hop2: 0.0255
+[uncertainty_guided_seed42] step 170/390 trained 36/36 | hop0: 0.0298 | hop1: 0.0281 | hop2: 0.0202
+[uncertainty_guided_seed42] step 180/390 trained 36/36 | hop0: 0.0274 | hop1: 0.0272 | hop2: 0.0195
+[uncertainty_guided_seed42] step 190/390 trained 36/36 | hop0: 0.0193 | hop1: 0.0246
+[uncertainty_guided_seed42] step 200/390 trained 36/36 | hop0: 0.0145 | hop1: 0.0255 | hop2: 0.0268
+[uncertainty_guided_seed42] step 210/390 trained 36/36 | hop0: 0.0159 | hop1: 0.0203
+[uncertainty_guided_seed42] step 220/390 trained 36/36 | hop0: 0.0110 | hop1: 0.0147
+[uncertainty_guided_seed42] step 230/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0168 | hop2: 0.0162
+[uncertainty_guided_seed42] step 240/390 trained 36/36 | hop0: 0.0136 | hop1: 0.0132
+[uncertainty_guided_seed42] step 250/390 trained 36/36 | hop0: 0.0196 | hop1: 0.0160 | hop2: 0.0142
+[uncertainty_guided_seed42] step 260/390 trained 36/36 | hop0: 0.0178 | hop1: 0.0123 | hop2: 0.0139
+[uncertainty_guided_seed42] step 270/390 trained 36/36 | hop0: 0.0127 | hop1: 0.0076 | hop2: 0.0151
+[uncertainty_guided_seed42] step 280/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0098
+[uncertainty_guided_seed42] step 290/390 trained 36/36 | hop0: 0.0087 | hop1: 0.0090
+[uncertainty_guided_seed42] step 300/390 trained 36/36 | hop0: 0.0102 | hop1: 0.0089 | hop2: 0.0031
+[uncertainty_guided_seed42] step 310/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0081 | hop2: 0.0072
+[uncertainty_guided_seed42] step 320/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0047 | hop2: 0.0060
+[uncertainty_guided_seed42] step 330/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0029 | hop2: 0.0040
+[uncertainty_guided_seed42] step 340/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0070
+[uncertainty_guided_seed42] step 350/390 trained 36/36 | hop0: 0.0061 | hop1: 0.0138
+[uncertainty_guided_seed42] step 360/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0147
+[uncertainty_guided_seed42] step 370/390 trained 36/36 | hop0: 0.0149 | hop1: 0.0142
+[uncertainty_guided_seed42] step 380/390 trained 36/36 | hop0: 0.0085 | hop1: 0.0148
+[uncertainty_guided_seed42] mean MSE (last 50 steps): 0.0145 | cert-MSE r=-0.431
+[uncertainty_guided_seed42] saved runs\chapter5_v2\s5_9_routing_matched_avgfusion\uncertainty_guided_seed42\figures\results.png
+### AVGFUSION uncertainty_guided seed=42: last50=0.01446 whole_run=0.03014
+[random_seed1042] nodes=36 coverage max=9 mode=nig_product steps=390
+[random_seed1042] step 000/390 trained 36/36 | hop0: 0.0928 | hop1: 0.1063
+[random_seed1042] step 010/390 trained 36/36 | hop0: 0.0798 | hop1: 0.0931 | hop2: 0.1631
+[random_seed1042] step 020/390 trained 36/36 | hop0: 0.0672 | hop1: 0.0794
+[random_seed1042] step 030/390 trained 36/36 | hop0: 0.0727 | hop1: 0.0943 | hop2: 0.1100
+[random_seed1042] step 040/390 trained 36/36 | hop0: 0.0594 | hop1: 0.0781 | hop2: 0.1440
+[random_seed1042] step 050/390 trained 36/36 | hop0: 0.0532 | hop1: 0.0630 | hop2: 0.1116
+[random_seed1042] step 060/390 trained 36/36 | hop0: 0.0527 | hop1: 0.0546 | hop2: 0.0950
+[random_seed1042] step 070/390 trained 36/36 | hop0: 0.0388 | hop1: 0.0489 | hop2: 0.0905
+[random_seed1042] step 080/390 trained 36/36 | hop0: 0.0311 | hop1: 0.0524 | hop2: 0.1329
+[random_seed1042] step 090/390 trained 36/36 | hop0: 0.0307 | hop1: 0.0476 | hop2: 0.1146
+[random_seed1042] step 100/390 trained 36/36 | hop0: 0.0329 | hop1: 0.0437
+[random_seed1042] step 110/390 trained 36/36 | hop0: 0.0240 | hop1: 0.0395 | hop2: 0.0703
+[random_seed1042] step 120/390 trained 36/36 | hop0: 0.0324 | hop1: 0.0518 | hop2: 0.0390
+[random_seed1042] step 130/390 trained 36/36 | hop0: 0.0433 | hop1: 0.0369 | hop2: 0.0428
+[random_seed1042] step 140/390 trained 36/36 | hop0: 0.0482 | hop1: 0.0224 | hop2: 0.0459
+[random_seed1042] step 150/390 trained 36/36 | hop0: 0.0314 | hop1: 0.0313 | hop2: 0.0316
+[random_seed1042] step 160/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0281 | hop2: 0.0367
+[random_seed1042] step 170/390 trained 36/36 | hop0: 0.0100 | hop1: 0.0205 | hop2: 0.0661
+[random_seed1042] step 180/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0190 | hop2: 0.0538
+[random_seed1042] step 190/390 trained 36/36 | hop0: 0.0148 | hop1: 0.0207
+[random_seed1042] step 200/390 trained 36/36 | hop0: 0.0103 | hop1: 0.0162 | hop2: 0.0080
+[random_seed1042] step 210/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0158
+[random_seed1042] step 220/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0090 | hop2: 0.0319
+[random_seed1042] step 230/390 trained 36/36 | hop0: 0.0092 | hop1: 0.0085 | hop2: 0.0141
+[random_seed1042] step 240/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0096 | hop2: 0.0212
+[random_seed1042] step 250/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0109 | hop2: 0.0309
+[random_seed1042] step 260/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0120 | hop2: 0.0325
+[random_seed1042] step 270/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0103
+[random_seed1042] step 280/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0111
+[random_seed1042] step 290/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0145
+[random_seed1042] step 300/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0149 | hop2: 0.0016
+[random_seed1042] step 310/390 trained 36/36 | hop0: 0.0028 | hop1: 0.0092 | hop2: 0.0118
+[random_seed1042] step 320/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0064 | hop2: 0.0138
+[random_seed1042] step 330/390 trained 36/36 | hop0: 0.0023 | hop1: 0.0038 | hop2: 0.0065
+[random_seed1042] step 340/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0063 | hop2: 0.0134
+[random_seed1042] step 350/390 trained 36/36 | hop0: 0.0024 | hop1: 0.0114 | hop2: 0.0203
+[random_seed1042] step 360/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0107 | hop2: 0.0494
+[random_seed1042] step 370/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0227 | hop2: 0.0592
+[random_seed1042] step 380/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0263 | hop2: 0.0617
+[random_seed1042] mean MSE (last 50 steps): 0.0201 | cert-MSE r=-0.657
+[random_seed1042] saved runs\chapter5_v2\s5_9_routing_matched_avgfusion\random_seed1042\figures\results.png
+### AVGFUSION random seed=1042: last50=0.02008 whole_run=0.02931
+[uncertainty_guided_seed1042] nodes=36 coverage max=9 mode=nig_product steps=390
+[uncertainty_guided_seed1042] step 000/390 trained 36/36 | hop0: 0.0929 | hop1: 0.1038 | hop2: 0.1190
+[uncertainty_guided_seed1042] step 010/390 trained 36/36 | hop0: 0.0795 | hop1: 0.0941 | hop2: 0.1175
+[uncertainty_guided_seed1042] step 020/390 trained 36/36 | hop0: 0.0717 | hop1: 0.0797 | hop2: 0.1236
+[uncertainty_guided_seed1042] step 030/390 trained 36/36 | hop0: 0.0855 | hop1: 0.0928
+[uncertainty_guided_seed1042] step 040/390 trained 36/36 | hop0: 0.0755 | hop1: 0.0895 | hop2: 0.0760
+[uncertainty_guided_seed1042] step 050/390 trained 36/36 | hop0: 0.0711 | hop1: 0.0656 | hop2: 0.0611
+[uncertainty_guided_seed1042] step 060/390 trained 36/36 | hop0: 0.0675 | hop1: 0.0658
+[uncertainty_guided_seed1042] step 070/390 trained 36/36 | hop0: 0.0566 | hop1: 0.0603
+[uncertainty_guided_seed1042] step 080/390 trained 36/36 | hop0: 0.0584 | hop1: 0.0570 | hop2: 0.0903
+[uncertainty_guided_seed1042] step 090/390 trained 36/36 | hop0: 0.0613 | hop1: 0.0462 | hop2: 0.0729
+[uncertainty_guided_seed1042] step 100/390 trained 36/36 | hop0: 0.0340 | hop1: 0.0474 | hop2: 0.0529
+[uncertainty_guided_seed1042] step 110/390 trained 36/36 | hop0: 0.0329 | hop1: 0.0534 | hop2: 0.0880
+[uncertainty_guided_seed1042] step 120/390 trained 36/36 | hop0: 0.0318 | hop1: 0.0562
+[uncertainty_guided_seed1042] step 130/390 trained 36/36 | hop0: 0.0520 | hop1: 0.0405
+[uncertainty_guided_seed1042] step 140/390 trained 36/36 | hop0: 0.0220 | hop1: 0.0447
+[uncertainty_guided_seed1042] step 150/390 trained 36/36 | hop0: 0.0276 | hop1: 0.0337
+[uncertainty_guided_seed1042] step 160/390 trained 36/36 | hop0: 0.0115 | hop1: 0.0321
+[uncertainty_guided_seed1042] step 170/390 trained 36/36 | hop0: 0.0253 | hop1: 0.0275
+[uncertainty_guided_seed1042] step 180/390 trained 36/36 | hop0: 0.0203 | hop1: 0.0231 | hop2: 0.0239
+[uncertainty_guided_seed1042] step 190/390 trained 36/36 | hop0: 0.0236 | hop1: 0.0208 | hop2: 0.0133
+[uncertainty_guided_seed1042] step 200/390 trained 36/36 | hop0: 0.0120 | hop1: 0.0182 | hop2: 0.0204
+[uncertainty_guided_seed1042] step 210/390 trained 36/36 | hop0: 0.0092 | hop1: 0.0144 | hop2: 0.0324
+[uncertainty_guided_seed1042] step 220/390 trained 36/36 | hop0: 0.0090 | hop1: 0.0127 | hop2: 0.0223
+[uncertainty_guided_seed1042] step 230/390 trained 36/36 | hop0: 0.0086 | hop1: 0.0134 | hop2: 0.0196
+[uncertainty_guided_seed1042] step 240/390 trained 36/36 | hop0: 0.0102 | hop1: 0.0171
+[uncertainty_guided_seed1042] step 250/390 trained 36/36 | hop0: 0.0090 | hop1: 0.0170
+[uncertainty_guided_seed1042] step 260/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0204
+[uncertainty_guided_seed1042] step 270/390 trained 36/36 | hop0: 0.0093 | hop1: 0.0094 | hop2: 0.0179
+[uncertainty_guided_seed1042] step 280/390 trained 36/36 | hop0: 0.0071 | hop1: 0.0063 | hop2: 0.0104
+[uncertainty_guided_seed1042] step 290/390 trained 36/36 | hop0: 0.0052 | hop1: 0.0095 | hop2: 0.0105
+[uncertainty_guided_seed1042] step 300/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0120
+[uncertainty_guided_seed1042] step 310/390 trained 36/36 | hop0: 0.0032 | hop1: 0.0099 | hop2: 0.0171
+[uncertainty_guided_seed1042] step 320/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0085 | hop2: 0.0045
+[uncertainty_guided_seed1042] step 330/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0054 | hop2: 0.0027
+[uncertainty_guided_seed1042] step 340/390 trained 36/36 | hop0: 0.0053 | hop1: 0.0049 | hop2: 0.0069
+[uncertainty_guided_seed1042] step 350/390 trained 36/36 | hop0: 0.0101 | hop1: 0.0054
+[uncertainty_guided_seed1042] step 360/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0076
+[uncertainty_guided_seed1042] step 370/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0071 | hop2: 0.0028
+[uncertainty_guided_seed1042] step 380/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0063
+[uncertainty_guided_seed1042] mean MSE (last 50 steps): 0.0079 | cert-MSE r=-0.419
+[uncertainty_guided_seed1042] saved runs\chapter5_v2\s5_9_routing_matched_avgfusion\uncertainty_guided_seed1042\figures\results.png
+### AVGFUSION uncertainty_guided seed=1042: last50=0.00788 whole_run=0.02870
+[random_seed2042] nodes=36 coverage max=9 mode=nig_product steps=390
+[random_seed2042] step 000/390 trained 36/36 | hop0: 0.0980 | hop1: 0.0859 | hop2: 0.0995
+[random_seed2042] step 010/390 trained 36/36 | hop0: 0.0878 | hop1: 0.1094 | hop2: 0.1060
+[random_seed2042] step 020/390 trained 36/36 | hop0: 0.0703 | hop1: 0.0867 | hop2: 0.1094
+[random_seed2042] step 030/390 trained 36/36 | hop0: 0.0678 | hop1: 0.0761 | hop2: 0.1082
+[random_seed2042] step 040/390 trained 36/36 | hop0: 0.0444 | hop1: 0.0820 | hop2: 0.1343
+[random_seed2042] step 050/390 trained 36/36 | hop0: 0.0485 | hop1: 0.0688 | hop2: 0.1111 | hop3: 0.1659
+[random_seed2042] step 060/390 trained 36/36 | hop0: 0.0611 | hop1: 0.0582 | hop2: 0.1191
+[random_seed2042] step 070/390 trained 36/36 | hop0: 0.0470 | hop1: 0.0627 | hop2: 0.1288
+[random_seed2042] step 080/390 trained 36/36 | hop0: 0.0353 | hop1: 0.0536 | hop2: 0.0951
+[random_seed2042] step 090/390 trained 36/36 | hop0: 0.0233 | hop1: 0.0455 | hop2: 0.1151
+[random_seed2042] step 100/390 trained 36/36 | hop0: 0.0231 | hop1: 0.0387 | hop2: 0.0938
+[random_seed2042] step 110/390 trained 36/36 | hop0: 0.0296 | hop1: 0.0416 | hop2: 0.1038
+[random_seed2042] step 120/390 trained 36/36 | hop0: 0.0240 | hop1: 0.0511
+[random_seed2042] step 130/390 trained 36/36 | hop0: 0.0189 | hop1: 0.0422 | hop2: 0.1442
+[random_seed2042] step 140/390 trained 36/36 | hop0: 0.0210 | hop1: 0.0383 | hop2: 0.1386
+[random_seed2042] step 150/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0212 | hop2: 0.0736
+[random_seed2042] step 160/390 trained 36/36 | hop0: 0.0084 | hop1: 0.0242 | hop2: 0.0782
+[random_seed2042] step 170/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0257 | hop2: 0.0973
+[random_seed2042] step 180/390 trained 36/36 | hop0: 0.0093 | hop1: 0.0197 | hop2: 0.0661
+[random_seed2042] step 190/390 trained 36/36 | hop0: 0.0225 | hop1: 0.0210 | hop2: 0.0736
+[random_seed2042] step 200/390 trained 36/36 | hop0: 0.0108 | hop1: 0.0211
+[random_seed2042] step 210/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0097
+[random_seed2042] step 220/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0073 | hop2: 0.0229
+[random_seed2042] step 230/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0118 | hop2: 0.0290
+[random_seed2042] step 240/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0158 | hop2: 0.0382
+[random_seed2042] step 250/390 trained 36/36 | hop0: 0.0065 | hop1: 0.0138 | hop2: 0.0197
+[random_seed2042] step 260/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0120 | hop2: 0.0200
+[random_seed2042] step 270/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0096 | hop2: 0.0301 | hop3: 0.0558
+[random_seed2042] step 280/390 trained 36/36 | hop0: 0.0084 | hop1: 0.0159 | hop2: 0.0171
+[random_seed2042] step 290/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0197 | hop2: 0.0116
+[random_seed2042] step 300/390 trained 36/36 | hop0: 0.0021 | hop1: 0.0055 | hop2: 0.0348 | hop3: 0.0319
+[random_seed2042] step 310/390 trained 36/36 | hop0: 0.0031 | hop1: 0.0047 | hop2: 0.0235 | hop3: 0.0202
+[random_seed2042] step 320/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0038 | hop2: 0.0143
+[random_seed2042] step 330/390 trained 36/36 | hop0: 0.0028 | hop1: 0.0037 | hop2: 0.0093 | hop3: 0.0119
+[random_seed2042] step 340/390 trained 36/36 | hop0: 0.0021 | hop1: 0.0039 | hop2: 0.0089 | hop3: 0.0124
+[random_seed2042] step 350/390 trained 36/36 | hop0: 0.0025 | hop1: 0.0060 | hop2: 0.0305 | hop3: 0.0352
+[random_seed2042] step 360/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0095 | hop2: 0.0587
+[random_seed2042] step 370/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0149 | hop2: 0.0634
+[random_seed2042] step 380/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0133 | hop2: 0.0394
+[random_seed2042] mean MSE (last 50 steps): 0.0159 | cert-MSE r=-0.715
+[random_seed2042] saved runs\chapter5_v2\s5_9_routing_matched_avgfusion\random_seed2042\figures\results.png
+### AVGFUSION random seed=2042: last50=0.01586 whole_run=0.03130
+[uncertainty_guided_seed2042] nodes=36 coverage max=9 mode=nig_product steps=390
+[uncertainty_guided_seed2042] step 000/390 trained 36/36 | hop0: 0.0812 | hop1: 0.0971
+[uncertainty_guided_seed2042] step 010/390 trained 36/36 | hop0: 0.0710 | hop1: 0.1202 | hop2: 0.0935
+[uncertainty_guided_seed2042] step 020/390 trained 36/36 | hop0: 0.0910 | hop1: 0.0947 | hop2: 0.1197
+[uncertainty_guided_seed2042] step 030/390 trained 36/36 | hop0: 0.1041 | hop1: 0.0771 | hop2: 0.1033
+[uncertainty_guided_seed2042] step 040/390 trained 36/36 | hop0: 0.0933 | hop1: 0.0844
+[uncertainty_guided_seed2042] step 050/390 trained 36/36 | hop0: 0.0647 | hop1: 0.0959
+[uncertainty_guided_seed2042] step 060/390 trained 36/36 | hop0: 0.0703 | hop1: 0.0693
+[uncertainty_guided_seed2042] step 070/390 trained 36/36 | hop0: 0.0760 | hop1: 0.0747
+[uncertainty_guided_seed2042] step 080/390 trained 36/36 | hop0: 0.0435 | hop1: 0.0681 | hop2: 0.0446
+[uncertainty_guided_seed2042] step 090/390 trained 36/36 | hop0: 0.0521 | hop1: 0.0481 | hop2: 0.0536
+[uncertainty_guided_seed2042] step 100/390 trained 36/36 | hop0: 0.0311 | hop1: 0.0525 | hop2: 0.1053
+[uncertainty_guided_seed2042] step 110/390 trained 36/36 | hop0: 0.0300 | hop1: 0.0461 | hop2: 0.1108
+[uncertainty_guided_seed2042] step 120/390 trained 36/36 | hop0: 0.0276 | hop1: 0.0536 | hop2: 0.1275
+[uncertainty_guided_seed2042] step 130/390 trained 36/36 | hop0: 0.0353 | hop1: 0.0437 | hop2: 0.0964
+[uncertainty_guided_seed2042] step 140/390 trained 36/36 | hop0: 0.0325 | hop1: 0.0468 | hop2: 0.1190
+[uncertainty_guided_seed2042] step 150/390 trained 36/36 | hop0: 0.0268 | hop1: 0.0376
+[uncertainty_guided_seed2042] step 160/390 trained 36/36 | hop0: 0.0397 | hop1: 0.0233 | hop2: 0.0299
+[uncertainty_guided_seed2042] step 170/390 trained 36/36 | hop0: 0.0174 | hop1: 0.0193 | hop2: 0.0289
+[uncertainty_guided_seed2042] step 180/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0211 | hop2: 0.0603
+[uncertainty_guided_seed2042] step 190/390 trained 36/36 | hop0: 0.0089 | hop1: 0.0313
+[uncertainty_guided_seed2042] step 200/390 trained 36/36 | hop0: 0.0164 | hop1: 0.0247
+[uncertainty_guided_seed2042] step 210/390 trained 36/36 | hop0: 0.0166 | hop1: 0.0136 | hop2: 0.0114
+[uncertainty_guided_seed2042] step 220/390 trained 36/36 | hop0: 0.0160 | hop1: 0.0075 | hop2: 0.0192
+[uncertainty_guided_seed2042] step 230/390 trained 36/36 | hop0: 0.0101 | hop1: 0.0110
+[uncertainty_guided_seed2042] step 240/390 trained 36/36 | hop0: 0.0123 | hop1: 0.0109
+[uncertainty_guided_seed2042] step 250/390 trained 36/36 | hop0: 0.0083 | hop1: 0.0116 | hop2: 0.0167
+[uncertainty_guided_seed2042] step 260/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0119 | hop2: 0.0154
+[uncertainty_guided_seed2042] step 270/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0106
+[uncertainty_guided_seed2042] step 280/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0108
+[uncertainty_guided_seed2042] step 290/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0065 | hop2: 0.0106
+[uncertainty_guided_seed2042] step 300/390 trained 36/36 | hop0: 0.0098 | hop1: 0.0094
+[uncertainty_guided_seed2042] step 310/390 trained 36/36 | hop0: 0.0072 | hop1: 0.0081
+[uncertainty_guided_seed2042] step 320/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0059 | hop2: 0.0067
+[uncertainty_guided_seed2042] step 330/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0036
+[uncertainty_guided_seed2042] step 340/390 trained 36/36 | hop0: 0.0048 | hop1: 0.0052 | hop2: 0.0221
+[uncertainty_guided_seed2042] step 350/390 trained 36/36 | hop0: 0.0040 | hop1: 0.0073 | hop2: 0.0207
+[uncertainty_guided_seed2042] step 360/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0078 | hop2: 0.0196 | hop3: 0.0328
+[uncertainty_guided_seed2042] step 370/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0116 | hop2: 0.0306
+[uncertainty_guided_seed2042] step 380/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0104 | hop2: 0.0314
+[uncertainty_guided_seed2042] mean MSE (last 50 steps): 0.0108 | cert-MSE r=-0.614
+[uncertainty_guided_seed2042] saved runs\chapter5_v2\s5_9_routing_matched_avgfusion\uncertainty_guided_seed2042\figures\results.png
+### AVGFUSION uncertainty_guided seed=2042: last50=0.01080 whole_run=0.02959
+[random_seed3042] nodes=36 coverage max=9 mode=nig_product steps=390
+[random_seed3042] step 000/390 trained 36/36 | hop0: 0.0953 | hop1: 0.0940 | hop2: 0.1608
+[random_seed3042] step 010/390 trained 36/36 | hop0: 0.0762 | hop1: 0.1126
+[random_seed3042] step 020/390 trained 36/36 | hop0: 0.0810 | hop1: 0.1046
+[random_seed3042] step 030/390 trained 36/36 | hop0: 0.0795 | hop1: 0.1030
+[random_seed3042] step 040/390 trained 36/36 | hop0: 0.0785 | hop1: 0.0803
+[random_seed3042] step 050/390 trained 36/36 | hop0: 0.0650 | hop1: 0.0619 | hop2: 0.0546

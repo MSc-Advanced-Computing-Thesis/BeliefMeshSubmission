@@ -1,0 +1,117 @@
+============================================================================================
+INERTNESS -- wrapper OFF must reproduce the stored nig_product arm
+============================================================================================
+  wrapper check: gamma* -0.00384615 vs -0.00384615 (identical True), nu* 13.0000 -> 6.5000
+  wrapper is LIVE
+
+[het] node variants: {'narrow': 12, 'baseline': 12, 'wide': 12}
+[heterogeneous_het_nig_product] nodes=36 coverage max=9 mode=nig_product steps=390
+[heterogeneous_het_nig_product] step 000/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0302
+[heterogeneous_het_nig_product] step 010/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0163
+[heterogeneous_het_nig_product] step 020/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0101 | hop2: 0.0265
+[heterogeneous_het_nig_product] step 030/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0091 | hop2: 0.0287
+[heterogeneous_het_nig_product] step 040/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0102 | hop2: 0.0248
+[heterogeneous_het_nig_product] step 050/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0064 | hop2: 0.0179
+[heterogeneous_het_nig_product] step 060/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0067 | hop2: 0.0385
+[heterogeneous_het_nig_product] step 070/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0105 | hop2: 0.0476
+[heterogeneous_het_nig_product] step 080/390 trained 36/36 | hop0: 0.0019 | hop1: 0.0127 | hop2: 0.0392
+[heterogeneous_het_nig_product] step 090/390 trained 36/36 | hop0: 0.0114 | hop1: 0.0084
+[heterogeneous_het_nig_product] step 100/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0082 | hop2: 0.0038
+[heterogeneous_het_nig_product] step 110/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0124 | hop2: 0.0111
+[heterogeneous_het_nig_product] step 120/390 trained 36/36 | hop0: 0.0120 | hop1: 0.0203 | hop2: 0.0109
+[heterogeneous_het_nig_product] step 130/390 trained 36/36 | hop0: 0.0108 | hop1: 0.0347 | hop2: 0.0193
+[heterogeneous_het_nig_product] step 140/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0310 | hop2: 0.0273
+[heterogeneous_het_nig_product] step 150/390 trained 36/36 | hop0: 0.0115 | hop1: 0.0114 | hop2: 0.0476
+[heterogeneous_het_nig_product] step 160/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0093 | hop2: 0.0336
+[heterogeneous_het_nig_product] step 170/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0068 | hop2: 0.0193
+[heterogeneous_het_nig_product] step 180/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0087 | hop2: 0.0127
+[heterogeneous_het_nig_product] step 190/390 trained 36/36 | hop0: 0.0030 | hop1: 0.0094 | hop2: 0.0147
+[heterogeneous_het_nig_product] step 200/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0032 | hop2: 0.0109
+[heterogeneous_het_nig_product] step 210/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0040 | hop2: 0.0060
+[heterogeneous_het_nig_product] step 220/390 trained 36/36 | hop0: 0.0085 | hop1: 0.0052
+[heterogeneous_het_nig_product] step 230/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0059 | hop2: 0.0021
+[heterogeneous_het_nig_product] step 240/390 trained 36/36 | hop0: 0.0071 | hop1: 0.0071 | hop2: 0.0141
+[heterogeneous_het_nig_product] step 250/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0099 | hop2: 0.0177
+[heterogeneous_het_nig_product] step 260/390 trained 36/36 | hop0: 0.0132 | hop1: 0.0095
+[heterogeneous_het_nig_product] step 270/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0090 | hop2: 0.0058
+[heterogeneous_het_nig_product] step 280/390 trained 36/36 | hop0: 0.0102 | hop1: 0.0121
+[heterogeneous_het_nig_product] step 290/390 trained 36/36 | hop0: 0.0154 | hop1: 0.0098 | hop2: 0.0141
+[heterogeneous_het_nig_product] step 300/390 trained 36/36 | hop0: 0.0180 | hop1: 0.0090 | hop2: 0.0133
+[heterogeneous_het_nig_product] step 310/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0089 | hop2: 0.0043
+[heterogeneous_het_nig_product] step 320/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0079 | hop2: 0.0038
+[heterogeneous_het_nig_product] step 330/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0112 | hop2: 0.0051
+[heterogeneous_het_nig_product] step 340/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0066
+[heterogeneous_het_nig_product] step 350/390 trained 36/36 | hop0: 0.0188 | hop1: 0.0099 | hop2: 0.0008
+[heterogeneous_het_nig_product] step 360/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0133 | hop2: 0.0152
+[heterogeneous_het_nig_product] step 370/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0088 | hop2: 0.0188
+[heterogeneous_het_nig_product] step 380/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0090 | hop2: 0.0165
+[heterogeneous_het_nig_product] mean MSE (last 50 steps): 0.0103 | cert-MSE r=-0.518
+[heterogeneous_het_nig_product] per-variant whole-run MSE: wide=0.0092, baseline=0.0086, narrow=0.0159
+[heterogeneous_het_nig_product] saved runs\scratch\avgfus_inert\het\het_nig_product\figures\results.png
+
+### heterogeneous/het_nig_product: last50=0.0103 whole_run=0.0096 r(new)=-0.4548+/-0.2978
+    variant_mse: {'wide': {'whole_run': 0.00923336341740999, 'last50': 0.010808158615650352}, 'baseline': {'whole_run': 0.008636593077448029, 'last50': 0.008210447141765474}, 'narrow': {'whole_run': 0.015855945306059088, 'last50': 0.019533722728240756}}
+    disagreement_stats: {'n_events': 278483, 'n_contributors_mean': 3.359468980153187, 'spread_std_mean': 0.030607527689766878, 'spread_std_median': 0.021560422061639453, 'spread_std_p90': 0.05642006092703078, 'spread_range_mean': 0.07331534385647936, 'spread_range_median': 0.051027536392211914, 'spread_range_p90': 0.14136943817138684, 'frac_range_lt_0p01': 0.08274831856881748, 'nu_std_mean': 0.03608777023928383, 'nu_std_median': 0.03293841913442592, 'nu_std_p90': 0.06855723929138144, 'nu_range_mean': 0.08538347250446413, 'nu_range_median': 0.07831823825836182, 'nu_range_p90': 0.16375916898250584, 'nu_cv_mean': 0.15133641431744788, 'nu_cv_median': 0.13375597503126424, 'nu_cv_p90': 0.28937099661601484, 'max_weight_mean': 0.40177407414021127, 'max_weight_median': 0.38384281763643935, 'max_weight_p90': 0.5747922418085174, 'max_weight_minus_uniform_mean': 0.055269367432458055, 'max_weight_minus_uniform_median': 0.0446269356214225, 'max_weight_minus_uniform_p90': 0.10628724890754646, 'gamma_star_vs_unweighted_absdiff_mean': 0.005327497387957172, 'gamma_star_vs_unweighted_absdiff_median': 0.0014259579254350396, 'gamma_star_vs_unweighted_absdiff_p90': 0.007417344358433357}
+  HETEROGENEOUS, seed 42
+    NaN pattern match : True
+    whole-run MSE     : 0.009661 vs 0.009634  -> -0.284%  (floor 0.2%)
+    last-50 MSE       : 0.010389 vs 0.010287  -> -0.984%
+    per-cell L1       : 2.371%
+    WITHIN FLOOR      : NO
+
+[nig_product_seed42_field0_original] field=field0_original homogeneous=False field_range=[-63.5,+88.8]
+[multifield_het_nig_product_seed42_field0_original] nodes=36 coverage max=9 mode=nig_product steps=390
+[multifield_het_nig_product_seed42_field0_original] step 000/390 trained 36/36 | hop0: 0.0185 | hop1: 0.0302
+[multifield_het_nig_product_seed42_field0_original] step 010/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0163
+[multifield_het_nig_product_seed42_field0_original] step 020/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0101 | hop2: 0.0265
+[multifield_het_nig_product_seed42_field0_original] step 030/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0091 | hop2: 0.0287
+[multifield_het_nig_product_seed42_field0_original] step 040/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0102 | hop2: 0.0248
+[multifield_het_nig_product_seed42_field0_original] step 050/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0064 | hop2: 0.0179
+[multifield_het_nig_product_seed42_field0_original] step 060/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0067 | hop2: 0.0385
+[multifield_het_nig_product_seed42_field0_original] step 070/390 trained 36/36 | hop0: 0.0026 | hop1: 0.0105 | hop2: 0.0475
+[multifield_het_nig_product_seed42_field0_original] step 080/390 trained 36/36 | hop0: 0.0019 | hop1: 0.0127 | hop2: 0.0392
+[multifield_het_nig_product_seed42_field0_original] step 090/390 trained 36/36 | hop0: 0.0114 | hop1: 0.0084
+[multifield_het_nig_product_seed42_field0_original] step 100/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0082 | hop2: 0.0038
+[multifield_het_nig_product_seed42_field0_original] step 110/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0123 | hop2: 0.0110
+[multifield_het_nig_product_seed42_field0_original] step 120/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0203 | hop2: 0.0109
+[multifield_het_nig_product_seed42_field0_original] step 130/390 trained 36/36 | hop0: 0.0108 | hop1: 0.0347 | hop2: 0.0193
+[multifield_het_nig_product_seed42_field0_original] step 140/390 trained 36/36 | hop0: 0.0050 | hop1: 0.0310 | hop2: 0.0273
+[multifield_het_nig_product_seed42_field0_original] step 150/390 trained 36/36 | hop0: 0.0115 | hop1: 0.0114 | hop2: 0.0476
+[multifield_het_nig_product_seed42_field0_original] step 160/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0093 | hop2: 0.0336
+[multifield_het_nig_product_seed42_field0_original] step 170/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0068 | hop2: 0.0193
+[multifield_het_nig_product_seed42_field0_original] step 180/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0087 | hop2: 0.0127
+[multifield_het_nig_product_seed42_field0_original] step 190/390 trained 36/36 | hop0: 0.0030 | hop1: 0.0095 | hop2: 0.0147
+[multifield_het_nig_product_seed42_field0_original] step 200/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0032 | hop2: 0.0109
+[multifield_het_nig_product_seed42_field0_original] step 210/390 trained 36/36 | hop0: 0.0059 | hop1: 0.0040 | hop2: 0.0060
+[multifield_het_nig_product_seed42_field0_original] step 220/390 trained 36/36 | hop0: 0.0085 | hop1: 0.0052
+[multifield_het_nig_product_seed42_field0_original] step 230/390 trained 36/36 | hop0: 0.0069 | hop1: 0.0059 | hop2: 0.0020
+[multifield_het_nig_product_seed42_field0_original] step 240/390 trained 36/36 | hop0: 0.0071 | hop1: 0.0071 | hop2: 0.0141
+[multifield_het_nig_product_seed42_field0_original] step 250/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0099 | hop2: 0.0178
+[multifield_het_nig_product_seed42_field0_original] step 260/390 trained 36/36 | hop0: 0.0132 | hop1: 0.0095
+[multifield_het_nig_product_seed42_field0_original] step 270/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0090 | hop2: 0.0058
+[multifield_het_nig_product_seed42_field0_original] step 280/390 trained 36/36 | hop0: 0.0103 | hop1: 0.0122
+[multifield_het_nig_product_seed42_field0_original] step 290/390 trained 36/36 | hop0: 0.0153 | hop1: 0.0098 | hop2: 0.0142
+[multifield_het_nig_product_seed42_field0_original] step 300/390 trained 36/36 | hop0: 0.0179 | hop1: 0.0089 | hop2: 0.0134
+[multifield_het_nig_product_seed42_field0_original] step 310/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0089 | hop2: 0.0043
+[multifield_het_nig_product_seed42_field0_original] step 320/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0077 | hop2: 0.0038
+[multifield_het_nig_product_seed42_field0_original] step 330/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0112 | hop2: 0.0050
+[multifield_het_nig_product_seed42_field0_original] step 340/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0066
+[multifield_het_nig_product_seed42_field0_original] step 350/390 trained 36/36 | hop0: 0.0188 | hop1: 0.0100 | hop2: 0.0008
+[multifield_het_nig_product_seed42_field0_original] step 360/390 trained 36/36 | hop0: 0.0078 | hop1: 0.0134 | hop2: 0.0154
+[multifield_het_nig_product_seed42_field0_original] step 370/390 trained 36/36 | hop0: 0.0035 | hop1: 0.0089 | hop2: 0.0187
+[multifield_het_nig_product_seed42_field0_original] step 380/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0091 | hop2: 0.0160
+[multifield_het_nig_product_seed42_field0_original] mean MSE (last 50 steps): 0.0104 | cert-MSE r=-0.512
+[multifield_het_nig_product_seed42_field0_original] per-variant whole-run MSE: wide=0.0092, baseline=0.0086, narrow=0.0159
+[multifield_het_nig_product_seed42_field0_original] saved runs\scratch\avgfus_inert\mf\het\nig_product_seed42_field0_original\figures\results.png
+
+### nig_product_seed42_field0_original: whole_run=0.00964 last50=0.01038 r(new)=-0.4517+/-0.2972
+    variant_mse: {'wide': {'whole_run': 0.009227067703166069, 'last50': 0.010788333591815979}, 'baseline': {'whole_run': 0.00864428464289013, 'last50': 0.008140224969214844}, 'narrow': {'whole_run': 0.015852558308261537, 'last50': 0.01927753783162334}}
+    nu_cv_mean=0.15117 weight_dev=0.05520 gamma_star_absdiff=0.00532
+  MULTIFIELD, seed 42 / field0_original
+    NaN pattern match : True
+    whole-run MSE     : 0.009624 vs 0.009642  -> +0.187%  (floor 0.2%)
+    last-50 MSE       : 0.010294 vs 0.010377  -> +0.803%
+    per-cell L1       : 1.083%
+    WITHIN FLOOR      : YES
+
+VERIFY FAILED

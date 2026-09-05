@@ -104,6 +104,7 @@ def run_mesh_experiment(
     track_trust_batches: bool = False,
     wearable_reliability: list[float] | None = None,
     wearable_label_jitter: list[float] | None = None,
+    wearable_label_bias: list[float] | None = None,
     sensor_seed: int = 42,
     per_cell_digits: bool = False,
     digit_seed: int = 42,
@@ -150,6 +151,7 @@ def run_mesh_experiment(
                 track_trust_batches=track_trust_batches,
                 wearable_reliability=wearable_reliability,
                 wearable_label_jitter=wearable_label_jitter,
+                wearable_label_bias=wearable_label_bias,
                 sensor_seed=sensor_seed,
                 per_node_instance_prediction=per_node_instance_prediction,
                 node_instance_seed=node_instance_seed)
@@ -458,6 +460,13 @@ def run_mesh_experiment(
         "policy_cooldown": policy_cooldown,
         "node_variants": mesh.node_variants,
         "sample_target": sample_target, "draws_per_target": draws_per_target,
+        # SAVE-ONLY (2026-09-05). This flag changes the RENDERING -- False gives
+        # the plain pretraining image, True applies apply_filter_from_env_value
+        # at the cell's colour value -- and it was never recorded, so two roots
+        # whose manifests were otherwise identical could differ by 2.6x in
+        # whole-run MSE with nothing on disk to show why. Writing it costs
+        # nothing and closes that gap for every future run.
+        "apply_colour_filter": apply_colour_filter,
         "excluded_rotation_ranges": ([list(t) for t in excluded_rotation_ranges]
                                      if excluded_rotation_ranges else None),
         "track_compute_cost": track_compute_cost,

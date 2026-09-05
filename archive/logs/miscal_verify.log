@@ -1,0 +1,56 @@
+================================================================================================
+INERTNESS CHECK -- wearable_label_bias OFF, seed 42, vs stored baseline
+================================================================================================
+[verify_bias_off_seed42] nodes=36 coverage max=9 mode=nig_product steps=390
+[verify_bias_off_seed42] step 000/390 trained 36/36 | hop0: 0.1081 | hop1: 0.1006
+[verify_bias_off_seed42] step 010/390 trained 36/36 | hop0: 0.0651 | hop1: 0.0882
+[verify_bias_off_seed42] step 020/390 trained 36/36 | hop0: 0.0705 | hop1: 0.0694 | hop2: 0.0823
+[verify_bias_off_seed42] step 030/390 trained 36/36 | hop0: 0.0517 | hop1: 0.0678 | hop2: 0.1025
+[verify_bias_off_seed42] step 040/390 trained 36/36 | hop0: 0.0412 | hop1: 0.0582 | hop2: 0.0638
+[verify_bias_off_seed42] step 050/390 trained 36/36 | hop0: 0.0414 | hop1: 0.0422 | hop2: 0.0513
+[verify_bias_off_seed42] step 060/390 trained 36/36 | hop0: 0.0249 | hop1: 0.0419 | hop2: 0.0596
+[verify_bias_off_seed42] step 070/390 trained 36/36 | hop0: 0.0196 | hop1: 0.0343 | hop2: 0.0608
+[verify_bias_off_seed42] step 080/390 trained 36/36 | hop0: 0.0140 | hop1: 0.0302 | hop2: 0.0802
+[verify_bias_off_seed42] step 090/390 trained 36/36 | hop0: 0.0160 | hop1: 0.0262
+[verify_bias_off_seed42] step 100/390 trained 36/36 | hop0: 0.0140 | hop1: 0.0231 | hop2: 0.0238
+[verify_bias_off_seed42] step 110/390 trained 36/36 | hop0: 0.0224 | hop1: 0.0176 | hop2: 0.0254
+[verify_bias_off_seed42] step 120/390 trained 36/36 | hop0: 0.0216 | hop1: 0.0358 | hop2: 0.0456
+[verify_bias_off_seed42] step 130/390 trained 36/36 | hop0: 0.0158 | hop1: 0.0429 | hop2: 0.0994
+[verify_bias_off_seed42] step 140/390 trained 36/36 | hop0: 0.0061 | hop1: 0.0364 | hop2: 0.0726
+[verify_bias_off_seed42] step 150/390 trained 36/36 | hop0: 0.0029 | hop1: 0.0133 | hop2: 0.0778
+[verify_bias_off_seed42] step 160/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0091 | hop2: 0.0383
+[verify_bias_off_seed42] step 170/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0063 | hop2: 0.0151
+[verify_bias_off_seed42] step 180/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0040 | hop2: 0.0122
+[verify_bias_off_seed42] step 190/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0048 | hop2: 0.0196
+[verify_bias_off_seed42] step 200/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0047 | hop2: 0.0118
+[verify_bias_off_seed42] step 210/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0042 | hop2: 0.0072
+[verify_bias_off_seed42] step 220/390 trained 36/36 | hop0: 0.0036 | hop1: 0.0057
+[verify_bias_off_seed42] step 230/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0066 | hop2: 0.0077
+[verify_bias_off_seed42] step 240/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0095 | hop2: 0.0115
+[verify_bias_off_seed42] step 250/390 trained 36/36 | hop0: 0.0043 | hop1: 0.0126 | hop2: 0.0216
+[verify_bias_off_seed42] step 260/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0133
+[verify_bias_off_seed42] step 270/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0109 | hop2: 0.0061
+[verify_bias_off_seed42] step 280/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0107
+[verify_bias_off_seed42] step 290/390 trained 36/36 | hop0: 0.0133 | hop1: 0.0068 | hop2: 0.0167
+[verify_bias_off_seed42] step 300/390 trained 36/36 | hop0: 0.0137 | hop1: 0.0053 | hop2: 0.0131
+[verify_bias_off_seed42] step 310/390 trained 36/36 | hop0: 0.0091 | hop1: 0.0056 | hop2: 0.0039
+[verify_bias_off_seed42] step 320/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0055 | hop2: 0.0012
+[verify_bias_off_seed42] step 330/390 trained 36/36 | hop0: 0.0053 | hop1: 0.0036 | hop2: 0.0017
+[verify_bias_off_seed42] step 340/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0041
+[verify_bias_off_seed42] step 350/390 trained 36/36 | hop0: 0.0111 | hop1: 0.0063 | hop2: 0.0096
+[verify_bias_off_seed42] step 360/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0102 | hop2: 0.0110
+[verify_bias_off_seed42] step 370/390 trained 36/36 | hop0: 0.0034 | hop1: 0.0086 | hop2: 0.0165
+[verify_bias_off_seed42] step 380/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0101 | hop2: 0.0263
+[verify_bias_off_seed42] mean MSE (last 50 steps): 0.0123 | cert-MSE r=-0.479
+[verify_bias_off_seed42] saved runs\scratch\miscal_inert\verify_bias_off_seed42\figures\results.png
+### verify_bias_off_seed42: last50=0.01230 whole_run=0.02358
+
+  NaN pattern match : True
+  whole-run MSE     : 0.023563 vs 0.023582  -> +0.081%  (floor 0.2%)
+  last-50 MSE       : 0.012329 vs 0.012296  -> -0.267%
+  per-cell L1       : 2.132%
+
+  WITHIN THE REPRODUCTION FLOOR: YES
+
+  bias vector that will be used: [0.0, 0.0, 0.1111111111111111]  (wearable 2, +20 deg)
+  applied at BOTH label sites in mesh.py (grep wearable_label_bias)

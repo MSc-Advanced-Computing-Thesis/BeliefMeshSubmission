@@ -1,0 +1,1319 @@
+NODE-LOSS RERUN: 55 runs (5 seeds x 11 conditions) -> runs/chapter5_v2/s5_7_node_loss_avg
+
+>>> [1/55] random_0pct_seed42  (elapsed 0.0 min)
+[nig_product_random_0pct_seed42] step 000/390 mean_mse=0.1020 mean_cert=0.9451
+[nig_product_random_0pct_seed42] step 030/390 mean_mse=0.0646 mean_cert=0.9646
+[nig_product_random_0pct_seed42] step 060/390 mean_mse=0.0416 mean_cert=0.9767
+[nig_product_random_0pct_seed42] step 090/390 mean_mse=0.0257 mean_cert=0.9856
+[nig_product_random_0pct_seed42] step 120/390 mean_mse=0.0388 mean_cert=0.9898
+[nig_product_random_0pct_seed42] step 150/390 mean_mse=0.0308 mean_cert=0.9910
+[nig_product_random_0pct_seed42] step 180/390 mean_mse=0.0070 mean_cert=0.9922
+[nig_product_random_0pct_seed42] step 210/390 mean_mse=0.0048 mean_cert=0.9938
+[nig_product_random_0pct_seed42] step 240/390 mean_mse=0.0109 mean_cert=0.9937
+[nig_product_random_0pct_seed42] step 270/390 mean_mse=0.0109 mean_cert=0.9923
+[nig_product_random_0pct_seed42] step 300/390 mean_mse=0.0109 mean_cert=0.9926
+[nig_product_random_0pct_seed42] step 330/390 mean_mse=0.0050 mean_cert=0.9907
+[nig_product_random_0pct_seed42] step 360/390 mean_mse=0.0114 mean_cert=0.9910
+
+### nig_product_random_0pct_seed42 ###
+    dead_zone: 0 cells (0.0% of grid)
+    threshold: covered_mse=0.012304553936462244 covered_cert=0.9913172974064115
+    cert-mse r: pre=-0.5332 post=-0.3891
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=15.00
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [2/55] random_10pct_seed42  (elapsed 6.0 min)
+[nig_product_random_10pct_seed42] step 000/390 mean_mse=0.1020 mean_cert=0.9451
+[nig_product_random_10pct_seed42] step 030/390 mean_mse=0.0646 mean_cert=0.9646
+[nig_product_random_10pct_seed42] step 060/390 mean_mse=0.0416 mean_cert=0.9767
+[nig_product_random_10pct_seed42] step 090/390 mean_mse=0.0257 mean_cert=0.9856
+[nig_product_random_10pct_seed42] step 120/390 mean_mse=0.0386 mean_cert=0.9898
+[nig_product_random_10pct_seed42] step 150/390 mean_mse=0.0321 mean_cert=0.9905
+[nig_product_random_10pct_seed42] step 180/390 mean_mse=0.0067 mean_cert=0.9918
+[nig_product_random_10pct_seed42] step 210/390 mean_mse=0.0061 mean_cert=0.9931
+[nig_product_random_10pct_seed42] step 240/390 mean_mse=0.0139 mean_cert=0.9915
+[nig_product_random_10pct_seed42] step 270/390 mean_mse=0.0064 mean_cert=0.9913
+[nig_product_random_10pct_seed42] step 300/390 mean_mse=0.0116 mean_cert=0.9900
+[nig_product_random_10pct_seed42] step 330/390 mean_mse=0.0042 mean_cert=0.9862
+[nig_product_random_10pct_seed42] step 360/390 mean_mse=0.0126 mean_cert=0.9879
+
+### nig_product_random_10pct_seed42 ###
+    dead_zone: 9 cells (1.9% of grid)
+    threshold: covered_mse=0.01230181228874504 covered_cert=0.9886300249362833
+    paired_vs_control: n=475 mean_diff=+0.00017 t=0.990 p=0.3225
+    cert-mse r: pre=-0.5323 post=-0.3700
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=13.94
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [3/55] random_25pct_seed42  (elapsed 11.8 min)
+[nig_product_random_25pct_seed42] step 000/390 mean_mse=0.1020 mean_cert=0.9451
+[nig_product_random_25pct_seed42] step 030/390 mean_mse=0.0646 mean_cert=0.9646
+[nig_product_random_25pct_seed42] step 060/390 mean_mse=0.0416 mean_cert=0.9767
+[nig_product_random_25pct_seed42] step 090/390 mean_mse=0.0257 mean_cert=0.9856
+[nig_product_random_25pct_seed42] step 120/390 mean_mse=0.0380 mean_cert=0.9898
+[nig_product_random_25pct_seed42] step 150/390 mean_mse=0.0316 mean_cert=0.9905
+[nig_product_random_25pct_seed42] step 180/390 mean_mse=0.0069 mean_cert=0.9909
+[nig_product_random_25pct_seed42] step 210/390 mean_mse=0.0060 mean_cert=0.9922
+[nig_product_random_25pct_seed42] step 240/390 mean_mse=0.0114 mean_cert=0.9914
+[nig_product_random_25pct_seed42] step 270/390 mean_mse=0.0086 mean_cert=0.9906
+[nig_product_random_25pct_seed42] step 300/390 mean_mse=0.0087 mean_cert=0.9892
+[nig_product_random_25pct_seed42] step 330/390 mean_mse=0.0041 mean_cert=0.9854
+[nig_product_random_25pct_seed42] step 360/390 mean_mse=0.0103 mean_cert=0.9868
+
+### nig_product_random_25pct_seed42 ###
+    dead_zone: 9 cells (1.9% of grid)
+    threshold: covered_mse=0.010505937003935593 covered_cert=0.9874784235985209
+    paired_vs_control: n=475 mean_diff=-0.00163 t=-11.438 p=0.0000
+    cert-mse r: pre=-0.5318 post=-0.4070
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=10.44
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [4/55] random_40pct_seed42  (elapsed 17.1 min)
+[nig_product_random_40pct_seed42] step 000/390 mean_mse=0.1020 mean_cert=0.9451
+[nig_product_random_40pct_seed42] step 030/390 mean_mse=0.0646 mean_cert=0.9646
+[nig_product_random_40pct_seed42] step 060/390 mean_mse=0.0416 mean_cert=0.9767
+[nig_product_random_40pct_seed42] step 090/390 mean_mse=0.0257 mean_cert=0.9856
+[nig_product_random_40pct_seed42] step 120/390 mean_mse=0.0387 mean_cert=0.9898
+[nig_product_random_40pct_seed42] step 150/390 mean_mse=0.0307 mean_cert=0.9908
+[nig_product_random_40pct_seed42] step 180/390 mean_mse=0.0086 mean_cert=0.9894
+[nig_product_random_40pct_seed42] step 210/390 mean_mse=0.0131 mean_cert=0.9844
+[nig_product_random_40pct_seed42] step 240/390 mean_mse=0.0182 mean_cert=0.9835
+[nig_product_random_40pct_seed42] step 270/390 mean_mse=0.0073 mean_cert=0.9860
+[nig_product_random_40pct_seed42] step 300/390 mean_mse=0.0147 mean_cert=0.9846
+[nig_product_random_40pct_seed42] step 330/390 mean_mse=0.0043 mean_cert=0.9778
+[nig_product_random_40pct_seed42] step 360/390 mean_mse=0.0108 mean_cert=0.9811
+
+### nig_product_random_40pct_seed42 ###
+    dead_zone: 40 cells (8.3% of grid)
+    threshold: covered_mse=0.010215415160953032 covered_cert=0.9817422049437067
+    paired_vs_control: n=444 mean_diff=-0.00170 t=-9.444 p=0.0000
+    cert-mse r: pre=-0.5330 post=-0.4790
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=8.55
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [5/55] random_50pct_seed42  (elapsed 22.0 min)
+[nig_product_random_50pct_seed42] step 000/390 mean_mse=0.1020 mean_cert=0.9451
+[nig_product_random_50pct_seed42] step 030/390 mean_mse=0.0646 mean_cert=0.9646
+[nig_product_random_50pct_seed42] step 060/390 mean_mse=0.0416 mean_cert=0.9767
+[nig_product_random_50pct_seed42] step 090/390 mean_mse=0.0257 mean_cert=0.9856
+[nig_product_random_50pct_seed42] step 120/390 mean_mse=0.0387 mean_cert=0.9898
+[nig_product_random_50pct_seed42] step 150/390 mean_mse=0.0345 mean_cert=0.9897
+[nig_product_random_50pct_seed42] step 180/390 mean_mse=nan mean_cert=nan
+[nig_product_random_50pct_seed42] step 210/390 mean_mse=0.0187 mean_cert=0.9890
+[nig_product_random_50pct_seed42] step 240/390 mean_mse=0.0158 mean_cert=0.9866
+[nig_product_random_50pct_seed42] step 270/390 mean_mse=0.0069 mean_cert=0.9881
+[nig_product_random_50pct_seed42] step 300/390 mean_mse=0.0076 mean_cert=0.9834
+[nig_product_random_50pct_seed42] step 330/390 mean_mse=0.0052 mean_cert=0.9736
+[nig_product_random_50pct_seed42] step 360/390 mean_mse=0.0131 mean_cert=0.9760
+
+### nig_product_random_50pct_seed42 ###
+    dead_zone: 84 cells (17.4% of grid)
+    threshold: covered_mse=0.011186000726995582 covered_cert=0.9774683368261823
+    paired_vs_control: n=400 mean_diff=-0.00111 t=-3.070 p=0.0023
+    cert-mse r: pre=-0.5330 post=-0.3474
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=7.67
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [6/55] random_55pct_seed42  (elapsed 26.4 min)
+[nig_product_random_55pct_seed42] step 000/390 mean_mse=0.1020 mean_cert=0.9451
+[nig_product_random_55pct_seed42] step 030/390 mean_mse=0.0646 mean_cert=0.9646
+[nig_product_random_55pct_seed42] step 060/390 mean_mse=0.0416 mean_cert=0.9767
+[nig_product_random_55pct_seed42] step 090/390 mean_mse=0.0257 mean_cert=0.9856
+[nig_product_random_55pct_seed42] step 120/390 mean_mse=0.0387 mean_cert=0.9898
+[nig_product_random_55pct_seed42] step 150/390 mean_mse=0.0303 mean_cert=0.9916
+[nig_product_random_55pct_seed42] step 180/390 mean_mse=0.0080 mean_cert=0.9913
+[nig_product_random_55pct_seed42] step 210/390 mean_mse=0.0124 mean_cert=0.9893
+[nig_product_random_55pct_seed42] step 240/390 mean_mse=0.0123 mean_cert=0.9895
+[nig_product_random_55pct_seed42] step 270/390 mean_mse=0.0083 mean_cert=0.9873
+[nig_product_random_55pct_seed42] step 300/390 mean_mse=0.0153 mean_cert=0.9793
+[nig_product_random_55pct_seed42] step 330/390 mean_mse=0.0028 mean_cert=0.9738
+[nig_product_random_55pct_seed42] step 360/390 mean_mse=0.0117 mean_cert=0.9823
+
+### nig_product_random_55pct_seed42 ###
+    dead_zone: 99 cells (20.5% of grid)
+    threshold: covered_mse=0.010648960335019924 covered_cert=0.9824211413683617
+    paired_vs_control: n=385 mean_diff=-0.00114 t=-5.691 p=0.0000
+    cert-mse r: pre=-0.5330 post=-0.3792
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=7.62
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [7/55] random_60pct_seed42  (elapsed 30.9 min)
+[nig_product_random_60pct_seed42] step 000/390 mean_mse=0.1020 mean_cert=0.9451
+[nig_product_random_60pct_seed42] step 030/390 mean_mse=0.0646 mean_cert=0.9646
+[nig_product_random_60pct_seed42] step 060/390 mean_mse=0.0416 mean_cert=0.9767
+[nig_product_random_60pct_seed42] step 090/390 mean_mse=0.0257 mean_cert=0.9856
+[nig_product_random_60pct_seed42] step 120/390 mean_mse=0.0385 mean_cert=0.9899
+[nig_product_random_60pct_seed42] step 150/390 mean_mse=0.0337 mean_cert=0.9890
+[nig_product_random_60pct_seed42] step 180/390 mean_mse=0.0090 mean_cert=0.9876
+[nig_product_random_60pct_seed42] step 210/390 mean_mse=0.0104 mean_cert=0.9822
+[nig_product_random_60pct_seed42] step 240/390 mean_mse=0.0147 mean_cert=0.9781
+[nig_product_random_60pct_seed42] step 270/390 mean_mse=0.0053 mean_cert=0.9775
+[nig_product_random_60pct_seed42] step 300/390 mean_mse=0.0069 mean_cert=0.9774
+[nig_product_random_60pct_seed42] step 330/390 mean_mse=0.0033 mean_cert=0.9758
+[nig_product_random_60pct_seed42] step 360/390 mean_mse=0.0113 mean_cert=0.9758
+
+### nig_product_random_60pct_seed42 ###
+    dead_zone: 91 cells (18.8% of grid)
+    threshold: covered_mse=0.01088228264328979 covered_cert=0.9762167732833491
+    paired_vs_control: n=393 mean_diff=-0.00099 t=-5.718 p=0.0000
+    cert-mse r: pre=-0.5338 post=-0.3621
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=5.57
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [8/55] random_65pct_seed42  (elapsed 35.1 min)
+[nig_product_random_65pct_seed42] step 000/390 mean_mse=0.1020 mean_cert=0.9451
+[nig_product_random_65pct_seed42] step 030/390 mean_mse=0.0646 mean_cert=0.9646
+[nig_product_random_65pct_seed42] step 060/390 mean_mse=0.0416 mean_cert=0.9767
+[nig_product_random_65pct_seed42] step 090/390 mean_mse=0.0257 mean_cert=0.9856
+[nig_product_random_65pct_seed42] step 120/390 mean_mse=0.0387 mean_cert=0.9899
+[nig_product_random_65pct_seed42] step 150/390 mean_mse=0.0348 mean_cert=0.9898
+[nig_product_random_65pct_seed42] step 180/390 mean_mse=0.0091 mean_cert=0.9884
+[nig_product_random_65pct_seed42] step 210/390 mean_mse=0.0107 mean_cert=0.9837
+[nig_product_random_65pct_seed42] step 240/390 mean_mse=0.0133 mean_cert=0.9811
+[nig_product_random_65pct_seed42] step 270/390 mean_mse=0.0064 mean_cert=0.9789
+[nig_product_random_65pct_seed42] step 300/390 mean_mse=0.0089 mean_cert=0.9753
+[nig_product_random_65pct_seed42] step 330/390 mean_mse=0.0034 mean_cert=0.9704
+[nig_product_random_65pct_seed42] step 360/390 mean_mse=0.0076 mean_cert=0.9753
+
+### nig_product_random_65pct_seed42 ###
+    dead_zone: 112 cells (23.1% of grid)
+    threshold: covered_mse=0.009366328390568291 covered_cert=0.9736097730434815
+    paired_vs_control: n=372 mean_diff=-0.00116 t=-4.387 p=0.0000
+    cert-mse r: pre=-0.5327 post=-0.5030
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=4.92
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [9/55] clustered_10pct_seed42  (elapsed 39.2 min)
+[nig_product_clustered_10pct_seed42] step 000/390 mean_mse=0.1020 mean_cert=0.9451
+[nig_product_clustered_10pct_seed42] step 030/390 mean_mse=0.0646 mean_cert=0.9646
+[nig_product_clustered_10pct_seed42] step 060/390 mean_mse=0.0416 mean_cert=0.9767
+[nig_product_clustered_10pct_seed42] step 090/390 mean_mse=0.0258 mean_cert=0.9856
+[nig_product_clustered_10pct_seed42] step 120/390 mean_mse=0.0381 mean_cert=0.9898
+[nig_product_clustered_10pct_seed42] step 150/390 mean_mse=0.0329 mean_cert=0.9909
+[nig_product_clustered_10pct_seed42] step 180/390 mean_mse=0.0066 mean_cert=0.9919
+[nig_product_clustered_10pct_seed42] step 210/390 mean_mse=0.0059 mean_cert=0.9933
+[nig_product_clustered_10pct_seed42] step 240/390 mean_mse=0.0151 mean_cert=0.9921
+[nig_product_clustered_10pct_seed42] step 270/390 mean_mse=0.0062 mean_cert=0.9915
+[nig_product_clustered_10pct_seed42] step 300/390 mean_mse=0.0097 mean_cert=0.9913
+[nig_product_clustered_10pct_seed42] step 330/390 mean_mse=0.0043 mean_cert=0.9901
+[nig_product_clustered_10pct_seed42] step 360/390 mean_mse=0.0116 mean_cert=0.9907
+
+### nig_product_clustered_10pct_seed42 ###
+    dead_zone: 36 cells (7.4% of grid)
+    threshold: covered_mse=0.012183734516187336 covered_cert=0.9912270695520069
+    paired_vs_control: n=448 mean_diff=-0.00023 t=-1.210 p=0.2269
+    cert-mse r: pre=-0.5332 post=-0.5436
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=14.25
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [10/55] clustered_25pct_seed42  (elapsed 44.9 min)
+[nig_product_clustered_25pct_seed42] step 000/390 mean_mse=0.1020 mean_cert=0.9451
+[nig_product_clustered_25pct_seed42] step 030/390 mean_mse=0.0646 mean_cert=0.9646
+[nig_product_clustered_25pct_seed42] step 060/390 mean_mse=0.0416 mean_cert=0.9767
+[nig_product_clustered_25pct_seed42] step 090/390 mean_mse=0.0257 mean_cert=0.9856
+[nig_product_clustered_25pct_seed42] step 120/390 mean_mse=0.0387 mean_cert=0.9899
+[nig_product_clustered_25pct_seed42] step 150/390 mean_mse=0.0357 mean_cert=0.9906
+[nig_product_clustered_25pct_seed42] step 180/390 mean_mse=0.0120 mean_cert=0.9914
+[nig_product_clustered_25pct_seed42] step 210/390 mean_mse=0.0108 mean_cert=0.9922
+[nig_product_clustered_25pct_seed42] step 240/390 mean_mse=0.0128 mean_cert=0.9931
+[nig_product_clustered_25pct_seed42] step 270/390 mean_mse=0.0133 mean_cert=0.9940
+[nig_product_clustered_25pct_seed42] step 300/390 mean_mse=0.0093 mean_cert=0.9925
+[nig_product_clustered_25pct_seed42] step 330/390 mean_mse=0.0074 mean_cert=0.9888
+[nig_product_clustered_25pct_seed42] step 360/390 mean_mse=0.0120 mean_cert=0.9883
+
+### nig_product_clustered_25pct_seed42 ###
+    dead_zone: 93 cells (19.2% of grid)
+    threshold: covered_mse=0.012196582506937403 covered_cert=0.9889908579322604
+    paired_vs_control: n=391 mean_diff=-0.00060 t=-3.119 p=0.0020
+    cert-mse r: pre=-0.5331 post=-0.4933
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=13.56
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [11/55] clustered_40pct_seed42  (elapsed 49.9 min)
+[nig_product_clustered_40pct_seed42] step 000/390 mean_mse=0.1020 mean_cert=0.9451
+[nig_product_clustered_40pct_seed42] step 030/390 mean_mse=0.0646 mean_cert=0.9646
+[nig_product_clustered_40pct_seed42] step 060/390 mean_mse=0.0416 mean_cert=0.9767
+[nig_product_clustered_40pct_seed42] step 090/390 mean_mse=0.0258 mean_cert=0.9856
+[nig_product_clustered_40pct_seed42] step 120/390 mean_mse=0.0387 mean_cert=0.9898
+[nig_product_clustered_40pct_seed42] step 150/390 mean_mse=0.0407 mean_cert=0.9903
+[nig_product_clustered_40pct_seed42] step 180/390 mean_mse=nan mean_cert=nan
+[nig_product_clustered_40pct_seed42] step 210/390 mean_mse=nan mean_cert=nan
+[nig_product_clustered_40pct_seed42] step 240/390 mean_mse=0.0157 mean_cert=0.9928
+[nig_product_clustered_40pct_seed42] step 270/390 mean_mse=0.0099 mean_cert=0.9930
+[nig_product_clustered_40pct_seed42] step 300/390 mean_mse=0.0090 mean_cert=0.9908
+[nig_product_clustered_40pct_seed42] step 330/390 mean_mse=0.0081 mean_cert=0.9857
+[nig_product_clustered_40pct_seed42] step 360/390 mean_mse=0.0143 mean_cert=0.9857
+
+### nig_product_clustered_40pct_seed42 ###
+    dead_zone: 150 cells (31.0% of grid)
+    threshold: covered_mse=0.013073195315954642 covered_cert=0.9869970745844326
+    paired_vs_control: n=334 mean_diff=-0.00028 t=-0.992 p=0.3219
+    cert-mse r: pre=-0.5322 post=-0.4126
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=12.55
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [12/55] random_0pct_seed1042  (elapsed 54.4 min)
+[nig_product_random_0pct_seed1042] step 000/390 mean_mse=0.1058 mean_cert=0.9456
+[nig_product_random_0pct_seed1042] step 030/390 mean_mse=0.0725 mean_cert=0.9647
+[nig_product_random_0pct_seed1042] step 060/390 mean_mse=0.0430 mean_cert=0.9781
+[nig_product_random_0pct_seed1042] step 090/390 mean_mse=0.0235 mean_cert=0.9870
+[nig_product_random_0pct_seed1042] step 120/390 mean_mse=0.0210 mean_cert=0.9917
+[nig_product_random_0pct_seed1042] step 150/390 mean_mse=0.0164 mean_cert=0.9899
+[nig_product_random_0pct_seed1042] step 180/390 mean_mse=0.0170 mean_cert=0.9881
+[nig_product_random_0pct_seed1042] step 210/390 mean_mse=0.0129 mean_cert=0.9899
+[nig_product_random_0pct_seed1042] step 240/390 mean_mse=0.0135 mean_cert=0.9914
+[nig_product_random_0pct_seed1042] step 270/390 mean_mse=0.0229 mean_cert=0.9908
+[nig_product_random_0pct_seed1042] step 300/390 mean_mse=0.0102 mean_cert=0.9889
+[nig_product_random_0pct_seed1042] step 330/390 mean_mse=0.0019 mean_cert=0.9913
+[nig_product_random_0pct_seed1042] step 360/390 mean_mse=0.0164 mean_cert=0.9946
+
+### nig_product_random_0pct_seed1042 ###
+    dead_zone: 0 cells (0.0% of grid)
+    threshold: covered_mse=0.017907646099671357 covered_cert=0.9945452171538379
+    cert-mse r: pre=-0.3618 post=-0.3786
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=15.00
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [13/55] random_10pct_seed1042  (elapsed 60.5 min)
+[nig_product_random_10pct_seed1042] step 000/390 mean_mse=0.1058 mean_cert=0.9456
+[nig_product_random_10pct_seed1042] step 030/390 mean_mse=0.0725 mean_cert=0.9647
+[nig_product_random_10pct_seed1042] step 060/390 mean_mse=0.0431 mean_cert=0.9781
+[nig_product_random_10pct_seed1042] step 090/390 mean_mse=0.0235 mean_cert=0.9870
+[nig_product_random_10pct_seed1042] step 120/390 mean_mse=0.0211 mean_cert=0.9917
+[nig_product_random_10pct_seed1042] step 150/390 mean_mse=0.0166 mean_cert=0.9896
+[nig_product_random_10pct_seed1042] step 180/390 mean_mse=0.0191 mean_cert=0.9872
+[nig_product_random_10pct_seed1042] step 210/390 mean_mse=0.0131 mean_cert=0.9884
+[nig_product_random_10pct_seed1042] step 240/390 mean_mse=0.0163 mean_cert=0.9906
+[nig_product_random_10pct_seed1042] step 270/390 mean_mse=0.0240 mean_cert=0.9905
+[nig_product_random_10pct_seed1042] step 300/390 mean_mse=0.0109 mean_cert=0.9879
+[nig_product_random_10pct_seed1042] step 330/390 mean_mse=0.0020 mean_cert=0.9904
+[nig_product_random_10pct_seed1042] step 360/390 mean_mse=0.0170 mean_cert=0.9934
+
+### nig_product_random_10pct_seed1042 ###
+    dead_zone: 6 cells (1.2% of grid)
+    threshold: covered_mse=0.018975623409070608 covered_cert=0.9934108974173963
+    paired_vs_control: n=478 mean_diff=+0.00088 t=9.605 p=0.0000
+    cert-mse r: pre=-0.3648 post=-0.3674
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=13.62
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [14/55] random_25pct_seed1042  (elapsed 66.1 min)
+[nig_product_random_25pct_seed1042] step 000/390 mean_mse=0.1058 mean_cert=0.9456
+[nig_product_random_25pct_seed1042] step 030/390 mean_mse=0.0725 mean_cert=0.9647
+[nig_product_random_25pct_seed1042] step 060/390 mean_mse=0.0431 mean_cert=0.9781
+[nig_product_random_25pct_seed1042] step 090/390 mean_mse=0.0235 mean_cert=0.9870
+[nig_product_random_25pct_seed1042] step 120/390 mean_mse=0.0210 mean_cert=0.9918
+[nig_product_random_25pct_seed1042] step 150/390 mean_mse=0.0166 mean_cert=0.9893
+[nig_product_random_25pct_seed1042] step 180/390 mean_mse=0.0164 mean_cert=0.9863
+[nig_product_random_25pct_seed1042] step 210/390 mean_mse=0.0108 mean_cert=0.9873
+[nig_product_random_25pct_seed1042] step 240/390 mean_mse=0.0124 mean_cert=0.9889
+[nig_product_random_25pct_seed1042] step 270/390 mean_mse=0.0167 mean_cert=0.9876
+[nig_product_random_25pct_seed1042] step 300/390 mean_mse=0.0124 mean_cert=0.9861
+[nig_product_random_25pct_seed1042] step 330/390 mean_mse=0.0024 mean_cert=0.9872
+[nig_product_random_25pct_seed1042] step 360/390 mean_mse=0.0169 mean_cert=0.9898
+
+### nig_product_random_25pct_seed1042 ###
+    dead_zone: 4 cells (0.8% of grid)
+    threshold: covered_mse=0.01939200611915248 covered_cert=0.9900528315570547
+    paired_vs_control: n=480 mean_diff=+0.00141 t=7.756 p=0.0000
+    cert-mse r: pre=-0.3599 post=-0.3868
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=9.56
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [15/55] random_40pct_seed1042  (elapsed 71.4 min)
+[nig_product_random_40pct_seed1042] step 000/390 mean_mse=0.1058 mean_cert=0.9456
+[nig_product_random_40pct_seed1042] step 030/390 mean_mse=0.0725 mean_cert=0.9647
+[nig_product_random_40pct_seed1042] step 060/390 mean_mse=0.0430 mean_cert=0.9781
+[nig_product_random_40pct_seed1042] step 090/390 mean_mse=0.0235 mean_cert=0.9870
+[nig_product_random_40pct_seed1042] step 120/390 mean_mse=0.0210 mean_cert=0.9917
+[nig_product_random_40pct_seed1042] step 150/390 mean_mse=0.0159 mean_cert=0.9888
+[nig_product_random_40pct_seed1042] step 180/390 mean_mse=0.0252 mean_cert=0.9842
+[nig_product_random_40pct_seed1042] step 210/390 mean_mse=0.0117 mean_cert=0.9845
+[nig_product_random_40pct_seed1042] step 240/390 mean_mse=0.0163 mean_cert=0.9861
+[nig_product_random_40pct_seed1042] step 270/390 mean_mse=0.0208 mean_cert=0.9833
+[nig_product_random_40pct_seed1042] step 300/390 mean_mse=0.0117 mean_cert=0.9816
+[nig_product_random_40pct_seed1042] step 330/390 mean_mse=0.0025 mean_cert=0.9860
+[nig_product_random_40pct_seed1042] step 360/390 mean_mse=0.0164 mean_cert=0.9891
+
+### nig_product_random_40pct_seed1042 ###
+    dead_zone: 27 cells (5.6% of grid)
+    threshold: covered_mse=0.019448150825235634 covered_cert=0.9892697114682749
+    paired_vs_control: n=457 mean_diff=+0.00191 t=7.660 p=0.0000
+    cert-mse r: pre=-0.3630 post=-0.2511
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=8.27
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [16/55] random_50pct_seed1042  (elapsed 76.2 min)
+[nig_product_random_50pct_seed1042] step 000/390 mean_mse=0.1058 mean_cert=0.9456
+[nig_product_random_50pct_seed1042] step 030/390 mean_mse=0.0725 mean_cert=0.9647
+[nig_product_random_50pct_seed1042] step 060/390 mean_mse=0.0431 mean_cert=0.9781
+[nig_product_random_50pct_seed1042] step 090/390 mean_mse=0.0235 mean_cert=0.9870
+[nig_product_random_50pct_seed1042] step 120/390 mean_mse=0.0211 mean_cert=0.9917
+[nig_product_random_50pct_seed1042] step 150/390 mean_mse=0.0197 mean_cert=0.9872
+[nig_product_random_50pct_seed1042] step 180/390 mean_mse=0.0234 mean_cert=0.9781
+[nig_product_random_50pct_seed1042] step 210/390 mean_mse=0.0119 mean_cert=0.9804
+[nig_product_random_50pct_seed1042] step 240/390 mean_mse=0.0140 mean_cert=0.9832
+[nig_product_random_50pct_seed1042] step 270/390 mean_mse=0.0146 mean_cert=0.9826
+[nig_product_random_50pct_seed1042] step 300/390 mean_mse=0.0131 mean_cert=0.9832
+[nig_product_random_50pct_seed1042] step 330/390 mean_mse=0.0020 mean_cert=0.9855
+[nig_product_random_50pct_seed1042] step 360/390 mean_mse=0.0159 mean_cert=0.9889
+
+### nig_product_random_50pct_seed1042 ###
+    dead_zone: 54 cells (11.2% of grid)
+    threshold: covered_mse=0.018155939073413955 covered_cert=0.9886967891802815
+    paired_vs_control: n=430 mean_diff=+0.00018 t=1.425 p=0.1548
+    cert-mse r: pre=-0.3639 post=-0.4906
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=8.00
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [17/55] random_55pct_seed1042  (elapsed 80.7 min)
+[nig_product_random_55pct_seed1042] step 000/390 mean_mse=0.1058 mean_cert=0.9456
+[nig_product_random_55pct_seed1042] step 030/390 mean_mse=0.0725 mean_cert=0.9647
+[nig_product_random_55pct_seed1042] step 060/390 mean_mse=0.0431 mean_cert=0.9781
+[nig_product_random_55pct_seed1042] step 090/390 mean_mse=0.0235 mean_cert=0.9870
+[nig_product_random_55pct_seed1042] step 120/390 mean_mse=0.0210 mean_cert=0.9917
+[nig_product_random_55pct_seed1042] step 150/390 mean_mse=0.0200 mean_cert=0.9873
+[nig_product_random_55pct_seed1042] step 180/390 mean_mse=0.0209 mean_cert=0.9770
+[nig_product_random_55pct_seed1042] step 210/390 mean_mse=0.0130 mean_cert=0.9783
+[nig_product_random_55pct_seed1042] step 240/390 mean_mse=0.0229 mean_cert=0.9814
+[nig_product_random_55pct_seed1042] step 270/390 mean_mse=0.0269 mean_cert=0.9802
+[nig_product_random_55pct_seed1042] step 300/390 mean_mse=0.0145 mean_cert=0.9738
+[nig_product_random_55pct_seed1042] step 330/390 mean_mse=0.0022 mean_cert=0.9809
+[nig_product_random_55pct_seed1042] step 360/390 mean_mse=0.0179 mean_cert=0.9873
+
+### nig_product_random_55pct_seed1042 ###
+    dead_zone: 63 cells (13.0% of grid)
+    threshold: covered_mse=0.0222369588199132 covered_cert=0.9859939042582716
+    paired_vs_control: n=421 mean_diff=+0.00295 t=13.964 p=0.0000
+    cert-mse r: pre=-0.3610 post=-0.6423
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=7.12
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [18/55] random_60pct_seed1042  (elapsed 85.1 min)
+[nig_product_random_60pct_seed1042] step 000/390 mean_mse=0.1058 mean_cert=0.9456
+[nig_product_random_60pct_seed1042] step 030/390 mean_mse=0.0725 mean_cert=0.9647
+[nig_product_random_60pct_seed1042] step 060/390 mean_mse=0.0430 mean_cert=0.9781
+[nig_product_random_60pct_seed1042] step 090/390 mean_mse=0.0235 mean_cert=0.9870
+[nig_product_random_60pct_seed1042] step 120/390 mean_mse=0.0211 mean_cert=0.9917
+[nig_product_random_60pct_seed1042] step 150/390 mean_mse=0.0142 mean_cert=0.9878
+[nig_product_random_60pct_seed1042] step 180/390 mean_mse=0.0212 mean_cert=0.9766
+[nig_product_random_60pct_seed1042] step 210/390 mean_mse=0.0122 mean_cert=0.9775
+[nig_product_random_60pct_seed1042] step 240/390 mean_mse=0.0197 mean_cert=0.9831
+[nig_product_random_60pct_seed1042] step 270/390 mean_mse=0.0339 mean_cert=0.9828
+[nig_product_random_60pct_seed1042] step 300/390 mean_mse=0.0187 mean_cert=0.9801
+[nig_product_random_60pct_seed1042] step 330/390 mean_mse=0.0025 mean_cert=0.9824
+[nig_product_random_60pct_seed1042] step 360/390 mean_mse=0.0157 mean_cert=0.9885
+
+### nig_product_random_60pct_seed1042 ###
+    dead_zone: 114 cells (23.6% of grid)
+    threshold: covered_mse=0.017750171818563348 covered_cert=0.9876964067822348
+    paired_vs_control: n=370 mean_diff=+0.00099 t=6.706 p=0.0000
+    cert-mse r: pre=-0.3640 post=-0.6112
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=7.00
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [19/55] random_65pct_seed1042  (elapsed 89.3 min)
+[nig_product_random_65pct_seed1042] step 000/390 mean_mse=0.1058 mean_cert=0.9456
+[nig_product_random_65pct_seed1042] step 030/390 mean_mse=0.0725 mean_cert=0.9647
+[nig_product_random_65pct_seed1042] step 060/390 mean_mse=0.0431 mean_cert=0.9781
+[nig_product_random_65pct_seed1042] step 090/390 mean_mse=0.0235 mean_cert=0.9870
+[nig_product_random_65pct_seed1042] step 120/390 mean_mse=0.0211 mean_cert=0.9917
+[nig_product_random_65pct_seed1042] step 150/390 mean_mse=0.0084 mean_cert=0.9903
+[nig_product_random_65pct_seed1042] step 180/390 mean_mse=0.0065 mean_cert=0.9888
+[nig_product_random_65pct_seed1042] step 210/390 mean_mse=0.0087 mean_cert=0.9893
+[nig_product_random_65pct_seed1042] step 240/390 mean_mse=0.0157 mean_cert=0.9868
+[nig_product_random_65pct_seed1042] step 270/390 mean_mse=0.0152 mean_cert=0.9795
+[nig_product_random_65pct_seed1042] step 300/390 mean_mse=0.0055 mean_cert=0.9786
+[nig_product_random_65pct_seed1042] step 330/390 mean_mse=0.0021 mean_cert=0.9830
+[nig_product_random_65pct_seed1042] step 360/390 mean_mse=0.0115 mean_cert=0.9851
+
+### nig_product_random_65pct_seed1042 ###
+    dead_zone: 156 cells (32.2% of grid)
+    threshold: covered_mse=0.014301550289820605 covered_cert=0.9852607089699427
+    paired_vs_control: n=328 mean_diff=+0.00298 t=9.478 p=0.0000
+    cert-mse r: pre=-0.3649 post=-0.6925
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=6.31
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [20/55] clustered_10pct_seed1042  (elapsed 93.3 min)
+[nig_product_clustered_10pct_seed1042] step 000/390 mean_mse=0.1058 mean_cert=0.9456
+[nig_product_clustered_10pct_seed1042] step 030/390 mean_mse=0.0725 mean_cert=0.9647
+[nig_product_clustered_10pct_seed1042] step 060/390 mean_mse=0.0430 mean_cert=0.9781
+[nig_product_clustered_10pct_seed1042] step 090/390 mean_mse=0.0235 mean_cert=0.9870
+[nig_product_clustered_10pct_seed1042] step 120/390 mean_mse=0.0210 mean_cert=0.9917
+[nig_product_clustered_10pct_seed1042] step 150/390 mean_mse=0.0175 mean_cert=0.9898
+[nig_product_clustered_10pct_seed1042] step 180/390 mean_mse=0.0263 mean_cert=0.9875
+[nig_product_clustered_10pct_seed1042] step 210/390 mean_mse=0.0115 mean_cert=0.9898
+[nig_product_clustered_10pct_seed1042] step 240/390 mean_mse=0.0135 mean_cert=0.9923
+[nig_product_clustered_10pct_seed1042] step 270/390 mean_mse=0.0256 mean_cert=0.9922
+[nig_product_clustered_10pct_seed1042] step 300/390 mean_mse=0.0101 mean_cert=0.9912
+[nig_product_clustered_10pct_seed1042] step 330/390 mean_mse=0.0015 mean_cert=0.9940
+[nig_product_clustered_10pct_seed1042] step 360/390 mean_mse=0.0160 mean_cert=0.9961
+
+### nig_product_clustered_10pct_seed1042 ###
+    dead_zone: 36 cells (7.4% of grid)
+    threshold: covered_mse=0.02013429728915416 covered_cert=0.9957978468047959
+    paired_vs_control: n=448 mean_diff=+0.00136 t=10.378 p=0.0000
+    cert-mse r: pre=-0.3616 post=-0.4575
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=14.25
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [21/55] clustered_25pct_seed1042  (elapsed 99.0 min)
+[nig_product_clustered_25pct_seed1042] step 000/390 mean_mse=0.1058 mean_cert=0.9456
+[nig_product_clustered_25pct_seed1042] step 030/390 mean_mse=0.0725 mean_cert=0.9647
+[nig_product_clustered_25pct_seed1042] step 060/390 mean_mse=0.0430 mean_cert=0.9781
+[nig_product_clustered_25pct_seed1042] step 090/390 mean_mse=0.0236 mean_cert=0.9870
+[nig_product_clustered_25pct_seed1042] step 120/390 mean_mse=0.0211 mean_cert=0.9917
+[nig_product_clustered_25pct_seed1042] step 150/390 mean_mse=0.0166 mean_cert=0.9895
+[nig_product_clustered_25pct_seed1042] step 180/390 mean_mse=0.0325 mean_cert=0.9860
+[nig_product_clustered_25pct_seed1042] step 210/390 mean_mse=0.0102 mean_cert=0.9874
+[nig_product_clustered_25pct_seed1042] step 240/390 mean_mse=0.0127 mean_cert=0.9900
+[nig_product_clustered_25pct_seed1042] step 270/390 mean_mse=0.0191 mean_cert=0.9912
+[nig_product_clustered_25pct_seed1042] step 300/390 mean_mse=0.0088 mean_cert=0.9915
+[nig_product_clustered_25pct_seed1042] step 330/390 mean_mse=0.0015 mean_cert=0.9941
+[nig_product_clustered_25pct_seed1042] step 360/390 mean_mse=0.0177 mean_cert=0.9965
+
+### nig_product_clustered_25pct_seed1042 ###
+    dead_zone: 93 cells (19.2% of grid)
+    threshold: covered_mse=0.02079685453736757 covered_cert=0.9962048715601592
+    paired_vs_control: n=391 mean_diff=+0.00060 t=4.585 p=0.0000
+    cert-mse r: pre=-0.3647 post=-0.4157
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=13.56
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [22/55] clustered_40pct_seed1042  (elapsed 104.3 min)
+[nig_product_clustered_40pct_seed1042] step 000/390 mean_mse=0.1058 mean_cert=0.9456
+[nig_product_clustered_40pct_seed1042] step 030/390 mean_mse=0.0725 mean_cert=0.9647
+[nig_product_clustered_40pct_seed1042] step 060/390 mean_mse=0.0430 mean_cert=0.9781
+[nig_product_clustered_40pct_seed1042] step 090/390 mean_mse=0.0235 mean_cert=0.9870
+[nig_product_clustered_40pct_seed1042] step 120/390 mean_mse=0.0211 mean_cert=0.9917
+[nig_product_clustered_40pct_seed1042] step 150/390 mean_mse=0.0171 mean_cert=0.9892
+[nig_product_clustered_40pct_seed1042] step 180/390 mean_mse=0.0282 mean_cert=0.9844
+[nig_product_clustered_40pct_seed1042] step 210/390 mean_mse=0.0104 mean_cert=0.9857
+[nig_product_clustered_40pct_seed1042] step 240/390 mean_mse=0.0173 mean_cert=0.9874
+[nig_product_clustered_40pct_seed1042] step 270/390 mean_mse=0.0317 mean_cert=0.9876
+[nig_product_clustered_40pct_seed1042] step 300/390 mean_mse=0.0122 mean_cert=0.9883
+[nig_product_clustered_40pct_seed1042] step 330/390 mean_mse=0.0019 mean_cert=0.9917
+[nig_product_clustered_40pct_seed1042] step 360/390 mean_mse=0.0177 mean_cert=0.9949
+
+### nig_product_clustered_40pct_seed1042 ###
+    dead_zone: 150 cells (31.0% of grid)
+    threshold: covered_mse=0.023255111501644846 covered_cert=0.9944815682205785
+    paired_vs_control: n=334 mean_diff=+0.00162 t=11.274 p=0.0000
+    cert-mse r: pre=-0.3634 post=-0.3854
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=12.55
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [23/55] random_0pct_seed2042  (elapsed 108.9 min)
+[nig_product_random_0pct_seed2042] step 000/390 mean_mse=0.0920 mean_cert=0.9459
+[nig_product_random_0pct_seed2042] step 030/390 mean_mse=0.0706 mean_cert=0.9645
+[nig_product_random_0pct_seed2042] step 060/390 mean_mse=0.0442 mean_cert=0.9794
+[nig_product_random_0pct_seed2042] step 090/390 mean_mse=0.0250 mean_cert=0.9892
+[nig_product_random_0pct_seed2042] step 120/390 mean_mse=0.0271 mean_cert=0.9908
+[nig_product_random_0pct_seed2042] step 150/390 mean_mse=0.0309 mean_cert=0.9929
+[nig_product_random_0pct_seed2042] step 180/390 mean_mse=0.0161 mean_cert=0.9925
+[nig_product_random_0pct_seed2042] step 210/390 mean_mse=0.0103 mean_cert=0.9911
+[nig_product_random_0pct_seed2042] step 240/390 mean_mse=0.0234 mean_cert=0.9929
+[nig_product_random_0pct_seed2042] step 270/390 mean_mse=0.0129 mean_cert=0.9921
+[nig_product_random_0pct_seed2042] step 300/390 mean_mse=0.0148 mean_cert=0.9907
+[nig_product_random_0pct_seed2042] step 330/390 mean_mse=0.0040 mean_cert=0.9936
+[nig_product_random_0pct_seed2042] step 360/390 mean_mse=0.0223 mean_cert=0.9958
+
+### nig_product_random_0pct_seed2042 ###
+    dead_zone: 0 cells (0.0% of grid)
+    threshold: covered_mse=0.01836751523049971 covered_cert=0.9954957215026622
+    cert-mse r: pre=-0.2601 post=-0.2386
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=15.00
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [24/55] random_10pct_seed2042  (elapsed 115.0 min)
+[nig_product_random_10pct_seed2042] step 000/390 mean_mse=0.0920 mean_cert=0.9459
+[nig_product_random_10pct_seed2042] step 030/390 mean_mse=0.0706 mean_cert=0.9645
+[nig_product_random_10pct_seed2042] step 060/390 mean_mse=0.0442 mean_cert=0.9794
+[nig_product_random_10pct_seed2042] step 090/390 mean_mse=0.0247 mean_cert=0.9892
+[nig_product_random_10pct_seed2042] step 120/390 mean_mse=0.0272 mean_cert=0.9908
+[nig_product_random_10pct_seed2042] step 150/390 mean_mse=0.0301 mean_cert=0.9929
+[nig_product_random_10pct_seed2042] step 180/390 mean_mse=0.0152 mean_cert=0.9920
+[nig_product_random_10pct_seed2042] step 210/390 mean_mse=0.0125 mean_cert=0.9911
+[nig_product_random_10pct_seed2042] step 240/390 mean_mse=0.0186 mean_cert=0.9926
+[nig_product_random_10pct_seed2042] step 270/390 mean_mse=0.0133 mean_cert=0.9922
+[nig_product_random_10pct_seed2042] step 300/390 mean_mse=0.0155 mean_cert=0.9891
+[nig_product_random_10pct_seed2042] step 330/390 mean_mse=0.0035 mean_cert=0.9928
+[nig_product_random_10pct_seed2042] step 360/390 mean_mse=0.0191 mean_cert=0.9953
+
+### nig_product_random_10pct_seed2042 ###
+    dead_zone: 9 cells (1.9% of grid)
+    threshold: covered_mse=0.014843957155404125 covered_cert=0.9951219000875433
+    paired_vs_control: n=475 mean_diff=-0.00346 t=-10.160 p=0.0000
+    cert-mse r: pre=-0.2668 post=-0.3490
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=13.69
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [25/55] random_25pct_seed2042  (elapsed 120.8 min)
+[nig_product_random_25pct_seed2042] step 000/390 mean_mse=0.0920 mean_cert=0.9459
+[nig_product_random_25pct_seed2042] step 030/390 mean_mse=0.0706 mean_cert=0.9645
+[nig_product_random_25pct_seed2042] step 060/390 mean_mse=0.0442 mean_cert=0.9795
+[nig_product_random_25pct_seed2042] step 090/390 mean_mse=0.0246 mean_cert=0.9893
+[nig_product_random_25pct_seed2042] step 120/390 mean_mse=0.0272 mean_cert=0.9908
+[nig_product_random_25pct_seed2042] step 150/390 mean_mse=0.0248 mean_cert=0.9926
+[nig_product_random_25pct_seed2042] step 180/390 mean_mse=0.0148 mean_cert=0.9915
+[nig_product_random_25pct_seed2042] step 210/390 mean_mse=0.0091 mean_cert=0.9898
+[nig_product_random_25pct_seed2042] step 240/390 mean_mse=0.0220 mean_cert=0.9903
+[nig_product_random_25pct_seed2042] step 270/390 mean_mse=0.0140 mean_cert=0.9913
+[nig_product_random_25pct_seed2042] step 300/390 mean_mse=0.0119 mean_cert=0.9886
+[nig_product_random_25pct_seed2042] step 330/390 mean_mse=0.0052 mean_cert=0.9894
+[nig_product_random_25pct_seed2042] step 360/390 mean_mse=0.0156 mean_cert=0.9913
+
+### nig_product_random_25pct_seed2042 ###
+    dead_zone: 24 cells (5.0% of grid)
+    threshold: covered_mse=0.013141195074861972 covered_cert=0.9911299892925343
+    paired_vs_control: n=460 mean_diff=-0.00246 t=-9.576 p=0.0000
+    cert-mse r: pre=-0.2676 post=-0.5963
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=12.00
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [26/55] random_40pct_seed2042  (elapsed 126.2 min)
+[nig_product_random_40pct_seed2042] step 000/390 mean_mse=0.0920 mean_cert=0.9459
+[nig_product_random_40pct_seed2042] step 030/390 mean_mse=0.0706 mean_cert=0.9645
+[nig_product_random_40pct_seed2042] step 060/390 mean_mse=0.0442 mean_cert=0.9795
+[nig_product_random_40pct_seed2042] step 090/390 mean_mse=0.0246 mean_cert=0.9893
+[nig_product_random_40pct_seed2042] step 120/390 mean_mse=0.0272 mean_cert=0.9908
+[nig_product_random_40pct_seed2042] step 150/390 mean_mse=0.0296 mean_cert=0.9924
+[nig_product_random_40pct_seed2042] step 180/390 mean_mse=0.0141 mean_cert=0.9894
+[nig_product_random_40pct_seed2042] step 210/390 mean_mse=0.0117 mean_cert=0.9838
+[nig_product_random_40pct_seed2042] step 240/390 mean_mse=0.0181 mean_cert=0.9847
+[nig_product_random_40pct_seed2042] step 270/390 mean_mse=0.0165 mean_cert=0.9873
+[nig_product_random_40pct_seed2042] step 300/390 mean_mse=0.0199 mean_cert=0.9837
+[nig_product_random_40pct_seed2042] step 330/390 mean_mse=0.0052 mean_cert=0.9884
+[nig_product_random_40pct_seed2042] step 360/390 mean_mse=0.0188 mean_cert=0.9919
+
+### nig_product_random_40pct_seed2042 ###
+    dead_zone: 63 cells (13.0% of grid)
+    threshold: covered_mse=0.013173635862739091 covered_cert=0.9915593565793227
+    paired_vs_control: n=421 mean_diff=-0.00397 t=-7.671 p=0.0000
+    cert-mse r: pre=-0.2642 post=-0.5629
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=9.18
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [27/55] random_50pct_seed2042  (elapsed 131.2 min)
+[nig_product_random_50pct_seed2042] step 000/390 mean_mse=0.0920 mean_cert=0.9459
+[nig_product_random_50pct_seed2042] step 030/390 mean_mse=0.0706 mean_cert=0.9645
+[nig_product_random_50pct_seed2042] step 060/390 mean_mse=0.0442 mean_cert=0.9795
+[nig_product_random_50pct_seed2042] step 090/390 mean_mse=0.0249 mean_cert=0.9892
+[nig_product_random_50pct_seed2042] step 120/390 mean_mse=0.0271 mean_cert=0.9908
+[nig_product_random_50pct_seed2042] step 150/390 mean_mse=0.0321 mean_cert=0.9908
+[nig_product_random_50pct_seed2042] step 180/390 mean_mse=0.0186 mean_cert=0.9864
+[nig_product_random_50pct_seed2042] step 210/390 mean_mse=0.0096 mean_cert=0.9744
+[nig_product_random_50pct_seed2042] step 240/390 mean_mse=0.0188 mean_cert=0.9680
+[nig_product_random_50pct_seed2042] step 270/390 mean_mse=0.0163 mean_cert=0.9752
+[nig_product_random_50pct_seed2042] step 300/390 mean_mse=0.0235 mean_cert=0.9724
+[nig_product_random_50pct_seed2042] step 330/390 mean_mse=0.0061 mean_cert=0.9684
+[nig_product_random_50pct_seed2042] step 360/390 mean_mse=0.0227 mean_cert=0.9699
+
+### nig_product_random_50pct_seed2042 ###
+    dead_zone: 73 cells (15.1% of grid)
+    threshold: covered_mse=0.02150838237043109 covered_cert=0.9696413681410038
+    paired_vs_control: n=411 mean_diff=+0.00311 t=5.755 p=0.0000
+    cert-mse r: pre=-0.2548 post=-0.7042
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=6.22
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [28/55] random_55pct_seed2042  (elapsed 135.9 min)
+[nig_product_random_55pct_seed2042] step 000/390 mean_mse=0.0920 mean_cert=0.9459
+[nig_product_random_55pct_seed2042] step 030/390 mean_mse=0.0706 mean_cert=0.9645
+[nig_product_random_55pct_seed2042] step 060/390 mean_mse=0.0442 mean_cert=0.9795
+[nig_product_random_55pct_seed2042] step 090/390 mean_mse=0.0249 mean_cert=0.9892
+[nig_product_random_55pct_seed2042] step 120/390 mean_mse=0.0280 mean_cert=0.9908
+[nig_product_random_55pct_seed2042] step 150/390 mean_mse=0.0257 mean_cert=0.9928
+[nig_product_random_55pct_seed2042] step 180/390 mean_mse=0.0149 mean_cert=0.9902
+[nig_product_random_55pct_seed2042] step 210/390 mean_mse=0.0056 mean_cert=0.9885
+[nig_product_random_55pct_seed2042] step 240/390 mean_mse=0.0247 mean_cert=0.9841
+[nig_product_random_55pct_seed2042] step 270/390 mean_mse=0.0169 mean_cert=0.9857
+[nig_product_random_55pct_seed2042] step 300/390 mean_mse=0.0077 mean_cert=0.9821
+[nig_product_random_55pct_seed2042] step 330/390 mean_mse=0.0058 mean_cert=0.9827
+[nig_product_random_55pct_seed2042] step 360/390 mean_mse=0.0123 mean_cert=0.9856
+
+### nig_product_random_55pct_seed2042 ###
+    dead_zone: 77 cells (15.9% of grid)
+    threshold: covered_mse=0.012010732442231761 covered_cert=0.9854780239313093
+    paired_vs_control: n=407 mean_diff=-0.00424 t=-6.818 p=0.0000
+    cert-mse r: pre=-0.2527 post=-0.6149
+    graph: pre_components=1 post_components=2 pre_degree=15.00 post_degree=6.25
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [29/55] random_60pct_seed2042  (elapsed 140.2 min)
+[nig_product_random_60pct_seed2042] step 000/390 mean_mse=0.0920 mean_cert=0.9459
+[nig_product_random_60pct_seed2042] step 030/390 mean_mse=0.0706 mean_cert=0.9645
+[nig_product_random_60pct_seed2042] step 060/390 mean_mse=0.0442 mean_cert=0.9795
+[nig_product_random_60pct_seed2042] step 090/390 mean_mse=0.0247 mean_cert=0.9893
+[nig_product_random_60pct_seed2042] step 120/390 mean_mse=0.0270 mean_cert=0.9908
+[nig_product_random_60pct_seed2042] step 150/390 mean_mse=0.0262 mean_cert=0.9930
+[nig_product_random_60pct_seed2042] step 180/390 mean_mse=0.0206 mean_cert=0.9909
+[nig_product_random_60pct_seed2042] step 210/390 mean_mse=0.0077 mean_cert=0.9868
+[nig_product_random_60pct_seed2042] step 240/390 mean_mse=0.0230 mean_cert=0.9871
+[nig_product_random_60pct_seed2042] step 270/390 mean_mse=0.0166 mean_cert=0.9849
+[nig_product_random_60pct_seed2042] step 300/390 mean_mse=0.0131 mean_cert=0.9780
+[nig_product_random_60pct_seed2042] step 330/390 mean_mse=0.0061 mean_cert=0.9675
+[nig_product_random_60pct_seed2042] step 360/390 mean_mse=0.0104 mean_cert=0.9756
+
+### nig_product_random_60pct_seed2042 ###
+    dead_zone: 119 cells (24.6% of grid)
+    threshold: covered_mse=0.011109728883984869 covered_cert=0.9759561127499343
+    paired_vs_control: n=365 mean_diff=-0.00646 t=-8.260 p=0.0000
+    cert-mse r: pre=-0.2639 post=-0.5667
+    graph: pre_components=1 post_components=2 pre_degree=15.00 post_degree=5.00
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [30/55] random_65pct_seed2042  (elapsed 144.3 min)
+[nig_product_random_65pct_seed2042] step 000/390 mean_mse=0.0920 mean_cert=0.9459
+[nig_product_random_65pct_seed2042] step 030/390 mean_mse=0.0706 mean_cert=0.9645
+[nig_product_random_65pct_seed2042] step 060/390 mean_mse=0.0442 mean_cert=0.9795
+[nig_product_random_65pct_seed2042] step 090/390 mean_mse=0.0249 mean_cert=0.9892
+[nig_product_random_65pct_seed2042] step 120/390 mean_mse=0.0272 mean_cert=0.9908
+[nig_product_random_65pct_seed2042] step 150/390 mean_mse=0.0336 mean_cert=0.9932
+[nig_product_random_65pct_seed2042] step 180/390 mean_mse=0.0208 mean_cert=0.9895
+[nig_product_random_65pct_seed2042] step 210/390 mean_mse=0.0088 mean_cert=0.9820
+[nig_product_random_65pct_seed2042] step 240/390 mean_mse=0.0220 mean_cert=0.9840
+[nig_product_random_65pct_seed2042] step 270/390 mean_mse=0.0227 mean_cert=0.9824
+[nig_product_random_65pct_seed2042] step 300/390 mean_mse=0.0117 mean_cert=0.9778
+[nig_product_random_65pct_seed2042] step 330/390 mean_mse=0.0063 mean_cert=0.9793
+[nig_product_random_65pct_seed2042] step 360/390 mean_mse=0.0138 mean_cert=0.9829
+
+### nig_product_random_65pct_seed2042 ###
+    dead_zone: 142 cells (29.3% of grid)
+    threshold: covered_mse=0.015324528602877308 covered_cert=0.9821467022119302
+    paired_vs_control: n=342 mean_diff=-0.00651 t=-9.939 p=0.0000
+    cert-mse r: pre=-0.2529 post=-0.5399
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=5.08
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [31/55] clustered_10pct_seed2042  (elapsed 148.4 min)
+[nig_product_clustered_10pct_seed2042] step 000/390 mean_mse=0.0920 mean_cert=0.9459
+[nig_product_clustered_10pct_seed2042] step 030/390 mean_mse=0.0706 mean_cert=0.9645
+[nig_product_clustered_10pct_seed2042] step 060/390 mean_mse=0.0442 mean_cert=0.9795
+[nig_product_clustered_10pct_seed2042] step 090/390 mean_mse=0.0246 mean_cert=0.9893
+[nig_product_clustered_10pct_seed2042] step 120/390 mean_mse=0.0273 mean_cert=0.9908
+[nig_product_clustered_10pct_seed2042] step 150/390 mean_mse=0.0313 mean_cert=0.9933
+[nig_product_clustered_10pct_seed2042] step 180/390 mean_mse=0.0174 mean_cert=0.9926
+[nig_product_clustered_10pct_seed2042] step 210/390 mean_mse=0.0075 mean_cert=0.9919
+[nig_product_clustered_10pct_seed2042] step 240/390 mean_mse=0.0200 mean_cert=0.9933
+[nig_product_clustered_10pct_seed2042] step 270/390 mean_mse=0.0128 mean_cert=0.9931
+[nig_product_clustered_10pct_seed2042] step 300/390 mean_mse=0.0157 mean_cert=0.9919
+[nig_product_clustered_10pct_seed2042] step 330/390 mean_mse=0.0052 mean_cert=0.9939
+[nig_product_clustered_10pct_seed2042] step 360/390 mean_mse=0.0238 mean_cert=0.9953
+
+### nig_product_clustered_10pct_seed2042 ###
+    dead_zone: 36 cells (7.4% of grid)
+    threshold: covered_mse=0.01780664276677143 covered_cert=0.9951864634288666
+    paired_vs_control: n=448 mean_diff=-0.00104 t=-3.822 p=0.0002
+    cert-mse r: pre=-0.2637 post=-0.3126
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=14.25
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [32/55] clustered_25pct_seed2042  (elapsed 154.2 min)
+[nig_product_clustered_25pct_seed2042] step 000/390 mean_mse=0.0920 mean_cert=0.9459
+[nig_product_clustered_25pct_seed2042] step 030/390 mean_mse=0.0706 mean_cert=0.9645
+[nig_product_clustered_25pct_seed2042] step 060/390 mean_mse=0.0442 mean_cert=0.9795
+[nig_product_clustered_25pct_seed2042] step 090/390 mean_mse=0.0247 mean_cert=0.9893
+[nig_product_clustered_25pct_seed2042] step 120/390 mean_mse=0.0271 mean_cert=0.9908
+[nig_product_clustered_25pct_seed2042] step 150/390 mean_mse=0.0333 mean_cert=0.9939
+[nig_product_clustered_25pct_seed2042] step 180/390 mean_mse=0.0165 mean_cert=0.9920
+[nig_product_clustered_25pct_seed2042] step 210/390 mean_mse=0.0111 mean_cert=0.9914
+[nig_product_clustered_25pct_seed2042] step 240/390 mean_mse=0.0184 mean_cert=0.9925
+[nig_product_clustered_25pct_seed2042] step 270/390 mean_mse=0.0125 mean_cert=0.9923
+[nig_product_clustered_25pct_seed2042] step 300/390 mean_mse=0.0248 mean_cert=0.9918
+[nig_product_clustered_25pct_seed2042] step 330/390 mean_mse=0.0058 mean_cert=0.9917
+[nig_product_clustered_25pct_seed2042] step 360/390 mean_mse=0.0232 mean_cert=0.9915
+
+### nig_product_clustered_25pct_seed2042 ###
+    dead_zone: 93 cells (19.2% of grid)
+    threshold: covered_mse=0.019846917894103977 covered_cert=0.9912902947492231
+    paired_vs_control: n=391 mean_diff=-0.00071 t=-3.372 p=0.0008
+    cert-mse r: pre=-0.2648 post=-0.4190
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=13.56
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [33/55] clustered_40pct_seed2042  (elapsed 159.3 min)
+[nig_product_clustered_40pct_seed2042] step 000/390 mean_mse=0.0920 mean_cert=0.9459
+[nig_product_clustered_40pct_seed2042] step 030/390 mean_mse=0.0706 mean_cert=0.9645
+[nig_product_clustered_40pct_seed2042] step 060/390 mean_mse=0.0442 mean_cert=0.9795
+[nig_product_clustered_40pct_seed2042] step 090/390 mean_mse=0.0246 mean_cert=0.9893
+[nig_product_clustered_40pct_seed2042] step 120/390 mean_mse=0.0272 mean_cert=0.9908
+[nig_product_clustered_40pct_seed2042] step 150/390 mean_mse=0.0358 mean_cert=0.9932
+[nig_product_clustered_40pct_seed2042] step 180/390 mean_mse=0.0143 mean_cert=0.9909
+[nig_product_clustered_40pct_seed2042] step 210/390 mean_mse=0.0120 mean_cert=0.9934
+[nig_product_clustered_40pct_seed2042] step 240/390 mean_mse=0.0221 mean_cert=0.9932
+[nig_product_clustered_40pct_seed2042] step 270/390 mean_mse=0.0187 mean_cert=0.9928
+[nig_product_clustered_40pct_seed2042] step 300/390 mean_mse=nan mean_cert=nan
+[nig_product_clustered_40pct_seed2042] step 330/390 mean_mse=0.0069 mean_cert=0.9945
+[nig_product_clustered_40pct_seed2042] step 360/390 mean_mse=0.0353 mean_cert=0.9950
+
+### nig_product_clustered_40pct_seed2042 ###
+    dead_zone: 150 cells (31.0% of grid)
+    threshold: covered_mse=0.02994663049173113 covered_cert=0.9943365461074674
+    paired_vs_control: n=334 mean_diff=+0.00687 t=14.523 p=0.0000
+    cert-mse r: pre=-0.2647 post=-0.4429
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=12.55
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [34/55] random_0pct_seed3042  (elapsed 163.8 min)
+[nig_product_random_0pct_seed3042] step 000/390 mean_mse=0.1030 mean_cert=0.9464
+[nig_product_random_0pct_seed3042] step 030/390 mean_mse=0.0721 mean_cert=0.9646
+[nig_product_random_0pct_seed3042] step 060/390 mean_mse=0.0390 mean_cert=0.9757
+[nig_product_random_0pct_seed3042] step 090/390 mean_mse=0.0260 mean_cert=0.9830
+[nig_product_random_0pct_seed3042] step 120/390 mean_mse=0.0260 mean_cert=0.9877
+[nig_product_random_0pct_seed3042] step 150/390 mean_mse=0.0137 mean_cert=0.9884
+[nig_product_random_0pct_seed3042] step 180/390 mean_mse=0.0126 mean_cert=0.9855
+[nig_product_random_0pct_seed3042] step 210/390 mean_mse=0.0089 mean_cert=0.9874
+[nig_product_random_0pct_seed3042] step 240/390 mean_mse=0.0121 mean_cert=0.9899
+[nig_product_random_0pct_seed3042] step 270/390 mean_mse=0.0176 mean_cert=0.9914
+[nig_product_random_0pct_seed3042] step 300/390 mean_mse=0.0071 mean_cert=0.9931
+[nig_product_random_0pct_seed3042] step 330/390 mean_mse=0.0019 mean_cert=0.9951
+[nig_product_random_0pct_seed3042] step 360/390 mean_mse=0.0144 mean_cert=0.9960
+
+### nig_product_random_0pct_seed3042 ###
+    dead_zone: 0 cells (0.0% of grid)
+    threshold: covered_mse=0.014338003648735123 covered_cert=0.9961471368275637
+    cert-mse r: pre=-0.5431 post=-0.2240
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=15.00
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [35/55] random_10pct_seed3042  (elapsed 169.7 min)
+[nig_product_random_10pct_seed3042] step 000/390 mean_mse=0.1030 mean_cert=0.9464
+[nig_product_random_10pct_seed3042] step 030/390 mean_mse=0.0721 mean_cert=0.9646
+[nig_product_random_10pct_seed3042] step 060/390 mean_mse=0.0390 mean_cert=0.9757
+[nig_product_random_10pct_seed3042] step 090/390 mean_mse=0.0259 mean_cert=0.9830
+[nig_product_random_10pct_seed3042] step 120/390 mean_mse=0.0260 mean_cert=0.9878
+[nig_product_random_10pct_seed3042] step 150/390 mean_mse=0.0138 mean_cert=0.9880
+[nig_product_random_10pct_seed3042] step 180/390 mean_mse=0.0156 mean_cert=0.9839
+[nig_product_random_10pct_seed3042] step 210/390 mean_mse=0.0114 mean_cert=0.9859
+[nig_product_random_10pct_seed3042] step 240/390 mean_mse=0.0122 mean_cert=0.9885
+[nig_product_random_10pct_seed3042] step 270/390 mean_mse=0.0165 mean_cert=0.9907
+[nig_product_random_10pct_seed3042] step 300/390 mean_mse=0.0073 mean_cert=0.9921
+[nig_product_random_10pct_seed3042] step 330/390 mean_mse=0.0023 mean_cert=0.9938
+[nig_product_random_10pct_seed3042] step 360/390 mean_mse=0.0138 mean_cert=0.9945
+
+### nig_product_random_10pct_seed3042 ###
+    dead_zone: 0 cells (0.0% of grid)
+    threshold: covered_mse=0.014145863414490045 covered_cert=0.9947939086526025
+    paired_vs_control: n=484 mean_diff=-0.00019 t=-1.556 p=0.1203
+    cert-mse r: pre=-0.5433 post=-0.1770
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=13.19
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [36/55] random_25pct_seed3042  (elapsed 175.3 min)
+[nig_product_random_25pct_seed3042] step 000/390 mean_mse=0.1030 mean_cert=0.9464
+[nig_product_random_25pct_seed3042] step 030/390 mean_mse=0.0721 mean_cert=0.9646
+[nig_product_random_25pct_seed3042] step 060/390 mean_mse=0.0390 mean_cert=0.9757
+[nig_product_random_25pct_seed3042] step 090/390 mean_mse=0.0260 mean_cert=0.9829
+[nig_product_random_25pct_seed3042] step 120/390 mean_mse=0.0261 mean_cert=0.9877
+[nig_product_random_25pct_seed3042] step 150/390 mean_mse=0.0121 mean_cert=0.9881
+[nig_product_random_25pct_seed3042] step 180/390 mean_mse=0.0143 mean_cert=0.9838
+[nig_product_random_25pct_seed3042] step 210/390 mean_mse=0.0102 mean_cert=0.9850
+[nig_product_random_25pct_seed3042] step 240/390 mean_mse=0.0121 mean_cert=0.9880
+[nig_product_random_25pct_seed3042] step 270/390 mean_mse=0.0154 mean_cert=0.9907
+[nig_product_random_25pct_seed3042] step 300/390 mean_mse=0.0066 mean_cert=0.9920
+[nig_product_random_25pct_seed3042] step 330/390 mean_mse=0.0022 mean_cert=0.9935
+[nig_product_random_25pct_seed3042] step 360/390 mean_mse=0.0149 mean_cert=0.9947
+
+### nig_product_random_25pct_seed3042 ###
+    dead_zone: 24 cells (5.0% of grid)
+    threshold: covered_mse=0.014037931238876233 covered_cert=0.9947370972153771
+    paired_vs_control: n=460 mean_diff=-0.00022 t=-1.480 p=0.1395
+    cert-mse r: pre=-0.5430 post=-0.2911
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=11.85
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [37/55] random_40pct_seed3042  (elapsed 180.4 min)
+[nig_product_random_40pct_seed3042] step 000/390 mean_mse=0.1030 mean_cert=0.9464
+[nig_product_random_40pct_seed3042] step 030/390 mean_mse=0.0721 mean_cert=0.9646
+[nig_product_random_40pct_seed3042] step 060/390 mean_mse=0.0389 mean_cert=0.9757
+[nig_product_random_40pct_seed3042] step 090/390 mean_mse=0.0259 mean_cert=0.9830
+[nig_product_random_40pct_seed3042] step 120/390 mean_mse=0.0260 mean_cert=0.9877
+[nig_product_random_40pct_seed3042] step 150/390 mean_mse=0.0150 mean_cert=0.9877
+[nig_product_random_40pct_seed3042] step 180/390 mean_mse=0.0170 mean_cert=0.9833
+[nig_product_random_40pct_seed3042] step 210/390 mean_mse=0.0109 mean_cert=0.9845
+[nig_product_random_40pct_seed3042] step 240/390 mean_mse=0.0123 mean_cert=0.9873
+[nig_product_random_40pct_seed3042] step 270/390 mean_mse=0.0151 mean_cert=0.9880
+[nig_product_random_40pct_seed3042] step 300/390 mean_mse=0.0071 mean_cert=0.9892
+[nig_product_random_40pct_seed3042] step 330/390 mean_mse=0.0007 mean_cert=0.9912
+[nig_product_random_40pct_seed3042] step 360/390 mean_mse=0.0154 mean_cert=0.9936
+
+### nig_product_random_40pct_seed3042 ###
+    dead_zone: 66 cells (13.6% of grid)
+    threshold: covered_mse=0.012893642844897935 covered_cert=0.9935745873739459
+    paired_vs_control: n=418 mean_diff=-0.00023 t=-1.340 p=0.1811
+    cert-mse r: pre=-0.5428 post=-0.0424
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=9.64
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [38/55] random_50pct_seed3042  (elapsed 185.2 min)
+[nig_product_random_50pct_seed3042] step 000/390 mean_mse=0.1030 mean_cert=0.9464
+[nig_product_random_50pct_seed3042] step 030/390 mean_mse=0.0721 mean_cert=0.9646
+[nig_product_random_50pct_seed3042] step 060/390 mean_mse=0.0389 mean_cert=0.9757
+[nig_product_random_50pct_seed3042] step 090/390 mean_mse=0.0260 mean_cert=0.9830
+[nig_product_random_50pct_seed3042] step 120/390 mean_mse=0.0260 mean_cert=0.9877
+[nig_product_random_50pct_seed3042] step 150/390 mean_mse=0.0099 mean_cert=0.9874
+[nig_product_random_50pct_seed3042] step 180/390 mean_mse=0.0161 mean_cert=0.9818
+[nig_product_random_50pct_seed3042] step 210/390 mean_mse=0.0109 mean_cert=0.9831
+[nig_product_random_50pct_seed3042] step 240/390 mean_mse=0.0112 mean_cert=0.9828
+[nig_product_random_50pct_seed3042] step 270/390 mean_mse=0.0093 mean_cert=0.9839
+[nig_product_random_50pct_seed3042] step 300/390 mean_mse=0.0083 mean_cert=0.9851
+[nig_product_random_50pct_seed3042] step 330/390 mean_mse=0.0023 mean_cert=0.9863
+[nig_product_random_50pct_seed3042] step 360/390 mean_mse=0.0084 mean_cert=0.9871
+
+### nig_product_random_50pct_seed3042 ###
+    dead_zone: 58 cells (12.0% of grid)
+    threshold: covered_mse=0.009131549440155607 covered_cert=0.9879078004608622
+    paired_vs_control: n=426 mean_diff=-0.00156 t=-6.028 p=0.0000
+    cert-mse r: pre=-0.5426 post=-0.2182
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=7.22
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [39/55] random_55pct_seed3042  (elapsed 189.4 min)
+[nig_product_random_55pct_seed3042] step 000/390 mean_mse=0.1030 mean_cert=0.9464
+[nig_product_random_55pct_seed3042] step 030/390 mean_mse=0.0721 mean_cert=0.9646
+[nig_product_random_55pct_seed3042] step 060/390 mean_mse=0.0390 mean_cert=0.9757
+[nig_product_random_55pct_seed3042] step 090/390 mean_mse=0.0259 mean_cert=0.9830
+[nig_product_random_55pct_seed3042] step 120/390 mean_mse=0.0260 mean_cert=0.9878
+[nig_product_random_55pct_seed3042] step 150/390 mean_mse=0.0128 mean_cert=0.9883
+[nig_product_random_55pct_seed3042] step 180/390 mean_mse=0.0116 mean_cert=0.9807
+[nig_product_random_55pct_seed3042] step 210/390 mean_mse=0.0085 mean_cert=0.9837
+[nig_product_random_55pct_seed3042] step 240/390 mean_mse=0.0095 mean_cert=0.9872
+[nig_product_random_55pct_seed3042] step 270/390 mean_mse=0.0154 mean_cert=0.9866
+[nig_product_random_55pct_seed3042] step 300/390 mean_mse=0.0058 mean_cert=0.9871
+[nig_product_random_55pct_seed3042] step 330/390 mean_mse=0.0017 mean_cert=0.9895
+[nig_product_random_55pct_seed3042] step 360/390 mean_mse=0.0090 mean_cert=0.9904
+
+### nig_product_random_55pct_seed3042 ###
+    dead_zone: 108 cells (22.3% of grid)
+    threshold: covered_mse=0.010105833219914912 covered_cert=0.9914865467462511
+    paired_vs_control: n=376 mean_diff=-0.00106 t=-4.048 p=0.0001
+    cert-mse r: pre=-0.5432 post=0.0559
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=7.38
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [40/55] random_60pct_seed3042  (elapsed 193.6 min)
+[nig_product_random_60pct_seed3042] step 000/390 mean_mse=0.1030 mean_cert=0.9464
+[nig_product_random_60pct_seed3042] step 030/390 mean_mse=0.0721 mean_cert=0.9646
+[nig_product_random_60pct_seed3042] step 060/390 mean_mse=0.0390 mean_cert=0.9757
+[nig_product_random_60pct_seed3042] step 090/390 mean_mse=0.0260 mean_cert=0.9830
+[nig_product_random_60pct_seed3042] step 120/390 mean_mse=0.0261 mean_cert=0.9878
+[nig_product_random_60pct_seed3042] step 150/390 mean_mse=0.0149 mean_cert=0.9865
+[nig_product_random_60pct_seed3042] step 180/390 mean_mse=0.0118 mean_cert=0.9799
+[nig_product_random_60pct_seed3042] step 210/390 mean_mse=0.0080 mean_cert=0.9831
+[nig_product_random_60pct_seed3042] step 240/390 mean_mse=0.0109 mean_cert=0.9850
+[nig_product_random_60pct_seed3042] step 270/390 mean_mse=0.0138 mean_cert=0.9844
+[nig_product_random_60pct_seed3042] step 300/390 mean_mse=0.0078 mean_cert=0.9826
+[nig_product_random_60pct_seed3042] step 330/390 mean_mse=0.0018 mean_cert=0.9839
+[nig_product_random_60pct_seed3042] step 360/390 mean_mse=0.0151 mean_cert=0.9860
+
+### nig_product_random_60pct_seed3042 ###
+    dead_zone: 102 cells (21.1% of grid)
+    threshold: covered_mse=0.011306047944179965 covered_cert=0.9866230456057111
+    paired_vs_control: n=382 mean_diff=-0.00039 t=-2.702 p=0.0072
+    cert-mse r: pre=-0.5430 post=-0.4457
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=5.71
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [41/55] random_65pct_seed3042  (elapsed 197.8 min)
+[nig_product_random_65pct_seed3042] step 000/390 mean_mse=0.1030 mean_cert=0.9464
+[nig_product_random_65pct_seed3042] step 030/390 mean_mse=0.0721 mean_cert=0.9646
+[nig_product_random_65pct_seed3042] step 060/390 mean_mse=0.0389 mean_cert=0.9757
+[nig_product_random_65pct_seed3042] step 090/390 mean_mse=0.0259 mean_cert=0.9830
+[nig_product_random_65pct_seed3042] step 120/390 mean_mse=0.0261 mean_cert=0.9877
+[nig_product_random_65pct_seed3042] step 150/390 mean_mse=0.0129 mean_cert=0.9857
+[nig_product_random_65pct_seed3042] step 180/390 mean_mse=0.0162 mean_cert=0.9807
+[nig_product_random_65pct_seed3042] step 210/390 mean_mse=0.0090 mean_cert=0.9844
+[nig_product_random_65pct_seed3042] step 240/390 mean_mse=0.0143 mean_cert=0.9876
+[nig_product_random_65pct_seed3042] step 270/390 mean_mse=0.0212 mean_cert=0.9841
+[nig_product_random_65pct_seed3042] step 300/390 mean_mse=0.0090 mean_cert=0.9827
+[nig_product_random_65pct_seed3042] step 330/390 mean_mse=0.0011 mean_cert=0.9869
+[nig_product_random_65pct_seed3042] step 360/390 mean_mse=0.0134 mean_cert=0.9900
+
+### nig_product_random_65pct_seed3042 ###
+    dead_zone: 139 cells (28.7% of grid)
+    threshold: covered_mse=0.014227649719025052 covered_cert=0.9906985185390844
+    paired_vs_control: n=345 mean_diff=+0.00045 t=1.990 p=0.0473
+    cert-mse r: pre=-0.5430 post=-0.5590
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=6.31
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [42/55] clustered_10pct_seed3042  (elapsed 201.8 min)
+[nig_product_clustered_10pct_seed3042] step 000/390 mean_mse=0.1030 mean_cert=0.9464
+[nig_product_clustered_10pct_seed3042] step 030/390 mean_mse=0.0721 mean_cert=0.9646
+[nig_product_clustered_10pct_seed3042] step 060/390 mean_mse=0.0389 mean_cert=0.9757
+[nig_product_clustered_10pct_seed3042] step 090/390 mean_mse=0.0259 mean_cert=0.9829
+[nig_product_clustered_10pct_seed3042] step 120/390 mean_mse=0.0260 mean_cert=0.9877
+[nig_product_clustered_10pct_seed3042] step 150/390 mean_mse=0.0144 mean_cert=0.9892
+[nig_product_clustered_10pct_seed3042] step 180/390 mean_mse=0.0128 mean_cert=0.9861
+[nig_product_clustered_10pct_seed3042] step 210/390 mean_mse=0.0098 mean_cert=0.9879
+[nig_product_clustered_10pct_seed3042] step 240/390 mean_mse=0.0093 mean_cert=0.9904
+[nig_product_clustered_10pct_seed3042] step 270/390 mean_mse=0.0123 mean_cert=0.9921
+[nig_product_clustered_10pct_seed3042] step 300/390 mean_mse=0.0064 mean_cert=0.9936
+[nig_product_clustered_10pct_seed3042] step 330/390 mean_mse=0.0016 mean_cert=0.9953
+[nig_product_clustered_10pct_seed3042] step 360/390 mean_mse=0.0136 mean_cert=0.9962
+
+### nig_product_clustered_10pct_seed3042 ###
+    dead_zone: 36 cells (7.4% of grid)
+    threshold: covered_mse=0.012848641838042242 covered_cert=0.9964115179034528
+    paired_vs_control: n=448 mean_diff=+0.00015 t=1.699 p=0.0901
+    cert-mse r: pre=-0.5432 post=-0.2260
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=14.25
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [43/55] clustered_25pct_seed3042  (elapsed 207.5 min)
+[nig_product_clustered_25pct_seed3042] step 000/390 mean_mse=0.1030 mean_cert=0.9464
+[nig_product_clustered_25pct_seed3042] step 030/390 mean_mse=0.0721 mean_cert=0.9646
+[nig_product_clustered_25pct_seed3042] step 060/390 mean_mse=0.0390 mean_cert=0.9757
+[nig_product_clustered_25pct_seed3042] step 090/390 mean_mse=0.0260 mean_cert=0.9830
+[nig_product_clustered_25pct_seed3042] step 120/390 mean_mse=0.0260 mean_cert=0.9877
+[nig_product_clustered_25pct_seed3042] step 150/390 mean_mse=0.0157 mean_cert=0.9893
+[nig_product_clustered_25pct_seed3042] step 180/390 mean_mse=0.0137 mean_cert=0.9863
+[nig_product_clustered_25pct_seed3042] step 210/390 mean_mse=0.0101 mean_cert=0.9873
+[nig_product_clustered_25pct_seed3042] step 240/390 mean_mse=0.0089 mean_cert=0.9909
+[nig_product_clustered_25pct_seed3042] step 270/390 mean_mse=0.0098 mean_cert=0.9922
+[nig_product_clustered_25pct_seed3042] step 300/390 mean_mse=0.0068 mean_cert=0.9939
+[nig_product_clustered_25pct_seed3042] step 330/390 mean_mse=0.0015 mean_cert=0.9950
+[nig_product_clustered_25pct_seed3042] step 360/390 mean_mse=0.0132 mean_cert=0.9963
+
+### nig_product_clustered_25pct_seed3042 ###
+    dead_zone: 93 cells (19.2% of grid)
+    threshold: covered_mse=0.012670375280550816 covered_cert=0.9964198016074947
+    paired_vs_control: n=391 mean_diff=+0.00067 t=3.680 p=0.0003
+    cert-mse r: pre=-0.5432 post=-0.2771
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=13.56
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [44/55] clustered_40pct_seed3042  (elapsed 212.6 min)
+[nig_product_clustered_40pct_seed3042] step 000/390 mean_mse=0.1030 mean_cert=0.9464
+[nig_product_clustered_40pct_seed3042] step 030/390 mean_mse=0.0721 mean_cert=0.9646
+[nig_product_clustered_40pct_seed3042] step 060/390 mean_mse=0.0389 mean_cert=0.9757
+[nig_product_clustered_40pct_seed3042] step 090/390 mean_mse=0.0260 mean_cert=0.9829
+[nig_product_clustered_40pct_seed3042] step 120/390 mean_mse=0.0260 mean_cert=0.9877
+[nig_product_clustered_40pct_seed3042] step 150/390 mean_mse=0.0171 mean_cert=0.9886
+[nig_product_clustered_40pct_seed3042] step 180/390 mean_mse=0.0132 mean_cert=0.9855
+[nig_product_clustered_40pct_seed3042] step 210/390 mean_mse=0.0094 mean_cert=0.9873
+[nig_product_clustered_40pct_seed3042] step 240/390 mean_mse=0.0102 mean_cert=0.9903
+[nig_product_clustered_40pct_seed3042] step 270/390 mean_mse=0.0060 mean_cert=0.9923
+[nig_product_clustered_40pct_seed3042] step 300/390 mean_mse=0.0074 mean_cert=0.9936
+[nig_product_clustered_40pct_seed3042] step 330/390 mean_mse=0.0013 mean_cert=0.9946
+[nig_product_clustered_40pct_seed3042] step 360/390 mean_mse=0.0145 mean_cert=0.9956
+
+### nig_product_clustered_40pct_seed3042 ###
+    dead_zone: 150 cells (31.0% of grid)
+    threshold: covered_mse=0.012836100252928886 covered_cert=0.9960366445203155
+    paired_vs_control: n=334 mean_diff=+0.00061 t=3.059 p=0.0024
+    cert-mse r: pre=-0.5432 post=-0.1971
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=12.55
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [45/55] random_0pct_seed4042  (elapsed 217.1 min)
+[nig_product_random_0pct_seed4042] step 000/390 mean_mse=0.0996 mean_cert=0.9466
+[nig_product_random_0pct_seed4042] step 030/390 mean_mse=0.0697 mean_cert=0.9668
+[nig_product_random_0pct_seed4042] step 060/390 mean_mse=0.0430 mean_cert=0.9787
+[nig_product_random_0pct_seed4042] step 090/390 mean_mse=0.0332 mean_cert=0.9869
+[nig_product_random_0pct_seed4042] step 120/390 mean_mse=0.0309 mean_cert=0.9899
+[nig_product_random_0pct_seed4042] step 150/390 mean_mse=0.0185 mean_cert=0.9878
+[nig_product_random_0pct_seed4042] step 180/390 mean_mse=0.0175 mean_cert=0.9902
+[nig_product_random_0pct_seed4042] step 210/390 mean_mse=0.0087 mean_cert=0.9929
+[nig_product_random_0pct_seed4042] step 240/390 mean_mse=0.0109 mean_cert=0.9945
+[nig_product_random_0pct_seed4042] step 270/390 mean_mse=0.0074 mean_cert=0.9951
+[nig_product_random_0pct_seed4042] step 300/390 mean_mse=0.0083 mean_cert=0.9942
+[nig_product_random_0pct_seed4042] step 330/390 mean_mse=0.0022 mean_cert=0.9947
+[nig_product_random_0pct_seed4042] step 360/390 mean_mse=0.0128 mean_cert=0.9959
+
+### nig_product_random_0pct_seed4042 ###
+    dead_zone: 0 cells (0.0% of grid)
+    threshold: covered_mse=0.01418170174031768 covered_cert=0.9955714508907518
+    cert-mse r: pre=-0.3222 post=-0.0902
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=15.00
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [46/55] random_10pct_seed4042  (elapsed 223.1 min)
+[nig_product_random_10pct_seed4042] step 000/390 mean_mse=0.0996 mean_cert=0.9466
+[nig_product_random_10pct_seed4042] step 030/390 mean_mse=0.0697 mean_cert=0.9668
+[nig_product_random_10pct_seed4042] step 060/390 mean_mse=0.0430 mean_cert=0.9787
+[nig_product_random_10pct_seed4042] step 090/390 mean_mse=0.0330 mean_cert=0.9869
+[nig_product_random_10pct_seed4042] step 120/390 mean_mse=0.0310 mean_cert=0.9899
+[nig_product_random_10pct_seed4042] step 150/390 mean_mse=0.0184 mean_cert=0.9876
+[nig_product_random_10pct_seed4042] step 180/390 mean_mse=0.0200 mean_cert=0.9892
+[nig_product_random_10pct_seed4042] step 210/390 mean_mse=0.0080 mean_cert=0.9919
+[nig_product_random_10pct_seed4042] step 240/390 mean_mse=0.0112 mean_cert=0.9938
+[nig_product_random_10pct_seed4042] step 270/390 mean_mse=0.0098 mean_cert=0.9940
+[nig_product_random_10pct_seed4042] step 300/390 mean_mse=0.0069 mean_cert=0.9932
+[nig_product_random_10pct_seed4042] step 330/390 mean_mse=0.0024 mean_cert=0.9934
+[nig_product_random_10pct_seed4042] step 360/390 mean_mse=0.0127 mean_cert=0.9946
+
+### nig_product_random_10pct_seed4042 ###
+    dead_zone: 0 cells (0.0% of grid)
+    threshold: covered_mse=0.013454791274862788 covered_cert=0.9943167471955364
+    paired_vs_control: n=484 mean_diff=-0.00073 t=-7.525 p=0.0000
+    cert-mse r: pre=-0.3239 post=-0.0912
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=13.38
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [47/55] random_25pct_seed4042  (elapsed 228.8 min)
+[nig_product_random_25pct_seed4042] step 000/390 mean_mse=0.0996 mean_cert=0.9466
+[nig_product_random_25pct_seed4042] step 030/390 mean_mse=0.0697 mean_cert=0.9668
+[nig_product_random_25pct_seed4042] step 060/390 mean_mse=0.0430 mean_cert=0.9787
+[nig_product_random_25pct_seed4042] step 090/390 mean_mse=0.0332 mean_cert=0.9869
+[nig_product_random_25pct_seed4042] step 120/390 mean_mse=0.0308 mean_cert=0.9899
+[nig_product_random_25pct_seed4042] step 150/390 mean_mse=0.0191 mean_cert=0.9861
+[nig_product_random_25pct_seed4042] step 180/390 mean_mse=0.0211 mean_cert=0.9875
+[nig_product_random_25pct_seed4042] step 210/390 mean_mse=0.0068 mean_cert=0.9895
+[nig_product_random_25pct_seed4042] step 240/390 mean_mse=0.0137 mean_cert=0.9921
+[nig_product_random_25pct_seed4042] step 270/390 mean_mse=0.0130 mean_cert=0.9910
+[nig_product_random_25pct_seed4042] step 300/390 mean_mse=0.0063 mean_cert=0.9901
+[nig_product_random_25pct_seed4042] step 330/390 mean_mse=0.0030 mean_cert=0.9908
+[nig_product_random_25pct_seed4042] step 360/390 mean_mse=0.0117 mean_cert=0.9920
+
+### nig_product_random_25pct_seed4042 ###
+    dead_zone: 9 cells (1.9% of grid)
+    threshold: covered_mse=0.01277466142689452 covered_cert=0.9919557361208478
+    paired_vs_control: n=475 mean_diff=-0.00125 t=-8.710 p=0.0000
+    cert-mse r: pre=-0.3241 post=-0.1377
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=10.81
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [48/55] random_40pct_seed4042  (elapsed 234.1 min)
+[nig_product_random_40pct_seed4042] step 000/390 mean_mse=0.0996 mean_cert=0.9466
+[nig_product_random_40pct_seed4042] step 030/390 mean_mse=0.0697 mean_cert=0.9668
+[nig_product_random_40pct_seed4042] step 060/390 mean_mse=0.0430 mean_cert=0.9787
+[nig_product_random_40pct_seed4042] step 090/390 mean_mse=0.0333 mean_cert=0.9869
+[nig_product_random_40pct_seed4042] step 120/390 mean_mse=0.0309 mean_cert=0.9899
+[nig_product_random_40pct_seed4042] step 150/390 mean_mse=0.0189 mean_cert=0.9852
+[nig_product_random_40pct_seed4042] step 180/390 mean_mse=0.0140 mean_cert=0.9862
+[nig_product_random_40pct_seed4042] step 210/390 mean_mse=0.0084 mean_cert=0.9878
+[nig_product_random_40pct_seed4042] step 240/390 mean_mse=0.0117 mean_cert=0.9890
+[nig_product_random_40pct_seed4042] step 270/390 mean_mse=0.0119 mean_cert=0.9894
+[nig_product_random_40pct_seed4042] step 300/390 mean_mse=0.0090 mean_cert=0.9897
+[nig_product_random_40pct_seed4042] step 330/390 mean_mse=0.0015 mean_cert=0.9916
+[nig_product_random_40pct_seed4042] step 360/390 mean_mse=0.0121 mean_cert=0.9917
+
+### nig_product_random_40pct_seed4042 ###
+    dead_zone: 45 cells (9.3% of grid)
+    threshold: covered_mse=0.012049448839444681 covered_cert=0.9919284109721914
+    paired_vs_control: n=439 mean_diff=-0.00224 t=-14.355 p=0.0000
+    cert-mse r: pre=-0.3218 post=-0.1804
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=8.64
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [49/55] random_50pct_seed4042  (elapsed 239.0 min)
+[nig_product_random_50pct_seed4042] step 000/390 mean_mse=0.0996 mean_cert=0.9466
+[nig_product_random_50pct_seed4042] step 030/390 mean_mse=0.0697 mean_cert=0.9668
+[nig_product_random_50pct_seed4042] step 060/390 mean_mse=0.0430 mean_cert=0.9787
+[nig_product_random_50pct_seed4042] step 090/390 mean_mse=0.0332 mean_cert=0.9869
+[nig_product_random_50pct_seed4042] step 120/390 mean_mse=0.0309 mean_cert=0.9899
+[nig_product_random_50pct_seed4042] step 150/390 mean_mse=0.0178 mean_cert=0.9863
+[nig_product_random_50pct_seed4042] step 180/390 mean_mse=0.0180 mean_cert=0.9854
+[nig_product_random_50pct_seed4042] step 210/390 mean_mse=0.0069 mean_cert=0.9863
+[nig_product_random_50pct_seed4042] step 240/390 mean_mse=0.0110 mean_cert=0.9882
+[nig_product_random_50pct_seed4042] step 270/390 mean_mse=0.0111 mean_cert=0.9889
+[nig_product_random_50pct_seed4042] step 300/390 mean_mse=0.0066 mean_cert=0.9869
+[nig_product_random_50pct_seed4042] step 330/390 mean_mse=0.0022 mean_cert=0.9878
+[nig_product_random_50pct_seed4042] step 360/390 mean_mse=0.0103 mean_cert=0.9890
+
+### nig_product_random_50pct_seed4042 ###
+    dead_zone: 34 cells (7.0% of grid)
+    threshold: covered_mse=0.00937167817085961 covered_cert=0.9881764807230214
+    paired_vs_control: n=450 mean_diff=-0.00476 t=-20.362 p=0.0000
+    cert-mse r: pre=-0.3239 post=-0.0872
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=6.22
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [50/55] random_55pct_seed4042  (elapsed 243.8 min)
+[nig_product_random_55pct_seed4042] step 000/390 mean_mse=0.0996 mean_cert=0.9466
+[nig_product_random_55pct_seed4042] step 030/390 mean_mse=0.0697 mean_cert=0.9668
+[nig_product_random_55pct_seed4042] step 060/390 mean_mse=0.0430 mean_cert=0.9787
+[nig_product_random_55pct_seed4042] step 090/390 mean_mse=0.0332 mean_cert=0.9869
+[nig_product_random_55pct_seed4042] step 120/390 mean_mse=0.0310 mean_cert=0.9899
+[nig_product_random_55pct_seed4042] step 150/390 mean_mse=0.0163 mean_cert=0.9841
+[nig_product_random_55pct_seed4042] step 180/390 mean_mse=0.0141 mean_cert=0.9839
+[nig_product_random_55pct_seed4042] step 210/390 mean_mse=0.0067 mean_cert=0.9859
+[nig_product_random_55pct_seed4042] step 240/390 mean_mse=0.0134 mean_cert=0.9855
+[nig_product_random_55pct_seed4042] step 270/390 mean_mse=0.0098 mean_cert=0.9858
+[nig_product_random_55pct_seed4042] step 300/390 mean_mse=0.0122 mean_cert=0.9853
+[nig_product_random_55pct_seed4042] step 330/390 mean_mse=0.0023 mean_cert=0.9880
+[nig_product_random_55pct_seed4042] step 360/390 mean_mse=0.0136 mean_cert=0.9892
+
+### nig_product_random_55pct_seed4042 ###
+    dead_zone: 72 cells (14.9% of grid)
+    threshold: covered_mse=0.014395197408483194 covered_cert=0.9879771179650526
+    paired_vs_control: n=412 mean_diff=-0.00121 t=-7.652 p=0.0000
+    cert-mse r: pre=-0.3234 post=-0.3100
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=6.25
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [51/55] random_60pct_seed4042  (elapsed 248.4 min)
+[nig_product_random_60pct_seed4042] step 000/390 mean_mse=0.0996 mean_cert=0.9466
+[nig_product_random_60pct_seed4042] step 030/390 mean_mse=0.0697 mean_cert=0.9668
+[nig_product_random_60pct_seed4042] step 060/390 mean_mse=0.0430 mean_cert=0.9787
+[nig_product_random_60pct_seed4042] step 090/390 mean_mse=0.0333 mean_cert=0.9869
+[nig_product_random_60pct_seed4042] step 120/390 mean_mse=0.0309 mean_cert=0.9899
+[nig_product_random_60pct_seed4042] step 150/390 mean_mse=0.0180 mean_cert=0.9822
+[nig_product_random_60pct_seed4042] step 180/390 mean_mse=0.0243 mean_cert=0.9783
+[nig_product_random_60pct_seed4042] step 210/390 mean_mse=0.0119 mean_cert=0.9773
+[nig_product_random_60pct_seed4042] step 240/390 mean_mse=0.0099 mean_cert=0.9788
+[nig_product_random_60pct_seed4042] step 270/390 mean_mse=0.0086 mean_cert=0.9811
+[nig_product_random_60pct_seed4042] step 300/390 mean_mse=0.0074 mean_cert=0.9810
+[nig_product_random_60pct_seed4042] step 330/390 mean_mse=0.0024 mean_cert=0.9806
+[nig_product_random_60pct_seed4042] step 360/390 mean_mse=0.0086 mean_cert=0.9835
+
+### nig_product_random_60pct_seed4042 ###
+    dead_zone: 61 cells (12.6% of grid)
+    threshold: covered_mse=0.010003060371490105 covered_cert=0.9822581910830583
+    paired_vs_control: n=423 mean_diff=-0.00379 t=-12.146 p=0.0000
+    cert-mse r: pre=-0.3228 post=-0.3262
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=4.43
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [52/55] random_65pct_seed4042  (elapsed 252.8 min)
+[nig_product_random_65pct_seed4042] step 000/390 mean_mse=0.0996 mean_cert=0.9466
+[nig_product_random_65pct_seed4042] step 030/390 mean_mse=0.0697 mean_cert=0.9668
+[nig_product_random_65pct_seed4042] step 060/390 mean_mse=0.0430 mean_cert=0.9787
+[nig_product_random_65pct_seed4042] step 090/390 mean_mse=0.0332 mean_cert=0.9869
+[nig_product_random_65pct_seed4042] step 120/390 mean_mse=0.0308 mean_cert=0.9899
+[nig_product_random_65pct_seed4042] step 150/390 mean_mse=0.0180 mean_cert=0.9807
+[nig_product_random_65pct_seed4042] step 180/390 mean_mse=0.0246 mean_cert=0.9748
+[nig_product_random_65pct_seed4042] step 210/390 mean_mse=0.0086 mean_cert=0.9761
+[nig_product_random_65pct_seed4042] step 240/390 mean_mse=0.0123 mean_cert=0.9797
+[nig_product_random_65pct_seed4042] step 270/390 mean_mse=0.0130 mean_cert=0.9780
+[nig_product_random_65pct_seed4042] step 300/390 mean_mse=0.0067 mean_cert=0.9774
+[nig_product_random_65pct_seed4042] step 330/390 mean_mse=0.0028 mean_cert=0.9785
+[nig_product_random_65pct_seed4042] step 360/390 mean_mse=0.0115 mean_cert=0.9817
+
+### nig_product_random_65pct_seed4042 ###
+    dead_zone: 91 cells (18.8% of grid)
+    threshold: covered_mse=0.012739415965003014 covered_cert=0.9805520164361664
+    paired_vs_control: n=393 mean_diff=-0.00202 t=-11.112 p=0.0000
+    cert-mse r: pre=-0.3237 post=-0.3632
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=4.92
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [53/55] clustered_10pct_seed4042  (elapsed 257.1 min)
+[nig_product_clustered_10pct_seed4042] step 000/390 mean_mse=0.0996 mean_cert=0.9466
+[nig_product_clustered_10pct_seed4042] step 030/390 mean_mse=0.0697 mean_cert=0.9668
+[nig_product_clustered_10pct_seed4042] step 060/390 mean_mse=0.0430 mean_cert=0.9787
+[nig_product_clustered_10pct_seed4042] step 090/390 mean_mse=0.0330 mean_cert=0.9869
+[nig_product_clustered_10pct_seed4042] step 120/390 mean_mse=0.0309 mean_cert=0.9899
+[nig_product_clustered_10pct_seed4042] step 150/390 mean_mse=0.0185 mean_cert=0.9886
+[nig_product_clustered_10pct_seed4042] step 180/390 mean_mse=0.0168 mean_cert=0.9916
+[nig_product_clustered_10pct_seed4042] step 210/390 mean_mse=0.0081 mean_cert=0.9935
+[nig_product_clustered_10pct_seed4042] step 240/390 mean_mse=0.0077 mean_cert=0.9951
+[nig_product_clustered_10pct_seed4042] step 270/390 mean_mse=0.0077 mean_cert=0.9957
+[nig_product_clustered_10pct_seed4042] step 300/390 mean_mse=0.0068 mean_cert=0.9949
+[nig_product_clustered_10pct_seed4042] step 330/390 mean_mse=0.0019 mean_cert=0.9946
+[nig_product_clustered_10pct_seed4042] step 360/390 mean_mse=0.0125 mean_cert=0.9957
+
+### nig_product_clustered_10pct_seed4042 ###
+    dead_zone: 36 cells (7.4% of grid)
+    threshold: covered_mse=0.011751937603305132 covered_cert=0.9953041982847297
+    paired_vs_control: n=448 mean_diff=-0.00109 t=-12.922 p=0.0000
+    cert-mse r: pre=-0.3231 post=-0.0966
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=14.25
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [54/55] clustered_25pct_seed4042  (elapsed 263.0 min)
+[nig_product_clustered_25pct_seed4042] step 000/390 mean_mse=0.0996 mean_cert=0.9466
+[nig_product_clustered_25pct_seed4042] step 030/390 mean_mse=0.0697 mean_cert=0.9668
+[nig_product_clustered_25pct_seed4042] step 060/390 mean_mse=0.0430 mean_cert=0.9787
+[nig_product_clustered_25pct_seed4042] step 090/390 mean_mse=0.0332 mean_cert=0.9869
+[nig_product_clustered_25pct_seed4042] step 120/390 mean_mse=0.0308 mean_cert=0.9899
+[nig_product_clustered_25pct_seed4042] step 150/390 mean_mse=0.0179 mean_cert=0.9903
+[nig_product_clustered_25pct_seed4042] step 180/390 mean_mse=0.0139 mean_cert=0.9924
+[nig_product_clustered_25pct_seed4042] step 210/390 mean_mse=0.0071 mean_cert=0.9942
+[nig_product_clustered_25pct_seed4042] step 240/390 mean_mse=0.0072 mean_cert=0.9952
+[nig_product_clustered_25pct_seed4042] step 270/390 mean_mse=0.0053 mean_cert=0.9957
+[nig_product_clustered_25pct_seed4042] step 300/390 mean_mse=0.0096 mean_cert=0.9949
+[nig_product_clustered_25pct_seed4042] step 330/390 mean_mse=0.0016 mean_cert=0.9949
+[nig_product_clustered_25pct_seed4042] step 360/390 mean_mse=0.0131 mean_cert=0.9959
+
+### nig_product_clustered_25pct_seed4042 ###
+    dead_zone: 93 cells (19.2% of grid)
+    threshold: covered_mse=0.011528907468761028 covered_cert=0.9954874743722205
+    paired_vs_control: n=391 mean_diff=-0.00084 t=-6.700 p=0.0000
+    cert-mse r: pre=-0.3225 post=-0.0885
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=13.56
+    unreachable_nodes=0 []
+=== DONE ===
+
+>>> [55/55] clustered_40pct_seed4042  (elapsed 268.5 min)
+[nig_product_clustered_40pct_seed4042] step 000/390 mean_mse=0.0996 mean_cert=0.9466
+[nig_product_clustered_40pct_seed4042] step 030/390 mean_mse=0.0697 mean_cert=0.9668
+[nig_product_clustered_40pct_seed4042] step 060/390 mean_mse=0.0430 mean_cert=0.9787
+[nig_product_clustered_40pct_seed4042] step 090/390 mean_mse=0.0332 mean_cert=0.9869
+[nig_product_clustered_40pct_seed4042] step 120/390 mean_mse=0.0308 mean_cert=0.9899
+[nig_product_clustered_40pct_seed4042] step 150/390 mean_mse=0.0183 mean_cert=0.9903
+[nig_product_clustered_40pct_seed4042] step 180/390 mean_mse=0.0112 mean_cert=0.9930
+[nig_product_clustered_40pct_seed4042] step 210/390 mean_mse=0.0067 mean_cert=0.9944
+[nig_product_clustered_40pct_seed4042] step 240/390 mean_mse=0.0073 mean_cert=0.9951
+[nig_product_clustered_40pct_seed4042] step 270/390 mean_mse=0.0052 mean_cert=0.9955
+[nig_product_clustered_40pct_seed4042] step 300/390 mean_mse=0.0099 mean_cert=0.9941
+[nig_product_clustered_40pct_seed4042] step 330/390 mean_mse=0.0024 mean_cert=0.9942
+[nig_product_clustered_40pct_seed4042] step 360/390 mean_mse=0.0140 mean_cert=0.9956
+
+### nig_product_clustered_40pct_seed4042 ###
+    dead_zone: 150 cells (31.0% of grid)
+    threshold: covered_mse=0.011045161313143058 covered_cert=0.9952107920132583
+    paired_vs_control: n=334 mean_diff=-0.00165 t=-12.039 p=0.0000
+    cert-mse r: pre=-0.3236 post=-0.1461
+    graph: pre_components=1 post_components=1 pre_degree=15.00 post_degree=12.55
+    unreachable_nodes=0 []
+=== DONE ===
+
+=== NODE-LOSS RERUN COMPLETE: 55 ok, 0 failed, 273.1 min ===
+=== DONE ===

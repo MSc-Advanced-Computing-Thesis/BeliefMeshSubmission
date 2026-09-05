@@ -165,7 +165,7 @@ def fig_52():
 
     for col_i, (vals, ref, ylab, title) in enumerate((
             (cov, 0.90, "90% coverage", "coverage"),
-            (rat, 1.00, "half-width : RMS", "interval vs error"))):
+            (rat, 1.00, "hw : RMS", "hw : RMS"))):
         a = fig.add_subplot(gs[1, col_i])
         a.bar(x, [v[0] for v in vals], 0.66, yerr=[v[1] for v in vals], capsize=3,
               color=cols, edgecolor="white", lw=0.6)
@@ -292,46 +292,153 @@ def fig_55():
 
 
 # ---------------------------------------------------------------- 5.7
+# ESTIMATOR. Both panels now come from s5_7_node_loss_avg, the rerun that
+# stores the contributor beliefs. The right panel's surviving-region
+# difference is on the AVERAGED readout (w_i = 1/N), matching every other
+# cell-space figure in the chapter; run_node_loss_averaged.py computes it and
+# writes the CSV below. The original runs could not support this -- they
+# stored only the argmax belief -- which is why the section was rerun.
+#
+# The left panel is dead-zone fraction: pure geometry, estimator-independent,
+# and verified identical between the original and rerun manifests in all 55
+# runs. It is read from the same new root so the figure has one provenance.
+NODE_LOSS_ROOT = "runs/chapter5_v2/s5_7_node_loss_avg"
+NODE_LOSS_CSV = Path("runs/chapter5_v2/node_loss_paired_averaged.csv")
+
+
+def _averaged_node_loss():
+    if not NODE_LOSS_CSV.exists():
+        raise SystemExit(
+            "%s is missing -- run: "
+            "python -u experiments/section5_2/run_node_loss_averaged.py"
+            % NODE_LOSS_CSV)
+    out = {}
+    with open(NODE_LOSS_CSV, encoding="utf8") as f:
+        hdr = f.readline().strip().split(",")
+        ic, im, isd = (hdr.index("condition"), hdr.index("averaged_mean_diff"),
+                       hdr.index("averaged_sd_across_seeds"))
+        for line in f:
+            v = line.strip().split(",")
+            if len(v) > max(ic, im, isd):
+                out[v[ic]] = (float(v[im]), float(v[isd]))
+    return out
+
+
+def _node_loss_calibration():
+    """hw:RMS for the failed run and its control, per condition, on the SAME
+    cells the paired difference uses. Written by run_node_loss_calibration.py."""
+    p = Path("runs/chapter5_v2/node_loss_calibration.csv")
+    if not p.exists():
+        raise SystemExit(
+            "%s is missing -- run: "
+            "python -u experiments/section5_2/run_node_loss_calibration.py" % p)
+    out = {}
+    with open(p, encoding="utf8") as f:
+        h = f.readline().strip().split(",")
+        i = {k: h.index(k) for k in
+             ("condition", "hw_rms_failed", "hw_rms_failed_sd", "hw_rms_control",
+              "coverage_failed", "coverage_failed_sd", "coverage_control")}
+        for line in f:
+            v = line.strip().split(",")
+            if len(v) >= len(h):
+                out[v[i["condition"]]] = dict(
+                    hw=(float(v[i["hw_rms_failed"]]), float(v[i["hw_rms_failed_sd"]]),
+                        float(v[i["hw_rms_control"]])),
+                    cov=(float(v[i["coverage_failed"]]), float(v[i["coverage_failed_sd"]]),
+                         float(v[i["coverage_control"]])))
+    return out
+
+
 def fig_57():
+    AVG = _averaged_node_loss()
+    CAL = _node_loss_calibration()
     G = defaultdict(list)
-    for p in sorted(glob.glob("runs/chapter5_v2/s5_7_node_loss/*/manifest.yaml")):
+    for p in sorted(glob.glob(NODE_LOSS_ROOT + "/*/manifest.yaml")):
         m = yaml.safe_load(open(p))
         r = m["results"]
         n = os.path.basename(os.path.dirname(p)).rsplit("_seed", 1)[0]
-        pv = r.get("paired_vs_control") or {}
-        G[n].append((r.get("dead_zone_fraction"), pv.get("mean_diff")))
+        G[n].append((r.get("dead_zone_fraction"), None))
     def parse(n):
         return ("clustered" if "clustered" in n else "random",
                 int(n.split("_")[-1].replace("pct", "")))
     series = defaultdict(list)
     for n, v in G.items():
         kind, pct = parse(n)
-        series[kind].append((pct, ms([x[0] for x in v]),
-                             ms([x[1] for x in v if x[1] is not None]) if any(x[1] is not None for x in v) else None))
-    fig, axes = plt.subplots(1, 2, figsize=(W, 2.3))
-    fig.subplots_adjust(left=0.095, right=0.985, bottom=0.175, top=0.90, wspace=0.32)
+        # dead-zone fraction from the manifests; surviving-region difference
+        # from the averaged-readout recomputation, already seed-aggregated
+        series[kind].append((pct, ms([x[0] for x in v]), AVG.get(n), CAL.get(n)))
+    # WIDER THAN THE CHAPTER'S 6.3 in STANDARD, deliberately: four panels at
+    # 6.3 left each one 1.07 in, which fit but with no headroom. Christian
+    # approved running this figure into the margins. Every other figure in the
+    # chapter stays at W.
+    W57 = 7.6
+    fig, axes = plt.subplots(1, 4, figsize=(W57, 2.45))
+    # wspace wide enough that each y-label sits nearer its OWN panel than the
+    # one to its left; labelpad below pulls it the rest of the way in. bottom
+    # leaves a strip for the shared legend.
+    fig.subplots_adjust(left=0.068, right=0.995, bottom=0.285, top=0.90, wspace=0.46)
     for kind, col, mk in (("random", INK, "o-"), ("clustered", RED, "s--")):
         pts = sorted(series[kind])
         ax = axes[0]
-        ax.errorbar([p[0] for p in pts], [p[1][0] for p in pts],
-                    yerr=[p[1][1] for p in pts], fmt=mk, color=col, ms=4, lw=1.3,
-                    capsize=2.5, label=kind)
+        # per cent, so both axes of this panel read in the same unit
+        ax.errorbar([p[0] for p in pts], [100 * p[1][0] for p in pts],
+                    yerr=[100 * p[1][1] for p in pts], fmt=mk, color=col, ms=4,
+                    lw=1.3, capsize=2.5, label=kind)
     axes[0].set_xlabel("nodes failed (%)", fontsize=8)
-    axes[0].set_ylabel("dead-zone fraction", fontsize=8)
-    axes[0].set_title("coverage loss", fontsize=9)
+    axes[0].set_ylabel("dead-zone (%)", fontsize=8, labelpad=2)
+    axes[0].set_title("cell coverage loss", fontsize=9)
     axes[0].tick_params(labelsize=8)
-    axes[0].legend(fontsize=6.8, frameon=False)
     ax = axes[1]
     for kind, col, mk in (("random", INK, "o-"), ("clustered", RED, "s--")):
         pts = [p for p in sorted(series[kind]) if p[2] is not None]
-        ax.errorbar([p[0] for p in pts], [p[2][0] for p in pts],
-                    yerr=[p[2][1] for p in pts], fmt=mk, color=col, ms=4, lw=1.3,
-                    capsize=2.5, label=kind)
+        ax.errorbar([p[0] for p in pts], [1e3 * p[2][0] for p in pts],
+                    yerr=[1e3 * p[2][1] for p in pts], fmt=mk, color=col, ms=4,
+                    lw=1.3, capsize=2.5, label=kind)
     ax.axhline(0.0, color=GREY, ls=":", lw=1.0)
     ax.set_xlabel("nodes failed (%)", fontsize=8)
-    ax.set_ylabel("MSE diff vs 0% control", fontsize=8)
-    ax.set_title("surviving region", fontsize=9)
+    ax.set_ylabel(r"MSE diff ($\times 10^{-3}$)", fontsize=8, labelpad=2)
+    ax.set_title("surviving performance", fontsize=9)
     ax.tick_params(labelsize=8)
+
+    # Third panel: interval calibration, computable for this section only since
+    # the rerun stored the contributor beliefs. Random loss strips coverage
+    # DEPTH from the surviving cells (mean n_cov 4.09 -> 1.80 at 65%), so the
+    # averaged rule fuses less evidence and the interval widens toward the
+    # empirical 90% band. Clustered loss removes a contiguous block and leaves
+    # the surviving region's overlap almost intact (3.96 -> 3.23 at 40%), so it
+    # stays flat. The control line is the same quantity on the same cells with
+    # no nodes failed, which is why it is flat by construction.
+    # coverage before hw:RMS, and both titled as the chapter's other
+    # calibration panels title them
+    for ax, key, ylab, title in ((axes[2], "cov", "90% coverage", "coverage"),
+                                 (axes[3], "hw", "hw : RMS", "hw : RMS")):
+        ctrl = [p[3][key][2] for k in ("random", "clustered")
+                for p in series[k] if p[3]]
+        if key == "hw":
+            _cal_band(ax, on_top=False)
+        else:
+            # nominal 0.90, drawn as everywhere else in the chapter
+            ax.axhline(0.90, color=RED, ls=":", lw=1.0)
+        # named in the shared legend now, so no in-panel annotation
+        ax.axhline(st.mean(ctrl), color=GREY, ls=":", lw=1.0)
+        for kind, col, mk in (("random", INK, "o-"), ("clustered", RED, "s--")):
+            pts = [p for p in sorted(series[kind]) if p[3] is not None]
+            ax.errorbar([p[0] for p in pts], [p[3][key][0] for p in pts],
+                        yerr=[p[3][key][1] for p in pts], fmt=mk, color=col,
+                        ms=4, lw=1.3, capsize=2.5)
+        ax.set_xlabel("nodes failed (%)", fontsize=8)
+        ax.set_ylabel(ylab, fontsize=8, labelpad=2)
+        ax.set_title(title, fontsize=9)
+        ax.tick_params(labelsize=8)
+
+    fig.legend(handles=[plt.Line2D([], [], color=INK, marker="o", ls="-", ms=4,
+                                   lw=1.3, label="random loss"),
+                        plt.Line2D([], [], color=RED, marker="s", ls="--", ms=4,
+                                   lw=1.3, label="clustered loss"),
+                        plt.Line2D([], [], color=GREY, ls=":", lw=1.0,
+                                   label="0% control")],
+               loc="lower center", ncol=3, frameon=False, fontsize=7,
+               handlelength=2.0, columnspacing=1.6, bbox_to_anchor=(0.5, -0.015))
     save(fig, "ch5_5_7_node_loss")
 
 
@@ -385,7 +492,11 @@ def fig_57_maps():
 
     ENV = Path("experiments/stage6_spatial_mesh/environment_v2")
     centres = np.load(ENV / "node_centres.npy")
-    base = "runs/chapter5_v2/s5_7_node_loss/nig_product_%s_40pct_seed42"
+    # same rerun root as fig_57, so both 5.7 figures have one provenance.
+    # These panels are pure geometry (coverage_count, failure_ids), verified
+    # bit-identical between the original runs and the rerun, so the picture
+    # is unchanged -- only where it is read from.
+    base = NODE_LOSS_ROOT + "/nig_product_%s_40pct_seed42"
     panels = [("random", "random loss"), ("clustered", "clustered loss")]
 
     maps, dead, failed = {}, {}, {}
@@ -421,8 +532,10 @@ def fig_57_maps():
         gone = sorted(failed[kind])
         ax.plot(centres[alive, 0], centres[alive, 1], "o", ms=3.6,
                 mfc="white", mec=INK, mew=0.8, ls="none")
-        ax.plot(centres[gone, 0], centres[gone, 1], "X", ms=5.2,
-                mfc="white", mec=INK, mew=0.8, ls="none")
+        # failed nodes in red: shape alone was too weak a cue against the
+        # survivors, which share the white fill and ink edge
+        ax.plot(centres[gone, 0], centres[gone, 1], "X", ms=6.4,
+                mfc=RED, mec="white", mew=0.9, ls="none", zorder=5)
         ax.set_title("%s, %d dead cells" % (lab, dead[kind]), fontsize=9)
         ax.set_xticks([0, 7, 14, 21])
         ax.set_yticks([0, 7, 14, 21])
@@ -439,8 +552,8 @@ def fig_57_maps():
     fig.legend(handles=[Patch(facecolor="#4a4a4a", label="dead cell (0 nodes)"),
                         Line2D([], [], marker="o", ls="none", mfc="white",
                                mec=INK, mew=0.8, ms=3.6, label="surviving node"),
-                        Line2D([], [], marker="X", ls="none", mfc="white",
-                               mec=INK, mew=0.8, ms=5.2, label="failed node")],
+                        Line2D([], [], marker="X", ls="none", mfc=RED,
+                               mec="white", mew=0.9, ms=6.4, label="failed node")],
                loc="lower center", ncol=3, fontsize=7, frameon=False,
                bbox_to_anchor=(0.46, -0.012))
     save(fig, "ch5_5_7_coverage_maps")

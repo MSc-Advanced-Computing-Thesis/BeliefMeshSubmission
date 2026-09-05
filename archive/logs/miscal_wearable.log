@@ -1,0 +1,227 @@
+
+>>> [1/5] seed 42  (elapsed 0.0 min)
+[miscal_seed42] nodes=36 coverage max=9 mode=nig_product steps=390
+[miscal_seed42] step 000/390 trained 36/36 | hop0: 0.1081 | hop1: 0.1006
+[miscal_seed42] step 010/390 trained 36/36 | hop0: 0.0658 | hop1: 0.0885
+[miscal_seed42] step 020/390 trained 36/36 | hop0: 0.0712 | hop1: 0.0700 | hop2: 0.0827
+[miscal_seed42] step 030/390 trained 36/36 | hop0: 0.0542 | hop1: 0.0689 | hop2: 0.1025
+[miscal_seed42] step 040/390 trained 36/36 | hop0: 0.0437 | hop1: 0.0596 | hop2: 0.0638
+[miscal_seed42] step 050/390 trained 36/36 | hop0: 0.0464 | hop1: 0.0439 | hop2: 0.0514
+[miscal_seed42] step 060/390 trained 36/36 | hop0: 0.0313 | hop1: 0.0446 | hop2: 0.0601
+[miscal_seed42] step 070/390 trained 36/36 | hop0: 0.0247 | hop1: 0.0374 | hop2: 0.0623
+[miscal_seed42] step 080/390 trained 36/36 | hop0: 0.0172 | hop1: 0.0352 | hop2: 0.0876
+[miscal_seed42] step 090/390 trained 36/36 | hop0: 0.0210 | hop1: 0.0306
+[miscal_seed42] step 100/390 trained 36/36 | hop0: 0.0177 | hop1: 0.0248 | hop2: 0.0280
+[miscal_seed42] step 110/390 trained 36/36 | hop0: 0.0264 | hop1: 0.0167 | hop2: 0.0164
+[miscal_seed42] step 120/390 trained 36/36 | hop0: 0.0237 | hop1: 0.0273 | hop2: 0.0300
+[miscal_seed42] step 130/390 trained 36/36 | hop0: 0.0145 | hop1: 0.0363 | hop2: 0.0606
+[miscal_seed42] step 140/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0316 | hop2: 0.0459
+[miscal_seed42] step 150/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0219 | hop2: 0.0731
+[miscal_seed42] step 160/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0202 | hop2: 0.0641
+[miscal_seed42] step 170/390 trained 36/36 | hop0: 0.0049 | hop1: 0.0107 | hop2: 0.0442
+[miscal_seed42] step 180/390 trained 36/36 | hop0: 0.0042 | hop1: 0.0047 | hop2: 0.0154
+[miscal_seed42] step 190/390 trained 36/36 | hop0: 0.0063 | hop1: 0.0064 | hop2: 0.0221
+[miscal_seed42] step 200/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0069 | hop2: 0.0190
+[miscal_seed42] step 210/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0078 | hop2: 0.0092
+[miscal_seed42] step 220/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0072
+[miscal_seed42] step 230/390 trained 36/36 | hop0: 0.0056 | hop1: 0.0070 | hop2: 0.0125
+[miscal_seed42] step 240/390 trained 36/36 | hop0: 0.0083 | hop1: 0.0087 | hop2: 0.0200
+[miscal_seed42] step 250/390 trained 36/36 | hop0: 0.0112 | hop1: 0.0116 | hop2: 0.0256
+[miscal_seed42] step 260/390 trained 36/36 | hop0: 0.0085 | hop1: 0.0163
+[miscal_seed42] step 270/390 trained 36/36 | hop0: 0.0100 | hop1: 0.0168 | hop2: 0.0061
+[miscal_seed42] step 280/390 trained 36/36 | hop0: 0.0050 | hop1: 0.0189
+[miscal_seed42] step 290/390 trained 36/36 | hop0: 0.0201 | hop1: 0.0118 | hop2: 0.0149
+[miscal_seed42] step 300/390 trained 36/36 | hop0: 0.0225 | hop1: 0.0086 | hop2: 0.0127
+[miscal_seed42] step 310/390 trained 36/36 | hop0: 0.0182 | hop1: 0.0118 | hop2: 0.0042
+[miscal_seed42] step 320/390 trained 36/36 | hop0: 0.0220 | hop1: 0.0105 | hop2: 0.0012
+[miscal_seed42] step 330/390 trained 36/36 | hop0: 0.0109 | hop1: 0.0157 | hop2: 0.0045
+[miscal_seed42] step 340/390 trained 36/36 | hop0: 0.0103 | hop1: 0.0136
+[miscal_seed42] step 350/390 trained 36/36 | hop0: 0.0129 | hop1: 0.0131 | hop2: 0.0024
+[miscal_seed42] step 360/390 trained 36/36 | hop0: 0.0106 | hop1: 0.0145 | hop2: 0.0053
+[miscal_seed42] step 370/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0113 | hop2: 0.0104
+[miscal_seed42] step 380/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0097 | hop2: 0.0169
+[miscal_seed42] mean MSE (last 50 steps): 0.0143 | cert-MSE r=-0.345
+[miscal_seed42] saved runs\chapter5_v2\s5_miscal_wearable\miscal_seed42\figures\results.png
+### miscal_seed42: last50=0.01425 whole_run=0.02697
+
+>>> [2/5] seed 1042  (elapsed 7.4 min)
+[miscal_seed1042] nodes=36 coverage max=9 mode=nig_product steps=390
+[miscal_seed1042] step 000/390 trained 36/36 | hop0: 0.0929 | hop1: 0.1057
+[miscal_seed1042] step 010/390 trained 36/36 | hop0: 0.0771 | hop1: 0.0843 | hop2: 0.1447
+[miscal_seed1042] step 020/390 trained 36/36 | hop0: 0.0596 | hop1: 0.0688
+[miscal_seed1042] step 030/390 trained 36/36 | hop0: 0.0678 | hop1: 0.0732 | hop2: 0.0734
+[miscal_seed1042] step 040/390 trained 36/36 | hop0: 0.0549 | hop1: 0.0577 | hop2: 0.0952
+[miscal_seed1042] step 050/390 trained 36/36 | hop0: 0.0455 | hop1: 0.0432 | hop2: 0.0679
+[miscal_seed1042] step 060/390 trained 36/36 | hop0: 0.0419 | hop1: 0.0410 | hop2: 0.0620
+[miscal_seed1042] step 070/390 trained 36/36 | hop0: 0.0332 | hop1: 0.0351 | hop2: 0.0627
+[miscal_seed1042] step 080/390 trained 36/36 | hop0: 0.0227 | hop1: 0.0348 | hop2: 0.1016
+[miscal_seed1042] step 090/390 trained 36/36 | hop0: 0.0222 | hop1: 0.0262 | hop2: 0.0565
+[miscal_seed1042] step 100/390 trained 36/36 | hop0: 0.0216 | hop1: 0.0210
+[miscal_seed1042] step 110/390 trained 36/36 | hop0: 0.0134 | hop1: 0.0205 | hop2: 0.0292
+[miscal_seed1042] step 120/390 trained 36/36 | hop0: 0.0184 | hop1: 0.0226 | hop2: 0.0424
+[miscal_seed1042] step 130/390 trained 36/36 | hop0: 0.0230 | hop1: 0.0229 | hop2: 0.0476
+[miscal_seed1042] step 140/390 trained 36/36 | hop0: 0.0310 | hop1: 0.0161 | hop2: 0.0578
+[miscal_seed1042] step 150/390 trained 36/36 | hop0: 0.0252 | hop1: 0.0171 | hop2: 0.0454
+[miscal_seed1042] step 160/390 trained 36/36 | hop0: 0.0097 | hop1: 0.0168 | hop2: 0.0412
+[miscal_seed1042] step 170/390 trained 36/36 | hop0: 0.0104 | hop1: 0.0186 | hop2: 0.0365
+[miscal_seed1042] step 180/390 trained 36/36 | hop0: 0.0154 | hop1: 0.0259 | hop2: 0.0519
+[miscal_seed1042] step 190/390 trained 36/36 | hop0: 0.0165 | hop1: 0.0345
+[miscal_seed1042] step 200/390 trained 36/36 | hop0: 0.0087 | hop1: 0.0267 | hop2: 0.0022
+[miscal_seed1042] step 210/390 trained 36/36 | hop0: 0.0090 | hop1: 0.0118
+[miscal_seed1042] step 220/390 trained 36/36 | hop0: 0.0055 | hop1: 0.0081 | hop2: 0.0181
+[miscal_seed1042] step 230/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0084 | hop2: 0.0112
+[miscal_seed1042] step 240/390 trained 36/36 | hop0: 0.0073 | hop1: 0.0130 | hop2: 0.0193
+[miscal_seed1042] step 250/390 trained 36/36 | hop0: 0.0121 | hop1: 0.0140 | hop2: 0.0469
+[miscal_seed1042] step 260/390 trained 36/36 | hop0: 0.0134 | hop1: 0.0192 | hop2: 0.0553
+[miscal_seed1042] step 270/390 trained 36/36 | hop0: 0.0158 | hop1: 0.0177
+[miscal_seed1042] step 280/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0183
+[miscal_seed1042] step 290/390 trained 36/36 | hop0: 0.0041 | hop1: 0.0171
+[miscal_seed1042] step 300/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0148 | hop2: 0.0045
+[miscal_seed1042] step 310/390 trained 36/36 | hop0: 0.0032 | hop1: 0.0085 | hop2: 0.0139
+[miscal_seed1042] step 320/390 trained 36/36 | hop0: 0.0049 | hop1: 0.0053 | hop2: 0.0078
+[miscal_seed1042] step 330/390 trained 36/36 | hop0: 0.0060 | hop1: 0.0027 | hop2: 0.0038
+[miscal_seed1042] step 340/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0057 | hop2: 0.0046
+[miscal_seed1042] step 350/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0133 | hop2: 0.0166
+[miscal_seed1042] step 360/390 trained 36/36 | hop0: 0.0062 | hop1: 0.0112 | hop2: 0.0453
+[miscal_seed1042] step 370/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0116 | hop2: 0.0303
+[miscal_seed1042] step 380/390 trained 36/36 | hop0: 0.0106 | hop1: 0.0095 | hop2: 0.0175
+[miscal_seed1042] mean MSE (last 50 steps): 0.0153 | cert-MSE r=-0.231
+[miscal_seed1042] saved runs\chapter5_v2\s5_miscal_wearable\miscal_seed1042\figures\results.png
+### miscal_seed1042: last50=0.01529 whole_run=0.02793
+
+>>> [3/5] seed 2042  (elapsed 14.8 min)
+[miscal_seed2042] nodes=36 coverage max=9 mode=nig_product steps=390
+[miscal_seed2042] step 000/390 trained 36/36 | hop0: 0.0981 | hop1: 0.0853 | hop2: 0.0981
+[miscal_seed2042] step 010/390 trained 36/36 | hop0: 0.0876 | hop1: 0.1015 | hop2: 0.0987
+[miscal_seed2042] step 020/390 trained 36/36 | hop0: 0.0694 | hop1: 0.0804 | hop2: 0.0929
+[miscal_seed2042] step 030/390 trained 36/36 | hop0: 0.0668 | hop1: 0.0613 | hop2: 0.0840
+[miscal_seed2042] step 040/390 trained 36/36 | hop0: 0.0432 | hop1: 0.0653 | hop2: 0.0938
+[miscal_seed2042] step 050/390 trained 36/36 | hop0: 0.0455 | hop1: 0.0533 | hop2: 0.0721 | hop3: 0.0991
+[miscal_seed2042] step 060/390 trained 36/36 | hop0: 0.0455 | hop1: 0.0418 | hop2: 0.0819
+[miscal_seed2042] step 070/390 trained 36/36 | hop0: 0.0382 | hop1: 0.0438 | hop2: 0.0705
+[miscal_seed2042] step 080/390 trained 36/36 | hop0: 0.0292 | hop1: 0.0375 | hop2: 0.0689
+[miscal_seed2042] step 090/390 trained 36/36 | hop0: 0.0168 | hop1: 0.0301 | hop2: 0.0716
+[miscal_seed2042] step 100/390 trained 36/36 | hop0: 0.0164 | hop1: 0.0219 | hop2: 0.0359
+[miscal_seed2042] step 110/390 trained 36/36 | hop0: 0.0166 | hop1: 0.0191 | hop2: 0.0285
+[miscal_seed2042] step 120/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0289
+[miscal_seed2042] step 130/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0261 | hop2: 0.1414
+[miscal_seed2042] step 140/390 trained 36/36 | hop0: 0.0114 | hop1: 0.0291 | hop2: 0.1222
+[miscal_seed2042] step 150/390 trained 36/36 | hop0: 0.0077 | hop1: 0.0237 | hop2: 0.0670
+[miscal_seed2042] step 160/390 trained 36/36 | hop0: 0.0085 | hop1: 0.0284 | hop2: 0.0601
+[miscal_seed2042] step 170/390 trained 36/36 | hop0: 0.0089 | hop1: 0.0267 | hop2: 0.0574
+[miscal_seed2042] step 180/390 trained 36/36 | hop0: 0.0107 | hop1: 0.0155 | hop2: 0.0225
+[miscal_seed2042] step 190/390 trained 36/36 | hop0: 0.0108 | hop1: 0.0196 | hop2: 0.0178
+[miscal_seed2042] step 200/390 trained 36/36 | hop0: 0.0123 | hop1: 0.0210
+[miscal_seed2042] step 210/390 trained 36/36 | hop0: 0.0333 | hop1: 0.0206
+[miscal_seed2042] step 220/390 trained 36/36 | hop0: 0.0143 | hop1: 0.0397 | hop2: 0.0499
+[miscal_seed2042] step 230/390 trained 36/36 | hop0: 0.0123 | hop1: 0.0451 | hop2: 0.0783
+[miscal_seed2042] step 240/390 trained 36/36 | hop0: 0.0153 | hop1: 0.0352 | hop2: 0.0840
+[miscal_seed2042] step 250/390 trained 36/36 | hop0: 0.0118 | hop1: 0.0274 | hop2: 0.0526
+[miscal_seed2042] step 260/390 trained 36/36 | hop0: 0.0146 | hop1: 0.0200 | hop2: 0.0468
+[miscal_seed2042] step 270/390 trained 36/36 | hop0: 0.0172 | hop1: 0.0149 | hop2: 0.0241 | hop3: 0.0445
+[miscal_seed2042] step 280/390 trained 36/36 | hop0: 0.0186 | hop1: 0.0239 | hop2: 0.0213
+[miscal_seed2042] step 290/390 trained 36/36 | hop0: 0.0084 | hop1: 0.0345 | hop2: 0.0285
+[miscal_seed2042] step 300/390 trained 36/36 | hop0: 0.0033 | hop1: 0.0152 | hop2: 0.0565 | hop3: 0.0371
+[miscal_seed2042] step 310/390 trained 36/36 | hop0: 0.0061 | hop1: 0.0139 | hop2: 0.0517 | hop3: 0.0321
+[miscal_seed2042] step 320/390 trained 36/36 | hop0: 0.0100 | hop1: 0.0170 | hop2: 0.0368
+[miscal_seed2042] step 330/390 trained 36/36 | hop0: 0.0165 | hop1: 0.0173 | hop2: 0.0174 | hop3: 0.0191
+[miscal_seed2042] step 340/390 trained 36/36 | hop0: 0.0127 | hop1: 0.0117 | hop2: 0.0076 | hop3: 0.0116
+[miscal_seed2042] step 350/390 trained 36/36 | hop0: 0.0082 | hop1: 0.0093 | hop2: 0.0129 | hop3: 0.0259
+[miscal_seed2042] step 360/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0108 | hop2: 0.0337
+[miscal_seed2042] step 370/390 trained 36/36 | hop0: 0.0065 | hop1: 0.0181 | hop2: 0.0787
+[miscal_seed2042] step 380/390 trained 36/36 | hop0: 0.0087 | hop1: 0.0131 | hop2: 0.0406
+[miscal_seed2042] mean MSE (last 50 steps): 0.0188 | cert-MSE r=0.014
+[miscal_seed2042] saved runs\chapter5_v2\s5_miscal_wearable\miscal_seed2042\figures\results.png
+### miscal_seed2042: last50=0.01885 whole_run=0.03458
+
+>>> [4/5] seed 3042  (elapsed 22.2 min)
+[miscal_seed3042] nodes=36 coverage max=9 mode=nig_product steps=390
+[miscal_seed3042] step 000/390 trained 36/36 | hop0: 0.0955 | hop1: 0.0930 | hop2: 0.1606
+[miscal_seed3042] step 010/390 trained 36/36 | hop0: 0.0728 | hop1: 0.1023
+[miscal_seed3042] step 020/390 trained 36/36 | hop0: 0.0740 | hop1: 0.0893
+[miscal_seed3042] step 030/390 trained 36/36 | hop0: 0.0673 | hop1: 0.0823
+[miscal_seed3042] step 040/390 trained 36/36 | hop0: 0.0597 | hop1: 0.0636
+[miscal_seed3042] step 050/390 trained 36/36 | hop0: 0.0422 | hop1: 0.0508 | hop2: 0.0587
+[miscal_seed3042] step 060/390 trained 36/36 | hop0: 0.0463 | hop1: 0.0452 | hop2: 0.0646
+[miscal_seed3042] step 070/390 trained 36/36 | hop0: 0.0296 | hop1: 0.0413 | hop2: 0.0897
+[miscal_seed3042] step 080/390 trained 36/36 | hop0: 0.0215 | hop1: 0.0331 | hop2: 0.1001
+[miscal_seed3042] step 090/390 trained 36/36 | hop0: 0.0183 | hop1: 0.0266 | hop2: 0.0674 | hop3: 0.0798
+[miscal_seed3042] step 100/390 trained 36/36 | hop0: 0.0174 | hop1: 0.0229 | hop2: 0.0501
+[miscal_seed3042] step 110/390 trained 36/36 | hop0: 0.0150 | hop1: 0.0228 | hop2: 0.0362
+[miscal_seed3042] step 120/390 trained 36/36 | hop0: 0.0160 | hop1: 0.0303 | hop2: 0.0260
+[miscal_seed3042] step 130/390 trained 36/36 | hop0: 0.0192 | hop1: 0.0346 | hop2: 0.0496
+[miscal_seed3042] step 140/390 trained 36/36 | hop0: 0.0305 | hop1: 0.0208 | hop2: 0.0115
+[miscal_seed3042] step 150/390 trained 36/36 | hop0: 0.0247 | hop1: 0.0124 | hop2: 0.0049
+[miscal_seed3042] step 160/390 trained 36/36 | hop0: 0.0199 | hop1: 0.0176 | hop2: 0.0045
+[miscal_seed3042] step 170/390 trained 36/36 | hop0: 0.0235 | hop1: 0.0211 | hop2: 0.0043
+[miscal_seed3042] step 180/390 trained 36/36 | hop0: 0.0294 | hop1: 0.0122
+[miscal_seed3042] step 190/390 trained 36/36 | hop0: 0.0227 | hop1: 0.0110
+[miscal_seed3042] step 200/390 trained 36/36 | hop0: 0.0151 | hop1: 0.0135
+[miscal_seed3042] step 210/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0126 | hop2: 0.0073
+[miscal_seed3042] step 220/390 trained 36/36 | hop0: 0.0058 | hop1: 0.0090 | hop2: 0.0068
+[miscal_seed3042] step 230/390 trained 36/36 | hop0: 0.0081 | hop1: 0.0079 | hop2: 0.0056
+[miscal_seed3042] step 240/390 trained 36/36 | hop0: 0.0103 | hop1: 0.0098 | hop2: 0.0264
+[miscal_seed3042] step 250/390 trained 36/36 | hop0: 0.0116 | hop1: 0.0137 | hop2: 0.0542
+[miscal_seed3042] step 260/390 trained 36/36 | hop0: 0.0158 | hop1: 0.0223 | hop2: 0.0648
+[miscal_seed3042] step 270/390 trained 36/36 | hop0: 0.0133 | hop1: 0.0172 | hop2: 0.0328
+[miscal_seed3042] step 280/390 trained 36/36 | hop0: 0.0033 | hop1: 0.0132 | hop2: 0.0223
+[miscal_seed3042] step 290/390 trained 36/36 | hop0: 0.0038 | hop1: 0.0157
+[miscal_seed3042] step 300/390 trained 36/36 | hop0: 0.0080 | hop1: 0.0135 | hop2: 0.0142
+[miscal_seed3042] step 310/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0117 | hop2: 0.0106
+[miscal_seed3042] step 320/390 trained 36/36 | hop0: 0.0053 | hop1: 0.0059 | hop2: 0.0080
+[miscal_seed3042] step 330/390 trained 36/36 | hop0: 0.0051 | hop1: 0.0027
+[miscal_seed3042] step 340/390 trained 36/36 | hop0: 0.0037 | hop1: 0.0026
+[miscal_seed3042] step 350/390 trained 36/36 | hop0: 0.0075 | hop1: 0.0045 | hop2: 0.0064
+[miscal_seed3042] step 360/390 trained 36/36 | hop0: 0.0099 | hop1: 0.0097 | hop2: 0.0146
+[miscal_seed3042] step 370/390 trained 36/36 | hop0: 0.0105 | hop1: 0.0195
+[miscal_seed3042] step 380/390 trained 36/36 | hop0: 0.0191 | hop1: 0.0229 | hop2: 0.0047
+[miscal_seed3042] mean MSE (last 50 steps): 0.0139 | cert-MSE r=-0.125
+[miscal_seed3042] saved runs\chapter5_v2\s5_miscal_wearable\miscal_seed3042\figures\results.png
+### miscal_seed3042: last50=0.01392 whole_run=0.02704
+
+>>> [5/5] seed 4042  (elapsed 29.4 min)
+[miscal_seed4042] nodes=36 coverage max=9 mode=nig_product steps=390
+[miscal_seed4042] step 000/390 trained 36/36 | hop0: 0.0889 | hop1: 0.0983 | hop2: 0.1188
+[miscal_seed4042] step 010/390 trained 36/36 | hop0: 0.0683 | hop1: 0.0839
+[miscal_seed4042] step 020/390 trained 36/36 | hop0: 0.0636 | hop1: 0.0808 | hop2: 0.1377
+[miscal_seed4042] step 030/390 trained 36/36 | hop0: 0.0629 | hop1: 0.0703 | hop2: 0.0727
+[miscal_seed4042] step 040/390 trained 36/36 | hop0: 0.0537 | hop1: 0.0609 | hop2: 0.0746
+[miscal_seed4042] step 050/390 trained 36/36 | hop0: 0.0413 | hop1: 0.0548 | hop2: 0.0829
+[miscal_seed4042] step 060/390 trained 36/36 | hop0: 0.0397 | hop1: 0.0407 | hop2: 0.0671
+[miscal_seed4042] step 070/390 trained 36/36 | hop0: 0.0388 | hop1: 0.0433 | hop2: 0.0624
+[miscal_seed4042] step 080/390 trained 36/36 | hop0: 0.0325 | hop1: 0.0416 | hop2: 0.0497
+[miscal_seed4042] step 090/390 trained 36/36 | hop0: 0.0251 | hop1: 0.0403 | hop2: 0.0464 | hop3: 0.0522
+[miscal_seed4042] step 100/390 trained 36/36 | hop0: 0.0270 | hop1: 0.0330 | hop2: 0.0336 | hop3: 0.0396
+[miscal_seed4042] step 110/390 trained 36/36 | hop0: 0.0295 | hop1: 0.0342 | hop2: 0.0557
+[miscal_seed4042] step 120/390 trained 36/36 | hop0: 0.0283 | hop1: 0.0274 | hop2: 0.0286
+[miscal_seed4042] step 130/390 trained 36/36 | hop0: 0.0289 | hop1: 0.0284
+[miscal_seed4042] step 140/390 trained 36/36 | hop0: 0.0272 | hop1: 0.0148 | hop2: 0.0301
+[miscal_seed4042] step 150/390 trained 36/36 | hop0: 0.0231 | hop1: 0.0176 | hop2: 0.0262
+[miscal_seed4042] step 160/390 trained 36/36 | hop0: 0.0113 | hop1: 0.0267 | hop2: 0.0353
+[miscal_seed4042] step 170/390 trained 36/36 | hop0: 0.0134 | hop1: 0.0270 | hop2: 0.0434
+[miscal_seed4042] step 180/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0324 | hop2: 0.0467
+[miscal_seed4042] step 190/390 trained 36/36 | hop0: 0.0146 | hop1: 0.0211 | hop2: 0.0358
+[miscal_seed4042] step 200/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0171 | hop2: 0.0240
+[miscal_seed4042] step 210/390 trained 36/36 | hop0: 0.0107 | hop1: 0.0109 | hop2: 0.0083
+[miscal_seed4042] step 220/390 trained 36/36 | hop0: 0.0074 | hop1: 0.0086 | hop2: 0.0115
+[miscal_seed4042] step 230/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0080
+[miscal_seed4042] step 240/390 trained 36/36 | hop0: 0.0076 | hop1: 0.0138
+[miscal_seed4042] step 250/390 trained 36/36 | hop0: 0.0049 | hop1: 0.0123 | hop2: 0.0205
+[miscal_seed4042] step 260/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0121 | hop2: 0.0269
+[miscal_seed4042] step 270/390 trained 36/36 | hop0: 0.0094 | hop1: 0.0088 | hop2: 0.0195
+[miscal_seed4042] step 280/390 trained 36/36 | hop0: 0.0050 | hop1: 0.0120 | hop2: 0.0208
+[miscal_seed4042] step 290/390 trained 36/36 | hop0: 0.0044 | hop1: 0.0152 | hop2: 0.0413
+[miscal_seed4042] step 300/390 trained 36/36 | hop0: 0.0064 | hop1: 0.0232 | hop2: 0.0588
+[miscal_seed4042] step 310/390 trained 36/36 | hop0: 0.0138 | hop1: 0.0181 | hop2: 0.0477
+[miscal_seed4042] step 320/390 trained 36/36 | hop0: 0.0039 | hop1: 0.0191 | hop2: 0.0602
+[miscal_seed4042] step 330/390 trained 36/36 | hop0: 0.0066 | hop1: 0.0100 | hop2: 0.0407
+[miscal_seed4042] step 340/390 trained 36/36 | hop0: 0.0116 | hop1: 0.0085 | hop2: 0.0037
+[miscal_seed4042] step 350/390 trained 36/36 | hop0: 0.0175 | hop1: 0.0118 | hop2: 0.0033
+[miscal_seed4042] step 360/390 trained 36/36 | hop0: 0.0172 | hop1: 0.0193
+[miscal_seed4042] step 370/390 trained 36/36 | hop0: 0.0129 | hop1: 0.0312 | hop2: 0.0941
+[miscal_seed4042] step 380/390 trained 36/36 | hop0: 0.0122 | hop1: 0.0346 | hop2: 0.1349
+[miscal_seed4042] mean MSE (last 50 steps): 0.0245 | cert-MSE r=-0.247
+[miscal_seed4042] saved runs\chapter5_v2\s5_miscal_wearable\miscal_seed4042\figures\results.png
+### miscal_seed4042: last50=0.02451 whole_run=0.03161
+
+=== MISCALIBRATED WEARABLE COMPLETE: 36.5 min ===

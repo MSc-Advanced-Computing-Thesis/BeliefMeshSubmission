@@ -10,6 +10,7 @@ DISPLAY = {
     "certainty": "Certainty",
     "nig_product": "Product fusion",
     "nig_product_avgtrain": "Average fusion",
+    "avgfusion": "Average fusion",
     "nig_product_weighted": "Weighted product fusion",
     # parameter-exchange comparators (Section 5.5)
     "fusion": "Product fusion",
@@ -22,6 +23,7 @@ DISPLAY = {
 WRAPPED = {
     "nig_product": "Product\nfusion",
     "nig_product_avgtrain": "Average\nfusion",
+    "avgfusion": "Average\nfusion",
     "gossip_uniform": "Gossip\nuniform",
     "gossip_weighted": "Gossip\nweighted",
     "fusion": "Product\nfusion",

@@ -44,6 +44,7 @@ from __future__ import annotations
 import argparse
 import random
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 import matplotlib
@@ -63,6 +64,7 @@ from stage6_spatial_mesh.run_offset_experiments import (build_dynamic_offset_fie
 from beliefmesh.config import load_config
 from beliefmesh.data.grid_environment import GridEnvironment
 from beliefmesh.fusion.grid import circular_grid
+from beliefmesh.fusion.nig_product import fuse_nig_product
 from beliefmesh.metrics.circular import circular_diff
 from beliefmesh.node.mesh import Mesh
 
@@ -321,6 +323,31 @@ def run_condition(failure_mode: str, fraction: float, seed: int = 42, mesh_mode:
     cell_mse_steps = np.full((T, G, G), np.nan)
     cell_cert_steps = np.full((T, G, G), np.nan)
 
+    # SAVE-ONLY ADDITION (2026-09-03). This script writes its own save block
+    # rather than calling runner.run_mesh_experiment, so the arrays the
+    # AVERAGED readout needs -- every covering node's belief, not just the
+    # argmax one -- were never written for this section, and Section 5.7 was
+    # the only cell-space result in Chapter 5 still on the argmax estimator.
+    #
+    # Names, shapes and dtypes mirror runner.py's save block exactly so the
+    # same readers work on both. Purely additive: the step_best selection
+    # below is unchanged (same iteration order, same strict >), so
+    # cell_mse_steps and cell_cert_steps are bit-identical to before -- which
+    # --verify-inert asserts against the stored runs.
+    #
+    # Coverage is taken over ALL nodes, pre-failure, matching runner.py's
+    # _max_cov semantics; failure only ever reduces the count.
+    _cov_full = np.zeros((G, G), dtype=int)
+    for _i in mesh.nodes:
+        for (_r, _c) in mesh.nodes[_i].fov_cells:
+            _cov_full[_r, _c] += 1
+    _max_cov = max(1, int(_cov_full.max()))
+    cell_nig_steps = np.full((T, G, G, 3), np.nan)
+    cell_hop_steps = np.full((T, G, G), np.nan)
+    cell_beliefs_steps = np.full((T, G, G, _max_cov, 4), np.nan, dtype=np.float32)
+    cell_ncov_steps = np.zeros((T, G, G), dtype=np.int16)
+    cell_fused_steps = np.full((T, G, G, 4), np.nan, dtype=np.float32)
+
     pre_failure_graph_stats = mesh.overlap_graph_stats()
     post_failure_graph_stats = pre_failure_graph_stats
 
@@ -332,17 +359,33 @@ def run_condition(failure_mode: str, fraction: float, seed: int = 42, mesh_mode:
             post_failure_graph_stats = mesh.overlap_graph_stats()
         mesh.run_timestep(positions, step)
 
+        # step_best is unchanged in behaviour: same iteration order, same
+        # strict >, so the same node wins every tie it won before. It now
+        # carries (nu, alpha, beta, hop) alongside, which were already in
+        # scope, and step_all collects every covering belief.
         step_best = {}
+        step_all = defaultdict(list)
         for node in mesh.nodes.values():
             for cell, (g, n, a, b) in node.cell_beliefs.items():
                 cert = 1.0 / (1.0 + min(b / (max(n, 1e-6) * max(a - 1, 1e-6)), 10.0))
+                step_all[cell].append((g, n, a, b))
                 if cell not in step_best or cert > step_best[cell][1]:
-                    step_best[cell] = (g, cert)
-        for cell, (pred, cert) in step_best.items():
+                    step_best[cell] = (g, cert, n, a, b, node.hop_distance)
+        for cell, blist in step_all.items():
+            k = min(len(blist), _max_cov)
+            cell_ncov_steps[step, cell[0], cell[1]] = k
+            cell_beliefs_steps[step, cell[0], cell[1], :k] = np.asarray(
+                blist[:k], dtype=np.float32)
+            cell_fused_steps[step, cell[0], cell[1]] = np.asarray(
+                fuse_nig_product(blist), dtype=np.float32)
+        for cell, (pred, cert, nu_b, al_b, be_b, hop_b) in step_best.items():
             _, truth = env.get_cell_input(cell[0], cell[1], step)
             err = circular_diff(torch.tensor(pred), truth).item() ** 2
             cell_mse_steps[step, cell[0], cell[1]] = err
             cell_cert_steps[step, cell[0], cell[1]] = cert
+            cell_nig_steps[step, cell[0], cell[1]] = (nu_b, al_b, be_b)
+            if hop_b is not None:
+                cell_hop_steps[step, cell[0], cell[1]] = float(hop_b)
 
         if step % 30 == 0 or step == FAILURE_STEP:
             with np.errstate(invalid="ignore"):
@@ -359,6 +402,12 @@ def run_condition(failure_mode: str, fraction: float, seed: int = 42, mesh_mode:
     np.save(run_dir / "cell_mse_steps.npy", cell_mse_steps)
     np.save(run_dir / "cell_cert_steps.npy", cell_cert_steps)
     np.save(run_dir / "coverage_count.npy", coverage_count)
+    # the averaged-readout arrays; same names runner.py uses
+    np.save(run_dir / "cell_nig_steps.npy", cell_nig_steps)
+    np.save(run_dir / "cell_hop_steps.npy", cell_hop_steps)
+    np.save(run_dir / "cell_beliefs_steps.npy", cell_beliefs_steps)
+    np.save(run_dir / "cell_ncov_steps.npy", cell_ncov_steps)
+    np.save(run_dir / "cell_fused_steps.npy", cell_fused_steps)
 
     control_mse = control_cert = None
     if fraction > 0:

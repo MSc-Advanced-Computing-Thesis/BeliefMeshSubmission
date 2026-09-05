@@ -180,8 +180,8 @@ def fig_routing():
               handlelength=1.4, columnspacing=1.0)
 
     for ax_, key, lab, ref, title in ((axes[1], "cov", "90% coverage", 0.90, "coverage"),
-                                      (axes[2], "ratio", "half-width : RMS", 1.0,
-                                       "interval vs error")):
+                                      (axes[2], "ratio", "hw : RMS", 1.0,
+                                       "hw : RMS")):
         ax_.bar(x, [a[1][key][0] for a in A], 0.55,
                 yerr=[a[1][key][1] for a in A], capsize=3,
                 color=[a[2] for a in A], edgecolor="white", lw=0.5)

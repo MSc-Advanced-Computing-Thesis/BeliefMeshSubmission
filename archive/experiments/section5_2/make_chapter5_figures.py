@@ -94,7 +94,7 @@ def fig_density():
 
     for ax_, key, lab, col, ref, title in (
             (axes[1], "cov", "90% coverage", BLUE, 0.90, "coverage"),
-            (axes[2], "ratio", "half-width : RMS", GREEN, 1.0, "interval vs error")):
+            (axes[2], "ratio", "hw : RMS", GREEN, 1.0, "hw : RMS")):
         mu = [ms([r[key] for r, _ in v])[0] for _, v in pts]
         sd = [ms([r[key] for r, _ in v])[1] for _, v in pts]
         ax_.errorbar(x, mu, yerr=sd, fmt="o-", color=col, ms=4, lw=1.3, capsize=2.5)
@@ -124,41 +124,78 @@ def fig_density():
 
 def fig_heterogeneity():
     """5.6: the arms separate under heterogeneity but not under homogeneity."""
-    het = collect("runs/chapter5_v2/s5_6_het/*/manifest.yaml",
-                  lambda d, m: d.name.rsplit("_seed", 1)[0].replace("het_", ""))
+    # FILTER-ON THROUGHOUT (2026-09-05). The chapter standardises on
+    # apply_colour_filter=True. The heterogeneity comparator passes False
+    # explicitly, so its arms were rerun with the flag overridden
+    # (s5_6_het_fon); the homogeneous sources below were already filter-on.
+    # Before this the figure mixed the two renderings, which differ by 0.486
+    # mean absolute on the model's input tensor and by up to 6.8x in whole-run
+    # MSE -- the homogeneous/heterogeneous contrast was confounded with it.
+    het = collect("runs/chapter5_v2/s5_6_het_fon/*/*/manifest.yaml",
+                  lambda d, m: d.parent.name)
     hom = collect("runs/chapter5_v2/s531_b2/*/manifest.yaml",
                   lambda d, m: d.name.rsplit("_seed", 1)[0])
     hom = {k.replace("_sampled", ""): v for k, v in hom.items()
            if k.endswith("_sampled")}
-    arms = ["nig_product", "naive", "certainty"]
-    cols = {"nig_product": INK, "naive": RED, "certainty": BLUE}
+    # Homogeneous Average fusion: the averaged-training diagnostic, whose
+    # manifest matches s531_b2's on every field except track_compute_cost
+    # (instrumentation only) -- same 36 all-baseline nodes, sampled targets,
+    # lam and lr. Named "avgfusion" here to match the regeneration's arm key.
+    hom["avgfusion"] = collect(
+        "runs/chapter5_v2/s5_diag_avg_training/*/manifest.yaml",
+        lambda d, m: "avgfusion").get("avgfusion", [])
+    # bar order matches the tables: Naive, Certainty, Product fusion, Average
+    arms = ["naive", "certainty", "nig_product", "avgfusion"]
+    cols = {"nig_product": INK, "naive": RED, "certainty": BLUE,
+            "avgfusion": "#E6821B"}   # same orange the fusion-rule figures use
 
-    fig, axes = plt.subplots(1, 3, figsize=(WIDTH, 2.3))
-    fig.subplots_adjust(left=0.095, right=0.995, bottom=0.185, top=0.895, wspace=0.40)
+    W57 = 7.6   # wider than the 6.3 standard: see the legibility note below
+    fig, axes = plt.subplots(1, 4, figsize=(W57, 2.55))
+    fig.subplots_adjust(left=0.082, right=0.995, bottom=0.145, top=0.885,
+                        wspace=0.42)
     w = 0.35
-    for ax, key, lab in ((axes[0], "whole", "whole-run MSE"),
-                         (axes[1], "last50", "last-50 MSE"),
-                         (axes[2], "ratio", "half-width : RMS")):
+    for ax, key, lab, title in ((axes[0], "whole", "whole-run MSE", "whole-run"),
+                                (axes[1], "last50", "last-50 MSE", "last-50"),
+                                (axes[2], "cov", "90% coverage", "coverage"),
+                                (axes[3], "ratio", "hw : RMS", "hw : RMS")):
         for i, arm in enumerate(arms):
-            for j, (src, hatch, tag) in enumerate(((hom, "", "homog"),
-                                                   (het, "///", "heterog"))):
-                if arm not in src:
+            for j, (src, hatch, tag) in enumerate(((hom, "", "homogeneous"),
+                                                   (het, "///", "heterogeneous"))):
+                if arm not in src or not src[arm]:
                     continue
                 mu, sd = ms([r[key] for r, _ in src[arm]])
                 ax.bar(i + (j - 0.5) * w, mu, w, yerr=sd, capsize=2,
                        color=cols[arm], alpha=0.95 if j == 0 else 0.45,
                        hatch=hatch, edgecolor="white", linewidth=0.5,
                        label=tag if i == 0 else None)
-        ax.set_xticks(range(len(arms)))
-        ax.set_xticklabels([_arm_name(a_, wrapped=True) for a_ in arms],
-                           fontsize=7.5)
-        ax.set_ylabel(lab, fontsize=8)
+        if key == "cov":
+            ax.axhline(0.90, color=RED, ls=":", lw=1.0)
+            ax.set_ylim(0, 1.10)
+        # No per-arm tick labels: four two-line arm names do not fit a 1.34 in
+        # panel and collided. Colour already carries the arm, so the names go
+        # in the shared legend and the axis stays clean.
+        ax.set_xticks([])
+        ax.set_ylabel(lab, fontsize=8, labelpad=2)
+        ax.set_title(title, fontsize=9)
         ax.tick_params(labelsize=8)
-    _cal_band(axes[2], on_top=True); _cal_ylim(axes[2])
-    axes[1].legend(fontsize=6.5, frameon=False, loc="upper left")
-    axes[0].set_title("accuracy", fontsize=9)
-    axes[1].set_title("steady state", fontsize=9)
-    axes[2].set_title("interval vs error", fontsize=9)
+        ax.set_xlim(-0.55, len(arms) - 0.45)
+    _cal_band(axes[3], on_top=True); _cal_ylim(axes[3])
+
+    from matplotlib.patches import Patch
+    # The solid-vs-hatched convention belongs where the bars first appear, not
+    # after all four panels, so it sits in panel 1 rather than the shared
+    # legend. The bottom legend carries the variant colours only.
+    axes[0].legend(handles=[Patch(facecolor="#9aa0a8", ec="white",
+                                  label="homogeneous"),
+                            Patch(facecolor="#9aa0a8", ec="white", alpha=0.45,
+                                  hatch="///", label="heterogeneous")],
+                   fontsize=6.4, frameon=False, loc="upper left",
+                   handlelength=1.4, labelspacing=0.35)
+    fig.legend(handles=[Patch(facecolor=cols[a_], ec="white", label=_arm_name(a_))
+                        for a_ in arms],
+               loc="lower center", ncol=4, frameon=False,
+               fontsize=6.8, handlelength=1.5, columnspacing=1.6,
+               bbox_to_anchor=(0.5, -0.01))
     save(fig, "ch5_5_6_heterogeneity")
 
 
