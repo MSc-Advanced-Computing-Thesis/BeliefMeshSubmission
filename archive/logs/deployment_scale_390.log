@@ -1,0 +1,66 @@
+GEOMETRY
+  grid 66x66 = 4356 cells; 36 nodes at stride 9
+  FOV cells per node: min 441 max 441
+  coverage 4356/4356 (100%), mean depth over covered 3.64
+  overlap degree mean 15.0 (reference mesh: 15.0)
+
+ENVIRONMENT  field0_original rescaled to 66x66
+  mean |offset| 15.424 deg, max 87.059 deg
+
+WEARABLES  27, seeds 200..226
+  start positions: row 7.8..62.3, col 4.9..51.5; mean pairwise separation 25.1 cells
+[deployment_scale_seed42] nodes=36 coverage max=9 mode=nig_product steps=390
+[deployment_scale_seed42] step 000/390 trained 36/36 | hop0: 0.0919 | hop1: 0.1038
+[deployment_scale_seed42] step 010/390 trained 36/36 | hop0: 0.0764 | hop1: 0.0877
+[deployment_scale_seed42] step 020/390 trained 36/36 | hop0: 0.0635 | hop1: 0.0725
+[deployment_scale_seed42] step 030/390 trained 36/36 | hop0: 0.0508 | hop1: 0.0639
+[deployment_scale_seed42] step 040/390 trained 36/36 | hop0: 0.0403 | hop1: 0.0557
+[deployment_scale_seed42] step 050/390 trained 36/36 | hop0: 0.0260 | hop1: 0.0475
+[deployment_scale_seed42] step 060/390 trained 36/36 | hop0: 0.0200 | hop1: 0.0381
+[deployment_scale_seed42] step 070/390 trained 36/36 | hop0: 0.0177 | hop1: 0.0351
+[deployment_scale_seed42] step 080/390 trained 36/36 | hop0: 0.0164 | hop1: 0.0504
+[deployment_scale_seed42] step 090/390 trained 36/36 | hop0: 0.0159
+[deployment_scale_seed42] step 100/390 trained 36/36 | hop0: 0.0167 | hop1: 0.0334
+[deployment_scale_seed42] step 110/390 trained 36/36 | hop0: 0.0166 | hop1: 0.0336
+[deployment_scale_seed42] step 120/390 trained 36/36 | hop0: 0.0196 | hop1: 0.0264
+[deployment_scale_seed42] step 130/390 trained 36/36 | hop0: 0.0217 | hop1: 0.0129
+[deployment_scale_seed42] step 140/390 trained 36/36 | hop0: 0.0170
+[deployment_scale_seed42] step 150/390 trained 36/36 | hop0: 0.0135
+[deployment_scale_seed42] step 160/390 trained 36/36 | hop0: 0.0101 | hop1: 0.0077
+[deployment_scale_seed42] step 170/390 trained 36/36 | hop0: 0.0084 | hop1: 0.0064
+[deployment_scale_seed42] step 180/390 trained 36/36 | hop0: 0.0087 | hop1: 0.0067
+[deployment_scale_seed42] step 190/390 trained 36/36 | hop0: 0.0093 | hop1: 0.0085
+[deployment_scale_seed42] step 200/390 trained 36/36 | hop0: 0.0090 | hop1: 0.0064
+[deployment_scale_seed42] step 210/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0022
+[deployment_scale_seed42] step 220/390 trained 36/36 | hop0: 0.0063
+[deployment_scale_seed42] step 230/390 trained 36/36 | hop0: 0.0079 | hop1: 0.0078
+[deployment_scale_seed42] step 240/390 trained 36/36 | hop0: 0.0104 | hop1: 0.0089
+[deployment_scale_seed42] step 250/390 trained 36/36 | hop0: 0.0127 | hop1: 0.0153
+[deployment_scale_seed42] step 260/390 trained 36/36 | hop0: 0.0151
+[deployment_scale_seed42] step 270/390 trained 36/36 | hop0: 0.0137 | hop1: 0.0128
+[deployment_scale_seed42] step 280/390 trained 36/36 | hop0: 0.0131 | hop1: 0.0081
+[deployment_scale_seed42] step 290/390 trained 36/36 | hop0: 0.0132 | hop1: 0.0093
+[deployment_scale_seed42] step 300/390 trained 36/36 | hop0: 0.0153 | hop1: 0.0117
+[deployment_scale_seed42] step 310/390 trained 36/36 | hop0: 0.0119 | hop1: 0.0433
+[deployment_scale_seed42] step 320/390 trained 36/36 | hop0: 0.0084 | hop1: 0.0118
+[deployment_scale_seed42] step 330/390 trained 36/36 | hop0: 0.0057 | hop1: 0.0127
+[deployment_scale_seed42] step 340/390 trained 36/36 | hop0: 0.0068 | hop1: 0.0131
+[deployment_scale_seed42] step 350/390 trained 36/36 | hop0: 0.0090 | hop1: 0.0088
+[deployment_scale_seed42] step 360/390 trained 36/36 | hop0: 0.0089 | hop1: 0.0120
+[deployment_scale_seed42] step 370/390 trained 36/36 | hop0: 0.0088 | hop1: 0.0172
+[deployment_scale_seed42] step 380/390 trained 36/36 | hop0: 0.0102
+[deployment_scale_seed42] mean MSE (last 50 steps): 0.0116 | cert-MSE r=-0.339
+[deployment_scale_seed42] saved runs\chapter5_v2\s5_deployment_scale_390\deployment_scale_seed42\figures\results.png
+
+WALL TIME  4040.2 s (67.34 min), 10.359 s/step over 390 steps
+PEAK PYTHON HEAP (tracemalloc)  662.9 MB
+  note: tracemalloc counts Python allocations only -- torch tensors
+  and CUDA memory are not included.
+STORED ARRAYS  376.1 MB across 15 .npy files
+    cell_beliefs_steps.npy     244.6 MB
+    cell_nig_steps.npy          40.8 MB
+    cell_fused_steps.npy        27.2 MB
+    disagreement_log.npy        19.0 MB
+
+run_mesh_experiment last-50-equivalent: 0.01155764044354352
+=== DEPLOYMENT 390 DONE ===

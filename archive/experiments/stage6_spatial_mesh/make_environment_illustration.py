@@ -25,7 +25,8 @@ from stage6_spatial_mesh.run_offset_experiments import build_dynamic_offset_fiel
 from beliefmesh.data.grid_environment import GridEnvironment
 
 ENV = Path("experiments/stage6_spatial_mesh/environment_v2")
-OUT = Path("figures/environment_illustration.pdf")
+# PNG only, per the chapter standard.
+OUT = Path("figures/environment_illustration.png")
 SEED = 42
 STEP = 0
 EXCLUDED_RANGES = [(120.0, 150.0), (165.0, 180.0), (-180.0, -165.0)]
@@ -127,7 +128,33 @@ def main():
     for row in offset_vals:
         print("  " + "  ".join(f"{v:+6.1f}" for v in row))
 
-    fig = plt.figure(figsize=(6.3, 3.5))
+    # Row and column gaps must LOOK equal. hspace/wspace are fractions of the
+    # cell's own height/width, so equal values only produce equal gaps when the
+    # cells are square -- otherwise the square 28x28 image is fitted to the
+    # narrower dimension and the leftover padding inside the axes reads as
+    # extra spacing. At figsize (6.3, 3.5) cells were 1.20x taller than wide,
+    # which is why even hspace=0 still showed a vertical gap. Solve for the
+    # height that makes them square rather than guessing it.
+    GAP = 0.03
+    fig_h = 3.5
+    for _attempt in range(4):
+        _f = plt.figure(figsize=(6.3, fig_h))
+        _o = gridspec.GridSpec(1, 2, figure=_f, wspace=0.12)
+        _probe = _f.add_subplot(gridspec.GridSpecFromSubplotSpec(
+            REGION_N, REGION_N, subplot_spec=_o[0],
+            wspace=GAP, hspace=GAP)[0, 0])
+        _f.canvas.draw()
+        _bb = _probe.get_window_extent().transformed(
+            _f.dpi_scale_trans.inverted())
+        _ratio = _bb.height / _bb.width
+        plt.close(_f)
+        if abs(_ratio - 1.0) < 0.005:
+            break
+        fig_h = fig_h / _ratio
+    print("square-cell figure height: %.3f in (cell aspect %.4f)"
+          % (fig_h, _ratio))
+
+    fig = plt.figure(figsize=(6.3, fig_h))
     outer = gridspec.GridSpec(1, 2, figure=fig, wspace=0.12)
 
     for panel_idx, (title, tiles, annotate) in enumerate([
@@ -135,7 +162,8 @@ def main():
         ("Offset world", offset_tiles, True),
     ]):
         inner = gridspec.GridSpecFromSubplotSpec(
-            REGION_N, REGION_N, subplot_spec=outer[panel_idx], wspace=0.03, hspace=0.03)
+            REGION_N, REGION_N,
+            subplot_spec=outer[panel_idx], wspace=GAP, hspace=GAP)
         for i in range(REGION_N):
             for j in range(REGION_N):
                 ax = fig.add_subplot(inner[i, j])
@@ -165,7 +193,7 @@ def main():
         title_ax.axis("off")
 
     fig.suptitle("")
-    fig.savefig(OUT, bbox_inches="tight")
+    fig.savefig(OUT, dpi=200, bbox_inches="tight")
     print(f"\nsaved {OUT}")
 
 

@@ -1,0 +1,31 @@
+GEOMETRY
+  grid 66x66 = 4356 cells; 36 nodes at stride 9
+  FOV cells per node: min 441 max 441
+  coverage 4356/4356 (100%), mean depth over covered 3.64
+  overlap degree mean 15.0 (reference mesh: 15.0)
+
+ENVIRONMENT  field0_original rescaled to 66x66
+  mean |offset| 15.396 deg, max 65.774 deg
+
+WEARABLES  27, seeds 200..226
+  start positions: row 7.8..62.3, col 4.9..51.5; mean pairwise separation 25.1 cells
+[deployment_scale_seed42] nodes=36 coverage max=9 mode=nig_product steps=36
+[deployment_scale_seed42] step 000/36 trained 36/36 | hop0: 0.0919 | hop1: 0.1038
+[deployment_scale_seed42] step 010/36 trained 36/36 | hop0: 0.0807 | hop1: 0.0816
+[deployment_scale_seed42] step 020/36 trained 36/36 | hop0: 0.0517 | hop1: 0.0663
+[deployment_scale_seed42] step 030/36 trained 36/36 | hop0: 0.0394 | hop1: 0.0638
+[deployment_scale_seed42] mean MSE (last 50 steps): 0.0641 | cert-MSE r=-0.468
+[deployment_scale_seed42] saved runs\chapter5_v2\s5_deployment_scale\deployment_scale_seed42\figures\results.png
+
+WALL TIME  396.7 s (6.61 min), 11.020 s/step over 36 steps
+PEAK PYTHON HEAP (tracemalloc)  108.9 MB
+  note: tracemalloc counts Python allocations only -- torch tensors
+  and CUDA memory are not included.
+STORED ARRAYS  36.1 MB across 15 .npy files
+    cell_beliefs_steps.npy      22.6 MB
+    cell_nig_steps.npy           3.8 MB
+    disagreement_log.npy         3.1 MB
+    cell_fused_steps.npy         2.5 MB
+
+run_mesh_experiment last-50-equivalent: 0.06412304373361369
+=== DEPLOYMENT DEMO DONE ===

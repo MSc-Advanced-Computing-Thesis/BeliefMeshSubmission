@@ -1,0 +1,51 @@
+GEOMETRY
+  grid 66x66 = 4356 cells; 36 nodes at stride 9
+  FOV cells per node: min 441 max 441
+  coverage 4356/4356 (100%), mean depth over covered 3.64
+  overlap degree mean 15.0 (reference mesh: 15.0)
+
+ENVIRONMENT  field0_original rescaled to 66x66
+  mean |offset| 15.424 deg, max 87.059 deg
+
+WEARABLES  5, seeds 200..204
+  start positions: row 23.2..62.3, col 23.0..51.5; mean pairwise separation 25.1 cells
+[deployment_scale_seed42] nodes=36 coverage max=9 mode=nig_product steps=390
+[deployment_scale_seed42] step 000/390 trained 36/36 | hop0: 0.0938 | hop1: 0.0936
+[deployment_scale_seed42] step 010/390 trained 36/36 | hop0: 0.0821 | hop1: 0.0865
+[deployment_scale_seed42] step 020/390 trained 36/36 | hop0: 0.0737 | hop1: 0.0811
+[deployment_scale_seed42] step 030/390 trained 36/36 | hop0: 0.0630 | hop1: 0.0708
+[deployment_scale_seed42] step 040/390 trained 36/36 | hop0: 0.0539 | hop1: 0.0667
+[deployment_scale_seed42] step 050/390 trained 36/36 | hop0: 0.0416 | hop1: 0.0471
+[deployment_scale_seed42] step 060/390 trained 36/36 | hop0: 0.0345 | hop1: 0.0441
+[deployment_scale_seed42] step 070/390 trained 36/36 | hop0: 0.0283 | hop1: 0.0371
+[deployment_scale_seed42] step 080/390 trained 36/36 | hop0: 0.0226 | hop1: 0.0332
+[deployment_scale_seed42] step 090/390 trained 36/36 | hop0: 0.0163 | hop1: 0.0263
+[deployment_scale_seed42] step 100/390 trained 36/36 | hop0: 0.0194 | hop1: 0.0253
+[deployment_scale_seed42] step 110/390 trained 36/36 | hop0: 0.0261 | hop1: 0.0304
+[deployment_scale_seed42] step 120/390 trained 36/36 | hop0: 0.0376 | hop1: 0.0324
+[deployment_scale_seed42] step 130/390 trained 36/36 | hop0: 0.0425 | hop1: 0.0294
+[deployment_scale_seed42] step 140/390 trained 36/36 | hop0: 0.0340 | hop1: 0.0281
+[deployment_scale_seed42] step 150/390 trained 36/36 | hop0: 0.0196 | hop1: 0.0253
+[deployment_scale_seed42] step 160/390 trained 36/36 | hop0: 0.0148 | hop1: 0.0199
+[deployment_scale_seed42] step 170/390 trained 36/36 | hop0: 0.0162 | hop1: 0.0167
+[deployment_scale_seed42] step 180/390 trained 36/36 | hop0: 0.0161 | hop1: 0.0180
+[deployment_scale_seed42] step 190/390 trained 36/36 | hop0: 0.0104 | hop1: 0.0193
+[deployment_scale_seed42] step 200/390 trained 36/36 | hop0: 0.0096 | hop1: 0.0160
+[deployment_scale_seed42] step 210/390 trained 36/36 | hop0: 0.0054 | hop1: 0.0119
+[deployment_scale_seed42] step 220/390 trained 36/36 | hop0: 0.0070 | hop1: 0.0079
+[deployment_scale_seed42] step 230/390 trained 36/36 | hop0: 0.0124 | hop1: 0.0100
+[deployment_scale_seed42] step 240/390 trained 36/36 | hop0: 0.0117 | hop1: 0.0162
+[deployment_scale_seed42] step 250/390 trained 36/36 | hop0: 0.0152 | hop1: 0.0186
+[deployment_scale_seed42] step 260/390 trained 36/36 | hop0: 0.0167 | hop1: 0.0179
+[deployment_scale_seed42] step 270/390 trained 36/36 | hop0: 0.0136 | hop1: 0.0156
+[deployment_scale_seed42] step 280/390 trained 36/36 | hop0: 0.0158 | hop1: 0.0156
+[deployment_scale_seed42] step 290/390 trained 36/36 | hop0: 0.0219 | hop1: 0.0198
+[deployment_scale_seed42] step 300/390 trained 36/36 | hop0: 0.0318 | hop1: 0.0177
+[deployment_scale_seed42] step 310/390 trained 36/36 | hop0: 0.0203 | hop1: 0.0207
+[deployment_scale_seed42] step 320/390 trained 36/36 | hop0: 0.0107 | hop1: 0.0168
+[deployment_scale_seed42] step 330/390 trained 36/36 | hop0: 0.0108 | hop1: 0.0091
+[deployment_scale_seed42] step 340/390 trained 36/36 | hop0: 0.0125 | hop1: 0.0089
+[deployment_scale_seed42] step 350/390 trained 36/36 | hop0: 0.0159 | hop1: 0.0106
+[deployment_scale_seed42] step 360/390 trained 36/36 | hop0: 0.0112 | hop1: 0.0129
+[deployment_scale_seed42] step 370/390 trained 36/36 | hop0: 0.0104 | hop1: 0.0102
+[deployment_scale_seed42] step 380/390 trained 36/36 | hop0: 0.0113 | hop1: 0.0093
