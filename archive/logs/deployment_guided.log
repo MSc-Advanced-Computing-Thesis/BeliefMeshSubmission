@@ -49,3 +49,18 @@ WEARABLES  5, seeds 200..204
 [deployment_scale_seed42] step 360/390 trained 36/36 | hop0: 0.0112 | hop1: 0.0129
 [deployment_scale_seed42] step 370/390 trained 36/36 | hop0: 0.0104 | hop1: 0.0102
 [deployment_scale_seed42] step 380/390 trained 36/36 | hop0: 0.0113 | hop1: 0.0093
+[deployment_scale_seed42] mean MSE (last 50 steps): 0.0139 | cert-MSE r=-0.276
+[deployment_scale_seed42] saved runs\chapter5_v2\s5_deployment_scale_guided\deployment_scale_seed42\figures\results.png
+
+WALL TIME  6701.2 s (111.69 min), 17.183 s/step over 390 steps
+PEAK PYTHON HEAP (tracemalloc)  2275.3 MB
+  note: tracemalloc counts Python allocations only -- torch tensors
+  and CUDA memory are not included.
+STORED ARRAYS  581.3 MB across 15 .npy files
+    cell_beliefs_steps.npy     244.6 MB
+    disagreement_log.npy       224.4 MB
+    cell_nig_steps.npy          40.8 MB
+    cell_fused_steps.npy        27.2 MB
+
+run_mesh_experiment last-50-equivalent: 0.013888395501302568
+=== DEPLOYMENT GUIDED DONE ===
