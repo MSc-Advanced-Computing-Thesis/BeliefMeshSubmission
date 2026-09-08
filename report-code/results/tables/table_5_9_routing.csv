@@ -1,0 +1,5 @@
+fusion_rule,routing,n_seeds,whole_run_mse_mean,whole_run_mse_sd,last50_mse_mean,last50_mse_sd,coverage90_mean,coverage90_sd,hw_rms_mean,hw_rms_sd
+Product fusion,random,5,0.025164,0.001737,0.014732,0.002893,0.717884,0.065250,1.042869,0.267951
+Product fusion,guided,5,0.023578,0.001323,0.009630,0.001822,0.866289,0.041004,1.485136,0.175424
+Average fusion,random,5,0.034344,0.002823,0.013900,0.003849,0.981050,0.006470,3.025645,0.682158
+Average fusion,guided,5,0.033577,0.000827,0.011149,0.003472,0.993975,0.011686,3.716426,0.721341

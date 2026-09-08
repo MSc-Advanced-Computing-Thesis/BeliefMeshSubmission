@@ -1,0 +1,23 @@
+# Shared invariants across every stage. Values fixed by Experiment Specification
+# Sections 2-6. Per-stage overrides live in config/stages/<stage>.yaml and should
+# only list keys that differ from this file.
+
+seed: 42
+eval_holdout_fraction: 0.2
+
+data:
+  digit: 7
+  image_size: 28
+
+model:
+  lr: 3.0e-4
+  epochs: 30
+  batch_size: 32
+  optimizer: adam
+
+fusion:
+  grid_size: 360        # G, Spec Sec 4.1 — one candidate per degree
+  grid_fallback: 180     # fallback if G=360 proves too costly on-device, Spec Sec 4.1
+
+consensus:
+  rho: 0.2               # global decay rate; PROVISIONAL default, swept in Spec Sec 9 step 6

@@ -1,0 +1,6 @@
+LAST-50 ORDERING BY ENVIRONMENT (seed-mean last-50 MSE, ascending)_as_published
+  field0 spread 1.07x   Product fusion 0.01494 < Gossip uniform 0.01509 < Gossip weighted 0.01522 < FedAvg 0.01596
+  field1 spread 1.27x   FedAvg 0.02000 < Gossip weighted 0.02044 < Gossip uniform 0.02067 < Product fusion 0.02550
+  field2 spread 1.30x   FedAvg 0.01914 < Gossip weighted 0.02012 < Gossip uniform 0.02052 < Product fusion 0.02494
+  field3 spread 1.29x   Gossip uniform 0.02727 < FedAvg 0.02782 < Gossip weighted 0.02833 < Product fusion 0.03515
+  field4 spread 1.33x   Product fusion 0.02111 < Gossip uniform 0.02362 < FedAvg 0.02550 < Gossip weighted 0.02807

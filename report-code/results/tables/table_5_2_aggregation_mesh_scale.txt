@@ -1,0 +1,10 @@
+TABLE 5.2 -- AGGREGATION AT MESH SCALE (cell space, averaged-NIG readout, last-50 window, 5 seeds, mean +/- sd)
+arm                n whole-run MSE         last-50 MSE           90% coverage    hw : RMS       
+Frozen             5 0.09697 +/- 0.00023   0.09878 +/- 0.00076   0.815 +/- 0.001 1.349 +/- 0.003
+Naive              5 0.02522 +/- 0.00164   0.01451 +/- 0.00283   0.723 +/- 0.072 1.067 +/- 0.285
+Certainty          5 0.02521 +/- 0.00161   0.01458 +/- 0.00280   0.725 +/- 0.073 1.064 +/- 0.293
+Product fusion     5 0.02516 +/- 0.00173   0.01468 +/- 0.00299   0.720 +/- 0.064 1.046 +/- 0.273
+Average fusion     5 0.03431 +/- 0.00280   0.01368 +/- 0.00385   0.981 +/- 0.006 3.053 +/- 0.681
+  Naive vs Product fusion, whole-run: +0.22%
+  Certainty vs Product fusion, whole-run: +0.20%
+  Average fusion vs Product fusion, whole-run: +36.33%

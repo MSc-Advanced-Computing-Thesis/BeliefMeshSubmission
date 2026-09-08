@@ -1,0 +1,7 @@
+TABLE 5.4 -- CALIBRATION BY HOP FROM GROUND TRUTH (6x6 mesh, 3 wearables, averaged-NIG readout, last-50 window, 5 seeds)
+hop  cells/step hw : RMS          half-width (deg)  RMS error (deg)    seeds
+0           127 1.714 +/- 0.472   22.35 +/- 2.83    13.57 +/- 2.74         5
+1           279 1.169 +/- 0.406   22.46 +/- 4.78    20.12 +/- 3.94         5
+2            76 0.732 +/- 0.180   23.16 +/- 4.76    32.26 +/- 5.43         5
+3             7 0.711 +/- 0.000   25.84 +/- 0.00    36.36 +/- 0.00         1
+  (hops with fewer than five contributing seeds are shown for completeness; the report tabulates hops 0-2)

@@ -1,0 +1,8 @@
+MATCHED ROUTING UNDER BOTH FUSION RULES (cell space, averaged-NIG readout, last-50 window, 5 seeds, mean +/- sd)
+fusion rule      routing    n whole-run MSE         last-50 MSE           90% coverage    hw : RMS       
+Product fusion   random     5 0.02516 +/- 0.00174   0.01473 +/- 0.00289   0.718 +/- 0.065 1.043 +/- 0.268
+Product fusion   guided     5 0.02358 +/- 0.00132   0.00963 +/- 0.00182   0.866 +/- 0.041 1.485 +/- 0.175
+Average fusion   random     5 0.03434 +/- 0.00282   0.01390 +/- 0.00385   0.981 +/- 0.006 3.026 +/- 0.682
+Average fusion   guided     5 0.03358 +/- 0.00083   0.01115 +/- 0.00347   0.994 +/- 0.012 3.716 +/- 0.721
+  Product fusion: guided vs random  whole-run -6.3%  last-50 -34.6%  coverage 0.718 -> 0.866  hw:RMS 1.043 -> 1.485
+  Average fusion: guided vs random  whole-run -2.2%  last-50 -19.8%  coverage 0.981 -> 0.994  hw:RMS 3.026 -> 3.716

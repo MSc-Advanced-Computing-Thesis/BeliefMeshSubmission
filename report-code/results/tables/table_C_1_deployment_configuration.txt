@@ -1,0 +1,16 @@
+TABLE C.1 -- REFERENCE CONFIGURATION AGAINST THE DEPLOYMENT-GRANULARITY RUN (390 timesteps)
+                                                               reference (22x22)    deployment (66x66)  
+Deployment area (cells)                                        484                  4356                
+Cells per node                                                 49                   441                 
+Node stride                                                    3                    9                   
+Wearables                                                      3                    27                  
+Mean coverage depth                                            3.64                 3.64                
+Mean overlap degree                                            15.0                 15.0                
+Wall time per run (process, from run log)                      9.2 min              67.3 min            
+Wall time per timestep (process, from run log)                 1.42 s               10.36 s             
+Step timing total (manifest)                                   6.4 min              45.6 min            
+Step timing per timestep (manifest)                            0.99 s               7.02 s              
+Stored arrays per run (uncompressed, without disagreement log) 39.7 MB              357.0 MB            
+  process wall times are the values recorded in the original run logs (not stored with the artefacts);
+  step timing totals are the runner's own per-step timers from each manifest (reference: 5-seed mean).
+  The report's stored-array sizes (39.6 MB, 376.1 MB) include the disagreement log, which is not carried here.

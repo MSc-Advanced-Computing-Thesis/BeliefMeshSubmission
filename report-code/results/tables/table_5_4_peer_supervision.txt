@@ -1,0 +1,8 @@
+SECTION 5.2 -- student node on the two-node offset world (last-50 window, 5 seeds)
+supervision                last-50 FOV MSE       90% coverage    hw : RMS       
+frozen                     0.02578 +/- 0.00010   0.101 +/- 0.003 0.451 +/- 0.002
+direct                     0.00282 +/- 0.00074   0.918 +/- 0.030 1.791 +/- 0.150
+student (mode target)      0.00335 +/- 0.00027   0.147 +/- 0.019 0.179 +/- 0.028
+student (sampled target)   0.00403 +/- 0.00042   0.927 +/- 0.020 1.956 +/- 0.101
+  student closes 97.7% of the frozen-to-direct gap
+  student_sampled closes 94.8% of the frozen-to-direct gap

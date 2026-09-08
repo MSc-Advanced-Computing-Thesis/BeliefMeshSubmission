@@ -1,0 +1,3 @@
+condition,n_seeds,whole_run_mse_mean,whole_run_mse_sd,last50_mse_mean,last50_mse_sd,coverage90_mean,coverage90_sd,hw_rms_mean,hw_rms_sd
+Baseline,5,0.025163,0.001731,0.014684,0.002994,0.719711,0.064473,1.045978,0.272647
+Miscalibrated,5,0.029115,0.003182,0.016977,0.004557,0.765934,0.103928,1.236741,0.300162

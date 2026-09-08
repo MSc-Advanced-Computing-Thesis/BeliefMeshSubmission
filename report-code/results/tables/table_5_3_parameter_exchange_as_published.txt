@@ -1,0 +1,36 @@
+TABLE 5.3 -- PARAMETER EXCHANGE ACROSS 5 ENVIRONMENTS x 5 SEEDS (averaged-NIG readout, last-50 window, n = 25 runs per mechanism)_as_published
+arm                  n whole-run MSE         last-50 MSE           90% coverage    hw : RMS         tx bytes/node  rx bytes/node
+Product fusion      25 0.03641 +/- 0.00923   0.02433 +/- 0.00877   0.721 +/- 0.099 1.116 +/- 0.293            784          1,194
+Gossip uniform      25 0.02942 +/- 0.00767   0.02143 +/- 0.00855   0.656 +/- 0.146 0.995 +/- 0.363      1,560,080     10,350,731
+Gossip weighted     25 0.02968 +/- 0.00782   0.02243 +/- 0.01066   0.652 +/- 0.150 0.999 +/- 0.364      1,560,080     10,350,731
+FedAvg              25 0.02971 +/- 0.00623   0.02168 +/- 0.00759   0.815 +/- 0.111 1.513 +/- 0.581      1,560,080      2,003,881
+  Product fusion vs Gossip uniform: whole-run +23.8%, last-50 +13.5%
+  Product fusion vs Gossip weighted: whole-run +22.7%, last-50 +8.4%
+  Product fusion vs FedAvg: whole-run +22.6%, last-50 +12.2%
+
+PER ENVIRONMENT (5 seeds per cell)
+--- field0_original
+  Product fusion     whole 0.02522 +/- 0.00160   last-50 0.01494 +/- 0.00269
+  Gossip uniform     whole 0.02028 +/- 0.00152   last-50 0.01509 +/- 0.00193
+  Gossip weighted    whole 0.02025 +/- 0.00117   last-50 0.01522 +/- 0.00188
+  FedAvg             whole 0.02430 +/- 0.00138   last-50 0.01596 +/- 0.00237
+--- field1_seed11
+  Product fusion     whole 0.03839 +/- 0.00624   last-50 0.02550 +/- 0.00510
+  Gossip uniform     whole 0.03312 +/- 0.00491   last-50 0.02067 +/- 0.00511
+  Gossip weighted    whole 0.03285 +/- 0.00436   last-50 0.02044 +/- 0.00519
+  FedAvg             whole 0.03383 +/- 0.00471   last-50 0.02000 +/- 0.00475
+--- field2_seed23
+  Product fusion     whole 0.02902 +/- 0.00135   last-50 0.02494 +/- 0.00654
+  Gossip uniform     whole 0.02363 +/- 0.00114   last-50 0.02052 +/- 0.00516
+  Gossip weighted    whole 0.02443 +/- 0.00171   last-50 0.02012 +/- 0.00447
+  FedAvg             whole 0.02681 +/- 0.00193   last-50 0.01914 +/- 0.00410
+--- field3_seed37
+  Product fusion     whole 0.04014 +/- 0.00272   last-50 0.03515 +/- 0.00898
+  Gossip uniform     whole 0.03015 +/- 0.00205   last-50 0.02727 +/- 0.00647
+  Gossip weighted    whole 0.03041 +/- 0.00195   last-50 0.02833 +/- 0.00781
+  FedAvg             whole 0.02698 +/- 0.00201   last-50 0.02782 +/- 0.00510
+--- field4_seed51_dual
+  Product fusion     whole 0.04927 +/- 0.00261   last-50 0.02111 +/- 0.00574
+  Gossip uniform     whole 0.03991 +/- 0.00438   last-50 0.02362 +/- 0.01549
+  Gossip weighted    whole 0.04045 +/- 0.00599   last-50 0.02807 +/- 0.02027
+  FedAvg             whole 0.03663 +/- 0.00797   last-50 0.02550 +/- 0.01253

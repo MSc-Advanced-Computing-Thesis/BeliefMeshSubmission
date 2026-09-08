@@ -1,0 +1,6 @@
+family,n_variants,range_swept,whole_run_mse_min,whole_run_mse_max,mean_seed_sd,spread,outcome
+Regularisation weight lambda,5,1.0 - 25.0,0.023692,0.030866,0.001648,0.007174,Effect
+Consensus rho,7,0.01 - 0.99,0.025206,0.025304,0.001662,0.000098,Null
+Weighted fusion,2,off / on,0.025163,0.025237,0.001730,0.000075,Null
+Uncertainty measure,3,epistemic / aleatoric / total,0.025144,0.025172,0.001680,0.000028,Null
+Gradient tempering,2,off / on,0.017040,0.017044,0.005519,0.000003,Null

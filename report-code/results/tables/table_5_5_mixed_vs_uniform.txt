@@ -1,0 +1,6 @@
+TABLE 5.5 -- MIXED CAPACITY AGAINST UNIFORM MESHES (Product fusion, averaged-NIG readout, last-50 window, 5 seeds)
+configuration        n whole-run MSE         last-50 MSE           90% coverage    hw : RMS       
+Mixed capacity       5 0.05073 +/- 0.01134   0.01913 +/- 0.00552   0.843 +/- 0.059 1.463 +/- 0.355
+Uniform narrow       5 0.04955 +/- 0.00145   0.02601 +/- 0.00256   0.768 +/- 0.064 1.006 +/- 0.184
+Uniform baseline     5 0.02516 +/- 0.00171   0.01468 +/- 0.00291   0.719 +/- 0.069 1.044 +/- 0.280
+Uniform wide         5 0.03475 +/- 0.00220   0.02029 +/- 0.00308   0.746 +/- 0.068 1.102 +/- 0.157

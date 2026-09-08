@@ -1,0 +1,5 @@
+supervision,last50_fov_mse_mean,last50_fov_mse_sd,coverage90_mean,coverage90_sd,hw_rms_mean,hw_rms_sd
+frozen,0.025779,0.000101,0.100816,0.002707,0.450799,0.001790
+direct,0.002822,0.000738,0.917714,0.029807,1.791267,0.149991
+student (mode target),0.003349,0.000266,0.147265,0.018725,0.178562,0.028365
+student (sampled target),0.004027,0.000417,0.927102,0.019534,1.956216,0.100878

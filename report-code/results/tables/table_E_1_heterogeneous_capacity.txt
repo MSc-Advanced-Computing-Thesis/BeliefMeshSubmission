@@ -1,0 +1,6 @@
+TABLE E.1 -- AGGREGATION RULES UNDER HETEROGENEOUS CAPACITY ACROSS FIVE ENVIRONMENTS (one run per environment; spread is across environment and seed jointly)
+arm                n whole-run MSE         last-50 MSE           90% coverage    hw : RMS       
+Naive              5 0.02653 +/- 0.01081   0.02938 +/- 0.01028   0.981 +/- 0.011 3.072 +/- 0.951
+Certainty          5 0.02563 +/- 0.01092   0.02674 +/- 0.00829   0.980 +/- 0.011 3.080 +/- 0.811
+Product fusion     5 0.01706 +/- 0.00553   0.01285 +/- 0.00382   0.859 +/- 0.057 1.543 +/- 0.179
+Average fusion     5 0.01695 +/- 0.00559   0.01306 +/- 0.00324   0.973 +/- 0.013 2.631 +/- 0.318

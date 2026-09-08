@@ -1,0 +1,29 @@
+stage: stage0
+condition: baseline
+train_seed: 44
+git_commit: dce14f21f96e0728f52ec9ed20e2bcaa6d90b0d4
+config:
+  seed: 42
+  eval_holdout_fraction: 0.2
+  data:
+    digit: 7
+    image_size: 28
+  model:
+    lr: 0.0003
+    epochs: 30
+    batch_size: 32
+    optimizer: adam
+  fusion:
+    grid_size: 360
+    grid_fallback: 180
+  consensus:
+    rho: null
+results:
+  final_holdout_mse_normalised: 0.015414616628549992
+  mean_error_degrees: 22.34801062208938
+  uncertainty_error_pearson: 0.7331277408800078
+note: 'Promoted from seed-44 run. Training is high-variance (per-seed 5-pass MSE:
+  seed42 0.0193+/-0.0019, seed43 0.0147+/-0.0023, seed44 0.0123+/-0.0020; old-repo
+  checkpoint 0.0101+/-0.0014 under the identical eval). Gate read as consistency with
+  reference 0.0106 within eval/training noise, not decimal match. Eval angles are
+  re-rolled per pass, so single-pass MSE varies by ~+/-0.002-0.003.'

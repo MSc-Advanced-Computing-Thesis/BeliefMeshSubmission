@@ -1,0 +1,7 @@
+TABLE 5.7 -- IMPACT BY DISTANCE FROM THE MISCALIBRATED WEARABLE'S PATH (last-50 window, 5 seeds)
+distance    cells MSE difference         hw:RMS base->mis half-width change
+0-2           236 +0.00627 +/- 0.00881   1.307 -> 1.427             +41.7%
+2-4            88 +0.00074 +/- 0.00305   1.185 -> 1.430             +24.0%
+4-6            58 -0.00273 +/- 0.00689   0.978 -> 1.188             +15.2%
+6-9            58 -0.00482 +/- 0.00980   0.836 -> 0.972              +8.9%
+9+             43 -0.00739 +/- 0.00998   1.058 -> 1.273              +3.4%

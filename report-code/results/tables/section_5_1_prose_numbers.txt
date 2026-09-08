@@ -1,0 +1,14 @@
+Mesh digit instance, outside the excluded ranges: mean abs error 3.86 deg, p90 8.01 deg
+  maximum error 161.96 deg at 129.0 deg; epistemic there 0.2683
+  at +124 deg: epistemic 0.0098, abs error 9.19 deg
+  at +126 deg: epistemic 0.0296, abs error 11.61 deg
+  at +129 deg: epistemic 0.2683, abs error 161.96 deg
+Held-out population (20 passes): mean abs 10.51 +/- 0.57 deg, RMS 20.97 +/- 1.71 deg
+  epistemic-vs-|error| Pearson r 0.7194 +/- 0.0552
+  RMS error by uncertainty decile: lowest 5.9 deg, highest 57.4 deg
+  coverage at nominal 0.50: 0.5004; max deviation above the median +0.031 at nominal 0.80
+  population epistemic peak 0.0562 (bin centre 112 deg), 18.3x the median bin
+Colour sweep, full blue filter: MSE 0.25378; epistemic/aleatoric ratio 5.85 at w=0 -> 2.80 at w=1
+Colour sweep, full red filter: MSE 0.11893; epistemic/aleatoric ratio 5.85 at w=0 -> 3.47 at w=1
+Offset sweep: MSE 0.01366 at 0 deg -> 0.37096 at 110 deg (27.1x); coverage90 0.917 -> 0.079 at 40 deg -> 0.022 at 110 deg
+  epistemic range across offsets 0.009476-0.009476, aleatoric 0.001620-0.001620 (constant to 6 s.f. expected)

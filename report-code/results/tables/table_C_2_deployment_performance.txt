@@ -1,0 +1,7 @@
+TABLE C.2 -- DEPLOYMENT-GRANULARITY PERFORMANCE (one seed) AGAINST THE REFERENCE CONFIGURATION (5 seeds)
+measure        deployment     reference mean         reference range     
+Whole-run MSE  0.01858        0.02516 +/- 0.00173    0.02307-0.02790     
+Last-50 MSE    0.01100        0.01468 +/- 0.00299    0.01122-0.01785     
+Coverage       0.815          0.720 +/- 0.064        0.658-0.827         
+hw:RMS         1.541          1.046 +/- 0.273        0.876-1.521         
+  mean |offset|: reference field 16.5 deg, deployment field 15.4 deg; spatial correlation between them (reference upsampled 3x) 0.203

@@ -1,0 +1,10 @@
+TABLE 5.8 -- ABLATION SUMMARY (cell space, averaged-NIG readout, 5 seeds per variant)
+family                         variants range swept                    whole-run MSE range     seed sd    outcome
+Regularisation weight lambda          5 1.0 - 25.0                     0.02369 - 0.03087       0.00165    Effect (spread 0.00717 = 4.4 x seed sd)
+Consensus rho                         7 0.01 - 0.99                    0.02521 - 0.02530       0.00166    Null (spread 0.00010 = 0.1 x seed sd)
+Weighted fusion                       2 off / on                       0.02516 - 0.02524       0.00173    Null (spread 0.00007 = 0.0 x seed sd)
+Uncertainty measure                   3 epistemic / aleatoric / total  0.02514 - 0.02517       0.00168    Null (spread 0.00003 = 0.0 x seed sd)
+Gradient tempering                    2 off / on                       0.01704 - 0.01704       0.00552    Null (spread 0.00000 = 0.0 x seed sd)
+  Null: the whole-run spread across the family's variants is below twice the within-variant seed sd.
+  Gradient tempering runs use one offset environment per seed; the report's row (0.02066-0.02067, seed sd 0.01077)
+  scored all five against the field0 field. Each run is scored against its own field here. Outcome unchanged: null.

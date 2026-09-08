@@ -1,0 +1,6 @@
+TABLE 5.6 -- ONE OF THREE WEARABLES MISCALIBRATED BY +20 deg (averaged-NIG readout, last-50 window, 5 seeds)
+condition      whole-run MSE         last-50 MSE           90% coverage    hw : RMS       
+Baseline       0.02516 +/- 0.00173   0.01468 +/- 0.00299   0.720 +/- 0.064 1.046 +/- 0.273
+Miscalibrated  0.02912 +/- 0.00318   0.01698 +/- 0.00456   0.766 +/- 0.104 1.237 +/- 0.300
+  whole-run +15.7%, last-50 +15.6%
+  half-width 22.333 -> 28.235 deg (+26.4%), RMS error 21.721 -> 23.298 deg (+7.3%), hw:RMS 1.046 -> 1.237

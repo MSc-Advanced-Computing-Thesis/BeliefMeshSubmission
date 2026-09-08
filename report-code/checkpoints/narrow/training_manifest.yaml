@@ -1,0 +1,28 @@
+stage: stage0
+condition: narrow
+widths:
+- 16
+- 32
+- 64
+train_seed: 42
+git_commit: aab0ae97eab578fd8640be7eb934b1956299e027
+config:
+  seed: 42
+  eval_holdout_fraction: 0.2
+  data:
+    digit: 7
+    image_size: 28
+  model:
+    lr: 0.0003
+    epochs: 30
+    batch_size: 32
+    optimizer: adam
+  fusion:
+    grid_size: 360
+    grid_fallback: 180
+  consensus:
+    rho: 0.2
+results:
+  final_holdout_mse_normalised: 0.012741752312285826
+  mean_error_degrees: 20.318286712172874
+  uncertainty_error_pearson: 0.6274962380048452
